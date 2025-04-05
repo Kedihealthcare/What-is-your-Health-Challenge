@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR with Tesseract.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.0.2/dist/tesseract.min.js"></script>
+</head>
+<body>
+    <h1>OCR System with Tesseract.js</h1>
+    <input type="file" id="imageInput" accept="image/*">
+    <button id="processButton">Process Image</button>
+    <p id="status">Status: Waiting for input...</p>
+    <pre id="output"></pre>
+
+    <script>
+        document.getElementById('processButton').addEventListener('click', () => {
+            const imageInput = document.getElementById('imageInput');
+            const status = document.getElementById('status');
+            const output = document.getElementById('output');
+
+            if (imageInput.files.length === 0) {
+                alert('Please select an image file.');
+                return;
+            }
+
+            const file = imageInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function () {
+                status.textContent = 'Status: Processing...';
+                Tesseract.recognize(reader.result, 'eng', {
+                    logger: info => console.log(info)
+                }).then(({ data: { text } }) => {
+                    status.textContent = 'Status: Completed';
+                    output.textContent = text;
+                }).catch(error => {
+                    status.textContent = 'Status: Error';
+                    console.error(error);
+                });
+            };
+
+            reader.readAsDataURL(file);
+        });
+    </script>
+</body>
+</html>

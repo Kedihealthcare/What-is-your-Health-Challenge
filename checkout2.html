@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .order-summary, .payment-options {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .order-summary h2, .payment-options h2 {
+            margin-top: 0;
+        }
+        .cart-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="order-summary">
+            <h2>Order Summary</h2>
+            <div id="cart-items">
+                <!-- Cart items will be dynamically displayed here -->
+            </div>
+        </section>
+
+        <section class="payment-options">
+            <h2>Payment Options</h2>
+            <label>
+                <input type="radio" name="payment-method" value="pi" checked>
+                Pi Payment
+            </label><br>
+            <label>
+                <input type="radio" name="payment-method" value="paypal">
+                PayPal
+            </label><br>
+            <label>
+                <input type="radio" name="payment-method" value="card">
+                Card Payment
+            </label>
+        </section>
+    </div>
+
+    <script>
+        // Sample cart items
+        const cartItems = [
+            { name: "Product 1", price: 19.99 },
+            { name: "Product 2", price: 9.99 },
+            { name: "Product 3", price: 14.99 }
+        ];
+
+        // Function to display cart items
+        function displayCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = ''; // Clear existing items
+            let total = 0;
+
+            cartItems.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'cart-item';
+                itemDiv.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+                cartItemsContainer.appendChild(itemDiv);
+                total += item.price;
+            });
+
+            const totalDiv = document.createElement('div');
+            totalDiv.className = 'cart-total';
+            totalDiv.textContent = `Total: $${total.toFixed(2)}`;
+            cartItemsContainer.appendChild(totalDiv);
+        }
+
+        // Function to handle payment method selection
+        function handlePaymentSelection() {
+            const paymentMethods = document.getElementsByName('payment-method');
+            paymentMethods.forEach(method => {
+                method.addEventListener('change', () => {
+                    console.log(`Selected payment method: ${method.value}`);
+                });
+            });
+        }
+
+        // Initialize the page
+        displayCartItems();
+        handlePaymentSelection();
+    </script>
+</body>
+</html>

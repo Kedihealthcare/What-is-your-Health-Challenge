@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        #chat-container {
+            width: 400px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        #chat-box {
+            height: 400px;
+            overflow-y: auto;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        #chat-box div {
+            margin: 10px 0;
+        }
+        .user-message {
+            text-align: right;
+            color: #fff;
+            background: #007bff;
+            padding: 8px 12px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+        .bot-message {
+            text-align: left;
+            color: #333;
+            background: #f1f1f1;
+            padding: 8px 12px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+        #input-container {
+            display: flex;
+            padding: 10px;
+        }
+        #user-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        #send-btn {
+            padding: 10px 20px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-box"></div>
+        <div id="input-container">
+            <input type="text" id="user-input" placeholder="Type your message here...">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const chatBox = document.getElementById('chat-box');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        const products = [
+            { name: "Laptop", category: "Electronics", price: 1000 },
+            { name: "Headphones", category: "Electronics", price: 100 },
+            { name: "Sofa", category: "Furniture", price: 500 },
+            { name: "Coffee Table", category: "Furniture", price: 150 },
+            { name: "Running Shoes", category: "Clothing", price: 80 },
+            { name: "Jacket", category: "Clothing", price: 120 }
+        ];
+
+        let step = 0;
+        let preferences = {};
+
+        function addMessage(message, isBot = true) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = isBot ? 'bot-message' : 'user-message';
+            messageDiv.textContent = message;
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function handleBotResponse() {
+            if (step === 0) {
+                addMessage("Hi! What category of products are you looking for? (Electronics, Furniture, Clothing)");
+            } else if (step === 1) {
+                preferences.category = userInput.value;
+                addMessage("What is your budget?");
+            } else if (step === 2) {
+                preferences.budget = parseFloat(userInput.value);
+                const filteredProducts = products.filter(product => 
+                    product.category.toLowerCase() === preferences.category.toLowerCase() &&
+                    product.price <= preferences.budget
+                );
+
+                if (filteredProducts.length > 0) {
+                    addMessage("Here are some products you might like:");
+                    filteredProducts.forEach(product => {
+                        addMessage(`${product.name} - $${product.price}`);
+                    });
+                } else {
+                    addMessage("Sorry, no products match your preferences.");
+                }
+                addMessage("Let me know if you need help with anything else!");
+                step = -1; // Reset the conversation
+            }
+            step++;
+        }
+
+        sendBtn.addEventListener('click', () => {
+            const userMessage = userInput.value.trim();
+            if (userMessage) {
+                addMessage(userMessage, false);
+                userInput.value = '';
+                setTimeout(handleBotResponse, 500);
+            }
+        });
+
+        // Start the conversation
+        handleBotResponse();
+    </script>
+</body>
+</html>

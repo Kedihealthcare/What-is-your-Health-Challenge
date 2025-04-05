@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Share</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div class="share-container" style="display: flex; align-items: center; gap: 10px;">
+            <button class="share-toggle-btn" style="color: black; font-size: 0.7rem; display: flex; align-items: center; background: none; border: none; cursor: pointer;">
+                <i class="fas fa-share-alt" style="font-size: 0.7rem; margin-right: 5px;"></i>
+            </button>
+            <div class="share-links" style="display: none; flex-direction: row; gap: 10px; margin-left: 10px;">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://web.facebook.com/share/p/15wEUar3kd/" target="_blank" style="color: black; font-size: 0.7rem; display: flex; align-items: center;">
+                    <i class="fab fa-facebook-f" style="font-size: 0.7rem; margin-right: 5px;"></i>
+                </a>
+                <a href="https://twitter.com/intent/tweet?url=product-link" target="_blank" style="color: black; font-size: 0.7rem; display: flex; align-items: center;">
+                    <i class="fab fa-twitter" style="font-size: 0.7rem; margin-right: 5px;"></i>
+                </a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=product-link" target="_blank" style="color: black; font-size: 0.7rem; display: flex; align-items: center;">
+                    <i class="fab fa-linkedin-in" style="font-size: 0.7rem; margin-right: 5px;"></i>
+                </a>
+                <a href="mailto:?subject=Check this product&body=product-link" target="_blank" style="color: black; font-size: 0.7rem; display: flex; align-items: center;">
+                    <i class="fas fa-envelope" style="font-size: 0.7rem; margin-right: 5px;"></i>
+                </a>
+                <a href="https://api.whatsapp.com/send?text=Check this product: product-link" target="_blank" style="color: black; font-size: 0.7rem; display: flex; align-items: center;">
+                    <i class="fab fa-whatsapp" style="font-size: 0.7rem; margin-right: 5px;"></i>
+                </a>
+            </div>
+        </div>
+        <script>
+            document.querySelector('.share-toggle-btn').addEventListener('click', function () {
+                const shareLinks = document.querySelector('.share-links');
+                shareLinks.style.display = shareLinks.style.display === 'none' || shareLinks.style.display === '' ? 'flex' : 'none';
+            });
+        </script>
+               
+</body>
+</html>

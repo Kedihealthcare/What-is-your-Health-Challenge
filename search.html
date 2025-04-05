@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag-Based Search Navigation</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Search Bar */
+        .search-container {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        #search-box {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Search Results */
+        #tag-results {
+            position: absolute;
+            width: 100%;
+            background: white;
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0;
+            border: 1px solid #ddd;
+            display: none;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        #tag-results li {
+            padding: 10px;
+            cursor: pointer;
+            background: #f9f9f9;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #tag-results li:hover {
+            background: #e0e0e0;
+        }
+
+        /* Page Sections */
+        section {
+            padding: 80px;
+            min-height: 100vh;
+            border-bottom: 1px solid #ddd;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="search-box" placeholder="Search by tag..." onkeyup="searchTags()">
+        <ul id="tag-results"></ul>
+    </div>
+
+    <!-- Website Sections -->
+    <section id="health">
+        <h2 class="tag">Health & Wellness</h2>
+        <p>Information about staying healthy and wellness tips.</p>
+    </section>
+
+    <section id="medicines">
+        <h2 class="tag">Medicines</h2>
+        <p>Details about available medicines and their benefits.</p>
+    </section>
+
+    <section id="nutrition">
+        <h2 class="tag">Nutrition</h2>
+        <p>Healthy eating habits and nutrition guides.</p>
+    </section>
+
+    <section id="contact">
+        <h2 class="tag">Contact Us</h2>
+        <p>How to reach us for inquiries and support.</p>
+    </section>
+
+    <script>
+        // Auto-generate tags from sections
+        const tags = [];
+        document.querySelectorAll("section").forEach(section => {
+            let sectionTitle = section.querySelector("h2").textContent;
+            let sectionId = section.id;
+            tags.push({ name: sectionTitle, id: sectionId });
+        });
+
+        // Search Function
+        function searchTags() {
+            let query = document.getElementById("search-box").value.toLowerCase();
+            let resultsContainer = document.getElementById("tag-results");
+            resultsContainer.innerHTML = "";
+            resultsContainer.style.display = query ? "block" : "none";
+
+            let filteredTags = tags.filter(tag => tag.name.toLowerCase().includes(query));
+
+            filteredTags.forEach(tag => {
+                let li = document.createElement("li");
+                li.textContent = tag.name;
+                li.onclick = () => {
+                    document.getElementById(tag.id).scrollIntoView({ behavior: "smooth" });
+                    resultsContainer.style.display = "none"; // Hide results after selection
+                };
+                resultsContainer.appendChild(li);
+            });
+        }
+    </script>
+
+</body>
+</html>

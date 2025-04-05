@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zxx">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Payment Success - KEDI</title>
+    <!-- CSS include -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <div class="body_wrap">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <h1 class="text-center mt-4">Payment Successful</h1>
+            </div>
+        </header>
+
+        <!-- Success Message -->
+        <main class="container mt-5 text-center">
+            <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading">Thank you for your purchase!</h4>
+                <p>Your payment has been successfully processed. We appreciate your business and hope you enjoy your purchase.</p>
+                <hr>
+                <p class="mb-0">
+                    <a href="download_invoice.php" class="btn btn-success">Download Invoice</a>
+                </p>
+                <form action="track_order.php" method="post" class="mt-4">
+                    <div class="form-group">
+                        <label for="orderID">Track Your Order</label>
+                        <input type="text" name="orderID" id="orderID" class="form-control" placeholder="Enter your Order ID" required>
+                    </div>
+                    <button type="submit" class="btn btn-info mt-2">Track Order</button>
+                </form>
+                <p class="mb-0">If you have any questions, feel free to <a href="contact.html">contact us</a>.</p>
+            </div>
+            <div class="mt-4">
+                <a href="index.html" class="btn btn-primary">Return to Home</a>
+                <a href="shop.html" class="btn btn-secondary">Continue Shopping</a>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer mt-5">
+            <div class="container text-center">
+                <p>&copy; 2025 KEDI. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

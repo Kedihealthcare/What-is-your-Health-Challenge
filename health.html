@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Challenges Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #E8FFF4; /* Light greenish background */
+            padding: 50px;
+        }
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+        }
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            position: relative;
+        }
+        .search-box {
+            width: 300px;
+            padding: 12px;
+            border: 2px solid #ccc;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            text-align: center;
+        }
+        .search-box:focus {
+            border-color: #008000;
+        }
+        .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-left: -40px;
+        }
+        .search-btn img {
+            width: 20px;
+            height: 20px;
+        }
+        /* Suggested topics list */
+        .suggestions {
+            margin-top: 20px;
+        }
+        .suggestions a {
+            display: inline-block;
+            padding: 8px 12px;
+            background: #008000;
+            color: white;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            margin: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .suggestions a:hover {
+            background: #005700;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Hello, What Do You Want To Learn?</h2>
+    
+    <div class="search-container">
+        <input type="text" class="search-box" id="searchBox" placeholder="" readonly>
+        <button class="search-btn">
+            <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="Search Icon">
+        </button>
+    </div>
+
+    <!-- Suggested Topics -->
+    <div class="suggestions">
+        <a href="#" onclick="selectTopic('Diabetes Management')">Diabetes Management</a>
+        <a href="#" onclick="selectTopic('Weight Loss Tips')">Weight Loss Tips</a>
+        <a href="#" onclick="selectTopic('Boosting Immunity')">Boosting Immunity</a>
+        <a href="#" onclick="selectTopic('Heart Health')">Heart Health</a>
+        <a href="#" onclick="selectTopic('Managing Hypertension')">Managing Hypertension</a>
+        <a href="#" onclick="selectTopic('Healthy Diet Plans')">Healthy Diet Plans</a>
+        <a href="#" onclick="selectTopic('Herbal Remedies')">Herbal Remedies</a>
+    </div>
+
+    <script>
+        // List of health challenges to cycle through
+        const healthTopics = [
+            "Diabetes Management",
+            "Weight Loss Tips",
+            "Boosting Immunity",
+            "Heart Health",
+            "Managing Hypertension",
+            "Healthy Diet Plans",
+            "Herbal Remedies"
+        ];
+
+        let index = 0;
+        
+        function updatePlaceholder() {
+            document.getElementById("searchBox").placeholder = healthTopics[index];
+            index = (index + 1) % healthTopics.length; // Loop through topics
+        }
+
+        // Change placeholder text every 3 seconds
+        setInterval(updatePlaceholder, 3000);
+        
+        // Initialize first placeholder
+        updatePlaceholder();
+
+        // Function to select a topic and set it in the search box
+        function selectTopic(topic) {
+            document.getElementById("searchBox").value = topic;
+        }
+    </script>
+
+</body>
+</html>

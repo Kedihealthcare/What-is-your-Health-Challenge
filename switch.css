@@ -1,0 +1,32 @@
+/* Dark mode styles */
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode .header, 
+.dark-mode .navbar, 
+.dark-mode .footer, 
+.dark-mode .modal-content, 
+.dark-mode .card, 
+.dark-mode .form-control {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.dark-mode button, 
+.dark-mode .btn, 
+.dark-mode .nav-link, 
+.dark-mode .dropdown-item {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.dark-mode a {
+    color: #0d6efd;
+}
+
+.dark-mode .form-check-input:checked {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Shopping Cart</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1>Shopping Cart</h1>
+
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2" class="text-right"><strong>Total:</strong></td>
+                        <td id="cart-total">π0.00</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="col-md-4">
+            <h2>Products</h2>
+            <div id="product-list">
+                </div>
+
+            <button class="btn btn-success mt-3 btn-block" id="checkout-button">Checkout</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        let cart = [];
+        const products = [
+            { name: "Laptop", price: 1200 },
+            { name: "Mouse", price: 20 },
+            { name: "Keyboard", price: 50 },
+            { name: "Headphones", price: 100 },
+            { name: "Monitor", price: 300 },
+            { name: "USB Drive", price: 15 }
+        ];
+
+        function displayProducts() {
+            let productHtml = "";
+            products.forEach(product => {
+                productHtml += `
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        ${product.name}
+                        <button class="btn btn-sm btn-primary add-to-cart" data-name="${product.name}" data-price="${product.price}">Add</button>
+                    </li>
+                `;
+            });
+            $("#product-list").html('<ul class="list-group">' + productHtml + '</ul>');
+        }
+
+        function updateCartDisplay() {
+            let cartItemsHtml = "";
+            let total = 0;
+
+            cart.forEach(item => {
+                cartItemsHtml += `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>π${item.price.toFixed(2)}</td>
+                        <td><button class="btn btn-sm btn-danger remove-from-cart" data-name="${item.name}">Remove</button></td>
+                    </tr>
+                `;
+                total += item.price;
+            });
+
+            $("#cart-items").html(cartItemsHtml);
+            $("#cart-total").text("π" + total.toFixed(2));
+        }
+
+        $(".add-to-cart").click(function() {
+            const name = $(this).data("name");
+            const price = parseFloat($(this).data("price"));
+
+            cart.push({ name: name, price: price });
+            updateCartDisplay();
+        });
+
+        $(document).on("click", ".remove-from-cart", function() {
+            const name = $(this).data("name");
+            cart = cart.filter(item => item.name !== name);
+            updateCartDisplay();
+        });
+
+        $("#checkout-button").click(function() {
+            const total = cart.reduce((acc, item) => acc + item.price, 0);
+            alert(`Checkout for π${total.toFixed(2)} - (Simulated)`); // Simulate checkout
+        });
+
+        displayProducts(); // Display products when the page loads
+    });
+</script>
+
+</body>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Product Popup</title>
+    <style>
+        .popup {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            display: none;
+        }
+        .popup img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .close-btn {
+            display: block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            background: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="product-popup" class="popup">
+        <h2 id="product-title"></h2>
+        <img id="product-image" src="" alt="Product">
+        <p id="product-description"></p>
+        <p><strong>Rating:</strong> <span id="product-rating"></span></p>
+        <p><strong>Discount:</strong> <span id="product-discount"></span></p>
+        <p><strong>Coupon:</strong> <span id="product-coupon"></span></p>
+        <p><strong>Uses:</strong> <span id="product-uses"></span></p>
+        <p><strong>Ingredients:</strong> <span id="product-ingredients"></span></p>
+        <p><strong>Reviews:</strong> <span id="product-reviews"></span></p>
+        <button class="close-btn" onclick="closePopup()">Close</button>
+    </div>
+
+    <script>
+        const products = [
+            {
+                title: "Kedi Vigor Essential Capsules",
+                image: "placeholder.jpg",
+                description: "A herbal supplement designed to boost energy, vitality, and overall well-being.",
+                rating: "⭐⭐⭐⭐ (4.5/5)",
+                discount: "15% Off",
+                coupon: "VIGOR15",
+                uses: "Enhances stamina, supports immune function, and improves overall vitality.",
+                ingredients: "Ginseng extract, Maca root, Vitamin B complex",
+                reviews: "Great energy booster! I feel more active throughout the day."
+            },
+            // Add 9 more products here...
+        ];
+
+        function showPopup() {
+            const product = products[Math.floor(Math.random() * products.length)];
+            document.getElementById("product-title").textContent = product.title;
+            document.getElementById("product-image").src = product.image;
+            document.getElementById("product-description").textContent = product.description;
+            document.getElementById("product-rating").textContent = product.rating;
+            document.getElementById("product-discount").textContent = product.discount;
+            document.getElementById("product-coupon").textContent = product.coupon;
+            document.getElementById("product-uses").textContent = product.uses;
+            document.getElementById("product-ingredients").textContent = product.ingredients;
+            document.getElementById("product-reviews").textContent = product.reviews;
+            
+            document.getElementById("product-popup").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("product-popup").style.display = "none";
+        }
+
+        function schedulePopup() {
+            const randomTime = Math.floor(Math.random() * 10 + 1) * 60000; // 1 to 10 minutes
+            setTimeout(() => {
+                showPopup();
+                schedulePopup(); // Schedule next popup
+            }, randomTime);
+        }
+
+        schedulePopup();
+    </script>
+</body>
+</html>

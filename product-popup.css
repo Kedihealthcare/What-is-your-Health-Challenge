@@ -1,0 +1,6 @@
+#product-popup {
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    transition: opacity 0.3s ease;
+}

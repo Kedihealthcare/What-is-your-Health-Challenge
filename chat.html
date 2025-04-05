@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Topics & Chatbot</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/metisMenu.css">
+    <link rel="stylesheet" href="assets/css/uikit.min.css">
+    <link rel="stylesheet" href="assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/.css">
+    <link rel="stylesheet" href="product-popup.css">
+    <link rel="stylesheet" href="assets/css/toggledarkmode.css">
+   
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        .section-title {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .card {
+            margin-top: 20px;
+            padding: 15px;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            margin-top: 10px;
+            background-color: #fff;
+        }
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        #chatbot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 24px;
+            line-height: 60px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        #chatbot-box {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 300px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+        }
+        #chatbot-box input {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #chatbot-box .chat-messages {
+            max-height: 200px;
+            overflow-y: auto;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 class="text-center mb-4">Health Topics & Treatment</h2>
+
+    <!-- Search Bar -->
+    <div class="input-group mb-4">
+        <input type="text" class="form-control" id="search" placeholder="Search health topics...">
+    </div>
+
+    <!-- Health Topics -->
+    <div class="card health-topic">
+        <h4 class="section-title">Diabetes</h4>
+        <p>Diabetes is a chronic disease affecting blood sugar regulation...</p>
+        <button class="btn btn-primary">Read More</button>
+    </div>
+
+    <div class="card health-topic">
+        <h4 class="section-title">Hypertension</h4>
+        <p>High blood pressure can lead to severe health risks...</p>
+        <button class="btn btn-primary">Read More</button>
+    </div>
+
+    <div class="card health-topic">
+        <h4 class="section-title">Asthma</h4>
+        <p>A respiratory condition that causes breathing difficulties...</p>
+        <button class="btn btn-primary">Read More</button>
+    </div>
+</div>
+
+<!-- Chatbot Icon -->
+<div id="chatbot">💬</div>
+
+<!-- Chatbot Box -->
+<div id="chatbot-box">
+    <h5>AI Health Chatbot</h5>
+    <div class="chat-messages"></div>
+    <input type="text" id="chat-input" placeholder="Ask a health question...">
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Search Functionality
+    document.getElementById("search").addEventListener("input", function() {
+        let searchQuery = this.value.toLowerCase();
+        let topics = document.querySelectorAll(".health-topic");
+
+        topics.forEach(topic => {
+            let text = topic.innerText.toLowerCase();
+            if (text.includes(searchQuery)) {
+                topic.style.display = "block";
+            } else {
+                topic.style.display = "none";
+            }
+        });
+    });
+
+    // Chatbot Toggle
+    document.getElementById("chatbot").addEventListener("click", function() {
+        let chatbotBox = document.getElementById("chatbot-box");
+        let chatMessages = document.querySelector(".chat-messages");
+
+        if (chatbotBox.style.display === "block") {
+            chatbotBox.style.display = "none";
+        } else {
+            chatbotBox.style.display = "block";
+            chatMessages.innerHTML = ""; // Clear previous messages
+            displayWelcomeMessage();
+        }
+    });
+
+    // Function to show welcome message and health challenges
+    function displayWelcomeMessage() {
+        let chatMessages = document.querySelector(".chat-messages");
+
+        chatMessages.innerHTML += `<p><strong>Bot:</strong> Welcome! How can I assist you with your health concerns today?</p>`;
+
+        // List of health challenges
+        let healthChallenges = [
+            "Diabetes",
+            "Hypertension",
+            "Asthma",
+            "Arthritis",
+            "Obesity",
+            "Heart Disease",
+            "Liver Problems",
+            "Kidney Failure",
+            "Allergies",
+            "Migraines"
+        ];
+
+        // Show health challenges dynamically
+        healthChallenges.forEach((challenge, index) => {
+            setTimeout(() => {
+                chatMessages.innerHTML += `<p><strong>Bot:</strong> Have you considered checking <strong>${challenge}</strong>?</p>`;
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, (index + 1) * 1000);
+        });
+    }
+
+    // Chatbot Interaction
+    document.getElementById("chat-input").addEventListener("keypress", function(e) {
+        if (e.key === "Enter") {
+            let userMessage = this.value;
+            let chatMessages = document.querySelector(".chat-messages");
+
+            // Display user message
+            chatMessages.innerHTML += `<p><strong>You:</strong> ${userMessage}</p>`;
+
+            // Simulated AI Response (You can integrate an API here)
+            let response = "I'm here to help. Please consult a doctor for professional advice.";
+            chatMessages.innerHTML += `<p><strong>Health Consultant:</strong> ${response}</p>`;
+
+            this.value = "";
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    });
+</script>
+
+</body>
+</html>
