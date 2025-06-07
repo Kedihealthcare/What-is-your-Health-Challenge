@@ -7289,8 +7289,11 @@ updateCartDisplay();
     #bot-container {
         position: fixed;
         bottom: 24px;
-        right: 24px; /* Change to left: 24px for bottom left */
+        left: 24px;
         z-index: 99999;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
     #bot-widget-btn {
         background: #fff;
@@ -7304,17 +7307,26 @@ updateCartDisplay();
         justify-content: center;
         cursor: pointer;
         position: relative;
-        transition: box-shadow 0.2s;
+        transition: box-shadow 0.2s, background 0.2s;
         padding: 0;
+        outline: none;
+    }
+    #bot-widget-btn:focus {
+        outline: 2px solid #007bff;
     }
     #bot-widget-btn:hover {
         box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+        background: #f5f5f5;
     }
     #bot-widget-btn img {
         width: 40px;
         height: 40px;
         border-radius: 50%;
         object-fit: cover;
+        background: #fff;
+        border: 2px solid #f1c40f;
+        padding: 4px;
+        box-shadow: 0 2px 8px rgba(241,196,15,0.15);
     }
     #bot-tooltip {
         display: none;
@@ -7330,13 +7342,139 @@ updateCartDisplay();
         white-space: nowrap;
         box-shadow: 0 2px 8px rgba(0,0,0,0.18);
         pointer-events: none;
+        transition: opacity 0.2s;
+        opacity: 0;
     }
-    #bot-widget-btn:hover #bot-tooltip {
+    #bot-widget-btn:hover #bot-tooltip,
+    #bot-widget-btn:focus #bot-tooltip {
         display: block;
+        opacity: 1;
     }
+    /* Chat window styles */
+    #bot-chat-window {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        bottom: 100px;
+        left: 24px;
+        width: 320px;
+        max-width: 95vw;
+        height: 420px;
+        max-height: 70vh;
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+        z-index: 100000;
+        overflow: hidden;
+        animation: bot-fade-in 0.3s;
+    }
+    @keyframes bot-fade-in {
+        from { opacity: 0; transform: translateY(40px);}
+        to { opacity: 1; transform: translateY(0);}
+    }
+    #bot-chat-header {
+        background: linear-gradient(90deg, #f1c40f 60%, #f39c12 100%);
+        color: #222;
+        padding: 14px 18px;
+        font-weight: bold;
+        font-size: 1.1em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    #bot-chat-header .bot-header-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    #bot-chat-header img {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        background: #fff;
+    }
+    #bot-close-btn {
+        background: none;
+        border: none;
+        font-size: 1.3em;
+        color: #222;
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+    #bot-close-btn:hover {
+        color: #e74c3c;
+    }
+    #bot-chat-messages {
+        flex: 1;
+        padding: 16px;
+        overflow-y: auto;
+        background: #faf9f6;
+        font-size: 0.98em;
+    }
+    .bot-message, .user-message {
+        margin-bottom: 12px;
+        display: flex;
+        align-items: flex-end;
+    }
+    .bot-message .bubble {
+        background: #f1c40f;
+        color: #222;
+        border-radius: 16px 16px 16px 4px;
+        padding: 8px 14px;
+        max-width: 80%;
+        box-shadow: 0 2px 8px rgba(241,196,15,0.08);
+        margin-right: auto;
+    }
+    .user-message .bubble {
+        background: #007bff;
+        color: #fff;
+        border-radius: 16px 16px 4px 16px;
+        padding: 8px 14px;
+        max-width: 80%;
+        margin-left: auto;
+        box-shadow: 0 2px 8px rgba(0,123,255,0.08);
+    }
+    #bot-chat-input-area {
+        display: flex;
+        padding: 10px;
+        background: #fff;
+        border-top: 1px solid #eee;
+        gap: 8px;
+    }
+    #bot-chat-input {
+        flex: 1;
+        border: 1px solid #eee;
+        border-radius: 16px;
+        padding: 8px 14px;
+        font-size: 1em;
+        outline: none;
+        transition: border 0.2s;
+    }
+    #bot-chat-input:focus {
+        border: 1.5px solid #f1c40f;
+    }
+    #bot-send-btn {
+        background: #f1c40f;
+        border: none;
+        border-radius: 50%;
+        width: 38px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2em;
+        color: #222;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    #bot-send-btn:hover {
+        background: #f39c12;
+    }
+    /* Responsive adjustments */
     @media (max-width: 600px) {
         #bot-container {
-            right: 12px;
+            left: 12px;
             bottom: 12px;
         }
         #bot-widget-btn {
@@ -7351,8 +7489,116 @@ updateCartDisplay();
             font-size: 13px;
             bottom: 65px;
         }
+        #bot-chat-window {
+            left: 4vw;
+            width: 92vw;
+            height: 60vh;
+            min-width: 0;
+            max-width: 98vw;
+            bottom: 70px;
+        }
+        #bot-chat-header {
+            font-size: 1em;
+            padding: 10px 10px;
+        }
+        #bot-chat-messages {
+            padding: 10px;
+        }
+        #bot-chat-input-area {
+            padding: 7px;
+        }
     }
 </style>
+<div id="bot-container">
+    <button id="bot-widget-btn" aria-label="Chat Bot" tabindex="0">
+        <!-- Custom chat icon SVG (yellow chat bubble with smile) -->
+        <img src="data:image/svg+xml;utf8,<svg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='20' cy='20' r='20' fill='%23f1c40f'/><ellipse cx='14' cy='18' rx='2' ry='2.5' fill='%23222'/><ellipse cx='26' cy='18' rx='2' ry='2.5' fill='%23222'/><path d='M14 25c1.5 2 6.5 2 8 0' stroke='%23222' stroke-width='2' stroke-linecap='round'/></svg>" alt="Bot" />
+        <span id="bot-tooltip">How can I help you?</span>
+    </button>
+    <div id="bot-chat-window" role="dialog" aria-modal="true" aria-label="Chat with Bot">
+        <div id="bot-chat-header">
+            <span class="bot-header-title">
+                <img src="data:image/svg+xml;utf8,<svg width='28' height='28' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='20' cy='20' r='20' fill='%23f1c40f'/><ellipse cx='14' cy='18' rx='2' ry='2.5' fill='%23222'/><ellipse cx='26' cy='18' rx='2' ry='2.5' fill='%23222'/><path d='M14 25c1.5 2 6.5 2 8 0' stroke='%23222' stroke-width='2' stroke-linecap='round'/></svg>" alt="Bot" />
+                <span>Chat Assistant</span>
+            </span>
+            <button id="bot-close-btn" aria-label="Close chat" tabindex="0">&times;</button>
+        </div>
+        <div id="bot-chat-messages">
+            <div class="bot-message"><div class="bubble">👋 Hi! How can I help you today?</div></div>
+        </div>
+        <form id="bot-chat-input-area" autocomplete="off">
+            <input id="bot-chat-input" type="text" placeholder="Type your message..." aria-label="Type your message" autocomplete="off" required />
+            <button id="bot-send-btn" type="submit" aria-label="Send"><span>&#9658;</span></button>
+        </form>
+    </div>
+</div>
+<script>
+    // Show/hide chat window
+    const botBtn = document.getElementById('bot-widget-btn');
+    const chatWindow = document.getElementById('bot-chat-window');
+    const closeBtn = document.getElementById('bot-close-btn');
+    botBtn.addEventListener('click', () => {
+        chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
+        if (chatWindow.style.display === 'flex') {
+            setTimeout(() => {
+                document.getElementById('bot-chat-input').focus();
+            }, 200);
+        }
+    });
+    closeBtn.addEventListener('click', () => {
+        chatWindow.style.display = 'none';
+        botBtn.focus();
+    });
+    // Accessibility: close on ESC
+    chatWindow.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            chatWindow.style.display = 'none';
+            botBtn.focus();
+        }
+    });
+
+    // Chat logic (demo, replace with your backend or bot.js integration)
+    const chatForm = document.getElementById('bot-chat-input-area');
+    const chatInput = document.getElementById('bot-chat-input');
+    const chatMessages = document.getElementById('bot-chat-messages');
+    chatForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const userMsg = chatInput.value.trim();
+        if (!userMsg) return;
+        appendMessage('user', userMsg);
+        chatInput.value = '';
+        setTimeout(() => {
+            appendMessage('bot', getBotReply(userMsg));
+        }, 700);
+    });
+    function appendMessage(sender, text) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = sender === 'user' ? 'user-message' : 'bot-message';
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        bubble.innerHTML = text;
+        msgDiv.appendChild(bubble);
+        chatMessages.appendChild(msgDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    function getBotReply(msg) {
+        // Simple demo replies. Replace with real logic or API call.
+        msg = msg.toLowerCase();
+        if (msg.includes('hello') || msg.includes('hi')) return "Hello! 👋 How can I assist you?";
+        if (msg.includes('product') || msg.includes('buy')) return "You can browse our products above or ask for recommendations!";
+        if (msg.includes('help')) return "Sure! Please tell me what you need help with.";
+        if (msg.includes('contact')) return "You can contact us at <b>PriceofPiMall@gmail.com</b> or call 08162765188.";
+        if (msg.includes('payment')) return "We accept Pi Network payments. Let me know if you need help with checkout!";
+        if (msg.includes('thank')) return "You're welcome! 😊";
+        return "I'm here to help! Please ask me anything about our products, payment, or support.";
+    }
+    // Adaptive: close chat on outside click (mobile-friendly)
+    document.addEventListener('click', function(e) {
+        if (chatWindow.style.display === 'flex' && !chatWindow.contains(e.target) && !botBtn.contains(e.target)) {
+            chatWindow.style.display = 'none';
+        }
+    });
+</script>
 <div id="bot-container">
     <button id="bot-widget-btn" aria-label="Chat Bot">
         <img src="bot-avatar.png" alt="Bot" />
@@ -7366,7 +7612,7 @@ updateCartDisplay();
         if (typeof createBotWidget === 'function') {
             createBotWidget({
                 containerId: 'bot-container',
-                position: 'right',
+                position: 'left', // Changed from 'right' to 'left'
                 bottom: '24px',
                 side: '24px'
             });
