@@ -7282,645 +7282,240 @@ updateCartDisplay();
         }, 5000);
     </script>
 
-<!-- ...existing code... -->
-<!-- Place this just before the closing </body> tag -->
-<style>
-    /* Bot icon styles */
-    #bot-container {
-        position: fixed;
-        bottom: 24px;
-        left: 24px;
-        z-index: 99999;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    #bot-widget-btn {
-        background: #fff;
-        border: none;
-        border-radius: 50%;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-        width: 64px;
-        height: 64px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        position: relative;
-        transition: box-shadow 0.2s, background 0.2s;
-        padding: 0;
-        outline: none;
-    }
-    #bot-widget-btn:focus {
-        outline: 2px solid #007bff;
-    }
-    #bot-widget-btn:hover {
-        box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-        background: #f5f5f5;
-    }
-    #bot-widget-btn img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        object-fit: cover;
-        background: #fff;
-        border: 2px solid #f1c40f;
-        padding: 4px;
-        box-shadow: 0 2px 8px rgba(241,196,15,0.15);
-    }
-    #bot-tooltip {
-        display: none;
-        position: absolute;
-        left: 50%;
-        bottom: 80px;
-        transform: translateX(-50%);
-        background: #222;
-        color: #fff;
-        padding: 7px 16px;
-        border-radius: 20px;
-        font-size: 15px;
-        white-space: nowrap;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-        pointer-events: none;
-        transition: opacity 0.2s;
-        opacity: 0;
-    }
-    #bot-widget-btn:hover #bot-tooltip,
-    #bot-widget-btn:focus #bot-tooltip {
-        display: block;
-        opacity: 1;
-    }
-    /* Chat window styles */
-    #bot-chat-window {
-        display: none;
-        flex-direction: column;
-        position: fixed;
-        bottom: 100px;
-        left: 24px;
-        width: 320px;
-        max-width: 95vw;
-        height: 420px;
-        max-height: 70vh;
-        background: #fff;
-        border-radius: 18px;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-        z-index: 100000;
-        overflow: hidden;
-        animation: bot-fade-in 0.3s;
-    }
-    @keyframes bot-fade-in {
-        from { opacity: 0; transform: translateY(40px);}
-        to { opacity: 1; transform: translateY(0);}
-    }
-    #bot-chat-header {
-        background: linear-gradient(90deg, #f1c40f 60%, #f39c12 100%);
-        color: #222;
-        padding: 14px 18px;
-        font-weight: bold;
-        font-size: 1.1em;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    #bot-chat-header .bot-header-title {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-    #bot-chat-header img {
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        border: 2px solid #fff;
-        background: #fff;
-    }
-    #bot-close-btn {
-        background: none;
-        border: none;
-        font-size: 1.3em;
-        color: #222;
-        cursor: pointer;
-        transition: color 0.2s;
-    }
-    #bot-close-btn:hover {
-        color: #e74c3c;
-    }
-    #bot-chat-messages {
-        flex: 1;
-        padding: 16px;
-        overflow-y: auto;
-        background: #faf9f6;
-        font-size: 0.98em;
-    }
-    .bot-message, .user-message {
-        margin-bottom: 12px;
-        display: flex;
-        align-items: flex-end;
-    }
-    .bot-message .bubble {
-        background: #f1c40f;
-        color: #222;
-        border-radius: 16px 16px 16px 4px;
-        padding: 8px 14px;
-        max-width: 80%;
-        box-shadow: 0 2px 8px rgba(241,196,15,0.08);
-        margin-right: auto;
-    }
-    .user-message .bubble {
-        background: #007bff;
-        color: #fff;
-        border-radius: 16px 16px 4px 16px;
-        padding: 8px 14px;
-        max-width: 80%;
-        margin-left: auto;
-        box-shadow: 0 2px 8px rgba(0,123,255,0.08);
-    }
-    #bot-chat-input-area {
-        display: flex;
-        padding: 10px;
-        background: #fff;
-        border-top: 1px solid #eee;
-        gap: 8px;
-    }
-    #bot-chat-input {
-        flex: 1;
-        border: 1px solid #eee;
-        border-radius: 16px;
-        padding: 8px 14px;
-        font-size: 1em;
-        outline: none;
-        transition: border 0.2s;
-    }
-    #bot-chat-input:focus {
-        border: 1.5px solid #f1c40f;
-    }
-    #bot-send-btn {
-        background: #f1c40f;
-        border: none;
-        border-radius: 50%;
-        width: 38px;
-        height: 38px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2em;
-        color: #222;
-        cursor: pointer;
-        transition: background 0.2s;
-    }
-    #bot-send-btn:hover {
-        background: #f39c12;
-    }
-    /* Responsive adjustments */
-    @media (max-width: 600px) {
-        #bot-container {
-            left: 12px;
-            bottom: 12px;
-        }
-        #bot-widget-btn {
-            width: 52px;
-            height: 52px;
-        }
-        #bot-widget-btn img {
-            width: 32px;
-            height: 32px;
-        }
-        #bot-tooltip {
-            font-size: 13px;
-            bottom: 65px;
-        }
-        #bot-chat-window {
-            left: 4vw;
-            width: 92vw;
-            height: 60vh;
-            min-width: 0;
-            max-width: 98vw;
-            bottom: 70px;
-        }
-        #bot-chat-header {
-            font-size: 1em;
-            padding: 10px 10px;
-        }
-        #bot-chat-messages {
-            padding: 10px;
-        }
-        #bot-chat-input-area {
-            padding: 7px;
-        }
-    }
-</style>
-<div id="bot-container">
-    <button id="bot-widget-btn" aria-label="Chat Bot" tabindex="0">
-        <!-- Custom chat icon SVG (yellow chat bubble with smile) -->
-        <img src="data:image/svg+xml;utf8,<svg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='20' cy='20' r='20' fill='%23f1c40f'/><ellipse cx='14' cy='18' rx='2' ry='2.5' fill='%23222'/><ellipse cx='26' cy='18' rx='2' ry='2.5' fill='%23222'/><path d='M14 25c1.5 2 6.5 2 8 0' stroke='%23222' stroke-width='2' stroke-linecap='round'/></svg>" alt="Bot" />
-        <span id="bot-tooltip">How can I help you?</span>
-    </button>
-    <div id="bot-chat-window" role="dialog" aria-modal="true" aria-label="Chat with Bot">
-        <div id="bot-chat-header">
-            <span class="bot-header-title">
-                <img src="data:image/svg+xml;utf8,<svg width='28' height='28' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='20' cy='20' r='20' fill='%23f1c40f'/><ellipse cx='14' cy='18' rx='2' ry='2.5' fill='%23222'/><ellipse cx='26' cy='18' rx='2' ry='2.5' fill='%23222'/><path d='M14 25c1.5 2 6.5 2 8 0' stroke='%23222' stroke-width='2' stroke-linecap='round'/></svg>" alt="Bot" />
-                <span>Chat Assistant</span>
-            </span>
-            <button id="bot-close-btn" aria-label="Close chat" tabindex="0">&times;</button>
+ <!-- Place this just before </body> -->
+    <div id="ai-chatbot-widget" style="position:fixed;bottom:90px;right:24px;z-index:9999;">
+      <button id="open-chatbot-btn" style="background:#27ae60;color:#fff;border:none;border-radius:50%;width:56px;height:56px;box-shadow:0 2px 8px rgba(44,62,80,0.18);font-size:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+        💬
+      </button>
+      <div id="chatbot-window" style="display:none;flex-direction:column;width:340px;max-width:95vw;height:420px;box-shadow:0 4px 24px rgba(44,62,80,0.18);border-radius:14px;overflow:hidden;background:#fff;">
+        <div style="background:#27ae60;color:#fff;padding:14px 18px;font-weight:600;display:flex;align-items:center;justify-content:space-between;">
+          <span>AI Chat Assistant</span>
+          <button id="close-chatbot-btn" style="background:none;border:none;color:#fff;font-size:20px;cursor:pointer;">&times;</button>
         </div>
-        <div id="bot-chat-messages">
-            <div class="bot-message"><div class="bubble">👋 Hi! How can I help you today?</div></div>
-        </div>
-        <form id="bot-chat-input-area" autocomplete="off">
-            <input id="bot-chat-input" type="text" placeholder="Type your message..." aria-label="Type your message" autocomplete="off" required />
-            <button id="bot-send-btn" type="submit" aria-label="Send"><span>&#9658;</span></button>
+        <div id="chatbot-messages" style="flex:1;overflow-y:auto;padding:16px;background:#f8fafc;font-size:0.98em;"></div>
+        <form id="chatbot-form" style="display:flex;border-top:1px solid #eee;">
+          <input id="chatbot-input" type="text" placeholder="Ask about Reishi..." autocomplete="off" style="flex:1;padding:12px;border:none;font-size:1em;background:#fff;">
+          <button type="submit" style="background:#27ae60;color:#fff;border:none;padding:0 18px;font-size:1.1em;cursor:pointer;">Send</button>
         </form>
+      </div>
     </div>
+   <!-- ...existing code... -->
+
+<!-- Place this just before </body> -->
+<div id="ai-chatbot-widget" style="position:fixed;bottom:24px;left:24px;z-index:9999;">
+  <button id="open-chatbot-btn" style="background:#27ae60;color:#fff;border:none;border-radius:50%;width:56px;height:56px;box-shadow:0 2px 8px rgba(44,62,80,0.18);font-size:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+    💬
+  </button>
+  <div id="chatbot-window" style="display:none;flex-direction:column;width:340px;max-width:95vw;height:420px;box-shadow:0 4px 24px rgba(44,62,80,0.18);border-radius:14px;overflow:hidden;background:#fff;">
+    <div style="background:#27ae60;color:#fff;padding:14px 18px;font-weight:600;display:flex;align-items:center;justify-content:space-between;">
+      <span>AI Chat Assistant</span>
+      <button id="close-chatbot-btn" style="background:none;border:none;color:#fff;font-size:20px;cursor:pointer;">&times;</button>
+    </div>
+    <div id="chatbot-messages" style="flex:1;overflow-y:auto;padding:16px;background:#f8fafc;font-size:0.98em;"></div>
+    <form id="chatbot-form" style="display:flex;border-top:1px solid #eee;">
+      <input id="chatbot-input" type="text" placeholder="Ask about Reishi, health issues, or products..." autocomplete="off" style="flex:1;padding:12px;border:none;font-size:1em;background:#fff;">
+      <button type="submit" style="background:#27ae60;color:#fff;border:none;padding:0 18px;font-size:1.1em;cursor:pointer;">Send</button>
+    </form>
+  </div>
 </div>
 <script>
-    // Only one bot widget on the page!
-    const botBtn = document.getElementById('bot-widget-btn');
-    const chatWindow = document.getElementById('bot-chat-window');
-    const closeBtn = document.getElementById('bot-close-btn');
-    botBtn.addEventListener('click', () => {
-        chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
-        if (chatWindow.style.display === 'flex') {
-            setTimeout(() => {
-                document.getElementById('bot-chat-input').focus();
-            }, 200);
-        }
-    });
-    closeBtn.addEventListener('click', () => {
-        chatWindow.style.display = 'none';
-        botBtn.focus();
-    });
-    // Accessibility: close on ESC
-    chatWindow.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            chatWindow.style.display = 'none';
-            botBtn.focus();
-        }
-    });
+  // Chatbot open/close logic
+  const openBtn = document.getElementById('open-chatbot-btn');
+  const closeBtn = document.getElementById('close-chatbot-btn');
+  const chatbotWindow = document.getElementById('chatbot-window');
+  openBtn.onclick = () => chatbotWindow.style.display = 'flex';
+  closeBtn.onclick = () => chatbotWindow.style.display = 'none';
 
-    // Chat logic (demo, replace with your backend or bot.js integration)
-    // (Removed duplicate declarations of chatForm, chatInput, and chatMessages)
-    chatForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const userMsg = chatInput.value.trim();
-        if (!userMsg) return;
-        appendMessage('user', userMsg);
-        chatInput.value = '';
-        setTimeout(() => {
-            appendMessage('bot', getBotReply(userMsg));
-        }, 700);
-    });
-    function appendMessage(sender, text) {
-        const msgDiv = document.createElement('div');
-        msgDiv.className = sender === 'user' ? 'user-message' : 'bot-message';
-        const bubble = document.createElement('div');
-        bubble.className = 'bubble';
-        bubble.innerHTML = text;
-        msgDiv.appendChild(bubble);
-        chatMessages.appendChild(msgDiv);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+  // FAQ, product, and health issue data
+  const faqs = [
+    {
+      q: /what is reishi|about reishi/i,
+      a: "Reishi is a medicinal mushroom (Ganoderma lucidum) known for supporting immunity, vitality, and overall wellness. It is used in traditional medicine for its adaptogenic and immune-boosting properties."
+    },
+    {
+      q: /how to use reishi|reishi dosage|how do i take reishi/i,
+      a: "The typical dosage is 2 capsules daily with water, preferably in the morning. Always follow the product instructions or consult your doctor."
+    },
+    {
+      q: /side effect|is reishi safe|danger/i,
+      a: "Reishi is generally safe, but some may experience mild side effects like digestive upset or dry mouth. Always consult your healthcare provider before use."
+    },
+    {
+      q: /can reishi cure|treat infection/i,
+      a: "Reishi may help support your immune system and overall health, but it is not a substitute for prescribed medication. Always follow your doctor's advice."
+    },
+    {
+      q: /where.*buy|purchase/i,
+      a: "You can buy Reishi supplements from reputable health stores or online at kedihealthcare.com."
+    },
+    {
+      q: /what is vigor essential|about vigor essential/i,
+      a: "Vigor Essential is a supplement designed to boost energy, stamina, and vitality. It contains Ginseng, Maca root, and a herbal blend to support men's health and performance."
+    },
+    {
+      q: /what is lycovite|about lycovite/i,
+      a: "Lycovite is formulated to improve men's health and vitality. It contains Lycopene, Zinc, and herbal extracts, and is especially helpful for prostate health."
+    },
+    {
+      q: /what is grapemin e|about grapemin/i,
+      a: "Grapemin E is a skin care supplement with grape seed extract, Vitamin E, and Aloe Vera. It enhances skin health and glow."
+    },
+    {
+      q: /what is hydrogen cup|about hydrogen cup/i,
+      a: "Hydrogen Cup is a device that provides clean and healthy water by infusing it with hydrogen. It uses a hydrogen generator and BPA-free materials."
+    },
+    {
+      q: /what is golden hypha|about golden hypha/i,
+      a: "Golden Hypha strengthens the immune system and supports body balance. It is an immune-boosting supplement."
+    },
+    {
+      q: /what is cordy royal jelly|about cordy royal jelly/i,
+      a: "Cordy Royal Jelly supports cardiovascular health, reduces fatigue, and boosts memory. It is made from royal jelly and cordyceps extract."
+    },
+    {
+      q: /what is magilim|about magilim/i,
+      a: "Magilim is used for weight management. It helps burn fat and control weight naturally."
+    },
+    {
+      q: /what is gum care toothpaste|about gum care/i,
+      a: "Gum Care Toothpaste is formulated to help with tooth and mouth issues, promoting oral health."
+    },
+    {
+      q: /what is 7 layer sanitary pad|about sanitary pad/i,
+      a: "7 Layer Sanitary Pad is designed for infection and irregular menstruation, providing comfort and protection."
+    },
+    {
+      q: /what is diawell|about diawell/i,
+      a: "Diawell helps regulate blood sugar and is beneficial for people with diabetes."
+    },
+    {
+      q: /what is jointeez|about jointeez/i,
+      a: "Jointeez supports strong bones and helps with joint pain and Parkinson's symptoms."
+    },
+    {
+      q: /what is haemocare|about haemocare/i,
+      a: "Haemocare nourishes the blood, liver, and kidney, and boosts memory."
+    },
+    {
+      q: /what is calmazine|about calmazine/i,
+      a: "Calmazine builds and supports healthy bones and teeth."
+    },
+    {
+      q: /what is constilese|about constilese/i,
+      a: "Constilese is used for weight management and relieves constipation."
+    },
+    {
+      q: /what is eye beta|about eye beta/i,
+      a: "Eye Beta is a supplement for eye health, supporting vision and reducing eye fatigue."
+    },
+    {
+      q: /what is multi-vitamin|about multi-vitamin/i,
+      a: "Multi-Vitamin provides essential vitamins and minerals for overall health."
+    },
+    {
+      q: /what is cardibetter|about cardibetter/i,
+      a: "CardiBetter is designed to improve blood circulation and support cardiovascular health."
+    },
+    {
+      q: /what is revive|about revive/i,
+      a: "Revive enhances male sexual performance and improves mental alertness."
+    },
+    {
+      q: /what is memory 24\/7|about memory 24\/7/i,
+      a: "Memory 24/7 is a supplement to boost brain function and memory."
+    },
+    {
+      q: /what is eve's comfort|about eve's comfort/i,
+      a: "Eve's Comfort is best for treating irregular menstruation and women's health issues."
+    },
+    {
+      q: /what is qinghao|about qinghao/i,
+      a: "Qinghao is used to treat malaria and typhoid."
+    },
+    {
+      q: /what is ultramega|about ultramega/i,
+      a: "Ultramega improves heart health and reduces inflammation in the body."
+    },
+    {
+      q: /what is vitaprego|about vitaprego/i,
+      a: "Vitaprego is a supplement for women, supporting fertility and hormonal balance."
+    },
+    {
+      q: /what is vitagent|about vitagent/i,
+      a: "Vitagent is a supplement for overall vitality and energy."
+    },
+    {
+      q: /what is blood circulatory machine|about blood circulatory machine/i,
+      a: "Blood Circulatory Machine increases energy, improves immune system, and muscle tone."
+    },
+    {
+      q: /what is colon tea cleanser|about colon tea cleanser/i,
+      a: "Colon Tea Cleanser detoxifies the body and supports digestive health."
     }
-    function getBotReply(msg) {
-        // Simple demo replies. Replace with real logic or API call.
-        msg = msg.toLowerCase();
-        if (msg.includes('hello') || msg.includes('hi')) return "Hello! 👋 How can I assist you?";
-        if (msg.includes('product') || msg.includes('buy')) return "You can browse our products above or ask for recommendations!";
-        if (msg.includes('help')) return "Sure! Please tell me what you need help with.";
-        if (msg.includes('contact')) return "You can contact us at <b>PriceofPiMall@gmail.com</b> or call 08162765188.";
-        if (msg.includes('payment')) return "We accept Pi Network payments. Let me know if you need help with checkout!";
-        if (msg.includes('thank')) return "You're welcome! 😊";
-        return "I'm here to help! Please ask me anything about our products, payment, or support.";
-    }
-    // Adaptive: close chat on outside click (mobile-friendly)
-    document.addEventListener('click', function(e) {
-        if (chatWindow.style.display === 'flex' && !chatWindow.contains(e.target) && !botBtn.contains(e.target)) {
-            chatWindow.style.display = 'none';
+  ];
+
+  const healthIssues = [
+    { keywords: /diabetes|blood sugar/i, answer: "For diabetes and blood sugar regulation, Diawell and Golden Six are recommended. Always consult your doctor before starting any supplement." },
+    { keywords: /hypertension|high blood pressure/i, answer: "For hypertension, Golden Six and Cello Q10 are helpful. Maintain a healthy lifestyle and consult your healthcare provider." },
+    { keywords: /prostate|men's disease/i, answer: "Lycovite and Reishi are beneficial for prostate health and men's wellness." },
+    { keywords: /weight|obesity/i, answer: "Magilim is designed for weight management and fat burning." },
+    { keywords: /immunity|immune/i, answer: "Reishi, Golden Hypha, and Cordy Royal Jelly help boost immunity." },
+    { keywords: /skin|skin care/i, answer: "Grapemin E is recommended for skin health and glow." },
+    { keywords: /stress|fatigue|energy/i, answer: "Ultramega, Vigor Essential, and Revive help reduce stress and boost energy." },
+    { keywords: /menstruation|irregular menstruation|women/i, answer: "Eve's Comfort, 7 Layer Sanitary Pad, and Vitaprego support women's health and regular menstruation." },
+    { keywords: /asthma|respiratory/i, answer: "Ultramega and Cordy Active support respiratory health and help with asthma." },
+    { keywords: /joint|bone|arthritis/i, answer: "Jointeez and Calmazine are good for joint pain, bone health, and arthritis." },
+    { keywords: /digestive|constipation|gut/i, answer: "Constilese and Colon Tea Cleanser support digestive health and relieve constipation." },
+    { keywords: /eye|vision/i, answer: "Eye Beta supports eye health and vision." },
+    { keywords: /liver|kidney/i, answer: "Haemocare supports liver and kidney health." }
+  ];
+
+  // Chatbot logic
+  const chatbotForm = document.getElementById('chatbot-form');
+  const chatbotInput = document.getElementById('chatbot-input');
+  const chatbotMessages = document.getElementById('chatbot-messages');
+
+  function addMessage(text, fromUser = false) {
+    const msg = document.createElement('div');
+    msg.style.margin = fromUser ? '8px 0 8px auto' : '8px auto 8px 0';
+    msg.style.background = fromUser ? '#27ae60' : '#e0f7ea';
+    msg.style.color = fromUser ? '#fff' : '#222';
+    msg.style.padding = '10px 14px';
+    msg.style.borderRadius = '16px';
+    msg.style.maxWidth = '80%';
+    msg.style.textAlign = 'left';
+    msg.textContent = text;
+    chatbotMessages.appendChild(msg);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+
+  chatbotForm.onsubmit = function(e) {
+    e.preventDefault();
+    const userMsg = chatbotInput.value.trim();
+    if (!userMsg) return;
+    addMessage(userMsg, true);
+    chatbotInput.value = '';
+
+    setTimeout(() => {
+      // Check FAQ
+      for (let faq of faqs) {
+        if (faq.q.test(userMsg)) {
+          addMessage(faq.a, false);
+          return;
         }
-    });
+      }
+      // Check health issues
+      for (let issue of healthIssues) {
+        if (issue.keywords.test(userMsg)) {
+          addMessage(issue.answer, false);
+          return;
+        }
+      }
+      // Default fallback
+      addMessage("I'm here to help! Ask me about our products, health issues, or for recommendations.", false);
+    }, 600);
+  };
 </script>
-<!-- Replace the duplicate #bot-container and conflicting scripts at the bottom of your file with this clean, working version: -->
-<style>
-    /* Bot icon styles */
-    #bot-container {
-        position: fixed;
-        bottom: 24px;
-        left: 24px;
-        z-index: 99999;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    #bot-widget-btn {
-        background: #fff;
-        border: none;
-        border-radius: 50%;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-        width: 64px;
-        height: 64px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        position: relative;
-        transition: box-shadow 0.2s, background 0.2s;
-        padding: 0;
-        outline: none;
-    }
-    #bot-widget-btn:focus {
-        outline: 2px solid #007bff;
-    }
-    #bot-widget-btn:hover {
-        box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-        background: #f5f5f5;
-    }
-    #bot-widget-btn img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        object-fit: cover;
-        background: #fff;
-        border: 2px solid #f1c40f;
-        padding: 4px;
-        box-shadow: 0 2px 8px rgba(241,196,15,0.15);
-    }
-    #bot-tooltip {
-        display: none;
-        position: absolute;
-        left: 50%;
-        bottom: 80px;
-        transform: translateX(-50%);
-        background: #222;
-        color: #fff;
-        padding: 7px 16px;
-        border-radius: 20px;
-        font-size: 15px;
-        white-space: nowrap;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-        pointer-events: none;
-        transition: opacity 0.2s;
-        opacity: 0;
-    }
-    #bot-widget-btn:hover #bot-tooltip,
-    #bot-widget-btn:focus #bot-tooltip {
-        display: block;
-        opacity: 1;
-    }
-    /* Chat window styles */
-    #bot-chat-window {
-        display: none;
-        flex-direction: column;
-        position: fixed;
-        bottom: 100px;
-        left: 24px;
-        width: 320px;
-        max-width: 95vw;
-        height: 420px;
-        max-height: 70vh;
-        background: #fff;
-        border-radius: 18px;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-        z-index: 100000;
-        overflow: hidden;
-        animation: bot-fade-in 0.3s;
-    }
-    @keyframes bot-fade-in {
-        from { opacity: 0; transform: translateY(40px);}
-        to { opacity: 1; transform: translateY(0);}
-    }
-    #bot-chat-header {
-        background: linear-gradient(90deg, #f1c40f 60%, #f39c12 100%);
-        color: #222;
-        padding: 14px 18px;
-        font-weight: bold;
-        font-size: 1.1em;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    #bot-chat-header .bot-header-title {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-    #bot-chat-header img {
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        border: 2px solid #fff;
-        background: #fff;
-    }
-    #bot-close-btn {
-        background: none;
-        border: none;
-        font-size: 1.3em;
-        color: #222;
-        cursor: pointer;
-        transition: color 0.2s;
-    }
-    #bot-close-btn:hover {
-        color: #e74c3c;
-    }
-    #bot-chat-messages {
-        flex: 1;
-        padding: 16px;
-        overflow-y: auto;
-        background: #faf9f6;
-        font-size: 0.98em;
-    }
-    .bot-message, .user-message {
-        margin-bottom: 12px;
-        display: flex;
-        align-items: flex-end;
-    }
-    .bot-message .bubble {
-        background: #f1c40f;
-        color: #222;
-        border-radius: 16px 16px 16px 4px;
-        padding: 8px 14px;
-        max-width: 80%;
-        box-shadow: 0 2px 8px rgba(241,196,15,0.08);
-        margin-right: auto;
-    }
-    .user-message .bubble {
-        background: #007bff;
-        color: #fff;
-        border-radius: 16px 16px 4px 16px;
-        padding: 8px 14px;
-        max-width: 80%;
-        margin-left: auto;
-        box-shadow: 0 2px 8px rgba(0,123,255,0.08);
-    }
-    #bot-chat-input-area {
-        display: flex;
-        padding: 10px;
-        background: #fff;
-        border-top: 1px solid #eee;
-        gap: 8px;
-    }
-    #bot-chat-input {
-        flex: 1;
-        border: 1px solid #eee;
-        border-radius: 16px;
-        padding: 8px 14px;
-        font-size: 1em;
-        outline: none;
-        transition: border 0.2s;
-    }
-    #bot-chat-input:focus {
-        border: 1.5px solid #f1c40f;
-    }
-    #bot-send-btn {
-        background: #f1c40f;
-        border: none;
-        border-radius: 50%;
-        width: 38px;
-        height: 38px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2em;
-        color: #222;
-        cursor: pointer;
-        transition: background 0.2s;
-    }
-    #bot-send-btn:hover {
-        background: #f39c12;
-    }
-    /* Responsive adjustments */
-    @media (max-width: 600px) {
-        #bot-container {
-            left: 12px;
-            bottom: 12px;
-        }
-        #bot-widget-btn {
-            width: 52px;
-            height: 52px;
-        }
-        #bot-widget-btn img {
-            width: 32px;
-            height: 32px;
-        }
-        #bot-tooltip {
-            font-size: 13px;
-            bottom: 65px;
-        }
-        #bot-chat-window {
-            left: 4vw;
-            width: 92vw;
-            height: 60vh;
-            min-width: 0;
-            max-width: 98vw;
-            bottom: 70px;
-        }
-        #bot-chat-header {
-            font-size: 1em;
-            padding: 10px 10px;
-        }
-        #bot-chat-messages {
-            padding: 10px;
-        }
-        #bot-chat-input-area {
-            padding: 7px;
-        }
-    }
-</style>
-<div id="bot-container">
-    <button id="bot-widget-btn" aria-label="Chat Bot" tabindex="0">
-        <!-- Custom chat icon SVG (yellow chat bubble with smile) -->
-        <img src="data:image/svg+xml;utf8,<svg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='20' cy='20' r='20' fill='%23f1c40f'/><ellipse cx='14' cy='18' rx='2' ry='2.5' fill='%23222'/><ellipse cx='26' cy='18' rx='2' ry='2.5' fill='%23222'/><path d='M14 25c1.5 2 6.5 2 8 0' stroke='%23222' stroke-width='2' stroke-linecap='round'/></svg>" alt="Bot" />
-        <span id="bot-tooltip">How can I help you?</span>
-    </button>
-    <div id="bot-chat-window" role="dialog" aria-modal="true" aria-label="Chat with Bot">
-        <div id="bot-chat-header">
-            <span class="bot-header-title">
-                <img src="data:image/svg+xml;utf8,<svg width='28' height='28' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='20' cy='20' r='20' fill='%23f1c40f'/><ellipse cx='14' cy='18' rx='2' ry='2.5' fill='%23222'/><ellipse cx='26' cy='18' rx='2' ry='2.5' fill='%23222'/><path d='M14 25c1.5 2 6.5 2 8 0' stroke='%23222' stroke-width='2' stroke-linecap='round'/></svg>" alt="Bot" />
-                <span>Chat Assistant</span>
-            </span>
-            <button id="bot-close-btn" aria-label="Close chat" tabindex="0">&times;</button>
-        </div>
-        <div id="bot-chat-messages">
-            <div class="bot-message"><div class="bubble">👋 Hi! How can I help you today?</div></div>
-        </div>
-        <form id="bot-chat-input-area" autocomplete="off">
-            <input id="bot-chat-input" type="text" placeholder="Type your message..." aria-label="Type your message" autocomplete="off" required />
-            <button id="bot-send-btn" type="submit" aria-label="Send"><span>&#9658;</span></button>
-        </form>
-    </div>
-</div>
-<script>
-    // Only one bot widget on the page!
-    const botBtn = document.getElementById('bot-widget-btn');
-    const chatWindow = document.getElementById('bot-chat-window');
-    const closeBtn = document.getElementById('bot-close-btn');
-    botBtn.addEventListener('click', () => {
-        chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
-        if (chatWindow.style.display === 'flex') {
-            setTimeout(() => {
-                document.getElementById('bot-chat-input').focus();
-            }, 200);
-        }
-    });
-    closeBtn.addEventListener('click', () => {
-        chatWindow.style.display = 'none';
-        botBtn.focus();
-    });
-    // Accessibility: close on ESC
-    chatWindow.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            chatWindow.style.display = 'none';
-            botBtn.focus();
-        }
-    });
-
-    // Chat logic (demo, replace with your backend or bot.js integration)
-    const chatForm = document.getElementById('bot-chat-input-area');
-    const chatInput = document.getElementById('bot-chat-input');
-    const chatMessages = document.getElementById('bot-chat-messages');
-    chatForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const userMsg = chatInput.value.trim();
-        if (!userMsg) return;
-        appendMessage('user', userMsg);
-        chatInput.value = '';
-        setTimeout(() => {
-            appendMessage('bot', getBotReply(userMsg));
-        }, 700);
-    });
-    function appendMessage(sender, text) {
-        const msgDiv = document.createElement('div');
-        msgDiv.className = sender === 'user' ? 'user-message' : 'bot-message';
-        const bubble = document.createElement('div');
-        bubble.className = 'bubble';
-        bubble.innerHTML = text;
-        msgDiv.appendChild(bubble);
-        chatMessages.appendChild(msgDiv);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-    function getBotReply(msg) {
-        // Simple demo replies. Replace with real logic or API call.
-        msg = msg.toLowerCase();
-        if (msg.includes('hello') || msg.includes('hi')) return "Hello! 👋 How can I assist you?";
-        if (msg.includes('product') || msg.includes('buy')) return "You can browse our products above or ask for recommendations!";
-        if (msg.includes('help')) return "Sure! Please tell me what you need help with.";
-        if (msg.includes('contact')) return "You can contact us at <b>PriceofPiMall@gmail.com</b> or call 08162765188.";
-        if (msg.includes('payment')) return "We accept Pi Network payments. Let me know if you need help with checkout!";
-        if (msg.includes('thank')) return "You're welcome! 😊";
-        return "I'm here to help! Please ask me anything about our products, payment, or support.";
-    }
-    // Adaptive: close chat on outside click (mobile-friendly)
-    document.addEventListener('click', function(e) {
-        if (chatWindow.style.display === 'flex' && !chatWindow.contains(e.target) && !botBtn.contains(e.target)) {
-            chatWindow.style.display = 'none';
-        }
-    });
-</script>
-<!-- ...existing code... -->
- <!-- ...existing code... -->
-<!-- REMOVE ALL DUPLICATE BOT CHAT WIDGET HTML, <style>, AND <script> BLOCKS BELOW THIS COMMENT. 
-     Only keep the following single reference to bot.js and the #bot-container HTML. -->
-
-<!-- Place this just before the closing </body> tag: -->
-<div id="bot-container"></div>
-<script src="bot.js"></script>
 <!-- ...existing code... -->
 </body>
 </html>
