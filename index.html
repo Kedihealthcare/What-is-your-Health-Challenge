@@ -31,7 +31,219 @@
     <link rel="stylesheet" href=".css">
     <link rel="stylesheet" href="product-popup.css">
 
-   </head>
+    <style>
+        /* Responsive adjustments */
+        html, body {
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+        .container, .mxw_1360 {
+            width: 100%;
+            max-width: 100%;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        /* Hide desktop-only elements on mobile */
+        @media (max-width: 991.98px) {
+            .d-none.d-lg-block {
+                display: none !important;
+            }
+            .header__middle {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .header__logo img {
+                max-width: 140px;
+            }
+            .header__search-box {
+                width: 100%;
+                margin-top: 10px;
+            }
+            .header__cat-wrap {
+                padding: 0 10px;
+            }
+            .category-nav,
+            .banner__wrapper {
+                flex-direction: column;
+            }
+            .category-nav {
+                margin-bottom: 20px;
+            }
+            .rd-slide-products .col-lg-9,
+            .rd-slide-products .col-lg-3 {
+                width: 100%;
+                max-width: 100%;
+            }
+            .rd-category__wrap,
+            .rd-category__list {
+                width: 100%;
+            }
+            .footer__main {
+                padding: 0 10px;
+            }
+            .footer__widget {
+                margin-bottom: 30px;
+            }
+            .footer__bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            .feature__wrap {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .feature__item {
+                width: 100%;
+                justify-content: flex-start;
+            }
+            .product-cat__item {
+                margin-bottom: 20px;
+            }
+            .product-cat__images img {
+                width: 100%;
+                height: auto;
+            }
+            .add-banner__img img {
+                width: 100%;
+                height: auto;
+            }
+            .rd-banner__img img {
+                width: 100%;
+                height: auto;
+            }
+            .rd-banner {
+                flex-direction: column;
+            }
+            .rd-banner__content {
+                margin-bottom: 10px;
+            }
+            .rd-banner__img {
+                margin-bottom: 10px;
+            }
+            .rd-product__item,
+            .rd-product__single,
+            .rd-monthly__item,
+            .recent-product__item {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .tab-product__item,
+            .hot-deal__item {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .tab-product__slide,
+            .rd-product__slide,
+            .rd-product__slide-item {
+                flex-direction: column;
+            }
+            .newsletter-popup-area {
+                width: 95vw !important;
+                left: 2.5vw !important;
+                padding: 10px !important;
+            }
+            .newsletter-popup-ineer {
+                flex-direction: column;
+                align-items: center.
+            }
+            .newsletter-popup-ineer .img-holder img {
+                width: 100%;
+                height: auto;
+            }
+            .newsletter-popup-ineer .details {
+                width: 100%;
+            }
+            .product-popup-area {
+                width: 95vw !important;
+                left: 2.5vw !important;
+                padding: 10px !important;
+            }
+            .product-popup-inner .img-holder img {
+                width: 100% !important;
+                height: auto !important;
+            }
+        }
+        /* Make buttons and inputs full width on mobile */
+        @media (max-width: 575.98px) {
+            .btn, button, input, select {
+                width: 100% !important;
+                box-sizing: border-box;
+            }
+            .header__search-box input,
+            .header__search-box select,
+            .header__search-box button {
+                margin-bottom: 8px;
+            }
+            .cart-icon {
+                position: static !important;
+                margin-top: 10px;
+            }
+            .modal-dialog {
+                margin: 0.5rem;
+            }
+            .modal-content {
+                border-radius: 8px;
+            }
+            .progress-wrap {
+                right: 10px !important;
+                bottom: 10px !important;
+            }
+        }
+        /* Make product grids stack on mobile */
+        @media (max-width: 767.98px) {
+            .col-lg-4, .col-lg-3, .col-lg-9, .col-lg-6, .col-md-6 {
+                width: 100% !important;
+                max-width: 100% !important;
+                flex: 0 0 100% !important;
+            }
+            .row {
+                flex-direction: column.
+            }
+            .tab-product__slide,
+            .rd-product__slide,
+            .rd-product__slide-item {
+                flex-direction: column !important;
+            }
+        }
+        /* Adjust font sizes for mobile */
+        @media (max-width: 575.98px) {
+            h1, h2, h3, h4, h5, h6 {
+                font-size: 1.1em !important;
+            }
+            .section-heading {
+                font-size: 1.2em !important;
+            }
+            .product__title, .title {
+                font-size: 1em !important.
+            }
+            .product__price, .price {
+                font-size: 1em !important.
+            }
+        }
+        /* Hamburger menu for mobile */
+        .hamburger_menu {
+            display: block !important.
+        }
+        /* Hide desktop nav on mobile, show mobile menu */
+        @media (max-width: 991.98px) {
+            .header__cat ul.category {
+                display: none !important.
+            }
+            .side-mobile-menu {
+                display: block !important.
+            }
+        }
+        /* Ensure popups are scrollable on mobile */
+        .modal-content, .product-popup-area, .newsletter-popup-area {
+            max-height: 90vh.
+            overflow-y: auto.
+        }
+    </style>
+</head>
 
 <body>
 
