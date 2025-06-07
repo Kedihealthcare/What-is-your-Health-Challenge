@@ -3184,7 +3184,7 @@ updateCartDisplay();
                         <h2 class="section-heading"><span><span>Medical Device</span> / Curative</span></h2>
                         <ul class="product__nav nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Curative 1/button>
+                            <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Curative 1</button>
                             </li>
                             <li class="nav-item" role="presentation">
                             <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Curative 2</button>
@@ -7227,9 +7227,17 @@ updateCartDisplay();
 
     </div>
     <script>
-        document.querySelector('.share-toggle-btn').addEventListener('click', function () {
-            const shareLinks = document.querySelector('.share-links');
-            shareLinks.style.display = shareLinks.style.display === 'none' || shareLinks.style.display === '' ? 'flex' : 'none';
+        // Only add event listener if .share-toggle-btn exists
+        document.addEventListener('DOMContentLoaded', function () {
+            var shareBtn = document.querySelector('.share-toggle-btn');
+            if (shareBtn) {
+                shareBtn.addEventListener('click', function () {
+                    const shareLinks = document.querySelector('.share-links');
+                    if (shareLinks) {
+                        shareLinks.style.display = shareLinks.style.display === 'none' || shareLinks.style.display === '' ? 'flex' : 'none';
+                    }
+                });
+            }
         });
     </script>
     <!-- jquery include -->
@@ -7264,14 +7272,20 @@ updateCartDisplay();
 
         // Initialize the product popup functionality
         showPopup();
-        // Initialize the share links functionality
-        document.querySelector('.share-toggle-btn').addEventListener('click', function () {
-            const shareLinks = document.querySelector('.share-links');
-            shareLinks.style.display = shareLinks.style.display === 'none' || shareLinks.style.display === '' ? 'flex' : 'none';
+        document.addEventListener('DOMContentLoaded', function () {
+            var cookieBtn = document.querySelector('.cookie-btn');
+            var cookiesArea = document.querySelector('.cookies-area');
+            if (cookieBtn && cookiesArea) {
+                cookieBtn.addEventListener('click', function () {
+                    cookiesArea.style.display = 'none';
+                });
+                // Show the cookie consent area after 5 seconds
+                setTimeout(function () {
+                    cookiesArea.style.display = 'block';
+                }, 5000);
+            }
         });
     </script>
-    <script>
-        // Cookie consent functionality
         document.querySelector('.cookie-btn').addEventListener('click', function () {
             document.querySelector('.cookies-area').style.display = 'none';
             <!-- ...existing code... -->
@@ -7282,7 +7296,7 @@ updateCartDisplay();
     </script>
 
 <!-- Place this just before </body> -->
-<div id="ai-chatbot-widget" style="position:fixed;bottom:24px;left:24px;z-index:9999;">
+<div id="ai-chatbot-widget" style="position:fixed;bottom:24px;right:24px;z-index:9999;">
   <button id="open-chatbot-btn" style="background:#27ae60;color:#fff;border:none;border-radius:50%;width:56px;height:56px;box-shadow:0 2px 8px rgba(44,62,80,0.18);font-size:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;">
     💬
   </button>
@@ -7306,29 +7320,44 @@ updateCartDisplay();
   openBtn.onclick = () => chatbotWindow.style.display = 'flex';
   closeBtn.onclick = () => chatbotWindow.style.display = 'none';
 
-   chatbotForm.onsubmit = function(e) {
-        e.preventDefault();
-        const userMsg = chatbotInput.value.trim();
-        if (!userMsg) return;
-        addMessage(userMsg, true);
-        chatbotInput.value = '';
-        setTimeout(() => {
-          // Get current greeting based on time
-          const now = new Date();
-          const hour = now.getHours();
-          let greeting = "Hello";
-          if (hour < 12) greeting = "Good morning";
-          else if (hour < 18) greeting = "Good afternoon";
-          else greeting = "Good evening";
-
-          let reply = `${greeting}! I'm here to help with your Reishi and health questions.`;
-
   // FAQ, product, and health issue data
   const faqs = [
     {
       q: /what is reishi|reishi|about reishi/i,
       a: "Reishi is a medicinal mushroom (Ganoderma lucidum) known for supporting immunity, vitality, and overall wellness. It is used in traditional medicine for its adaptogenic and immune-boosting properties."
     },
+    {
+      q: /how to use reishi|reishi dosage|how do i take reishi/i,
+      a: "The typical dosage is 2 capsules daily with water, preferably in the morning. Always follow the product instructions or consult your doctor."
+    },
+    {
+      q: /reishi side effect|is reishi safe|danger of using reishi/i,
+      a: "Reishi is generally safe, but some may experience mild side effects like digestive upset or dry mouth. Always consult your healthcare provider before use."
+    },
+    {
+      q: /can reishi cure|treat infection/i,
+      a: "Reishi may help support your immune system and overall health, but it is not a substitute for prescribed medication. Always follow your doctor's advice."
+    },
+    {
+      q: /where can i buy reishi.*buy|purchase/i,
+      a: "You can buy Reishi supplements from reputable health stores or online at kedihealthcare.com."
+    },
+    {
+      q: /what is vigor essential|about vigor essential/i,
+      a: "Vigor Essential is a supplement designed to boost energy, stamina, and vitality. It contains Ginseng, Maca root, and a herbal blend to support men's health and performance."
+    },
+    {
+      q: /what is lycovite|about lycovite/i,
+      a: "Lycovite is formulated to improve men's health and vitality. It contains Lycopene, Zinc, and herbal extracts, and is especially helpful for prostate health."
+    },
+    {
+      q: /what is grapemin e|about grapemin/i,
+      a: "Grapemin E is a skin care supplement with grape seed extract, Vitamin E, and Aloe Vera. It enhances skin health and glow."
+    },
+{
+  q: /what is hydrogen cup|about hydrogen cup/i,
+  a: "Hydrogen Cup is a device that provides clean and healthy water by infusing it with hydrogen. It uses a hydrogen generator and BPA-free materials."
+},
     {
       q: /how to use reishi|reishi dosage|how do i take reishi/i,
       a: "The typical dosage is 2 capsules daily with water, preferably in the morning. Always follow the product instructions or consult your doctor."
@@ -7513,6 +7542,5 @@ updateCartDisplay();
     }, 600);
   };
 </script>
-<!-- ...existing code... -->
 </body>
 </html>
