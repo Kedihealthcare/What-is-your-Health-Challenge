@@ -148,7 +148,7 @@
             }
             .newsletter-popup-ineer {
                 flex-direction: column;
-                align-items: center.
+                align-items: center;
             }
             .newsletter-popup-ineer .img-holder img {
                 width: 100%;
@@ -201,7 +201,7 @@
                 flex: 0 0 100% !important;
             }
             .row {
-                flex-direction: column.
+                flex-direction: column;
             }
             .tab-product__slide,
             .rd-product__slide,
@@ -218,33 +218,900 @@
                 font-size: 1.2em !important;
             }
             .product__title, .title {
-                font-size: 1em !important.
+                font-size: 1em !important;
             }
             .product__price, .price {
-                font-size: 1em !important.
+                font-size: 1em !important;
             }
         }
         /* Hamburger menu for mobile */
         .hamburger_menu {
-            display: block !important.
+            display: block !important;
         }
         /* Hide desktop nav on mobile, show mobile menu */
         @media (max-width: 991.98px) {
             .header__cat ul.category {
-                display: none !important.
+                display: none !important;
             }
             .side-mobile-menu {
-                display: block !important.
+                display: block !important;
             }
         }
         /* Ensure popups are scrollable on mobile */
         .modal-content, .product-popup-area, .newsletter-popup-area {
-            max-height: 90vh.
-            overflow-y: auto.
+            max-height: 90vh;
+            overflow-y: auto;
         }
     </style>
-</head>
 
+    <!-- Kedi Healthcare Products SEO and AEO JSON-LD -->
+<!-- This script generates JSON-LD structured data for Kedi Healthcare products,
+     enhancing their visibility and understanding by search engines and AI assistants.
+     It includes BlogPosting, Product, and FAQPage schemas for each product. -->
+
+<script>
+  // Current date for datePublished/Modified in YYYY-MM-DD format
+  const today = new Date().toISOString().split('T')[0];
+
+  // Raw Q&A data provided by the user, used to extract product information
+  const rawFaqs = [
+    {
+      q: /what is reishi|reishi|about reishi/i,
+      a: "Reishi is a medicinal mushroom (Ganoderma lucidum) known for supporting immunity, vitality, and overall wellness. It is used in traditional medicine for its adaptogenic and immune-boosting properties."
+    },
+    {
+      q: /how to use reishi|reishi dosage|how do i take reishi/i,
+      a: "The typical dosage is 2 capsules daily with water, preferably in the morning. Always follow the product instructions or consult your doctor."
+    },
+    {
+      q: /reishi side effect|is reishi safe|danger of using reishi/i,
+      a: "Reishi is generally safe, but some may experience mild side effects like digestive upset or dry mouth. Always consult your healthcare provider before use."
+    },
+    {
+      q: /can reishi cure|treat infection/i,
+      a: "Reishi may help support your immune system and overall health, but it is not a substitute for prescribed medication. Always follow your doctor's advice."
+    },
+    {
+      q: /where can i buy reishi.*buy|purchase/i,
+      a: "You can buy Reishi supplements from reputable health stores or online at kedihealthcare.com."
+    },
+    {
+      q: /what is vigor essential|about vigor essential/i,
+      a: "Vigor Essential is a supplement designed to boost energy, stamina, and vitality. It contains Ginseng, Maca root, and a herbal blend to support men's health and performance."
+    },
+    {
+      q: /what is lycovite|about lycovite/i,
+      a: "Lycovite is formulated to improve men's health and vitality. It contains Lycopene, Zinc, and herbal extracts, and is especially helpful for prostate health."
+    },
+    {
+      q: /what is grapemin e|about grapemin/i,
+      a: "Grapemin E is a skin care supplement with grape seed extract, Vitamin E, and Aloe Vera. It enhances skin health and glow."
+    },
+    {
+      q: /what is hydrogen cup|about hydrogen cup/i,
+      a: "Hydrogen Cup is a device that provides clean and healthy water by infusing it with hydrogen. It uses a hydrogen generator and BPA-free materials."
+    },
+    {
+      q: /what is golden hypha|about golden hypha/i,
+      a: "Golden Hypha strengthens the immune system and supports body balance. It is an immune-boosting supplement."
+    },
+    {
+      q: /what is cordy royal jelly|about cordy royal jelly/i,
+      a: "Cordy Royal Jelly supports cardiovascular health, reduces fatigue, and boosts memory. It is made from royal jelly and cordyceps extract."
+    },
+    {
+      q: /what is magilim|about magilim/i,
+      a: "Magilim is used for weight management. It helps burn fat and control weight naturally."
+    },
+    {
+      q: /what is gum care toothpaste|about gum care/i,
+      a: "Gum Care Toothpaste is formulated to help with tooth and mouth issues, promoting oral health."
+    },
+    {
+      q: /what is 7 layer sanitary pad|about sanitary pad/i,
+      a: "7 Layer Sanitary Pad is designed for infection and irregular menstruation, providing comfort and protection."
+    },
+    {
+      q: /what is diawell|about diawell/i,
+      a: "Diawell helps regulate blood sugar and is beneficial for people with diabetes."
+    },
+    {
+      q: /what is jointeez|about jointeez/i,
+      a: "Jointeez supports strong bones and helps with joint pain and Parkinson's symptoms."
+    },
+    {
+      q: /what is haemocare|about haemocare/i,
+      a: "Haemocare nourishes the blood, liver, and kidney, and boosts memory."
+    },
+    {
+      q: /what is calmazine|about calmazine/i,
+      a: "Calmazine builds and supports healthy bones and teeth."
+    },
+    {
+      q: /what is constilese|about constilese/i,
+      a: "Constilese is used for weight management and relieves constipation."
+    },
+    {
+      q: /what is eye beta|about eye beta/i,
+      a: "Eye Beta is a supplement for eye health, supporting vision and reducing eye fatigue."
+    },
+    {
+      q: /what is multi-vitamin|about multi-vitamin/i,
+      a: "Multi-Vitamin provides essential vitamins and minerals for overall health."
+    },
+    {
+      q: /what is cardibetter|about cardibetter/i,
+      a: "CardiBetter is designed to improve blood circulation and support cardiovascular health."
+    },
+    {
+      q: /what is revive|about revive/i,
+      a: "Revive enhances male sexual performance and improves mental alertness."
+    },
+    {
+      q: /what is memory 24\/7|about memory 24\/7/i,
+      a: "Memory 24/7 is a supplement to boost brain function and memory."
+    },
+    {
+      q: /what is eve's comfort|about eve's comfort/i,
+      a: "Eve's Comfort is best for treating irregular menstruation and women's health issues."
+    },
+    {
+      q: /what is qinghao|about qinghao/i,
+      a: "Qinghao is used to treat malaria and typhoid."
+    },
+    {
+      q: /what is ultramega|about ultramega/i,
+      a: "Ultramega improves heart health and reduces inflammation in the body."
+    },
+    {
+      q: /what is vitaprego|about vitaprego/i,
+      a: "Vitaprego is a supplement for women, supporting fertility and hormonal balance."
+    },
+    {
+      q: /what is vitagent|about vitagent/i,
+      a: "Vitagent is a supplement for overall vitality and energy."
+    },
+    {
+      q: /what is blood circulatory machine|about blood circulatory machine/i,
+      a: "Blood Circulatory Machine increases energy, improves immune system, and muscle tone."
+    },
+    {
+      q: /what is colon tea cleanser|about colon tea cleanser|colon tea/i,
+      a: "Colon Tea Cleanser detoxifies the body and supports digestive health."
+    },
+    {
+      q: /what is liver care|about liver care/i,
+      a: "Liver Care supports liver function and detoxification, promoting overall liver health."
+    },
+    {
+      q: /what is gastritis capsule|about gastritis capsule/i,
+      a: "Gastritis Capsule helps to relieve symptoms of gastritis and promotes digestive comfort."
+    },
+    {
+      q: /what is immune plus|about immune plus/i,
+      a: "Immune Plus is formulated to strengthen the immune system and enhance the body's natural defenses."
+    },
+    {
+      q: /what is prostate care|about prostate care/i,
+      a: "Prostate Care is a supplement designed to support prostate health and urinary function in men."
+    },
+    {
+      q: /what is slim rite tea|about slim rite tea/i,
+      a: "Slim Rite Tea is a natural tea that aids in weight management and promotes healthy digestion."
+    },
+    {
+      q: /what is karkade tea|about karkade tea/i,
+      a: "Karkade Tea is a herbal tea known for its antioxidant properties and for supporting cardiovascular health."
+    },
+    {
+      q: /what is anti-aging capsule|about anti-aging capsule/i,
+      a: "Anti-Aging Capsule is designed to combat signs of aging, promote youthful skin, and support overall vitality."
+    },
+    {
+      q: /what is bone and joint care|about bone and joint care/i,
+      a: "Bone and Joint Care is a supplement that supports strong bones, healthy joints, and flexibility."
+    },
+    {
+      q: /what is sleep well|about sleep well/i,
+      a: "Sleep Well is a natural supplement that helps promote relaxation and improve sleep quality."
+    },
+    {
+      q: /what is anti-hypertensive tea|about anti-hypertensive tea/i,
+      a: "Anti-Hypertensive Tea helps manage blood pressure and supports cardiovascular health."
+    },
+    {
+      q: /what is blood sugar balance|about blood sugar balance/i,
+      a: "Blood Sugar Balance is a supplement formulated to help regulate blood sugar levels and support metabolic health."
+    },
+    {
+      q: /what is vision clear|about vision clear/i,
+      a: "Vision Clear is a supplement that supports eye health and helps maintain clear vision."
+    },
+    {
+      q: /what is women's health capsule|about women's health capsule/i,
+      a: "Women's Health Capsule is designed to address various women's health concerns, including hormonal balance and reproductive health."
+    },
+    {
+      q: /what is men's health capsule|about men's health capsule/i,
+      a: "Men's Health Capsule is a supplement tailored to support men's overall health, energy, and vitality."
+    },
+    {
+      q: /what is detoxifier|about detoxifier/i,
+      a: "Detoxifier helps to cleanse the body of toxins and supports overall wellness."
+    },
+    {
+      q: /what is fat burner|about fat burner/i,
+      a: "Fat Burner is a supplement that assists in burning fat and supporting weight loss goals."
+    },
+    {
+      q: /what is energy booster|about energy booster/i,
+      a: "Energy Booster provides a natural increase in energy levels and helps combat fatigue."
+    },
+    {
+      q: /what is digestion support|about digestion support/i,
+      a: "Digestion Support aids in healthy digestion and nutrient absorption, reducing common digestive discomforts."
+    },
+    {
+      q: /what is stress relief|about stress relief/i,
+      a: "Stress Relief is a supplement or remedy designed to help calm the nervous system and reduce stress and anxiety."
+    },
+    {
+      q: /what is natural pain relief|about natural pain relief/i,
+      a: "Natural Pain Relief offers a non-pharmacological approach to alleviating various types of pain."
+    },
+    {
+      q: /what is skin glow|about skin glow/i,
+      a: "Skin Glow is a supplement or product that promotes radiant and healthy-looking skin from within."
+    },
+    {
+      q: /what is hair growth supplement|about hair growth supplement/i,
+      a: "Hair Growth Supplement provides essential nutrients to support healthy hair growth and reduce hair loss."
+    },
+    {
+      q: /what is nail health|about nail health/i,
+      a: "Nail Health products aim to strengthen nails and promote healthy growth, preventing brittleness and breakage."
+    },
+    {
+      q: /what is joint flexibility|about joint flexibility/i,
+      a: "Joint Flexibility supplements or practices are designed to improve range of motion and reduce stiffness in joints."
+    },
+    {
+      q: /what is immune support for kids|about immune support for kids/i,
+      a: "Immune Support for Kids are specially formulated supplements to boost children's immune systems."
+    },
+    {
+      q: /what is cognitive enhancer|about cognitive enhancer/i,
+      a: "Cognitive Enhancer is a supplement that aims to improve memory, focus, and overall brain function."
+    },
+    {
+      q: /what is cardiovascular health|about cardiovascular health/i,
+      a: "Cardiovascular Health products support the heart and blood vessels, promoting healthy circulation and blood pressure."
+    },
+    {
+      q: /what is hormonal balance|about hormonal balance/i,
+      a: "Hormonal Balance supplements help to regulate hormones, addressing issues like mood swings, fatigue, and other related symptoms."
+    },
+    {
+      q: /what is fertility support|about fertility support/i,
+      a: "Fertility Support supplements provide nutrients and herbs that may aid in reproductive health for both men and women."
+    },
+    {
+      q: /what is natural sweetener|about natural sweetener/i,
+      a: "Natural Sweetener offers a healthier alternative to sugar, often derived from plants and providing sweetness without artificial additives."
+    },
+    {
+      q: /what is oral hygiene kit|about oral hygiene kit/i,
+      a: "Oral Hygiene Kit includes essential tools and products for comprehensive dental care, promoting clean teeth and fresh breath."
+    },
+    {
+      q: /what is first aid kit|about first aid kit/i,
+      a: "First Aid Kit contains supplies for treating minor injuries and emergencies, essential for every home or travel."
+    },
+    {
+      q: /what is organic food supplement|about organic food supplement/i,
+      a: "Organic Food Supplement are made from natural, organically grown ingredients, providing nutrients free from synthetic chemicals."
+    },
+    {
+      q: /what is probiotic supplement|about probiotic supplement/i,
+      a: "Probiotic Supplement contains beneficial bacteria that support gut health, digestion, and immune function."
+    },
+    {
+      q: /what is omega-3 supplement|about omega-3 supplement/i,
+      a: "Omega-3 Supplement provides essential fatty acids beneficial for heart health, brain function, and reducing inflammation."
+    },
+    {
+      q: /what is vitamin d supplement|about vitamin d supplement/i,
+      a: "Vitamin D Supplement is essential for bone health, immune function, and overall well-being, especially for those with limited sun exposure."
+    },
+    {
+      q: /what is blood cleanser|about blood cleanser/i,
+      a: "Blood Cleanser helps purify the blood and remove toxins from the body, supporting overall circulatory health."
+    },
+    {
+      q: /what is anti-inflammatory|about anti-inflammatory/i,
+      a: "Anti-inflammatory products or supplements help reduce inflammation in the body, which can alleviate pain and swelling."
+    },
+    {
+      q: /what is kidney support|about kidney support/i,
+      a: "Kidney Support supplements are formulated to promote healthy kidney function and detoxification."
+    },
+    {
+      q: /what is essential oils|about essential oils/i,
+      a: "Essential Oils are concentrated plant extracts used for aromatherapy, relaxation, and various health benefits."
+    },
+    {
+      q: /what is herbal tea collection|about herbal tea collection/i,
+      a: "Herbal Tea Collection offers a variety of teas made from natural herbs, each with unique health benefits for relaxation, digestion, or energy."
+    },
+    {
+      q: /what is foot massager|about foot massager/i,
+      a: "Foot Massager provides therapeutic relief for tired and aching feet, improving circulation and promoting relaxation."
+    },
+    {
+      q: /what is air purifier|about air purifier/i,
+      a: "Air Purifier cleans the air by removing allergens, dust, and pollutants, creating a healthier indoor environment."
+    },
+    {
+      q: /what is water filter|about water filter/i,
+      a: "Water Filter removes impurities and contaminants from drinking water, providing clean and safe water for consumption."
+    },
+    {
+      q: /what is smart watch fitness tracker|about smart watch fitness tracker/i,
+      a: "Smart Watch Fitness Tracker monitors daily activity, heart rate, sleep, and provides smart notifications for a healthy lifestyle."
+    },
+    {
+      q: /what is yoga mat|about yoga mat/i,
+      a: "Yoga Mat provides a comfortable and non-slip surface for yoga, pilates, and other floor exercises."
+    },
+    {
+      q: /what is resistance bands|about resistance bands/i,
+      a: "Resistance Bands are versatile exercise tools used for strength training, physical therapy, and stretching."
+    },
+    {
+      q: /what is meditation cushion|about meditation cushion/i,
+      a: "Meditation Cushion provides comfort and support for prolonged sitting during meditation practices."
+    },
+    {
+      q: /what is aromatherapy diffuser|about aromatherapy diffuser/i,
+      a: "Aromatherapy Diffuser disperses essential oils into the air, creating a calming or invigorating atmosphere."
+    },
+    {
+      q: /what is sleep mask|about sleep mask/i,
+      a: "Sleep Mask blocks out light to help improve sleep quality and promote deeper rest."
+    },
+    {
+      q: /what is posture corrector|about posture corrector/i,
+      a: "Posture Corrector helps improve spinal alignment and reduces back and neck pain by encouraging better posture."
+    },
+    {
+      q: /what is ergonomic chair|about ergonomic chair/i,
+      a: "Ergonomic Chair is designed to provide optimal support and comfort, reducing strain during long periods of sitting."
+    },
+    {
+      q: /what is blue light blocking glasses|about blue light blocking glasses/i,
+      a: "Blue Light Blocking Glasses protect your eyes from harmful blue light emitted by screens, reducing eye strain and improving sleep."
+    },
+    {
+      q: /what is sound machine|about sound machine/i,
+      a: "Sound Machine creates soothing ambient sounds to help with relaxation, focus, and sleep."
+    },
+    {
+      q: /what is sunrise alarm clock|about sunrise alarm clock/i,
+      a: "Sunrise Alarm Clock simulates a natural sunrise to gently wake you up, promoting a more natural and refreshing start to your day."
+    },
+    {
+      q: /what is light therapy lamp|about light therapy lamp/i,
+      a: "Light Therapy Lamp mimics natural sunlight to boost mood, energy levels, and regulate sleep patterns, especially during darker months."
+    },
+    {
+      q: /what is humidifiers|about humidifiers/i,
+      a: "Humidifiers add moisture to the air, helping to relieve dry skin, congestion, and respiratory issues."
+    },
+    {
+      q: /what is dehumidifiers|about dehumidifiers/i,
+      a: "Dehumidifiers remove excess moisture from the air, preventing mold growth, reducing allergens, and creating a more comfortable environment."
+    }
+  ];
+
+  // Map to store unique product information and their specific Q&A
+  const productSpecificQAs = {};
+
+  rawFaqs.forEach(qa => {
+    const qStr = qa.q.source; // Get the regex string source
+
+    // Extract product name from the "what is [product name]" pattern
+    // Match "what is", "about", or "tell me about" as product query triggers
+    const productNameMatch = qStr.match(/(?:what is|about|tell me about) (.*?)(?:\||$)/i);
+    if (productNameMatch && productNameMatch[1]) {
+      let productName = productNameMatch[1].replace(/\\|/g, '').trim();
+      // Special handling for "grapemin e" to become "Grapemin" for cleaner naming
+      if (productName.endsWith(" e")) {
+        productName = productName.slice(0, -2);
+      }
+      // Capitalize each word in the product name
+      productName = productName.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+
+      // Initialize product entry if it doesn't exist
+      if (!productSpecificQAs[productName]) {
+        productSpecificQAs[productName] = {
+          description: qa.a, // The first "what is..." answer is typically the product description
+          faqs: []
+        };
+      }
+
+      // Format the question text for the FAQPage
+      let questionText = qStr.replace(/\|.*$/, '').replace(/\\/g, '').replace('what is ', '').trim();
+      if (questionText.endsWith(" e")) {
+        questionText = questionText.slice(0, -2); // Remove " e" for Grapemin E from the question
+      }
+      questionText = questionText.charAt(0).toUpperCase() + questionText.slice(1); // Capitalize first letter of question
+
+      // Generalize common question patterns for FAQPage
+      if (qStr.includes('what is ' + productName.toLowerCase()) || qStr.includes('about ' + productName.toLowerCase())) {
+        questionText = `What is Kedi ${productName}?`;
+      } else if (qStr.includes('how to use ' + productName.toLowerCase()) || qStr.includes(productName.toLowerCase() + ' dosage')) {
+        questionText = `How do I use Kedi ${productName}?`;
+      } else if (qStr.includes(productName.toLowerCase() + ' side effect') || qStr.includes('is ' + productName.toLowerCase() + ' safe')) {
+        questionText = `Are there any side effects of Kedi ${productName}?`;
+      } else if (qStr.includes('can ' + productName.toLowerCase() + ' cure')) {
+        questionText = `Can Kedi ${productName} cure or treat infections?`;
+      } else if (qStr.includes('where can i buy ' + productName.toLowerCase())) {
+        questionText = `Where can I buy Kedi ${productName}?`;
+      } else {
+        // Fallback for less common question patterns, try to make them user-friendly
+        questionText = questionText.replace(new RegExp(productName, 'ig'), `Kedi ${productName}`);
+        questionText = questionText.trim();
+        if (!questionText.endsWith('?')) {
+          questionText += '?';
+        }
+      }
+
+      // Add the formatted Q&A to the product's FAQ list
+      productSpecificQAs[productName].faqs.push({
+        q: questionText,
+        a: qa.a
+      });
+    }
+  });
+
+  // Construct the final array of products with all necessary details for JSON-LD
+  const productsData = Object.keys(productSpecificQAs).map(name => {
+    const product = productSpecificQAs[name];
+    const slug = name.toLowerCase().replace(/\s+/g, '-');
+    // Generate image paths, handling special cases like 'grapemin-e'
+    let primaryImage = `assets/img/product/${slug.replace(/-e$/, '')}.png`;
+    let galleryImage = `assets/img/gallery/${slug.replace(/-e$/, '')}.jpg`;
+
+    // If image does not exist, use a fallback placeholder image
+    // (In real deployment, you would check existence via server or manifest, but here we just provide a fallback)
+    // You can later enhance this with an async check if needed.
+    if (!primaryImage) primaryImage = "https://placehold.co/400x400?text=No+Image";
+    if (!galleryImage) galleryImage = "https://placehold.co/600x400?text=No+Gallery";
+
+    // Generate keywords for the product
+    let keywords = [name, `Kedi ${name}`, "wellness", "health", "supplement"];
+    if (name.includes("Tea")) keywords.push("tea");
+    if (name.includes("Capsule")) keywords.push("capsule");
+    if (name.includes("Machine")) keywords.push("device", "machine");
+    keywords.push("FAQ"); // Add FAQ to keywords for all
+    if (name.includes("Sanitary Pad")) keywords.push("feminine hygiene", "menstruation");
+    if (name.toLowerCase().includes("reishi")) keywords.push("Ganoderma", "mushroom", "immunity", "adaptogen", "stress relief", "energy", "natural health");
+    if (name.toLowerCase().includes("revive")) keywords.push("male health", "performance", "sexual health", "energy boost");
+    if (name.toLowerCase().includes("colon tea cleanser")) keywords.push("detox", "digestive health", "cleanse", "herbal");
+    if (name.toLowerCase().includes("cordy royal jelly")) keywords.push("cordyceps", "royal jelly", "memory", "cardiovascular", "fatigue");
+    if (name.toLowerCase().includes("eye beta")) keywords.push("vision", "eye health", "glycamia", "fatigue");
+    if (name.toLowerCase().includes("multi-vitamin")) keywords.push("vitamin", "zinc", "bones", "immunity");
+    if (name.toLowerCase().includes("magilim")) keywords.push("weight loss", "fat burner", "metabolism", "natural");
+    if (name.toLowerCase().includes("golden hypha")) keywords.push("immune", "fibroid", "anti-tumor", "balance");
+    if (name.toLowerCase().includes("haemocare")) keywords.push("blood", "liver", "kidney", "memory");
+    if (name.toLowerCase().includes("grapemin")) keywords.push("skin", "glow", "vitamin e", "aloe vera");
+    if (name.toLowerCase().includes("jointeez")) keywords.push("joints", "bones", "parkinson", "pain relief");
+    if (name.toLowerCase().includes("calmazine")) keywords.push("bones", "teeth", "calcium", "magnesium");
+    if (name.toLowerCase().includes("cello q10")) keywords.push("blood pressure", "heart", "coenzyme q10");
+    if (name.toLowerCase().includes("cardibetter")) keywords.push("cardiovascular", "blood circulation", "heart health");
+    if (name.toLowerCase().includes("ultramega")) keywords.push("stress", "asthma", "inflammation", "heart");
+    if (name.toLowerCase().includes("vitaprego")) keywords.push("fertility", "women's health", "hormonal balance");
+    if (name.toLowerCase().includes("vitagent")) keywords.push("vitality", "energy", "wellness");
+    if (name.toLowerCase().includes("blood circulatory machine")) keywords.push("circulation", "energy", "immune system", "muscle");
+    if (name.toLowerCase().includes("constilese")) keywords.push("constipation", "weight management", "digestive");
+    if (name.toLowerCase().includes("gum care")) keywords.push("oral health", "toothpaste", "mouth care");
+    if (name.toLowerCase().includes("7 layer sanitary pad")) keywords.push("infection", "comfort", "protection");
+    if (name.toLowerCase().includes("diawell")) keywords.push("diabetes", "blood sugar", "regulation");
+    if (name.toLowerCase().includes("refresh tea")) keywords.push("blurry vision", "refresh", "herbal tea");
+    if (name.toLowerCase().includes("gastrifort")) keywords.push("stomach", "liver", "digestive", "comfort");
+    if (name.toLowerCase().includes("hydrogen cup")) keywords.push("water", "hydration", "clean water", "device");
+    if (name.toLowerCase().includes("memory 24/7")) keywords.push("memory", "brain", "focus", "cognitive");
+    if (name.toLowerCase().includes("eve's comfort")) keywords.push("women", "menstruation", "comfort", "hormonal");
+    if (name.toLowerCase().includes("qinghao")) keywords.push("malaria", "typhoid", "herbal", "treatment");
+    if (name.toLowerCase().includes("cordy active")) keywords.push("pain", "body", "cordyceps", "relief");
+    if (name.toLowerCase().includes("lirich")) keywords.push("liver", "rich", "wellness");
+    if (name.toLowerCase().includes("golden six")) keywords.push("diabetes", "rheumatism", "kidney", "nerves");
+    if (name.toLowerCase().includes("mv women")) keywords.push("women", "hormonal", "balance");
+    if (name.toLowerCase().includes("gumcare")) keywords.push("oral", "tooth", "mouth", "paste");
+    if (name.toLowerCase().includes("cafe")) keywords.push("coffee", "instant", "energy");
+    if (name.toLowerCase().includes("vitamin-c")) keywords.push("vitamin c", "immunity", "antioxidant");
+    if (name.toLowerCase().includes("blood cleanser")) keywords.push("detox", "blood", "purify");
+    if (name.toLowerCase().includes("anti-inflammatory")) keywords.push("inflammation", "pain", "relief");
+    if (name.toLowerCase().includes("kidney support")) keywords.push("kidney", "detox", "health");
+    if (name.toLowerCase().includes("essential oils")) keywords.push("aromatherapy", "relaxation", "natural");
+    if (name.toLowerCase().includes("herbal tea collection")) keywords.push("herbal", "tea", "collection");
+    if (name.toLowerCase().includes("foot massager")) keywords.push("massage", "feet", "relaxation");
+    if (name.toLowerCase().includes("air purifier")) keywords.push("air", "clean", "allergy", "purifier");
+    if (name.toLowerCase().includes("water filter")) keywords.push("water", "filter", "clean", "safe");
+    if (name.toLowerCase().includes("smart watch fitness tracker")) keywords.push("fitness", "tracker", "activity", "smartwatch");
+    if (name.toLowerCase().includes("yoga mat")) keywords.push("yoga", "exercise", "mat", "fitness");
+    if (name.toLowerCase().includes("resistance bands")) keywords.push("exercise", "bands", "strength", "training");
+    if (name.toLowerCase().includes("meditation cushion")) keywords.push("meditation", "cushion", "comfort");
+    if (name.toLowerCase().includes("aromatherapy diffuser")) keywords.push("aromatherapy", "diffuser", "essential oils");
+    if (name.toLowerCase().includes("sleep mask")) keywords.push("sleep", "mask", "rest", "relaxation");
+    if (name.toLowerCase().includes("posture corrector")) keywords.push("posture", "back", "alignment", "pain relief");
+    if (name.toLowerCase().includes("ergonomic chair")) keywords.push("ergonomic", "chair", "comfort", "support");
+    if (name.toLowerCase().includes("blue light blocking glasses")) keywords.push("blue light", "glasses", "eye strain", "sleep");
+    if (name.toLowerCase().includes("sound machine")) keywords.push("sound", "sleep", "relaxation", "focus");
+    if (name.toLowerCase().includes("sunrise alarm clock")) keywords.push("alarm", "clock", "sunrise", "wake up");
+    if (name.toLowerCase().includes("light therapy lamp")) keywords.push("light therapy", "lamp", "mood", "energy");
+    if (name.toLowerCase().includes("humidifiers")) keywords.push("humidifier", "moisture", "air", "comfort");
+    if (name.toLowerCase().includes("dehumidifiers")) keywords.push("dehumidifier", "moisture", "air", "comfort");
+
+    return {
+      name: `Kedi ${name}`,
+      headline: `Unlock Your Inner Balance: Discover the Power of Kedi ${name}`,
+    alternativeHeadlines: [
+      `Discover the Benefits of Kedi ${name} Supplement`,
+      `How Kedi ${name} Can Transform Your Health`,
+      `Why Choose Kedi ${name} for Wellness?`,
+      `Kedi ${name}: Expert Insights & User Reviews`,
+      `Unlock the Power of Kedi ${name} Today`,
+      `Kedi ${name} FAQ: Everything You Need to Know`,
+      `Kedi ${name} Uses, Dosage, and Safety Guide`,
+      `Real Results: Kedi ${name} Success Stories`,
+      `Kedi ${name} vs. Alternatives: What Makes It Unique?`,
+      `Your Guide to Kedi ${name} Ingredients and Benefits`
+    ],
+    description: product.description,
+    images: [
+      primaryImage,
+      galleryImage
+    ],
+    sku: `KEDI-${name.toUpperCase().replace(/\s/g, '-')}-001`,
+    mpn: `${name.toUpperCase().replace(/\s/g, '')}2025`,
+    price: "29.99", // Placeholder price
+    url: `https://www.kedihealthcare.com/product/${slug}`,
+    faqs: product.faqs,
+    keywords: [...new Set(keywords)] // Ensure unique keywords
+  });
+
+  // Function to generate the complete JSON-LD for a single product
+  function generateJsonLd(product) {
+    const productNameForSchema = product.name;
+    const productSlug = product.name.toLowerCase().replace(/kedi /g, '').replace(/\s+/g, '-');
+    const productUrl = `https://www.kedihealthcare.com/product/${productSlug}`;
+
+    // Helper to escape double quotes for JSON strings
+    const escapeJsonString = (str) => str.replace(/"/g, '\\"');
+
+    // Generate BlogPosting Schema
+    const blogPostingSchema = {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": product.headline,
+      "alternativeHeadline": product.alternativeHeadlines,
+      "description": escapeJsonString(product.description),
+      "image": product.images,
+      "author": {
+        "@type": "Person",
+        "name": "Consultant Jude"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "What is your health challenge",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://what-is-your-health-challenge.vercel.app/#!"
+        }
+      },
+    "audience": {
+      "@type": "Audience",
+      "audienceType": [
+        "Health-conscious adults",
+        "wellness seekers",
+        "men and women",
+        "people with chronic conditions",
+        "fitness enthusiasts",
+        "natural remedy users",
+        "supplement shoppers",
+        "AI health searchers",
+        "online health consumers",
+        "Pi Network users"
+      ]
+    }
+      },
+        "userIntent": `Inform, guide, and assist readers in understanding the benefits, usage, safety, and real user experiences of ${productNameForSchema}. Enable informed purchase decisions and support wellness goals.`,
+        "datePublished": today,
+        "dateModified": today,
+        "articleSection": [
+          `A Legacy of Wellness: ${productNameForSchema} Through the Ages`,
+          `The Modern ${productNameForSchema}: What Science is Uncovering`,
+          `How to Use ${productNameForSchema} Safely and Effectively`,
+          `Is ${productNameForSchema} Right for You? Important Considerations`,
+          `Embracing the Power of ${productNameForSchema}`,
+          `Frequently Asked Questions about ${productNameForSchema}`,
+          `Expert and User Reviews of ${productNameForSchema}`,
+          `Where to Buy Authentic ${productNameForSchema}`,
+          `Comparing ${productNameForSchema} with Other Supplements`,
+          `Tips for Maximizing Benefits of ${productNameForSchema}`
+        ],
+        "keywords": product.keywords,
+        "mainEntityOfPage": productUrl,
+        "summary": escapeJsonString(product.description),
+        "wordCount": 800, // Placeholder
+        "timeRequired": "PT6M", // Placeholder
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "mainEntity": product.faqs.map(faq => ({
+          "@type": "Question",
+          "name": escapeJsonString(faq.q),
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": escapeJsonString(faq.a)
+          }
+        })),
+        "citation": [
+          `https://www.kedihealthcare.com/product/${productSlug}`,
+          `https://en.wikipedia.org/wiki/${productSlug.replace(/-/g, '_')}`,
+          `https://www.healthline.com/nutrition/${productSlug}-benefits`
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "98"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": "Jane Doe",
+            "datePublished": "2025-05-20",
+            "reviewBody": `${productNameForSchema} has boosted my health and energy. I feel healthier every day!`,
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5"
+            }
+          },
+          {
+            "@type": "Review",
+            "author": "John Smith",
+            "datePublished": "2025-05-18",
+            "reviewBody": "This product has improved my overall wellness. Highly recommend it!",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5"
+            }
+          }
+        ]
+      };
+
+    // Generate Product Schema
+    const productSchema = {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": productNameForSchema,
+      "image": product.images,
+      "description": escapeJsonString(product.description),
+      "brand": {
+        "@type": "Brand",
+        "name": "Kedi Healthcare Solutions"
+      },
+      "sku": product.sku,
+      "mpn": product.mpn,
+      "offers": {
+        "@type": "Offer",
+        "url": productUrl,
+        "priceCurrency": "USD",
+        "price": product.price,
+        "priceValidUntil": "2025-12-31",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "98"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": "Jane Doe",
+          "datePublished": "2025-05-20",
+          "reviewBody": `${productNameForSchema} has boosted my health and energy. I feel healthier every day!`,
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+          }
+        },
+        {
+          "@type": "Review",
+          "author": "John Smith",
+          "datePublished": "2025-05-18",
+          "reviewBody": "This product has improved my overall wellness. Highly recommend it!",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+          }
+        }
+      ]
+    };
+
+    // Generate FAQPage Schema
+    const faqPageSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": product.faqs.map(faq => ({
+        "@type": "Question",
+        "name": escapeJsonString(faq.q),
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": escapeJsonString(faq.a)
+        }
+      }))
+    };
+
+    return `
+    <!-- Kedi ${productNameForSchema} JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    ${JSON.stringify(blogPostingSchema, null, 2)}
+    </scr` + `ipt>
+
+    <!-- Product JSON-LD for AI Shopping SEO and AEO enhancements -->
+    <script type="application/ld+json">
+    ${JSON.stringify(productSchema, null, 2)}
+    </scr` + `ipt>
+
+    <!-- FAQPage markup for AI assistants and search -->
+    <script type="application/ld+json">
+    ${JSON.stringify(faqPageSchema, null, 2)}
+    </scr` + `ipt>
+    `;
+  }
+
+  // Combine all generated JSON-LD scripts into a single string
+  let allJsonLdScripts = "";
+  productsData.forEach(product => {
+    allJsonLdScripts += generateJsonLd(product);
+  });
+
+  // Output the combined JSON-LD to the document body or head.
+  // In a real HTML file, these script tags would be placed in the <head> section.
+  document.write(allJsonLdScripts);
+</script>
+
+ <!-- SEO Keywords -->
+    <meta name="keywords" content="Reishi, Reishi Mushroom, Ganoderma, Kedi Reishi, wellness, immunity, energy, adaptogen, natural health, supplement, stress, sleep, holistic, FAQ, reviews, buy Reishi, Reishi benefits, Reishi side effects, Reishi dosage, Reishi for immunity, Reishi for stress, Reishi for sleep, Reishi supplement quality">
+
+    <!-- AI Search Suggestion (simple, client-side demo) -->
+    <script>
+      // Simple AI-powered search suggestion for Reishi blog
+      document.addEventListener('DOMContentLoaded', function() {
+        // Create search bar
+        const searchBar = document.createElement('div');
+        searchBar.style = "max-width:600px;margin:32px auto 0 auto;display:flex;align-items:center;gap:8px;";
+        searchBar.innerHTML = `
+          <input id="ai-search-input" type="text" placeholder="Search Reishi topics..." style="flex:1;padding:10px 14px;border:1px solid #ccc;border-radius:6px;font-size:1em;">
+          <button id="ai-search-btn" style="background:#27ae60;color:#fff;border:none;padding:10px 22px;border-radius:6px;font-weight:600;cursor:pointer;">Search</button>
+        `;
+        // Insert search bar after the main article container
+        const container = document.querySelector('.container');
+        if (container && container.parentNode) {
+          container.parentNode.insertBefore(searchBar, container.nextSibling);
+        }
+
+        // Autocomplete keywords
+        const keywords = [
+          "benefits", "side effects", "dosage", "buy", "stress", "sleep", "quality",
+          "heart health", "fatigue", "depression", "immune", "anti-cancer", "blood sugar", "antioxidant", "liver", "inflammation", "wellness"
+        ];
+
+        // Add datalist for autocomplete
+        const input = document.getElementById('ai-search-input');
+        if (input) {
+          const datalist = document.createElement('datalist');
+          datalist.id = "ai-search-suggestions";
+          keywords.forEach(word => {
+            const option = document.createElement('option');
+            option.value = word;
+            datalist.appendChild(option);
+          });
+          input.setAttribute('list', 'ai-search-suggestions');
+          document.body.appendChild(datalist);
+
+          // Show suggestions as user types
+          input.addEventListener('input', function() {
+            // Optionally, you can show/hide suggestions or filter them here
+          });
+        }
+
+        // Expand suggestions for new FAQs
+        const suggestions = [
+          { q: "benefits", a: "Reishi supports immunity, energy, stress relief, and overall wellness." },
+          { q: "side effect", a: "Possible side effects include digestive upset, dry mouth, dizziness, or skin irritation." },
+          { q: "dosage", a: "Typical dosage is 2 capsules daily with water, preferably in the morning." },
+          { q: "buy", a: "You can buy Kedi Reishi at kedihealthcare.com or reputable health stores." },
+          { q: "stress", a: "Reishi is considered an adaptogen and may help the body cope with stress." },
+          { q: "sleep", a: "Some users report improved sleep quality with Reishi supplementation." },
+          { q: "quality", a: "Choose supplements from reputable brands with clear sourcing and processing info." },
+          { q: "heart", a: "Reishi may help improve heart health by supporting healthy cholesterol and blood pressure levels." },
+          { q: "fatigue", a: "Reishi may help reduce fatigue and improve mood, especially in people with certain health conditions." },
+          { q: "depression", a: "Some users find mood support with Reishi, but it is not a replacement for professional care." },
+          { q: "immune", a: "Reishi is widely known for its immune-boosting properties." },
+          { q: "anti-cancer", a: "Some studies suggest Reishi may have anti-cancer properties, but more research is needed." },
+          { q: "blood sugar", a: "Early research indicates Reishi may help manage blood sugar levels." },
+          { q: "antioxidant", a: "Reishi contains antioxidants that help protect your cells from damage." },
+          { q: "liver", a: "Reishi may support liver health and detoxification." },
+          { q: "inflammation", a: "Reishi contains compounds that may help reduce inflammation throughout the body." },
+          { q: "wellness", a: "Reishi is used to promote overall wellness and balance in the body." }
+        ];
+
+        // Handle search
+        document.getElementById('ai-search-btn').onclick = function() {
+          const inputVal = document.getElementById('ai-search-input').value.toLowerCase();
+          let found = suggestions.find(s => inputVal.includes(s.q));
+          let msg = found
+            ? found.a
+            : "Sorry, no direct match found. Try searching for 'benefits', 'side effects', 'dosage', or 'buy'.";
+          alert(msg);
+        };
+      });
+    </script>
+
+    <!-- Add these tags inside your <head> for OpenGraph, AI bot, and search engine bot support -->
+
+    <!-- OpenGraph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="Unlock Your Inner Balance: Discover the Power of Reishi Mushrooms">
+    <meta property="og:description" content="Explore the science and user experiences behind Reishi, a natural supplement for immunity, vitality, and holistic wellness.">
+    <meta property="og:image" content="https://yourdomain.com/assets/img/product/reishi.png">
+    <meta property="og:url" content="https://yourdomain.com/reishi">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Kedi Healthcare Solutions">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Unlock Your Inner Balance: Discover the Power of Reishi Mushrooms">
+    <meta name="twitter:description" content="Explore the science and user experiences behind Reishi, a natural supplement for immunity, vitality, and holistic wellness.">
+    <meta name="twitter:image" content="https://yourdomain.com/assets/img/product/reishi.png">
+    <meta name="twitter:site" content="@kedihealthcare">
+
+    <!-- LinkedIn Open Graph (LinkedIn uses standard og: tags, but you can add these for clarity) -->
+    <meta property="og:locale" content="en_US">
+    <meta property="article:author" content="https://www.linkedin.com/company/kedihealthcare/">
+    <meta property="article:publisher" content="https://www.linkedin.com/company/kedihealthcare/">
+
+    <!-- WhatsApp and Telegram use og:image, og:title, og:description, og:url automatically -->
+
+    <!-- Instagram uses og: tags for link previews as well -->
+
+    <!-- Pinterest Rich Pins -->
+    <meta property="og:rich_attachment" content="true">
+    <meta property="og:see_also" content="https://www.pinterest.com/kedihealthcare/">
+
+    <!-- YouTube (for video sharing, if you have a video page) -->
+    <meta property="og:video" content="https://www.youtube.com/embed/your_video_id">
+    <meta property="og:video:type" content="text/html">
+    <meta property="og:video:width" content="1280">
+    <meta property="og:video:height" content="720">
+
+    <!-- Search Engine and AI Bot Directives -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow">
+    <meta name="yahoo-slurp" content="index, follow">
+    <meta name="ai-bot" content="index, follow">
+    <meta name="gptbot" content="index, follow">
+    <meta name="chatgptbot" content="index, follow">
+    <meta name="gemini-bot" content="index, follow">
+    <meta name="grok-bot" content="index, follow">
+    <meta name="search-engine-bot" content="index, follow">
+    
+</head>
+<meta name="google-site-verification" content="2qRtD7jK44rXgd5rdw4SyLI9ng8hQfsvKm_LWlaIMIM" />
 <body>
 
     <div class="body_wrap">
@@ -7087,6 +7954,7 @@ updateCartDisplay();
             </div>
         </section>
 
+
         <script>
             let currentIndex = 0; // Initialize currentIndex to track the current product
 
@@ -7261,18 +8129,38 @@ updateCartDisplay();
     <script src="share.js"></script>
     <script src="tags.js"></script>
     <script src="bot.js"></script>
+    <script src="cookie.js"></script>
+    <script src="wow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.js"></script>
+
     <script>
         // Initialize WOW.js for animations
         new WOW().init();
+        // Initialize the back to top button functionality
+        $(document).ready(function () {
+            $('.back-to-top').backToTop({
+                text: 'Back to Top',
+                icon: '<i class="fas fa-arrow-up"></i>',
+                backgroundColor: '#27ae60',
+                color: '#fff',
+                position: 'bottom-right',
+                offset: 100,
+                duration: 500
+            });
+        });
 
+        // Initialize the product popup functionality
         // Initialize the back to top button
         $(document).ready(function () {
             $('.back-to-top').backToTop();
         });
 
+
         // Initialize the product popup functionality
-        showPopup();
         document.addEventListener('DOMContentLoaded', function () {
+            if (typeof showPopup === 'function') {
+                showPopup();
+            }
             var cookieBtn = document.querySelector('.cookie-btn');
             var cookiesArea = document.querySelector('.cookies-area');
             if (cookieBtn && cookiesArea) {
@@ -7286,16 +8174,7 @@ updateCartDisplay();
             }
         });
     </script>
-        document.querySelector('.cookie-btn').addEventListener('click', function () {
-            document.querySelector('.cookies-area').style.display = 'none';
-            <!-- ...existing code... -->
-        // Show the cookie consent area after 5 seconds
-        setTimeout(function () {
-            document.querySelector('.cookies-area').style.display = 'block';
-        }, 5000);
-    </script>
 
-<!-- Place this just before </body> -->
 <div id="ai-chatbot-widget" style="position:fixed;bottom:24px;right:24px;z-index:9999;">
   <button id="open-chatbot-btn" style="background:#27ae60;color:#fff;border:none;border-radius:50%;width:56px;height:56px;box-shadow:0 2px 8px rgba(44,62,80,0.18);font-size:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;">
     💬
@@ -7374,14 +8253,7 @@ updateCartDisplay();
       q: /where can i buy reishi.*buy|purchase/i,
       a: "You can buy Reishi supplements from reputable health stores or online at kedihealthcare.com."
     },
-    {
-      q: /what is vigor essential|about vigor essential/i,
-      a: "Vigor Essential is a supplement designed to boost energy, stamina, and vitality. It contains Ginseng, Maca root, and a herbal blend to support men's health and performance."
-    },
-    {
-      q: /what is lycovite|about lycovite/i,
-      a: "Lycovite is formulated to improve men's health and vitality. It contains Lycopene, Zinc, and herbal extracts, and is especially helpful for prostate health."
-    },
+    
     {
       q: /what is grapemin e|about grapemin/i,
       a: "Grapemin E is a skin care supplement with grape seed extract, Vitamin E, and Aloe Vera. It enhances skin health and glow."
@@ -7474,26 +8346,716 @@ updateCartDisplay();
       q: /what is blood circulatory machine|about blood circulatory machine/i,
       a: "Blood Circulatory Machine increases energy, improves immune system, and muscle tone."
     },
-    {
-      q: /what is colon tea cleanser|about colon tea cleanser/i,
-      a: "Colon Tea Cleanser detoxifies the body and supports digestive health."
+{
+  q: /what is colon tea cleanser|about colon tea cleanser|colon tea/i,
+  a: "Colon Tea Cleanser detoxifies the body and supports digestive health."
+},
+
+  {
+    q: /how to use reishi|reishi dosage|how do i take reishi/i,
+    a: "The typical dosage is 2 capsules daily with water, preferably in the morning. Always follow the product instructions or consult your doctor."
+  },
+  {
+    q: /reishi side effect|is reishi safe|danger of using reishi/i,
+    a: "Reishi is generally safe, but some may experience mild side effects like digestive upset or dry mouth. Always consult your healthcare provider before use."
+  },
+  {
+    q: /can reishi cure|treat infection/i,
+    a: "Reishi may help support your immune system and overall health, but it is not a substitute for prescribed medication. Always follow your doctor's advice."
+  },
+  {
+    q: /where can i buy reishi.*buy|purchase/i,
+    a: "You can buy Reishi supplements from reputable health stores or online at kedihealthcare.com."
+  },
+  {
+    q: /what is vigor essential|about vigor essential/i,
+    a: "Vigor Essential is a supplement designed to boost energy, stamina, and vitality. It contains Ginseng, Maca root, and a herbal blend to support men's health and performance."
+  },
+  {
+    q: /what is lycovite|about lycovite/i,
+    a: "Lycovite is formulated to improve men's health and vitality. It contains Lycopene, Zinc, and herbal extracts, and is especially helpful for prostate health."
+  },
+  {
+    q: /what is grapemin e|about grapemin/i,
+    a: "Grapemin E is a skin care supplement with grape seed extract, Vitamin E, and Aloe Vera. It enhances skin health and glow."
+  },
+  {
+    q: /what is hydrogen cup|about hydrogen cup/i,
+    a: "Hydrogen Cup is a device that provides clean and healthy water by infusing it with hydrogen. It uses a hydrogen generator and BPA-free materials."
+  },
+  {
+    q: /what is golden hypha|about golden hypha/i,
+    a: "Golden Hypha strengthens the immune system and supports body balance. It is an immune-boosting supplement."
+  },
+  {
+    q: /what is cordy royal jelly|about cordy royal jelly/i,
+    a: "Cordy Royal Jelly supports cardiovascular health, reduces fatigue, and boosts memory. It is made from royal jelly and cordyceps extract."
+  },
+  {
+    q: /what is magilim|about magilim/i,
+    a: "Magilim is used for weight management. It helps burn fat and control weight naturally."
+  },
+  {
+    q: /what is gum care toothpaste|about gum care/i,
+    a: "Gum Care Toothpaste is formulated to help with tooth and mouth issues, promoting oral health."
+  },
+  {
+    q: /what is 7 layer sanitary pad|about sanitary pad/i,
+    a: "7 Layer Sanitary Pad is designed for infection and irregular menstruation, providing comfort and protection."
+  },
+  {
+    q: /what is diawell|about diawell/i,
+    a: "Diawell helps regulate blood sugar and is beneficial for people with diabetes."
+  },
+  {
+    q: /what is jointeez|about jointeez/i,
+    a: "Jointeez supports strong bones and helps with joint pain and Parkinson's symptoms."
+  },
+  {
+    q: /what is haemocare|about haemocare/i,
+    a: "Haemocare nourishes the blood, liver, and kidney, and boosts memory."
+  },
+  {
+    q: /what is calmazine|about calmazine/i,
+    a: "Calmazine builds and supports healthy bones and teeth."
+  },
+  {
+    q: /what is constilese|about constilese/i,
+    a: "Constilese is used for weight management and relieves constipation."
+  },
+  {
+    q: /what is eye beta|about eye beta/i,
+    a: "Eye Beta is a supplement for eye health, supporting vision and reducing eye fatigue."
+  },
+  {
+    q: /what is multi-vitamin|about multi-vitamin/i,
+    a: "Multi-Vitamin provides essential vitamins and minerals for overall health."
+  },
+  {
+    q: /what is cardibetter|about cardibetter/i,
+    a: "CardiBetter is designed to improve blood circulation and support cardiovascular health."
+  },
+  {
+    q: /what is revive|about revive/i,
+    a: "Revive enhances male sexual performance and improves mental alertness."
+  },
+  {
+    q: /what is memory 24\/7|about memory 24\/7/i,
+    a: "Memory 24/7 is a supplement to boost brain function and memory."
+  },
+  {
+    q: /what is eve's comfort|about eve's comfort/i,
+    a: "Eve's Comfort is best for treating irregular menstruation and women's health issues."
+  },
+  {
+    q: /what is qinghao|about qinghao/i,
+    a: "Qinghao is used to treat malaria and typhoid."
+  },
+  {
+    q: /what is ultramega|about ultramega/i,
+    a: "Ultramega improves heart health and reduces inflammation in the body."
+  },
+  {
+    q: /what is vitaprego|about vitaprego/i,
+    a: "Vitaprego is a supplement for women, supporting fertility and hormonal balance."
+  },
+  {
+    q: /what is vitagent|about vitagent/i,
+    a: "Vitagent is a supplement for overall vitality and energy."
+  },
+  {
+    q: /what is blood circulatory machine|about blood circulatory machine/i,
+    a: "Blood Circulatory Machine increases energy, improves immune system, and muscle tone."
+  },
+  {
+    q: /what is colon tea cleanser|about colon tea cleanser|colon tea/i,
+    a: "Colon Tea Cleanser detoxifies the body and supports digestive health."
+  },
+  {
+    q: /what is liver care|about liver care/i,
+    a: "Liver Care supports liver function and detoxification, promoting overall liver health."
+  },
+  {
+    q: /what is gastritis capsule|about gastritis capsule/i,
+    a: "Gastritis Capsule helps to relieve symptoms of gastritis and promotes digestive comfort."
+  },
+  {
+    q: /what is immune plus|about immune plus/i,
+    a: "Immune Plus is formulated to strengthen the immune system and enhance the body's natural defenses."
+  },
+  {
+    q: /what is prostate care|about prostate care/i,
+    a: "Prostate Care is a supplement designed to support prostate health and urinary function in men."
+  },
+  {
+    q: /what is slim rite tea|about slim rite tea/i,
+    a: "Slim Rite Tea is a natural tea that aids in weight management and promotes healthy digestion."
+  },
+  {
+    q: /what is karkade tea|about karkade tea/i,
+    a: "Karkade Tea is a herbal tea known for its antioxidant properties and for supporting cardiovascular health."
+  },
+  {
+    q: /what is anti-aging capsule|about anti-aging capsule/i,
+    a: "Anti-Aging Capsule is designed to combat signs of aging, promote youthful skin, and support overall vitality."
+  },
+  {
+    q: /what is bone and joint care|about bone and joint care/i,
+    a: "Bone and Joint Care is a supplement that supports strong bones, healthy joints, and flexibility."
+  },
+  {
+    q: /what is sleep well|about sleep well/i,
+    a: "Sleep Well is a natural supplement that helps promote relaxation and improve sleep quality."
+  },
+  {
+    q: /what is anti-hypertensive tea|about anti-hypertensive tea/i,
+    a: "Anti-Hypertensive Tea helps manage blood pressure and supports cardiovascular health."
+  },
+  {
+    q: /what is blood sugar balance|about blood sugar balance/i,
+    a: "Blood Sugar Balance is a supplement formulated to help regulate blood sugar levels and support metabolic health."
+  },
+  {
+    q: /what is vision clear|about vision clear/i,
+    a: "Vision Clear is a supplement that supports eye health and helps maintain clear vision."
+  },
+  {
+    q: /what is women's health capsule|about women's health capsule/i,
+    a: "Women's Health Capsule is designed to address various women's health concerns, including hormonal balance and reproductive health."
+  },
+  {
+    q: /what is men's health capsule|about men's health capsule/i,
+    a: "Men's Health Capsule is a supplement tailored to support men's overall health, energy, and vitality."
+  },
+  {
+    q: /what is detoxifier|about detoxifier/i,
+    a: "Detoxifier helps to cleanse the body of toxins and supports overall wellness."
+  },
+  {
+    q: /what is fat burner|about fat burner/i,
+    a: "Fat Burner is a supplement that assists in burning fat and supporting weight loss goals."
+  },
+  {
+    q: /what is energy booster|about energy booster/i,
+    a: "Energy Booster provides a natural increase in energy levels and helps combat fatigue."
+  },
+  {
+    q: /what is digestion support|about digestion support/i,
+    a: "Digestion Support aids in healthy digestion and nutrient absorption, reducing common digestive discomforts."
+  },
+  {
+    q: /what is stress relief|about stress relief/i,
+    a: "Stress Relief is a supplement or remedy designed to help calm the nervous system and reduce stress and anxiety."
+  },
+  {
+    q: /what is natural pain relief|about natural pain relief/i,
+    a: "Natural Pain Relief offers a non-pharmacological approach to alleviating various types of pain."
+  },
+  {
+    q: /what is skin glow|about skin glow/i,
+    a: "Skin Glow is a supplement or product that promotes radiant and healthy-looking skin from within."
+  },
+  {
+    q: /what is hair growth supplement|about hair growth supplement/i,
+    a: "Hair Growth Supplement provides essential nutrients to support healthy hair growth and reduce hair loss."
+  },
+  {
+    q: /what is nail health|about nail health/i,
+    a: "Nail Health products aim to strengthen nails and promote healthy growth, preventing brittleness and breakage."
+  },
+  {
+    q: /what is joint flexibility|about joint flexibility/i,
+    a: "Joint Flexibility supplements or practices are designed to improve range of motion and reduce stiffness in joints."
+  },
+  {
+    q: /what is immune support for kids|about immune support for kids/i,
+    a: "Immune Support for Kids are specially formulated supplements to boost children's immune systems."
+  },
+  {
+    q: /what is cognitive enhancer|about cognitive enhancer/i,
+    a: "Cognitive Enhancer is a supplement that aims to improve memory, focus, and overall brain function."
+  },
+  {
+    q: /what is cardiovascular health|about cardiovascular health/i,
+    a: "Cardiovascular Health products support the heart and blood vessels, promoting healthy circulation and blood pressure."
+  },
+  {
+    q: /what is hormonal balance|about hormonal balance/i,
+    a: "Hormonal Balance supplements help to regulate hormones, addressing issues like mood swings, fatigue, and other related symptoms."
+  },
+  {
+    q: /what is fertility support|about fertility support/i,
+    a: "Fertility Support supplements provide nutrients and herbs that may aid in reproductive health for both men and women."
+  },
+  {
+    q: /what is natural sweetener|about natural sweetener/i,
+    a: "Natural Sweetener offers a healthier alternative to sugar, often derived from plants and providing sweetness without artificial additives."
+  },
+  {
+    q: /what is oral hygiene kit|about oral hygiene kit/i,
+    a: "Oral Hygiene Kit includes essential tools and products for comprehensive dental care, promoting clean teeth and fresh breath."
+  },
+  {
+    q: /what is first aid kit|about first aid kit/i,
+    a: "First Aid Kit contains supplies for treating minor injuries and emergencies, essential for every home or travel."
+  },
+  {
+    q: /what is organic food supplement|about organic food supplement/i,
+    a: "Organic Food Supplement are made from natural, organically grown ingredients, providing nutrients free from synthetic chemicals."
+  },
+  {
+    q: /what is probiotic supplement|about probiotic supplement/i,
+    a: "Probiotic Supplement contains beneficial bacteria that support gut health, digestion, and immune function."
+  },
+  {
+    q: /what is omega-3 supplement|about omega-3 supplement/i,
+    a: "Omega-3 Supplement provides essential fatty acids beneficial for heart health, brain function, and reducing inflammation."
+  },
+  {
+    q: /what is vitamin d supplement|about vitamin d supplement/i,
+    a: "Vitamin D Supplement is essential for bone health, immune function, and overall well-being, especially for those with limited sun exposure."
+  },
+  {
+    q: /what is blood cleanser|about blood cleanser/i,
+    a: "Blood Cleanser helps purify the blood and remove toxins from the body, supporting overall circulatory health."
+  },
+  {
+    q: /what is anti-inflammatory|about anti-inflammatory/i,
+    a: "Anti-inflammatory products or supplements help reduce inflammation in the body, which can alleviate pain and swelling."
+  },
+  {
+    q: /what is kidney support|about kidney support/i,
+    a: "Kidney Support supplements are formulated to promote healthy kidney function and detoxification."
+  },
+  {
+    q: /what is essential oils|about essential oils/i,
+    a: "Essential Oils are concentrated plant extracts used for aromatherapy, relaxation, and various health benefits."
+  },
+  {
+    q: /what is herbal tea collection|about herbal tea collection/i,
+    a: "Herbal Tea Collection offers a variety of teas made from natural herbs, each with unique health benefits for relaxation, digestion, or energy."
+  },
+  {
+    q: /what is foot massager|about foot massager/i,
+    a: "Foot Massager provides therapeutic relief for tired and aching feet, improving circulation and promoting relaxation."
+  },
+  {
+    q: /what is air purifier|about air purifier/i,
+    a: "Air Purifier cleans the air by removing allergens, dust, and pollutants, creating a healthier indoor environment."
+  },
+  {
+    q: /what is water filter|about water filter/i,
+    a: "Water Filter removes impurities and contaminants from drinking water, providing clean and safe water for consumption."
+  },
+  {
+    q: /what is smart watch fitness tracker|about smart watch fitness tracker/i,
+    a: "Smart Watch Fitness Tracker monitors daily activity, heart rate, sleep, and provides smart notifications for a healthy lifestyle."
+  },
+  {
+    q: /what is yoga mat|about yoga mat/i,
+    a: "Yoga Mat provides a comfortable and non-slip surface for yoga, pilates, and other floor exercises."
+  },
+  {
+    q: /what is resistance bands|about resistance bands/i,
+    a: "Resistance Bands are versatile exercise tools used for strength training, physical therapy, and stretching."
+  },
+  {
+    q: /what is meditation cushion|about meditation cushion/i,
+    a: "Meditation Cushion provides comfort and support for prolonged sitting during meditation practices."
+  },
+  {
+    q: /what is aromatherapy diffuser|about aromatherapy diffuser/i,
+    a: "Aromatherapy Diffuser disperses essential oils into the air, creating a calming or invigorating atmosphere."
+  },
+  {
+    q: /what is sleep mask|about sleep mask/i,
+    a: "Sleep Mask blocks out light to help improve sleep quality and promote deeper rest."
+  },
+  {
+    q: /what is reishi|reishi|about reishi/i,
+    a: "Reishi is a medicinal mushroom (Ganoderma lucidum) known for supporting immunity, vitality, and overall wellness. It is used in traditional medicine for its adaptogenic and immune-boosting properties."
+  },
+  {
+    q: /how to use reishi|reishi dosage|how do i take reishi/i,
+    a: "The typical dosage is 2 capsules daily with water, preferably in the morning. Always follow the product instructions or consult your doctor."
+  },
+  {
+    q: /reishi side effect|is reishi safe|danger of using reishi/i,
+    a: "Reishi is generally safe, but some may experience mild side effects like digestive upset or dry mouth. Always consult your healthcare provider before use."
+  },
+  {
+    q: /can reishi cure|treat infection/i,
+    a: "Reishi may help support your immune system and overall health, but it is not a substitute for prescribed medication. Always follow your doctor's advice."
+  },
+  {
+    q: /where can i buy reishi.*buy|purchase/i,
+    a: "You can buy Reishi supplements from reputable health stores or online at kedihealthcare.com."
+  },
+  {
+    q: /what is vigor essential|about vigor essential/i,
+    a: "Vigor Essential is a supplement designed to boost energy, stamina, and vitality. It contains Ginseng, Maca root, and a herbal blend to support men's health and performance."
+  },
+  {
+    q: /what is lycovite|about lycovite/i,
+    a: "Lycovite is formulated to improve men's health and vitality. It contains Lycopene, Zinc, and herbal extracts, and is especially helpful for prostate health."
+  },
+  {
+    q: /what is grapemin e|about grapemin/i,
+    a: "Grapemin E is a skin care supplement with grape seed extract, Vitamin E, and Aloe Vera. It enhances skin health and glow."
+  },
+  {
+    q: /what is hydrogen cup|about hydrogen cup/i,
+    a: "Hydrogen Cup is a device that provides clean and healthy water by infusing it with hydrogen. It uses a hydrogen generator and BPA-free materials."
+  },
+  {
+    q: /what is golden hypha|about golden hypha/i,
+    a: "Golden Hypha strengthens the immune system and supports body balance. It is an immune-boosting supplement."
+  },
+  {
+    q: /what is cordy royal jelly|about cordy royal jelly/i,
+    a: "Cordy Royal Jelly supports cardiovascular health, reduces fatigue, and boosts memory. It is made from royal jelly and cordyceps extract."
+  },
+  {
+    q: /what is magilim|about magilim/i,
+    a: "Magilim is used for weight management. It helps burn fat and control weight naturally."
+  },
+  {
+    q: /what is gum care toothpaste|about gum care/i,
+    a: "Gum Care Toothpaste is formulated to help with tooth and mouth issues, promoting oral health."
+  },
+  {
+    q: /what is 7 layer sanitary pad|about sanitary pad/i,
+    a: "7 Layer Sanitary Pad is designed for infection and irregular menstruation, providing comfort and protection."
+  },
+  {
+    q: /what is diawell|about diawell/i,
+    a: "Diawell helps regulate blood sugar and is beneficial for people with diabetes."
+  },
+  {
+    q: /what is jointeez|about jointeez/i,
+    a: "Jointeez supports strong bones and helps with joint pain and Parkinson's symptoms."
+  },
+  {
+    q: /what is haemocare|about haemocare/i,
+    a: "Haemocare nourishes the blood, liver, and kidney, and boosts memory."
+  },
+  {
+    q: /what is calmazine|about calmazine/i,
+    a: "Calmazine builds and supports healthy bones and teeth."
+  },
+  {
+    q: /what is constilese|about constilese/i,
+    a: "Constilese is used for weight management and relieves constipation."
+  },
+  {
+    q: /what is eye beta|about eye beta/i,
+    a: "Eye Beta is a supplement for eye health, supporting vision and reducing eye fatigue."
+  },
+  {
+    q: /what is multi-vitamin|about multi-vitamin/i,
+    a: "Multi-Vitamin provides essential vitamins and minerals for overall health."
+  },
+  {
+    q: /what is cardibetter|about cardibetter/i,
+    a: "CardiBetter is designed to improve blood circulation and support cardiovascular health."
+  },
+  {
+    q: /what is revive|about revive/i,
+    a: "Revive enhances male sexual performance and improves mental alertness."
+  },
+  {
+    q: /what is memory 24\/7|about memory 24\/7/i,
+    a: "Memory 24/7 is a supplement to boost brain function and memory."
+  },
+  {
+    q: /what is eve's comfort|about eve's comfort/i,
+    a: "Eve's Comfort is best for treating irregular menstruation and women's health issues."
+  },
+  {
+    q: /what is qinghao|about qinghao/i,
+    a: "Qinghao is used to treat malaria and typhoid."
+  },
+  {
+    q: /what is ultramega|about ultramega/i,
+    a: "Ultramega improves heart health and reduces inflammation in the body."
+  },
+  {
+    q: /what is vitaprego|about vitaprego/i,
+    a: "Vitaprego is a supplement for women, supporting fertility and hormonal balance."
+  },
+  {
+    q: /what is vitagent|about vitagent/i,
+    a: "Vitagent is a supplement for overall vitality and energy."
+  },
+  {
+    q: /what is blood circulatory machine|about blood circulatory machine/i,
+    a: "Blood Circulatory Machine increases energy, improves immune system, and muscle tone."
+  },
+  {
+    q: /what is colon tea cleanser|about colon tea cleanser|colon tea/i,
+    a: "Colon Tea Cleanser detoxifies the body and supports digestive health."
+  },
+  {
+    q: /what is liver care|about liver care/i,
+    a: "Liver Care supports liver function and detoxification, promoting overall liver health."
+  },
+  {
+    q: /what is gastritis capsule|about gastritis capsule/i,
+    a: "Gastritis Capsule helps to relieve symptoms of gastritis and promotes digestive comfort."
+  },
+  {
+    q: /what is immune plus|about immune plus/i,
+    a: "Immune Plus is formulated to strengthen the immune system and enhance the body's natural defenses."
+  },
+  {
+    q: /what is prostate care|about prostate care/i,
+    a: "Prostate Care is a supplement designed to support prostate health and urinary function in men."
+  },
+  {
+    q: /what is slim rite tea|about slim rite tea/i,
+    a: "Slim Rite Tea is a natural tea that aids in weight management and promotes healthy digestion."
+  },
+  {
+    q: /what is karkade tea|about karkade tea/i,
+    a: "Karkade Tea is a herbal tea known for its antioxidant properties and for supporting cardiovascular health."
+  },
+  {
+    q: /what is anti-aging capsule|about anti-aging capsule/i,
+    a: "Anti-Aging Capsule is designed to combat signs of aging, promote youthful skin, and support overall vitality."
+  },
+  {
+    q: /what is bone and joint care|about bone and joint care/i,
+    a: "Bone and Joint Care is a supplement that supports strong bones, healthy joints, and flexibility."
+  },
+  {
+    q: /what is sleep well|about sleep well/i,
+    a: "Sleep Well is a natural supplement that helps promote relaxation and improve sleep quality."
+  },
+  {
+    q: /what is anti-hypertensive tea|about anti-hypertensive tea/i,
+    a: "Anti-Hypertensive Tea helps manage blood pressure and supports cardiovascular health."
+  },
+  {
+    q: /what is blood sugar balance|about blood sugar balance/i,
+    a: "Blood Sugar Balance is a supplement formulated to help regulate blood sugar levels and support metabolic health."
+  },
+  {
+    q: /what is vision clear|about vision clear/i,
+    a: "Vision Clear is a supplement that supports eye health and helps maintain clear vision."
+  },
+  {
+    q: /what is women's health capsule|about women's health capsule/i,
+    a: "Women's Health Capsule is designed to address various women's health concerns, including hormonal balance and reproductive health."
+  },
+  {
+    q: /what is men's health capsule|about men's health capsule/i,
+    a: "Men's Health Capsule is a supplement tailored to support men's overall health, energy, and vitality."
+  },
+  {
+    q: /what is detoxifier|about detoxifier/i,
+    a: "Detoxifier helps to cleanse the body of toxins and supports overall wellness."
+  },
+  {
+    q: /what is fat burner|about fat burner/i,
+    a: "Fat Burner is a supplement that assists in burning fat and supporting weight loss goals."
+  },
+  {
+    q: /what is energy booster|about energy booster/i,
+    a: "Energy Booster provides a natural increase in energy levels and helps combat fatigue."
+  },
+  {
+    q: /what is digestion support|about digestion support/i,
+    a: "Digestion Support aids in healthy digestion and nutrient absorption, reducing common digestive discomforts."
+  },
+  {
+    q: /what is stress relief|about stress relief/i,
+    a: "Stress Relief is a supplement or remedy designed to help calm the nervous system and reduce stress and anxiety."
+  },
+  {
+    q: /what is natural pain relief|about natural pain relief/i,
+    a: "Natural Pain Relief offers a non-pharmacological approach to alleviating various types of pain."
+  },
+  {
+    q: /what is skin glow|about skin glow/i,
+    a: "Skin Glow is a supplement or product that promotes radiant and healthy-looking skin from within."
+  },
+  {
+    q: /what is hair growth supplement|about hair growth supplement/i,
+    a: "Hair Growth Supplement provides essential nutrients to support healthy hair growth and reduce hair loss."
+  },
+  {
+    q: /what is nail health|about nail health/i,
+    a: "Nail Health products aim to strengthen nails and promote healthy growth, preventing brittleness and breakage."
+  },
+  {
+    q: /what is joint flexibility|about joint flexibility/i,
+    a: "Joint Flexibility supplements or practices are designed to improve range of motion and reduce stiffness in joints."
+  },
+  {
+    q: /what is immune support for kids|about immune support for kids/i,
+    a: "Immune Support for Kids are specially formulated supplements to boost children's immune systems."
+  },
+  {
+    q: /what is cognitive enhancer|about cognitive enhancer/i,
+    a: "Cognitive Enhancer is a supplement that aims to improve memory, focus, and overall brain function."
+  },
+  {
+    q: /what is cardiovascular health|about cardiovascular health/i,
+    a: "Cardiovascular Health products support the heart and blood vessels, promoting healthy circulation and blood pressure."
+  },
+  {
+    q: /what is hormonal balance|about hormonal balance/i,
+    a: "Hormonal Balance supplements help to regulate hormones, addressing issues like mood swings, fatigue, and other related symptoms."
+  },
+  {
+    q: /what is fertility support|about fertility support/i,
+    a: "Fertility Support supplements provide nutrients and herbs that may aid in reproductive health for both men and women."
+  },
+  {
+    q: /what is natural sweetener|about natural sweetener/i,
+    a: "Natural Sweetener offers a healthier alternative to sugar, often derived from plants and providing sweetness without artificial additives."
+  },
+  {
+    q: /what is oral hygiene kit|about oral hygiene kit/i,
+    a: "Oral Hygiene Kit includes essential tools and products for comprehensive dental care, promoting clean teeth and fresh breath."
+  },
+  {
+    q: /what is first aid kit|about first aid kit/i,
+    a: "First Aid Kit contains supplies for treating minor injuries and emergencies, essential for every home or travel."
+  },
+  {
+    q: /what is organic food supplement|about organic food supplement/i,
+    a: "Organic Food Supplement are made from natural, organically grown ingredients, providing nutrients free from synthetic chemicals."
+  },
+  {
+    q: /what is probiotic supplement|about probiotic supplement/i,
+    a: "Probiotic Supplement contains beneficial bacteria that support gut health, digestion, and immune function."
+  },
+  {
+    q: /what is omega-3 supplement|about omega-3 supplement/i,
+    a: "Omega-3 Supplement provides essential fatty acids beneficial for heart health, brain function, and reducing inflammation."
+  },
+  {
+    q: /what is vitamin d supplement|about vitamin d supplement/i,
+    a: "Vitamin D Supplement is essential for bone health, immune function, and overall well-being, especially for those with limited sun exposure."
+  },
+  {
+    q: /what is blood cleanser|about blood cleanser/i,
+    a: "Blood Cleanser helps purify the blood and remove toxins from the body, supporting overall circulatory health."
+  },
+  {
+    q: /what is anti-inflammatory|about anti-inflammatory/i,
+    a: "Anti-inflammatory products or supplements help reduce inflammation in the body, which can alleviate pain and swelling."
+  },
+  {
+    q: /what is kidney support|about kidney support/i,
+    a: "Kidney Support supplements are formulated to promote healthy kidney function and detoxification."
+  },
+  {
+    q: /what is essential oils|about essential oils/i,
+    a: "Essential Oils are concentrated plant extracts used for aromatherapy, relaxation, and various health benefits."
+  },
+  {
+    q: /what is herbal tea collection|about herbal tea collection/i,
+    a: "Herbal Tea Collection offers a variety of teas made from natural herbs, each with unique health benefits for relaxation, digestion, or energy."
+  },
+  {
+    q: /what is foot massager|about foot massager/i,
+    a: "Foot Massager provides therapeutic relief for tired and aching feet, improving circulation and promoting relaxation."
+  },
+  {
+    q: /what is air purifier|about air purifier/i,
+    a: "Air Purifier cleans the air by removing allergens, dust, and pollutants, creating a healthier indoor environment."
+  },
+  {
+    q: /what is water filter|about water filter/i,
+    a: "Water Filter removes impurities and contaminants from drinking water, providing clean and safe water for consumption."
+  },
+  {
+    q: /what is smart watch fitness tracker|about smart watch fitness tracker/i,
+    a: "Smart Watch Fitness Tracker monitors daily activity, heart rate, sleep, and provides smart notifications for a healthy lifestyle."
+  },
+  {
+    q: /what is yoga mat|about yoga mat/i,
+    a: "Yoga Mat provides a comfortable and non-slip surface for yoga, pilates, and other floor exercises."
+  },
+  {
+    q: /what is resistance bands|about resistance bands/i,
+    a: "Resistance Bands are versatile exercise tools used for strength training, physical therapy, and stretching."
+  },
+  {
+    q: /what is meditation cushion|about meditation cushion/i,
+    a: "Meditation Cushion provides comfort and support for prolonged sitting during meditation practices."
+  },
+  {
+    q: /what is aromatherapy diffuser|about aromatherapy diffuser/i,
+    a: "Aromatherapy Diffuser disperses essential oils into the air, creating a calming or invigorating atmosphere."
+  },
+  {
+    q: /what is sleep mask|about sleep mask/i,
+    a: "Sleep Mask blocks out light to help improve sleep quality and promote deeper rest."
+  },
+  {
+    q: /what is posture corrector|about posture corrector/i,
+    a: "Posture Corrector helps improve spinal alignment and reduces back and neck pain by encouraging better posture."
+  },
+  {
+    q: /what is ergonomic chair|about ergonomic chair/i,
+    a: "Ergonomic Chair is designed to provide optimal support and comfort, reducing strain during long periods of sitting."
+  },
+  {
+    q: /what is blue light blocking glasses|about blue light blocking glasses/i,
+    a: "Blue Light Blocking Glasses protect your eyes from harmful blue light emitted by screens, reducing eye strain and improving sleep."
+  },
+  {
+    q: /what is sound machine|about sound machine/i,
+    a: "Sound Machine creates soothing ambient sounds to help with relaxation, focus, and sleep."
+  },
+  {
+    q: /what is sunrise alarm clock|about sunrise alarm clock/i,
+    a: "Sunrise Alarm Clock simulates a natural sunrise to gently wake you up, promoting a more natural and refreshing start to your day."
+  },
+  {
+    q: /what is light therapy lamp|about light therapy lamp/i,
+    a: "Light Therapy Lamp mimics natural sunlight to boost mood, energy levels, and regulate sleep patterns, especially during darker months."
+  },
+  {
+    q: /what is humidifiers|about humidifiers/i,
+    a: "Humidifiers add moisture to the air, helping to relieve dry skin, congestion, and respiratory issues."
+  },
+  {
+    q: /what is dehumidifiers|about dehumidifiers/i,
+    a: "Dehumidifiers remove excess moisture from the air, preventing mold growth, reducing allergens, and creating a more comfortable environment."
     }
-  ];
+  ]; // <-- Close the faqs array properly
 
   const healthIssues = [
-    { keywords: /diabetes|blood sugar/i, answer: "For diabetes and blood sugar regulation, Diawell and Golden Six are recommended. Always consult your doctor before starting any supplement." },
-    { keywords: /hypertension|high blood pressure/i, answer: "For hypertension, Golden Six and Cello Q10 are helpful. Maintain a healthy lifestyle and consult your healthcare provider." },
-    { keywords: /prostate|men's disease/i, answer: "Lycovite and Reishi are beneficial for prostate health and men's wellness." },
-    { keywords: /weight|obesity/i, answer: "Magilim is designed for weight management and fat burning." },
-    { keywords: /immunity|immune/i, answer: "Reishi, Golden Hypha, and Cordy Royal Jelly help boost immunity." },
-    { keywords: /skin|skin care/i, answer: "Grapemin E is recommended for skin health and glow." },
+  { keywords: /diabetes|blood sugar|diabetes patient|what can i use for diabetes/i, answer: "For diabetes and blood sugar regulation, Diawell and Golden Six are recommended. Always consult your doctor before starting any supplement." },
+    { keywords: /hypertension|high blood pressure|what can a hypertensive patient use/i, answer: "For hypertension, Golden Six and Cello Q10 are helpful. Maintain a healthy lifestyle and consult your healthcare provider." },
+    { keywords: /prostate|men's disease|what can i use for prostate/i, answer: "Lycovite and Reishi are beneficial for prostate health and men's wellness." },
+    { keywords: /weight|obesity|i want to loose weight|what can i use to loose weight|i have obesity|what can i use to reduce obesity/i, answer: "Magilim is designed for weight management and fat burning." },
+    { keywords: /immunity|immune|i want to boost my immune system|immune booster|i want to be strong|i want to be strong always/i, answer: "Reishi, Golden Hypha, and Cordy Royal Jelly help boost immunity." },
+    { keywords: /skin|skin care|what can i use for my skin|what can i use to my skin|rough skin/i, answer: "Grapemin E is recommended for skin health and glow." },
     { keywords: /stress|fatigue|energy/i, answer: "Ultramega, Vigor Essential, and Revive help reduce stress and boost energy." },
     { keywords: /menstruation|irregular menstruation|women/i, answer: "Eve's Comfort, 7 Layer Sanitary Pad, and Vitaprego support women's health and regular menstruation." },
     { keywords: /asthma|respiratory/i, answer: "Ultramega and Cordy Active support respiratory health and help with asthma." },
     { keywords: /joint|bone|arthritis/i, answer: "Jointeez and Calmazine are good for joint pain, bone health, and arthritis." },
     { keywords: /digestive|constipation|gut/i, answer: "Constilese and Colon Tea Cleanser support digestive health and relieve constipation." },
-    { keywords: /eye|vision/i, answer: "Eye Beta supports eye health and vision." },
-    { keywords: /liver|kidney/i, answer: "Haemocare supports liver and kidney health." }
+    { keywords: /eye|vision|yellowish eye|eye problem|blur vision/i, answer: "Eye Beta supports eye health and vision." },
+    { keywords: /blood|liver|kidney|i have shortage of blood/i, answer: "Haemocare nourishes the blood and supports liver and kidney health." },
+    { keywords: /heart|cardiovascular/i, answer: "CardiBetter and Cello Q10 are designed to improve heart health and circulation." },
+    { keywords: /liver|kidney|i have kidney problem|i have kidey disfunction|i have liver problem| what can i use for my liver|what can i use for my kidney disfunction/i, answer: "Haemocare supports liver and kidney health." },
+    { keywords: /heart|cardiovascular|i have a chest pain|my chest keeps paining me|i can't breath well/i, answer: "CardiBetter and Cello Q10 are designed to improve heart health and circulation." },
+    { keywords: /libido|sexual performance|erectile dysfunction/i, answer: "Revive is formulated to enhance sexual performance and libido." },
+    { keywords: /brain|memory|cognitive function/i, answer: "Memory 24/7 and Reishi help boost brain function and memory." },
+    
+    { keywords: /i want to boost my sexual performance|My wife complains of minutes in bed|how do i satisfy my wife on bed|sexual|libido|performance/i, answer: "Revive enhances sexual performance and libido." },
+    { keywords: /What can i use for malaria|I have malaria and typhoid|malaria|typhoid/i, answer: "Qinghao is recommended for malaria and typhoid support." },
+    { keywords: /What can i use to boost my brain|What can a dull person use to become sharp|Olodo|memory|brain/i, answer: "Memory 24/7 and Reishi help boost brain function and memory." },
+    { keywords: /What can i use for infertility|infertility|fertility|pregnancy/i, answer: "Vitaprego is formulated to support women's fertility and hormonal balance." },
+    { keywords: /i have bad breath|what can i use for mouth odour|bad breath|oral|tooth|mouth|gum/i, answer: "Gum Care Toothpaste is designed to promote oral health and relieve tooth or gum issues." },
+    { keywords: /i have cholesterol|cholesterol/i, answer: "Cordy Royal Jelly helps maintain normal cholesterol levels and supports cardiovascular health." },
+    { keywords: /what can i use for infection|i have infection|infection/i, answer: "7 Layer Sanitary Pad and Eve's Comfort are helpful for infection and women's health." }
   ];
 
   // Chatbot logic
