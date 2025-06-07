@@ -7252,6 +7252,127 @@ updateCartDisplay();
     <script src="pop.js"></script>
     <script src="share.js"></script>
     <script src="tags.js"></script>
-</body>
+    <script src="bot.js"></script>
+    <script>
+        // Initialize WOW.js for animations
+        new WOW().init();
 
+        // Initialize the back to top button
+        $(document).ready(function () {
+            $('.back-to-top').backToTop();
+        });
+
+        // Initialize the product popup functionality
+        showPopup();
+        // Initialize the share links functionality
+        document.querySelector('.share-toggle-btn').addEventListener('click', function () {
+            const shareLinks = document.querySelector('.share-links');
+            shareLinks.style.display = shareLinks.style.display === 'none' || shareLinks.style.display === '' ? 'flex' : 'none';
+        });
+    </script>
+    <script>
+        // Cookie consent functionality
+        document.querySelector('.cookie-btn').addEventListener('click', function () {
+            document.querySelector('.cookies-area').style.display = 'none';
+        });
+
+        // Show the cookie consent area after 5 seconds
+        setTimeout(function () {
+            document.querySelector('.cookies-area').style.display = 'block';
+        }, 5000);
+    </script>
+
+<!-- ...existing code... -->
+<!-- Place this just before the closing </body> tag -->
+<style>
+    /* Bot icon styles */
+    #bot-container {
+        position: fixed;
+        bottom: 24px;
+        right: 24px; /* Change to left: 24px for bottom left */
+        z-index: 99999;
+    }
+    #bot-widget-btn {
+        background: #fff;
+        border: none;
+        border-radius: 50%;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        width: 64px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: relative;
+        transition: box-shadow 0.2s;
+        padding: 0;
+    }
+    #bot-widget-btn:hover {
+        box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+    #bot-widget-btn img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    #bot-tooltip {
+        display: none;
+        position: absolute;
+        left: 50%;
+        bottom: 80px;
+        transform: translateX(-50%);
+        background: #222;
+        color: #fff;
+        padding: 7px 16px;
+        border-radius: 20px;
+        font-size: 15px;
+        white-space: nowrap;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+        pointer-events: none;
+    }
+    #bot-widget-btn:hover #bot-tooltip {
+        display: block;
+    }
+    @media (max-width: 600px) {
+        #bot-container {
+            right: 12px;
+            bottom: 12px;
+        }
+        #bot-widget-btn {
+            width: 52px;
+            height: 52px;
+        }
+        #bot-widget-btn img {
+            width: 32px;
+            height: 32px;
+        }
+        #bot-tooltip {
+            font-size: 13px;
+            bottom: 65px;
+        }
+    }
+</style>
+<div id="bot-container">
+    <button id="bot-widget-btn" aria-label="Chat Bot">
+        <img src="bot-avatar.png" alt="Bot" />
+        <span id="bot-tooltip">How can I help you?</span>
+    </button>
+</div>
+<script src="bot.js"></script>
+<script>
+    // Example: Show bot chat on click (if your bot.js exposes a function)
+    document.getElementById('bot-widget-btn').addEventListener('click', function () {
+        if (typeof createBotWidget === 'function') {
+            createBotWidget({
+                containerId: 'bot-container',
+                position: 'right',
+                bottom: '24px',
+                side: '24px'
+            });
+        }
+    });
+</script>
+<!-- ...existing code... -->
+</body>
 </html>
