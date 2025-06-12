@@ -1,23 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+  xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Home Page -->
   <url>
     <loc>https://www.example.com/</loc>
     <lastmod>2025-06-12</lastmod>
     <priority>1.00</priority>
   </url>
+
+  <!-- About Page -->
   <url>
     <loc>https://www.example.com/about</loc>
     <lastmod>2025-06-10</lastmod>
     <priority>0.80</priority>
   </url>
+
+  <!-- Products Section -->
+  <url>
+    <loc>https://www.example.com/products</loc>
+    <lastmod>2025-06-11</lastmod>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://www.example.com/products/product-1</loc>
+    <lastmod>2025-06-09</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.example.com/products/product-2</loc>
+    <lastmod>2025-06-09</lastmod>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Blog / News Headlines -->
+  <url>
+    <loc>https://www.example.com/news/article-1</loc>
+    <lastmod>2025-06-12</lastmod>
+    <news:news>
+      <news:publication>
+        <news:name>Example News</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-06-12</news:publication_date>
+      <news:title>Exciting Headline About Our New Product</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://www.example.com/news/article-2</loc>
+    <lastmod>2025-06-11</lastmod>
+    <news:news>
+      <news:publication>
+        <news:name>Example News</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-06-11</news:publication_date>
+      <news:title>Another Industry Update</news:title>
+    </news:news>
+  </url>
+
+  <!-- Contact Page -->
   <url>
     <loc>https://www.example.com/contact</loc>
     <lastmod>2025-06-08</lastmod>
-    <priority>0.64</priority>
+    <priority>0.60</priority>
   </url>
-  <url>
-    <loc>https://www.example.com/blog</loc>
-    <lastmod>2025-06-01</lastmod>
-    <priority>0.72</priority>
-  </url>
+
 </urlset>
