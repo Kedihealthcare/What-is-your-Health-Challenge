@@ -8084,7 +8084,7 @@ function addMessage(text, fromUser = false) {
   msg.style.textAlign = 'left';
 
   // Updated regex to correctly identify the specific WhatsApp link format
-  const whatsappRegex = /(https:\/\/wa\.me\/message\/2348114270136)/;
+  const whatsappRegex = /(https:\/\/wa\.me\/message\/WNGLZNUXKXXIF1)/;
   if (whatsappRegex.test(text)) {
     const parts = text.split(whatsappRegex);
     parts.forEach((part, index) => {
@@ -8600,7 +8600,7 @@ chatbotForm.onsubmit = function(e) {
 
     // Default fallback - now includes a WhatsApp link, only if bot hasn't replied yet
     if (!botReplied) {
-      const whatsappLink = "https://wa.me/2348114270136"; // Replace with your actual WhatsApp Business link
+      const whatsappLink = "https://wa.me/message/WNGLZNUXKXXIF1"; // Replace with your actual WhatsApp Business link
       addMessage(`I'm here to help! Ask me about our products, health issues, or for recommendations. For further assistance, please contact our customer care via ${whatsappLink}.`, false);
     }
   }, 600);
