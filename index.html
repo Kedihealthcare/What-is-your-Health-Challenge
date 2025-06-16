@@ -9030,16 +9030,6 @@ chatbotForm.onsubmit = function(e) {
       const whatsappLink = "https://wa.me/message/WNGLZNUXKXXIF1"; // Replace with your actual WhatsApp Business link
       addMessage(`I'm here to help! Ask me about our products, health issues, or for recommendations. For further assistance, please contact our customer care via ${whatsappLink}.`, false);
     }
-    
-    // Function to add a message to the chat
-    function addMessage(message, isUser) {
-      const chatBox = document.getElementById('chat-box');
-      const messageDiv = document.createElement('div');
-      messageDiv.className = isUser ? 'user-message' : 'bot-message';
-      messageDiv.textContent = message;
-      chatBox.appendChild(messageDiv);
-      chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom of the chat
-    }
 </script>
 
 </body>
