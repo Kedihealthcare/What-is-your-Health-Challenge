@@ -8513,6 +8513,35 @@ chatbotForm.onsubmit = function(e) {
     }
   ]; // Removed the extra closing bracket here, ensuring faqs array is closed properly
 
+   const WhatisyourHealthChallenge = [
+     { keywords: /what is your health challenge|health challenge/i, answer: "Your health challenge refers to any medical condition or issue you are currently facing or seeking help for." },
+    { keywords: /what can i do about my health challenge|how to address my health challenge/i, answer: "To address your health challenge, consider consulting a healthcare professional for personalized advice and treatment options." },
+    { keywords: /hi|hello|hey|greetings/i, answer: "Hello! How can I assist you today?" },
+    {keywords: /good morning|good afternoon|good evening|goodday/i, answer: "What’s your health challenge?🌿 Whether you're facing low energy, digestive issues, weak immunity, joint pain, or something deeper… there’s a natural path to support and healing — starting with understanding your body system.💡 Our interactive tool helps you identify:✅ The root of your health challenge.✅ Suggested cures and natural support.✅ Targeted supplement recommendations"}
+    { keywords: /how are you|how is it going|how do you do/i, answer: "I'm just a chatbot, but I'm here to help you! How can I assist you today?" },
+    { keywords: /what can you do|what can you help with/i, answer: "I can provide information on health challenges, recommend products, and answer frequently asked questions. How can I assist you?" },
+   { keywords: /bye|goodbye|see you later/i, answer: "Goodbye! Take care and feel free to return if you have more questions." },
+    { keywords: /thank you|thanks/i, answer: "You're welcome! If you have any more questions, feel free to ask." },
+    { keywords: /product|products|what can i use for/i, answer: "Please specify your health challenge or question so I can recommend the appropriate product." },
+    { keywords: /question|query|inquiry/i, answer: "What is your question? I'm here to help!" },
+    { keywords: /help|assist|support/i, answer: "I'm here to help! Please tell me about your health challenge or any questions you have." },
+  ];
+  const healthIssue = healthIssues.find(issue => issue.keywords.test(userMsg));
+  const faq = faqs.find(f => f.q.test(userMsg));
+  const healthChallenge = WhatisyourHealthChallenge.find(challenge => challenge.keywords.test(userMsg));
+  if (healthIssue) {
+    addMessage(healthIssue.answer);
+  } else if (faq) {
+    addMessage(faq.a);
+  } else if (healthChallenge) {
+    addMessage(healthChallenge.answer);
+  } else {
+    addMessage("I'm sorry, I don't have information on that. Please consult a healthcare professional for personalized advice @ https://wa.me/message/WNGLZNUXKXXIF1.");
+  }
+  }, 1000); // Simulate a delay for the bot response
+  return false; // Prevent form submission
+};
+
   const healthIssues = [
     { keywords: /headache|migraine/i, answer: "For headaches, consider hydration, rest, or over-the-counter pain relievers. If severe, please consult a doctor." },
     { keywords: /fever|temperature/i, answer: "A fever indicates an infection. Rest, fluids, and fever-reducing medication can help. If persistent or very high, seek medical advice." }, // Added missing comma
@@ -8521,17 +8550,8 @@ chatbotForm.onsubmit = function(e) {
     { keywords: /prostate|men gland|men's disease|what can i use for prostate/i, answer: "Lycovite and Reishi are beneficial for prostate health and men's wellness." },
     { keywords: /weight|obesity|i want to loose weight|what can i use to loose weight|i have obesity|what can i use to reduce obesity/i, answer: "Magilim is designed for weight management and fat burning." },
     { keywords: /immunity|immune|i want to boost my immune system|immune booster|i want to be strong|i want to be strong always/i, answer: "Reishi, Golden Hypha, and Cordy Royal Jelly help boost immunity." },
-     
-     //say hello
-     { keywords: /hi|hello|hey|greetings/i, answer: "Hello! How can I assist you today?" },
-        { keywords: /how are you|how are you doing/i, answer: "I'm just a program, but I'm here to help you with your health questions!" },
-        { keywords: /what's up|what's going on/i, answer: "I'm here to provide information and answer your health-related questions." },
-        { keywords: /good morning|good afternoon|good evening/i, answer: "Good day! How can I assist you?" },
-        { keywords: /thank you|thanks/i, answer: "You're welcome! If you have more questions, feel free to ask." },
-        { keywords: /bye|goodbye|see you later/i, answer: "Goodbye! Have a great day!" },
-         
 
-        //toothache and oral health related FAQs
+    //toothache and oral health related FAQs
     { keywords: /toothache|i have toothache|what can i use for my toothache|what can i use to my toothache/i, answer: "For toothache, Gum Care Toothpaste is recommended to help with oral health." },
     { keywords: /oral health|i want to improve my oral health|what can i use for my oral health|what can i use to my oral health/i, answer: "Gum Care Toothpaste is beneficial for maintaining good oral health." },
     { keywords: /gum care|i want to take care of my gums|what can i use for my gum care|what can i use to my gum care/i, answer: "Gum Care Toothpaste is specifically designed for gum care and oral hygiene." },
@@ -8849,6 +8869,13 @@ chatbotForm.onsubmit = function(e) {
      { keywords: /lower respiratory infections|i have lower respiratory infections|what can i use for my lower respiratory infections|what can i use to my lower respiratory infections/i, answer: "For lower respiratory infections, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
     //Upper Respiratory Infectionss
     { keywords: /upper respiratory infections|i have upper respiratory infections|what can i use for my upper respiratory infections|what can i use to my upper respiratory infections/i, answer: "For upper respiratory infections, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+    //
+
+
+
+
+
+
 
      //ringworm and skin related FAQs
     { keywords: /ringworm|i have ringworm|what can i use for my ringworm|what can i use to my ringworm/i, answer: "For ringworm, Grapemin E is recommended for skin health and glow." },
@@ -9002,7 +9029,8 @@ chatbotForm.onsubmit = function(e) {
       const whatsappLink = "https://wa.me/message/WNGLZNUXKXXIF1"; // Replace with your actual WhatsApp Business link
       addMessage(`I'm here to help! Ask me about our products, health issues, or for recommendations. For further assistance, please contact our customer care via ${whatsappLink}.`, false);
     }
-  };
+  }, 600);
+};
 </script>
 
 </body>
