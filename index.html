@@ -8072,6 +8072,9 @@ const chatbotForm = document.getElementById('chatbot-form');
 const chatbotInput = document.getElementById('chatbot-input');
 const chatbotMessages = document.getElementById('chatbot-messages');
 
+// Define WhatsApp Business Link as a constant
+const WHATSAPP_BUSINESS_LINK = "https://wa.me/message/WNGLZNUXKXXIF1";
+
 function addMessage(text, fromUser = false) {
   const msg = document.createElement('div');
   msg.style.margin = fromUser ? '8px 0 8px auto' : '8px auto 8px 0';
@@ -8082,983 +8085,409 @@ function addMessage(text, fromUser = false) {
   msg.style.maxWidth = '80%';
   msg.style.textAlign = 'left';
 
-  // Updated regex to correctly identify the specific WhatsApp link format
-  const whatsappRegex = /(https:\/\/wa\.me\/message\/WNGLZNUXKXXIF1)/;
-  if (whatsappRegex.test(text)) {
-    const parts = text.split(whatsappRegex);
-    parts.forEach((part, index) => {
-      if (whatsappRegex.test(part)) {
-        const link = document.createElement('a');
-        link.href = part;
-        link.textContent = 'WhatsApp Customer Care'; // Display text for the link
-        link.target = '_blank'; // Open in a new tab
-        link.style.color = fromUser ? '#fff' : '#1a73e8'; // Link color
-        link.style.textDecoration = 'underline';
-        msg.appendChild(link);
-      } else {
-        msg.appendChild(document.createTextNode(part));
-      }
-    });
+  // Check if the text contains the WhatsApp link or is HTML for a product card
+  const whatsappRegex = new RegExp(WHATSAPP_BUSINESS_LINK.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'i'); // Escape special characters for regex
+  if (whatsappRegex.test(text) || text.includes('<div class="product-card"')) { // Check for product card HTML
+    // If it's the WhatsApp link, process it as before
+    if (whatsappRegex.test(text)) {
+      const parts = text.split(whatsappRegex);
+      const linkHtml = `<a href="${WHATSAPP_BUSINESS_LINK}" target="_blank">Contact Customer Care on WhatsApp</a>`;
+      msg.innerHTML = parts[0] + linkHtml + parts[2];
+    } else {
+      // Otherwise, assume it's pre-formatted HTML (like a product card)
+      msg.innerHTML = text;
+      // Adjust styling for product cards if needed
+      msg.style.maxWidth = '90%'; // Allow product cards to be wider
+      msg.style.background = 'white'; // White background for product cards
+      msg.style.color = '#333';
+      msg.style.border = '1px solid #ddd';
+      msg.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
+      msg.style.padding = '0'; // Product card internal padding
+    }
   } else {
-    msg.textContent = text;
+    msg.textContent = text; // For plain text messages
   }
-
   chatbotMessages.appendChild(msg);
   chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
 }
 
-// FAQ, product, and health issue data - Defined globally
-const faqs = [
-  {
-    q: /what is reishi|reishi|about reishi/i,
-    a: "Reishi is a medicinal mushroom (Ganoderma lucidum) known for supporting immunity, vitality, and overall wellness. It is used in traditional medicine for its adaptogenic and immune-boosting properties."
-  },
-  {
-    q: /how to use reishi|reishi dosage|how do i take reishi/i,
-    a: "The typical dosage is 2 capsules daily with water, preferably in the morning. Always follow the product instructions or consult your doctor."
-  },
-  {
-    q: /reishi side effect|is reishi safe|danger of using reishi/i,
-    a: "Reishi is generally safe, but some may experience mild side effects like digestive upset or dry mouth. Always consult your healthcare provider before use."
-  },
-  {
-    q: /can reishi cure|treat infection/i,
-    a: "Reishi may help support your immune system and overall health, but it is not a substitute for prescribed medication. Always follow your doctor's advice."
-  },
-  {
-    q: /where can i buy reishi.*buy|purchase/i,
-    a: "You can buy Reishi supplements from reputable health stores or online at kedihealthcare.com."
-  },
-  {
-    q: /what is vigor essential|about vigor essential/i,
-    a: "Vigor Essential is a supplement designed to boost energy, stamina, and vitality. It contains Ginseng, Maca root, and a herbal blend to support men's health and performance."
-  },
-  {
-    q: /what is lycovite|about lycovite/i,
-    a: "Lycovite is formulated to improve men's health and vitality. It contains Lycopene, Zinc, and herbal extracts, and is especially helpful for prostate health."
-  },
-  {
-    q: /what is grapemin e|about grapemin/i,
-    a: "Grapemin E is a skin care supplement with grape seed extract, Vitamin E, and Aloe Vera. It enhances skin health and glow."
-  },
-{
-q: /what is hydrogen cup|about hydrogen cup/i,
-a: "Hydrogen Cup is a device that provides clean and healthy water by infusing it with hydrogen. It uses a hydrogen generator and BPA-free materials."
-},
-  {
-    q: /what is golden hypha|about golden hypha/i,
-    a: "Golden Hypha strengthens the immune system and supports body balance. It is an immune-boosting supplement."
-  },
-  {
-    q: /what is cordy royal jelly|about cordy royal jelly/i,
-    a: "Cordy Royal Jelly supports cardiovascular health, reduces fatigue, and boosts memory. It is made from royal jelly and cordyceps extract."
-  },
-  {
-    q: /what is magilim|about magilim/i,
-    a: "Magilim is used for weight management. It helps burn fat and control weight naturally."
-  },
-  {
-    q: /what is gum care toothpaste|about gum care/i,
-    a: "Gum Care Toothpaste is formulated to help with tooth and mouth issues, promoting oral health."
-  },
-  {
-    q: /what is 7 layer sanitary pad|about sanitary pad/i,
-    a: "7 Layer Sanitary Pad is designed for infection and irregular menstruation, providing comfort and protection."
-  },
-  {
-    q: /what is diawell|diawll|about diawell/i,
-    a: "Diawell helps regulate blood sugar and is beneficial for people with diabetes."
-  },
-  {
-    q: /what is jointeez|about jointeez/i,
-    a: "Jointeez supports strong bones and helps with joint pain and Parkinson's symptoms."
-  },
-  {
-    q: /what is haemocare|haemocare|about haemocare/i,
-    a: "Haemocare nourishes the blood, liver, and kidney, and boosts memory."
-  },
-  {
-    q: /what is calmazine|calmazine|about calmazine/i,
-    a: "Calmazine builds and supports healthy bones and teeth."
-  },
-  {
-    q: /what is constilese|constillese|about constilese/i,
-    a: "Constilese is used for weight management and relieves constipation."
-  },
-  {
-    q: /what is eye beta|eye bete|about eye beta/i,
-    a: "Eye Beta is a supplement for eye health, supporting vision and reducing eye fatigue."
-  },
-  {
-    q: /what is multi-vitamin|multi vitamin|multi-vitamiin|about multi-vitamin/i,
-    a: "Multi-Vitamin provides essential vitamins and minerals for overall health."
-  },
-  {
-    q: /what is cardibetter|about cardibetter/i,
-    a: "CardiBetter is designed to improve blood circulation and support cardiovascular health."
-  },
-  {
-    q: /what is revivrevive|re-vive|about revive/i,
-    a: "Revive enhances male sexual performance and improves mental alertness."
-  },
-  {
-    q: /what is memory 24\/7|memory 24\/7|memory|loss of memorys|about memory 24\/7/i,
-    a: "Memory 24/7 is a supplement to boost brain function and memory."
-  },
-
-  // start eve's comfort for women
-  {
-    q: /what is eve's comfort|eve's comfor|eve comfort|menstrual period|mentrual pain|about eve's comfort/i,
-    a: "Eve's Comfort is best for treating irregular menstruation and women's health issues."
-  },
-  {
-    q: /what can i use for mentrual crams|product for mentrual crams|menstrual pains medicine|menstrual pain pills/i,
-     a: "Eve's Comfort is best for treating irregular menstruation and women's health issues."
-  },
-   //end eve's comfort for women
-
-   //start qinghao for malaria
-  {
-    q: /what is qinghao|qinghao|about qinghao/i,
-    a: "Qinghao is used to treat malaria and typhoid."
-  },
-   {
-    q: /benefit of qinghao|health benefits of qinghao/i,
-    a: "Qinghao treat malaria and typhoid."
-  },
-  //end qinghao for malaria
-
-  {
-    q: /what is ultramega|ultramega|about ultramega/i,
-    a: "Ultramega improves heart health and reduces inflammation in the body."
-  },
-  {
-    q: /what is vitaprego|vitaprego|about vitaprego/i,
-    a: "Vitaprego is a supplement for women, supporting fertility and hormonal balance."
-  },
-  {
-    q: /what is vitagent|about vitagent/i,
-    a: "Vitagent is a supplement for overall vitality and energy."
-  },
-  {
-    q: /what is blood circulatory machine|about blood circulatory machine/i,
-    a: "Blood Circulatory Machine increases energy, improves immune system, and muscle tone."
-  },
-{
-q: /what is colon tea cleanser|about colon tea cleanser|colon tea/i,
-a: "Colon Tea Cleanser detoxifies the body and supports digestive health."
-},
-{
-  q: /what is liver care|liver care|about liver care/i,
-  a: "Liver Care supports liver function and detoxification, promoting overall liver health."
-},
-{
-  q: /what is gastritis capsule|gastritis|about gastritis capsule/i,
-  a: "Gastritis Capsule helps to relieve symptoms of gastritis and promotes digestive comfort."
-},
-{
-  q: /what is immune plus|about immune plus/i,
-  a: "Immune Plus is formulated to strengthen the immune system and enhance the body's natural defenses."
-},
-{
-  q: /what is prostate care|about prostate care/i,
-  a: "Prostate Care is a supplement designed to support prostate health and urinary function in men."
-},
-{
-  q: /what is slim rite tea|about slim rite tea/i,
-  a: "Slim Rite Tea is a natural tea that aids in weight management and promotes healthy digestion."
-},
-{
-  q: /what is karkade tea|about karkade tea/i,
-  a: "Karkade Tea is a herbal tea known for its antioxidant properties and for supporting cardiovascular health."
-},
-{
-  q: /what is anti-aging capsule|about anti-aging capsule/i,
-  a: "Anti-Aging Capsule is designed to combat signs of aging, promote youthful skin, and support overall vitality."
-},
-{
-  q: /what is bone and joint care|about bone and joint care/i,
-  a: "Bone and Joint Care is a supplement that supports strong bones, healthy joints, and flexibility."
-},
-{
-  q: /what is sleep well|about sleep well/i,
-  a: "Sleep Well is a natural supplement that helps promote relaxation and improve sleep quality."
-},
-{
-  q: /what is anti-hypertensive tea|about anti-hypertensive tea/i,
-  a: "Anti-Hypertensive Tea helps manage blood pressure and supports cardiovascular health."
-},
-{
-  q: /what is blood sugar balance|about blood sugar balance/i,
-  a: "Blood Sugar Balance is a supplement formulated to help regulate blood sugar levels and support metabolic health."
-},
-{
-  q: /what is vision clear|about vision clear/i,
-  a: "Vision Clear is a supplement that supports eye health and helps maintain clear vision."
-},
-{
-  q: /what is women's health capsule|about women's health capsule/i,
-  a: "Women's Health Capsule is designed to address various women's health concerns, including hormonal balance and reproductive health."
-},
-{
-  q: /what is men's health capsule|about men's health capsule/i,
-  a: "Men's Health Capsule is a supplement tailored to support men's overall health, energy, and vitality."
-},
-{
-  q: /what is detoxifier|about detoxifier/i,
-  a: "Detoxifier helps to cleanse the body of toxins and supports overall wellness."
-},
-{
-  q: /what is fat burner|about fat burner/i,
-  a: "Fat Burner is a supplement that assists in burning fat and supporting weight loss goals."
-},
-{
-  q: /what is energy booster|about energy booster/i,
-  a: "Energy Booster provides a natural increase in energy levels and helps combat fatigue."
-},
-{
-  q: /what is digestion support|about digestion support/i,
-  a: "Digestion Support aids in healthy digestion and nutrient absorption, reducing common digestive discomforts."
-},
-{
-  q: /what is stress relief|about stress relief/i,
-  a: "Stress Relief is a supplement or remedy designed to help calm the nervous system and reduce stress and anxiety."
-},
-{
-  q: /what is natural pain relief|about natural pain relief/i,
-  a: "Natural Pain Relief offers a non-pharmacological approach to alleviating various types of pain."
-},
-{
-  q: /what is skin glow|grape|about skin glow/i,
-  a: "Skin Glow is a supplement or product that promotes radiant and healthy-looking skin from within."
-},
-{
-  q: /what is hair growth supplement|about hair growth supplement/i,
-  a: "Hair Growth Supplement provides essential nutrients to support healthy hair growth and reduce hair loss."
-},
-{
-  q: /what is nail health|about nail health/i,
-  a: "Nail Health products aim to strengthen nails and promote healthy growth, preventing brittleness and breakage."
-},
-{
-  q: /what is joint flexibility|about joint flexibility/i,
-  a: "Joint Flexibility supplements or practices are designed to improve range of motion and reduce stiffness in joints."
-},
-{
-  q: /what is immune support for kids|about immune support for kids/i,
-  a: "Immune Support for Kids are specially formulated supplements to boost children's immune systems."
-},
-{
-  q: /what is cognitive enhancer|about cognitive enhancer/i,
-  a: "Cognitive Enhancer is a supplement that aims to improve memory, focus, and overall brain function."
-},
-{
-  q: /what is cardiovascular health|about cardiovascular health/i,
-  a: "Cardiovascular Health products support the heart and blood vessels, promoting healthy circulation and blood pressure."
-},
-{
-  q: /what is hormonal balance|about hormonal balance/i,
-  a: "Hormonal Balance supplements help to regulate hormones, addressing issues like mood swings, fatigue, and other related symptoms."
-},
-{
-  q: /what is fertility support|about fertility support/i,
-  a: "Fertility Support supplements provide nutrients and herbs that may aid in reproductive health for both men and women."
-},
-{
-  q: /what is natural sweetener|about natural sweetener/i,
-  a: "Natural Sweetener offers a healthier alternative to sugar, often derived from plants and providing sweetness without artificial additives."
-},
-{
-  q: /what is oral hygiene kit|about oral hygiene kit/i,
-  a: "Oral Hygiene Kit includes essential tools and products for comprehensive dental care, promoting clean teeth and fresh breath."
-},
-{
-  q: /what is first aid kit|about first aid kit/i,
-  a: "First Aid Kit contains supplies for treating minor injuries and emergencies, essential for every home or travel."
-},
-{
-  q: /what is organic food supplement|about organic food supplement/i,
-  a: "Organic Food Supplement are made from natural, organically grown ingredients, providing nutrients free from synthetic chemicals."
-},
-{
-  q: /what is probiotic supplement|about probiotic supplement/i,
-  a: "Probiotic Supplement contains beneficial bacteria that support gut health, digestion, and immune function."
-},
-
-  //omega3
-{
-  q: /what is omega-3 supplement|omega 3|omega-3|about omega-3 supplement/i,
-  a: "Omega-3 Supplement provides essential fatty acids beneficial for heart health, brain function, and reducing inflammation."
-},
-
- // vitamin d
-{
-  q: /what is vitamin d supplement|about vitamin d supplement/i,
-  a: "Vitamin D Supplement is essential for bone health, immune function, and overall well-being, especially for those with limited sun exposure."
-},
-
-  // body system dextoxification
-{
-  q: /what is blood cleanser|about blood cleanser/i,
-  a: "Blood Cleanser helps purify the blood and remove toxins from the body, supporting overall circulatory health."
-},
-//end colon tea
-{
-  q: /what is colon tea cleanser|colon tea|about colon cleanser tea/i,
-  a: " Cleanser helps purify the blood and remove toxins from the body, supporting overall circulatory health."
-},
-{
-  q: /what is anti-inflammatory|about anti-inflammatory/i,
-  a: "Anti-inflammatory products or supplements help reduce inflammation in the body, which can alleviate pain and swelling."
-},
-{
-  q: /what is kidney support|about kidney support/i,
-  a: "Kidney Support supplements are formulated to promote healthy kidney function and detoxification."
-},
-{
-  q: /what is essential oils|about essential oils/i,
-  a: "Essential Oils are concentrated plant extracts used for aromatherapy, relaxation, and various health benefits."
-},
-{
-  q: /what is herbal tea collection|about herbal tea collection/i,
-  a: "Herbal Tea Collection offers a variety of teas made from natural herbs, each with unique health benefits for relaxation, digestion, or energy."
-},
-{
-  q: /what is foot massager|foot massager|about foot massager/i,
-  a: "Foot Massager provides therapeutic relief for tired and aching feet, improving circulation and promoting relaxation."
-},
-{
-  q: /what is air purifier|about air purifier/i,
-  a: "Air Purifier cleans the air by removing allergens, dust, and pollutants, creating a healthier indoor environment."
-},
-
-  //Water Purification
-{
-  q: /what is water filter|about water filter/i,
-  a: "Water Filter removes impurities and contaminants from drinking water, providing clean and safe water for consumption."
-},
-{
-  q: /what is hydrogen water|hydrogen water|about hydrogen water/i,
-  a: "Water Filter removes impurities and contaminants from drinking water, providing clean and safe water for consumption."
-},
-// end water purification
-
-{
-  q: /what is smart watch fitness tracker|about smart watch fitness tracker/i,
-  a: "Smart Watch Fitness Tracker monitors daily activity, heart rate, sleep, and provides smart notifications for a healthy lifestyle."
-},
-{
-  q: /what is yoga mat|about yoga mat/i,
-  a: "Yoga Mat provides a comfortable and non-slip surface for yoga, pilates, and other floor exercises."
-},
-{
-  q: /what is resistance bands|about resistance bands/i,
-  a: "Resistance Bands are versatile exercise tools used for strength training, physical therapy, and stretching."
-},
-{
-  q: /what is meditation cushion|about meditation cushion/i,
-  a: "Meditation Cushion provides comfort and support for prolonged sitting during meditation practices."
-},
-{
-  q: /what is aromatherapy diffuser|about aromatherapy diffuser/i,
-  a: "Aromatherapy Diffuser disperses essential oils into the air, creating a calming or invigorating atmosphere."
-},
-{
-  q: /what is sleep mask|about sleep mask/i,
-  a: "Sleep Mask blocks out light to help improve sleep quality and promote deeper rest."
-},
-{
-  q: /what is posture corrector|about posture corrector/i,
-  a: "Posture Corrector helps improve spinal alignment and reduces back and neck pain by encouraging better posture."
-},
-{
-  q: /what is ergonomic chair|about ergonomic chair/i,
-  a: "Ergonomic Chair is designed to provide optimal support and comfort, reducing strain during long periods of sitting."
-},
-{
-  q: /what is blue light blocking glasses|about blue light blocking glasses/i,
-  a: "Blue Light Blocking Glasses protect your eyes from harmful blue light emitted by screens, reducing eye strain and improving sleep."
-},
-{
-  q: /what is sound machine|about sound machine/i,
-  a: "Sound Machine creates soothing ambient sounds to help with relaxation, focus, and sleep."
-},
-{
-  q: /what is sunrise alarm clock|about sunrise alarm clock/i,
-  a: "Sunrise Alarm Clock simulates a natural sunrise to gently wake you up, promoting a more natural and refreshing start to your day."
-},
-{
-  q: /what is light therapy lamp|about light therapy lamp/i,
-  a: "Light Therapy Lamp mimics natural sunlight to boost mood, energy levels, and regulate sleep patterns, especially during darker months."
-},
-{
-  q: /what is humidifiers|about humidifiers/i,
-  a: "Humidifiers add moisture to the air, helping to relieve dry skin, congestion, and respiratory issues."
-},
-{
-  q: /what is dehumidifiers|about dehumidifiers/i,
-  a: "Dehumidifiers remove excess moisture from the air, preventing mold growth, reducing allergens, and creating a more comfortable environment."
-  }
-];
-
-const healthIssues = [
-  { keywords: /headache|migraine/i, answer: "For headaches, consider hydration, rest, or over-the-counter pain relievers. If severe, please consult a doctor." },
-  { keywords: /fever|temperature/i, answer: "A fever indicates an infection. Rest, fluids, and fever-reducing medication can help. If persistent or very high, seek medical advice." },
-  { keywords: /diabetes|blood sugar|diabetes patient|what can i use for diabetes/i, answer: "For diabetes and blood sugar regulation, Diawell and Golden Six are recommended. Always consult your doctor before starting any supplement." },
-  { keywords: /hypertension|high blood pressure|what can a hypertensive patient use/i, answer: "For hypertension, Golden Six and Cello Q10 are helpful. Maintain a healthy lifestyle and consult your healthcare provider." },
-  { keywords: /prostate|men gland|men's disease|what can i use for prostate/i, answer: "Lycovite and Reishi are beneficial for prostate health and men's wellness." },
-  { keywords: /weight|obesity|i want to loose weight|what can i use to loose weight|i have obesity|what can i use to reduce obesity/i, answer: "Magilim is designed for weight management and fat burning." },
-  { keywords: /immunity|immune|i want to boost my immune system|immune booster|i want to be strong|i want to be strong always/i, answer: "Reishi, Golden Hypha, and Cordy Royal Jelly help boost immunity." },
-  { keywords: /what is your health challenge|health challenge/i, answer: "Your health challenge refers to any medical condition or issue you are currently facing or seeking help for." },
-  { keywords: /what can i do about my health challenge|how to address my health challenge/i, answer: "To address your health challenge, consider consulting a healthcare professional for personalized advice and treatment options." },
-  { keywords: /hi|hello|hey|greetings/i, answer: "Hello! How can I assist you today?" },
-  {keywords: /good morning|good afternoon|good evening|goodday/i, answer: "What’s your health challenge?🌿 Whether you're facing low energy, digestive issues, weak immunity, joint pain, or something deeper… there’s a natural path to support and healing — starting with understanding your body system.💡 Our interactive tool helps you identify:✅ The root of your health challenge.✅ Suggested cures and natural support.✅ Targeted supplement recommendations"},
-  { keywords: /how are you|how is it going|how do you do/i, answer: "I'm just a chatbot, but I'm here to help you! How can I assist you today?" },
-  { keywords: /what can you do|what can you help with/i, answer: "I can provide information on health challenges, recommend products, and answer frequently asked questions. How can I assist you?" },
-  { keywords: /bye|goodbye|see you later/i, answer: "Goodbye! Take care and feel free to return if you have more questions." },
-  { keywords: /thank you|thanks/i, answer: "You're welcome! If you have any more questions, feel free to ask." },
-  { keywords: /product|products|what can i use for/i, answer: "Please specify your health challenge or question so I can recommend the appropriate product." },
-  { keywords: /question|query|inquiry/i, answer: "What is your question? I'm here to help!" },
-  { keywords: /help|assist|support/i, answer: "I'm here to help! Please tell me about your health challenge or any questions you have." },
-  { keywords: /i want to know the status of my health challenge|i want to know the status of my health/i, answer: "OK! I'm here to help! kindly tell me the symptoms you're experiencing or you can ask me any questions you have." },
-  { keywords: /diagnosis|diag|iwant you to diagnos my health|what is my health issue/i, answer: "In what part of your body." },
-
-
-  //toothache and oral health related FAQs
-  { keywords: /toothache|i have toothache|what can i use for my toothache|what can i use to my toothache/i, answer: "For toothache, Gum Care Toothpaste is recommended to help with oral health." },
-  { keywords: /oral health|i want to improve my oral health|what can i use for my oral health|what can i use to my oral health/i, answer: "Gum Care Toothpaste is beneficial for maintaining good oral health." },
-  { keywords: /gum care|i want to take care of my gums|what can i use for my gum care|what can i use to my gum care/i, answer: "Gum Care Toothpaste is specifically designed for gum care and oral hygiene." },
-  { keywords: /mouth health|i want to improve my mouth health|what can i use for my mouth health|what can i use to my mouth health/i, answer: "Gum Care Toothpaste is effective for maintaining mouth health." },
-  { keywords: /dental care|i want to take care of my teeth|what can i use for my dental care|what can i use to my dental care/i, answer: "Gum Care Toothpaste is a great choice for dental care and oral hygiene." },
-  { keywords: /toothpaste|i want to use toothpaste|what can i use for my toothpaste|what can i use to my toothpaste/i, answer: "Gum Care Toothpaste is recommended for effective oral care." },
-  { keywords: /tooth health|i want to take care of my teeth|what can i use for my tooth health|what can i use to my tooth health/i, answer: "Gum Care Toothpaste is beneficial for maintaining healthy teeth." },
-  { keywords: /tooth care|i want to take care of my teeth|what can i use for my tooth care|what can i use to my tooth care/i, answer: "Gum Care Toothpaste is a great choice for tooth care and oral hygiene." },
-  { keywords: /toothpaste for gum care|i want to use toothpaste for gum care|what can i use for my gum care|what can i use to my gum care/i, answer: "Gum Care Toothpaste is specifically formulated for gum care and oral hygiene." },
-  { keywords: /oral hygiene|i want to improve my oral hygiene|what can i use for my oral hygiene|what can i use to my oral hygiene/i, answer: "Gum Care Toothpaste is effective for promoting good oral hygiene." },
-  { keywords: /tooth health|i want to improve my tooth health|what can i use for my tooth health|what can i use to my tooth health/i, answer: "Gum Care Toothpaste is beneficial for maintaining healthy teeth." },
-  { keywords: /dental hygiene|i want to improve my dental hygiene|what can i use for my dental hygiene|what can i use to my dental hygiene/i, answer: "Gum Care Toothpaste is effective for promoting good dental hygiene." },
-  { keywords: /oral care|i want to take care of my oral health|what can i use for my oral care|what can i use to my oral care/i, answer: "Gum Care Toothpaste is a great choice for overall oral care." },
-  { keywords: /toothpaste for mouth care|i want to use toothpaste for mouth care|what can i use for my mouth care|what can i use to my mouth care/i, answer: "Gum Care Toothpaste is specifically formulated for mouth care and oral hygiene." },
-  { keywords: /mouth care|i want to take care of my mouth|what can i use for my mouth care|what can i use to my mouth care/i, answer: "Gum Care Toothpaste is effective for maintaining mouth health." },
-
-  //Hepatitis and Liver related FAQs
-  { keywords: /hepatitis|i have hepatitis|what can i use for my hepatitis|what can i use to my hepatitis/i, answer: "For hepatitis, Haemocare is recommended to nourish the liver and support overall health." },
-  { keywords: /liver health|i want to improve my liver health|what can i use for my liver health|what can i use to my liver health/i, answer: "Haemocare is beneficial for supporting liver health and function." },
-  { keywords: /liver disease|i have liver disease|what can i use for my liver disease|what can i use to my liver disease/i, answer: "Haemocare is recommended for managing liver disease and promoting liver health." },
-  { keywords: /liver function|i want to improve my liver function|what can i use for my liver function|what can i use to my liver function/i, answer: "Haemocare helps support liver function and overall health." },
-  { keywords: /liver detox|i want to detox my liver|what can i use for my liver detox|what can i use to my liver detox/i, answer: "Haemocare is effective for liver detoxification and promoting liver health." },
-  { keywords: /liver support|i want to support my liver|what can i use for my liver support|what can i use to my liver support/i, answer: "Haemocare is a great choice for liver support and overall health." },
-  { keywords: /liver care|i want to take care of my liver|what can i use for my liver care|what can i use to my liver care/i, answer: "Haemocare is beneficial for liver care and promoting overall health." },
-  { keywords: /liver problems|i have liver problems|what can i use for my liver problems|what can i use to my liver problems/i, answer: "Haemocare is recommended for addressing liver problems and supporting liver health." },
-  { keywords: /liver issues|i have liver issues|what can i use for my liver issues|what can i use to my liver issues/i, answer: "Haemocare is effective for managing liver issues and promoting liver health." },
-
-   //tuberculosis and respiratory related FAQs
-  { keywords: /tuberculosis|i have tuberculosis|what can i use for my tuberculosis|what can i use to my tuberculosis/i, answer: "For tuberculosis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  { keywords: /respiratory health|i want to improve my respiratory health|what can i use for my respiratory health|what can i use to my respiratory health/i, answer: "For respiratory health, consider using Haemocare to support overall well-being." },
-  { keywords: /lung health|i want to improve my lung health|what can i use for my lung health|what can i use to my lung health/i, answer: "Haemocare can help support lung health and overall respiratory function." },
-  { keywords: /asthma|i have asthma|what can i use for my asthma|what can i use to my asthma/i, answer: "For asthma, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  { keywords: /bronchitis|i have bronchitis|what can i use for my bronchitis|what can i use to my bronchitis/i, answer: "For bronchitis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-  { keywords: /cough|i have a cough|what can i use for my cough|what can i use to my cough/i, answer: "For cough relief, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
-  { keywords: /flu|i have the flu|what can i use for my flu|what can i use to my flu/i, answer: "For flu symptoms, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
-  { keywords: /cold|i have a cold|what can i use for my cold|what can i use to my cold/i, answer: "For cold symptoms, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
-
-
-  { keywords: /allergies|i have allergies|what can i use for my allergies|what can i use to my allergies/i, answer: "For allergies, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
-  { keywords: /sinusitis|i have sinusitis|what can i use for my sinusitis|what can i use to my sinusitis/i, answer: "For sinusitis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  { keywords: /pneumonia|i have pneumonia|what can i use for my pneumonia|what can i use to my pneumonia/i, answer: "For pneumonia, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-  //diarrhea and constipation related FAQs
-  { keywords: /diarrhea|i have diarrhea|what can i use for my diarrhea|what can i use to my diarrhea/i, answer: "For diarrhea, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  { keywords: /constipation|i have constipation|what can i use for my constipation|what can i use to my constipation/i, answer: "For constipation, consider using Haemocare to support digestive health." },
-
-
-  { keywords: /digestive health|i want to improve my digestive health|what can i use for my digestive health|what can i use to my digestive health/i, answer: "For digestive health, Haemocare is beneficial for supporting overall digestive function." },
-
-  //diabetes and blood sugar related FAQs
-  { keywords: /diabetes|i have diabetes|what can i use for my diabetes|what can i use to my diabetes/i, answer: "For diabetes management, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  { keywords: /blood sugar|i want to manage my blood sugar|what can i use for my blood sugar|what can i use to my blood sugar/i, answer: "For blood sugar management, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
-  { keywords: /blood pressure|i want to manage my blood pressure|what can i use for my blood pressure|what can i use to my blood pressure/i, answer: "For blood pressure management, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
-  { keywords: /hypertension|i have hypertension|what can i use for my hypertension|what can i use to my hypertension/i, answer: "For hypertension, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-  //heart disease and cardiovascular related FAQs
-  { keywords: /heart disease|i have heart disease|what can i use for my heart disease|what can i use to my heart disease/i, answer: "For heart disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  { keywords: /cardiovascular health|i want to improve my cardiovascular health|what can i use for my cardiovascular health|what can i use to my cardiovascular health/i, answer: "For cardiovascular health, consider using Haemocare to support overall heart function." },
-  { keywords: /cholesterol|i want to manage my cholesterol|what can i use for my cholesterol|what can i use to my cholesterol/i, answer: "For cholesterol management, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
-  { keywords: /stroke|i have had a stroke|what can i use for my stroke|what can i use to my stroke/i, answer: "For stroke recovery, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-  //cancer and tumor related FAQs
-  { keywords: /cancer|i have cancer|what can i use for my cancer|what can i use to my cancer/i, answer: "For cancer treatment, please consult a healthcare professional for appropriate care. Haemocare can support overall health." },
-  { keywords: /tumor|i have a tumor|what can i use for my tumor|what can i use to my tumor/i, answer: "For tumor treatment, please consult a healthcare professional for appropriate care. Haemocare can support overall health." },
-
-  //anemia and blood health related FAQs
-  { keywords: /anemia|i have anemia|what can i use for my anemia|what can i use to my anemia/i, answer: "For anemia, consider using Haemocare to support blood health and overall well-being." },
-  { keywords: /blood health|i want to improve my blood health|what can i use for my blood health|what can i use to my blood health/i, answer: "For blood health, Haemocare is beneficial for supporting overall blood function." },
-  { keywords: /iron deficiency|i have iron deficiency|what can i use for my iron deficiency|what can i use to my iron deficiency/i, answer: "For iron deficiency, consider using Haemocare to support blood health. Consult a healthcare professional for specific treatments." },
-  { keywords: /blood disorders|i have a blood disorder|what can i use for my blood disorder|what can i use to my blood disorder/i, answer: "For blood disorders, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-  //allergies and immune system related FAQs
-  { keywords: /allergies|i have allergies|what can i use for my allergies|what can i use to my allergies/i, answer: "For allergies, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
-  { keywords: /immune system|i want to boost my immune system|what can i use for my immune system|what can i use to my immune system/i, answer: "For boosting the immune system, consider using Haemocare to support overall health." },
-
-  //stress and anxiety related FAQs
-  { keywords: /stress|i have stress|what can i use for my stress|what can i use to my stress/i, answer: "For stress relief, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
-  { keywords: /anxiety|i have anxiety|what can i use for my anxiety|what can i use to my anxiety/i, answer: "For anxiety relief, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
-  { keywords: /depression|i have depression|what can i use for my depression|what can i use to my depression/i, answer: "For depression, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
- //mental health|i want to improve my mental health|what can i use for my mental health|what can i use to my mental health/i, answer: "For mental health support, consider using Haemocare to promote overall well-being." },
-  { keywords: /mental health|i want to improve my mental health|what can i use for my mental health|what can i use to my mental health/i, answer: "For mental health support, consider using Haemocare to promote overall well-being." },
-
-  //sleep disorders and insomnia related FAQs
-  { keywords: /sleep disorders|i have sleep disorders|what can i use for my sleep disorders|what can i use to my sleep disorders/i, answer: "For sleep disorders, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
-  { keywords: /insomnia|i have insomnia|what can i use for my insomnia|what can i use to my insomnia/i, answer: "For insomnia, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
-
-  ///fatigue and low energy related FAQs
-  { keywords: /fatigue|i have fatigue|what can i use for my fatigue|what can i use to my fatigue/i, answer: "For fatigue, consider using Haemocare to support overall health and energy levels." },
-  { keywords: /low energy|i have low energy|what can i use for my low energy|what can i use to my low energy/i, answer: "For low energy, consider using Haemocare to support overall health and vitality." },
-  { keywords: /chronic fatigue|i have chronic fatigue|what can i use for my chronic fatigue|what can i use to my chronic fatigue/i, answer: "For chronic fatigue, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
-
-   //Ischemic Heart Disease (Coronary Artery Disease)
-  { keywords: /ischemic heart disease|i have ischemic heart disease|what can i use for my ischemic heart disease|what can i use to my ischemic heart disease/i, answer: "For ischemic heart disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-   //Obesity and Weight Management
-  { keywords: /obesity|i have obesity|what can i use for my obesity|what can i use to my obesity/i, answer: "For obesity management, consider using Magilim to support weight loss and fat burning." },
-
-
-  //Gastroesophageal Reflux Disease (GERD)
-  { keywords: /gastroesophageal reflux disease|i have gastroesophageal reflux disease|what can i use for my gastroesophageal reflux disease|what can i use to my gastroesophageal reflux disease/i, answer: "For GERD, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-
-  //Peptic Ulcer Disease
-  { keywords: /peptic ulcer disease|i have peptic ulcer disease|what can i use for my peptic ulcer disease|what can i use to my peptic ulcer disease/i, answer: "For peptic ulcer disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-
-  //Inflammatory Bowel Disease (IBD)
-  { keywords: /inflammatory bowel disease|i have inflammatory bowel disease|what can i use for my inflammatory bowel disease|what can i use to my inflammatory bowel disease/i, answer: "For inflammatory bowel disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-  //Chronic Kidney Disease (CKD)
-  { keywords: /chronic kidney disease|i have chronic kidney disease|what can i use for my chronic kidney disease|what can i use to my chronic kidney disease/i, answer: "For chronic kidney disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-  //Urinary Tract Infections (UTIs)
-  { keywords: /urinary tract infections|i have urinary tract infections|what can i use for my urinary tract infections|what can i use to my urinary tract infections/i, answer: "For urinary tract infections, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-
-  //Stroke (Cerebrovascular Accident)
-  { keywords: /stroke|i have had a stroke|what can i use for my stroke|what can i use to my stroke/i, answer: "For stroke recovery, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-  //Parkinson's Disease
-  { keywords: /parkinson's disease|i have parkinson's disease|what can i use for my parkinson's disease|what can i use to my parkinson's disease/i, answer: "For Parkinson's disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-  //Alzheimer's Disease
-  { keywords: /alzheimer's disease|i have alzheimer's disease|what can i use for my alzheimer's disease|what can i use to my alzheimer's disease/i, answer: "For Alzheimer's disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-  //Multiple Sclerosis (MS)
-  { keywords: /multiple sclerosis|i have multiple sclerosis|what can i use for my multiple sclerosis|what can i use to my multiple sclerosis/i, answer: "For multiple sclerosis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-  //Rheumatoid Arthritis
-  { keywords: /rheumatoid arthritis|i have rheumatoid arthritis|what can i use for my rheumatoid arthritis|what can i use to my rheumatoid arthritis/i, answer: "For rheumatoid arthritis, Jointeez is recommended to support joint health and relieve pain." },
-
-  //Psoriatic Arthritis
-  { keywords: /psoriatic arthritis|i have psoriatic arthritis|what can i use for my psoriatic arthritis|what can i use to my psoriatic arthritis/i, answer: "For psoriatic arthritis, Jointeez is recommended to support joint health and relieve pain." },
-
-  //Osteoarthritis
-  { keywords: /osteoarthritis|i have osteoarthritis|what can i use for my osteoarthritis|what can i use to my osteoarthritis/i, answer: "For osteoarthritis, Jointeez is recommended to support joint health and relieve pain." },
-
-  //Gout
-  { keywords: /gout|i have gout|what can i use for my gout|what can i use to my gout/i, answer: "For gout, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-   //Lung Cancer
-   { keywords: /lung cancer|i have lung cancer|what can i use for my lung cancer|what can i use to my lung cancer/i, answer: "For lung cancer, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-   //Colorectal Cancer
-  { keywords: /colorectal cancer|i have colorectal cancer|what can i use for my colorectal cancer|what can i use to my colorectal cancer/i, answer: "For colorectal cancer, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-   //Breast Cancer
-  { keywords: /breast cancer|i have breast cancer|what can i use for my breast cancer|what can i use to my breast cancer/i, answer: "For breast cancer, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-  //Prostate Cancer
-  { keywords: /prostate cancer|i have prostate cancer|what can i use for my prostate cancer|what can i use to my prostate cancer/i, answer: "For prostate cancer, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-  //lumps
-  { keywords: /lumps|i have lumps|what can i use for my lumps|what can i use to my lumps/i, answer: "For lumps, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lump|i have a lump|what can i use for my lump|what can i use to my lump/i, answer: "For lumps, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." }, 
-  { keywords: /lumps in my body|i have lumps in my body|what can i use for my lumps in my body|what can i use to my lumps in my body/i, answer: "For lumps, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lump in my body|i have a lump in my body|what can i use for my lump in my body|what can i use to my lump in my body/i, answer: "For lumps, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lumps in my breast|i have lumps in my breast|what can i use for my lumps in my breast|what can i use to my lumps in my breast/i, answer: "For lumps in the breast, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lump in my breast|i have a lump in my breast|what can i use for my lump in my breast|what can i use to my lump in my breast/i, answer: "For lumps in the breast, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lumps in my neck|i have lumps in my neck|what can i use for my lumps in my neck|what can i use to my lumps in my neck/i, answer: "For lumps in the neck, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lump in my neck|i have a lump in my neck|what can i use for my lump in my neck|what can i use to my lump in my neck/i, answer: "For lumps in the neck, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lumps in my armpit|i have lumps in my armpit|what can i use for my lumps in my armpit|what can i use to my lumps in my armpit/i, answer: "For lumps in the armpit, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lump in my armpit|i have a lump in my armpit|what can i use for my lump in my armpit|what can i use to my lump in my armpit/i, answer: "For lumps in the armpit, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lumps in my abdomen|i have lumps in my abdomen|what can i use for my lumps in my abdomen|what can i use to my lumps in my abdomen/i, answer: "For lumps in the abdomen, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lump in my abdomen|i have a lump in my abdomen|what can i use for my lump in my abdomen|what can i use to my lump in my abdomen/i, answer: "For lumps in the abdomen, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lumps in my groin|i have lumps in my groin|what can i use for my lumps in my groin|what can i use to my lumps in my groin/i, answer: "For lumps in the groin, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lump in my groin|i have a lump in my groin|what can i use for my lump in my groin|what can i use to my lump in my groin/i, answer: "For lumps in the groin, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lumps in my leg|i have lumps in my leg|what can i use for my lumps in my leg|what can i use to my lumps in my leg/i, answer: "For lumps in the leg, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lump in my leg|i have a lump in my leg|what can i use for my lump in my leg|what can i use to my lump in my leg/i, answer: "For lumps in the leg, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lumps in my arm|i have lumps in my arm|what can i use for my lumps in my arm|what can i use to my lumps in my arm/i, answer: "For lumps in the arm, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lump in my arm|i have a lump in my arm|what can i use for my lump in my arm|what can i use to my lump in my arm/i, answer: "For lumps in the arm, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lumps in my back|i have lumps in my back|what can i use for my lumps in my back|what can i use to my lumps in my back/i, answer: "For lumps in the back, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lump in my back|i have a lump in my back|what can i use for my lump in my back|what can i use to my lump in my back/i, answer: "For lumps in the back, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lumps in my chest|i have lumps in my chest|what can i use for my lumps in my chest|what can i use to my lumps in my chest/i, answer: "For lumps in the chest, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lump in my chest|i have a lump in my chest|what can i use for my lump in my chest|what can i use to my lump in my chest/i, answer: "For lumps in the chest, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lumps in my face|i have lumps in my face|what can i use for my lumps in my face|what can i use to my lumps in my face/i, answer: "For lumps in the face, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lump in my face|i have a lump in my face|what can i use for my lump in my face|what can i use to my lump in my face/i, answer: "For lumps in the face, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lumps in my scalp|i have lumps in my scalp|what can i use for my lumps in my scalp|what can i use to my lumps in my scalp/i, answer: "For lumps on the scalp, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /lump in my scalp|i have a lump in my scalp|what can i use for my lump in my scalp|what can i use to my lump in my scalp/i, answer: "For lumps on the scalp, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-  { keywords: /breast lump|breast lumps|what is breast lumps|what is breast lump/i, answer: "A breast lump is a thickening or bump in the breast tissue that feels different from the surrounding area. It can be a fluid-filled sac (cyst) or a solid mass, and while most are not cancerous, it's important to get any new or changing lumps checked by a doctor. " },
-
-
-  //cysts
-  { keywords: /cysts|i have cysts|what can i use for my cysts|what can i use to my cysts/i, answer: "For cysts, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-
-  //fibroids
-  { keywords: /fibroids|i have fibroids|what can i use for my fibroids|what can i use to my fibroids/i, answer: "For fibroids, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-
-   //Liver Cancer
-  { keywords: /liver cancer|i have liver cancer|what can i use for my liver cancer|what can i use to my liver cancer/i, answer: "For liver cancer, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-   //Stomach Cancer
-  { keywords: /stomach cancer|i have stomach cancer|what can i use for my stomach cancer|what can i use to my stomach cancer/i, answer: "For stomach cancer, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-   //Cervical Cancer
-  { keywords: /cervical cancer|i have cervical cancer|what can i use for my cervical cancer|what can i use to my cervical cancer/i, answer: "For cervical cancer, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-   //Thyroid Cancer
-  { keywords: /thyroid cancer|i have thyroid cancer|what can i use for my thyroid cancer|what can i use to my thyroid cancer/i, answer: "For thyroid cancer, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-
-   //Leukemia
-  { keywords: /leukemia|i have leukemia|what can i use for my leukemia|what can i use to my leukemia/i, answer: "For leukemia, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-   //Lymphoma
-  { keywords: /lymphoma|i have lymphoma|what can i use for my lymphoma|what can i use to my lymphoma/i, answer: "For lymphoma, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-   //Chronic Obstructive Pulmonary Disease (COPD)
-  { keywords: /chronic obstructive pulmonary disease|i have chronic obstructive pulmonary disease|what can i use for my chronic obstructive pulmonary disease|what can i use to my chronic obstructive pulmonary disease/i, answer: "For COPD, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Chronic Sinusitis
-  { keywords: /chronic sinusitis|i have chronic sinusitis|what can i use for my chronic sinusitis|what can i use to my chronic sinusitis/i, answer: "For chronic sinusitis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Chronic Fatigue Syndrome (CFS)
-  { keywords: /chronic fatigue syndrome|i have chronic fatigue syndrome|what can i use for my chronic fatigue syndrome|what can i use to my chronic fatigue syndrome/i, answer: "For chronic fatigue syndrome, consider using Haemocare to support overall health and energy levels." },
-   //Chronic Pain Conditions
-  { keywords: /chronic pain|i have chronic pain|what can i use for my chronic pain|what can i use to my chronic pain/i, answer: "For chronic pain, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
-  //Chronic Infections
-  { keywords: /chronic infections|i have chronic infections|what can i use for my chronic infections|what can i use to my chronic infections/i, answer: "For chronic infections, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-   //Chronic Skin Conditions
-  { keywords: /chronic skin conditions|i have chronic skin conditions|what can i use for my chronic skin conditions|what can i use to my chronic skin conditions/i, answer: "For chronic skin conditions, consider using Grapemin E to support skin health and glow." },
-   //Asthma
-  { keywords: /asthma|i have asthma|what can i use for my asthma|what can i use to my asthma/i, answer: "For asthma, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //eczema and psoriasis related FAQs
-  { keywords: /eczema|i have eczema|what can i use for my eczema|what can i use to my eczema/i, answer: "For eczema, Grapemin E is recommended to soothe skin and promote healing." },
-   //Cystic Fibrosis
-  { keywords: /cystic fibrosis|i have cystic fibrosis|what can i use for my cystic fibrosis|what can i use to my cystic fibrosis/i, answer: "For cystic fibrosis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  { keywords: /psoriasis|i have psoriasis|what can i use for my psoriasis|what can i use to my psoriasis/i, answer: "For psoriasis, Grapemin E is recommended to soothe skin and promote healing." },
-   //Atopic Dermatitis
-  { keywords: /atopic dermatitis|i have atopic dermatitis|what can i use for my atopic dermatitis|what can i use to my atopic dermatitis/i, answer: "For atopic dermatitis, Grapemin E is recommended to soothe skin and promote healing." },
-   //Contact Dermatitis
-  { keywords: /contact dermatitis|i have contact dermatitis|what can i use for my contact dermatitis|what can i use to my contact dermatitis/i, answer: "For contact dermatitis, Grapemin E is recommended to soothe skin and promote healing." },
-   //Allergic Rhinitis
-  { keywords: /allergic rhinitis|i have allergic rhinitis|what can i use for my allergic rhinitis|what can i use to my allergic rhinitis/i, answer: "For allergic rhinitis, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
-   //Type 1 Diabetes
-  { keywords: /type 1 diabetes|i have type 1 diabetes|what can i use for my type 1 diabetes|what can i use to my type 1 diabetes/i, answer: "For type 1 diabetes management, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Type 2 Diabetes
-  { keywords: /type 2 diabetes|i have type 2 diabetes|what can i use for my type 2 diabetes|what can i use to my type 2 diabetes/i, answer: "For type 2 diabetes management, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-   //Gestational Diabetes
-  { keywords: /gestational diabetes|i have gestational diabetes|what can i use for my gestational diabetes|what can i use to my gestational diabetes/i, answer: "For gestational diabetes management, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Polycystic Ovary Syndrome (PCOS)
-  { keywords: /polycystic ovary syndrome|i have polycystic ovary syndrome|what can i use for my polycystic ovary syndrome|what can i use to my polycystic ovary syndrome/i, answer: "For polycystic ovary syndrome (PCOS), please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Thyroid Disorders
-  { keywords: /thyroid disorders|i have thyroid disorders|what can i use for my thyroid disorders|what can i use to my thyroid disorders/i, answer: "For thyroid disorders, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Hypothyroidism
-  { keywords: /hypothyroidism|i have hypothyroidism|what can i use for my hypothyroidism|what can i use to my hypothyroidism/i, answer: "For hypothyroidism, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Hyperthyroidism
-  { keywords: /hyperthyroidism|i have hyperthyroidism|what can i use for my hyperthyroidism|what can i use to my hyperthyroidism/i, answer: "For hyperthyroidism, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Hashimoto's Thyroiditis
-  { keywords: /hashimoto's thyroiditis|i have hashimoto's thyroiditis|what can i use for my hashimoto's thyroiditis|what can i use to my hashimoto's thyroiditis/i, answer: "For Hashimoto's thyroiditis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Graves' Disease
-  { keywords: /graves' disease|i have graves' disease|what can i use for my graves' disease|what can i use to my graves' disease/i, answer: "For Graves' disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //HIV/AIDS
-  { keywords: /hiv|aids|i have hiv|i have aids|what can i use for my hiv|what can i use to my aids/i, answer: "For HIV/AIDS management, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Hepatitis B
-  { keywords: /hepatitis b|i have hepatitis b|what can i use for my hepatitis b|what can i use to my hepatitis b/i, answer: "For hepatitis B management, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Hepatitis C
-  { keywords: /hepatitis c|i have hepatitis c|what can i use for my hepatitis c|what can i use to my hepatitis c/i, answer: "For hepatitis C management, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Hepatitis A
-  { keywords: /hepatitis a|i have hepatitis a|what can i use for my hepatitis a|what can i use to my hepatitis a/i, answer: "For hepatitis A management, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Hepatitis D
-  { keywords: /hepatitis d|i have hepatitis d|what can i use for my hepatitis d|what can i use to my hepatitis d/i, answer: "For hepatitis D management, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Hepatitis E
-  { keywords: /hepatitis e|i have hepatitis e|what can i use for my hepatitis e|what can i use to my hepatitis e/i, answer: "For hepatitis E management, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Hepatitis G
-  { keywords: /hepatitis g|i have hepatitis g|what can i use for my hepatitis g|what can i use to my hepatitis g/i, answer: "For hepatitis G management, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Hepatitis Autoimmune
-  { keywords: /hepatitis autoimmune|i have hepatitis autoimmune|what can i use for my hepatitis autoimmune|what can i use to my hepatitis autoimmune/i, answer: "For hepatitis autoimmune management, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Hepatitis Alcoholic
-  { keywords: /hepatitis alcoholic|i have hepatitis alcoholic|what can i use for my hepatitis alcoholic|what can i use to my hepatitis alcoholic/i, answer: "For hepatitis alcoholic management, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Hepatitis Non-Alcoholic
-  { keywords: /hepatitis non-alcoholic|i have hepatitis non-alcoholic|what can i use for my hepatitis non-alcoholic|what can i use to my hepatitis non-alcoholic/i, answer: "For hepatitis non-alcoholic management, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //liver cirrhosis
-  { keywords: /liver cirrhosis|i have liver cirrhosis|what can i use for my liver cirrhosis|what can i use to my liver cirrhosis/i, answer: "For liver cirrhosis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //liver fibrosis
-  { keywords: /liver fibrosis|i have liver fibrosis|what can i use for my liver fibrosis|what can i use to my liver fibrosis/i, answer: "For liver fibrosis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //liver steatosis
-  { keywords: /liver steatosis|i have liver steatosis|what can i use for my liver steatosis|what can i use to my liver steatosis/i, answer: "For liver steatosis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //liver abscess
-  { keywords: /liver abscess|i have liver abscess|what can i use for my liver abscess|what can i use to my liver abscess/i, answer: "For liver abscess, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //liver tumors
-  { keywords: /liver tumors|i have liver tumors|what can i use for my liver tumors|what can i use to my liver tumors/i, answer: "For liver tumors, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //liver cancer
-  { keywords: /liver cancer|i have liver cancer|what can i use for my liver cancer|what can i use to my liver cancer/i, answer: "For liver cancer, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Alzheimer's Disease and other Dementias
-  { keywords: /alzheimer's disease|dementia|i have alzheimer's disease|i have dementia|what can i use for my alzheimer's disease|what can i use to my dementia/i, answer: "For Alzheimer's disease and other dementias, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-   //Epilepsy
-  { keywords: /epilepsy|i have epilepsy|what can i use for my epilepsy|what can i use to my epilepsy/i, answer: "For epilepsy, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Migraine
-  { keywords: /migraine|i have migraine|what can i use for my migraine|what can i use to my migraine/i, answer: "For migraine management, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Arthritis (Osteoarthritis, Rheumatoid Arthritis)
-  { keywords: /arthritis|osteoarthritis|rheumatoid arthritis|i have arthritis|i have osteoarthritis|i have rheumatoid arthritis|what can i use for my arthritis|what can i use to my osteoarthritis/i, answer: "For arthritis, Jointeez is recommended to support joint health and relieve pain." },
-   //Low Back Pain
-  { keywords: /low back pain|i have low back pain|what can i use for my low back pain|what can i use to my low back pain/i, answer: "For low back pain, Jointeez is recommended to support joint health and relieve discomfort." },
-   //Neck Pain
-  { keywords: /neck pain|i have neck pain|what can i use for my neck pain|what can i use to my neck pain/i, answer: "For neck pain, Jointeez is recommended to support joint health and relieve discomfort." },
-  //shoulder pain
-  { keywords: /shoulder pain|i have shoulder pain|what can i use for my shoulder pain|what can i use to my shoulder pain/i, answer: "For shoulder pain, Jointeez is recommended to support joint health and relieve discomfort." },
-  //knee pain
-  { keywords: /knee pain|i have knee pain|what can i use for my knee pain|what can i use to my knee pain/i, answer: "For knee pain, Jointeez is recommended to support joint health and relieve discomfort." },
-  //Kidney Failure
-  { keywords: /kidney failure|i have kidney failure|what can i use for my kidney failure|what can i use to my kidney failure/i, answer: "For kidney failure, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Crohn's Disease
-  { keywords: /crohn's disease|i have crohn's disease|what can i use for my crohn's disease|what can i use to my crohn's disease/i, answer: "For Crohn's disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Ulcerative Colitis
-  { keywords: /ulcerative colitis|i have ulcerative colitis|what can i use for my ulcerative colitis|what can i use to my ulcerative colitis/i, answer: "For ulcerative colitis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-   //Diverticulitis
-  { keywords: /diverticulitis|i have diverticulitis|what can i use for my diverticulitis|what can i use to my diverticulitis/i, answer: "For diverticulitis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Diverticulosis
-  { keywords: /diverticulosis|i have diverticulosis|what can i use for my diverticulosis|what can i use to my diverticulosis/i, answer: "For diverticulosis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Cirrhosis of the Liver
-  { keywords: /cirrhosis of the liver|i have cirrhosis of the liver|what can i use for my cirrhosis of the liver|what can i use to my cirrhosis of the liver/i, answer: "For cirrhosis of the liver, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Gallstones
-  { keywords: /gallstones|i have gallstones|what can i use for my gallstones|what can i use to my gallstones/i, answer: "For gallstones, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Gallbladder Disease
-  { keywords: /gallbladder disease|i have gallbladder disease|what can i use for my gallbladder disease|what can i use to my gallbladder disease/i, answer: "For gallbladder disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Gallbladder Stones
-  { keywords: /gallbladder stones|i have gallbladder stones|what can i use for my gallbladder stones|what can i use to my gallbladder stones/i, answer: "For gallbladder stones, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Gallbladder Polyps
-  { keywords: /gallbladder polyps|i have gallbladder polyps|what can i use for my gallbladder polyps|what can i use to my gallbladder polyps/i, answer: "For gallbladder polyps, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-   //Cholecystitis
-  { keywords: /cholecystitis|i have cholecystitis|what can i use for my cholecystitis|what can i use to my cholecystitis/i, answer: "For cholecystitis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Cholelithiasis
-  { keywords: /cholelithiasis|i have cholelithiasis|what can i use for my cholelithiasis|what can i use to my cholelithiasis/i, answer: "For cholelithiasis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Chronic Pancreatitis
-  { keywords: /chronic pancreatitis|i have chronic pancreatitis|what can i use for my chronic pancreatitis|what can i use to my chronic pancreatitis/i, answer: "For chronic pancreatitis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Pancreatic Cancer
-  { keywords: /pancreatic cancer|i have pancreatic cancer|what can i use for my pancreatic cancer|what can i use to my pancreatic cancer/i, answer: "For pancreatic cancer, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-
-
-   //Communicable (Infectious) Diseases
-  //Non-communicable Diseases
-  { keywords: /non-communicable diseases|i have non-communicable diseases|what can i use for my non-communicable diseases|what can i use to my non-communicable diseases/i, answer: "These are illnesses caused by pathogens (bacteria, viruses, fungi, parasites) and can be spread from person to person, animal to person, or through the environment." },
-  //Chronic Diseases
-  { keywords: /Communicable (Infectious) Diseases|what is Communicable (Infectious) Diseases|what is Communicable Diseases/i, answer: "These are illnesses caused by pathogens (bacteria, viruses, fungi, parasites) and can be spread from person to person, animal to person, or through the environment." },
-   //Lower Respiratory Infections
-   { keywords: /lower respiratory infections|i have lower respiratory infections|what can i use for my lower respiratory infections|what can i use to my lower respiratory infections/i, answer: "For lower respiratory infections, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  //Upper Respiratory Infectionss
-  { keywords: /upper respiratory infections|i have upper respiratory infections|what can i use for my upper respiratory infections|what can i use to my upper respiratory infections/i, answer: "For upper respiratory infections, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-  
-  //bronchitis
-    { keywords: /i have bronchitis|what can i use for my bronchitis|what can i use to my bronchitis/i, answer: "For bronchitis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-    { keywords: /chronic bronchitis|i have chronic bronchitis|what can i use for my chronic bronchitis|what can i use to my chronic bronchitis/i, answer: "For chronic bronchitis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },   
-    { keywords: /acute bronchitis|i have acute bronchitis|what can i use for my acute bronchitis|what can i use to my acute bronchitis/i, answer: "For acute bronchitis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-    { keywords: /bronchitis treatment|i want to treat my bronchitis|what can i use for my bronchitis treatment|what can i use to my bronchitis treatment/i, answer: "For bronchitis treatment, please consult a healthcare professional for appropriate care. Haemocare can support overall health." },
-    { keywords: /bronchitis symptoms|i have bronchitis symptoms|what can i use for my bronchitis symptoms|what can i use to my bronchitis symptoms/i, answer: "For bronchitis symptoms, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
-    { keywords: /bronchitis causes|i want to know the causes of bronchitis|what can i use for my bronchitis causes|what can i use to my bronchitis causes/i, answer: "For bronchitis causes, please consult a healthcare professional for appropriate information. Haemocare can support overall health." },
-    { keywords: /bronchitis prevention|how to prevent bronchitis|i want to prevent bronchitis|what can i use for my bronchitis prevention|what can i use to my bronchitis prevention/i, answer: "For bronchitis prevention, please consult a healthcare professional for appropriate advice. Haemocare can support overall health." },
-    { keywords: /bronchitis home remedies|i want to know home remedies for bronchitis|what can i use for my bronchitis home remedies|what can i use to my bronchitis home remedies/i, answer: "For bronchitis home remedies, please consult a healthcare professional for appropriate advice. Haemocare can support overall health." },
-    { keywords: /bronchitis complications|i want to know complications of bronchitis|what can i use for my bronchitis complications|what can i use to my bronchitis complications/i, answer: "For bronchitis complications, please consult a healthcare professional for appropriate information. Haemocare can support overall health." },
-    { keywords: /bronchitis diagnosis|i want to know how bronchitis is diagnosed|what can i use for my bronchitis diagnosis|what can i use to my bronchitis diagnosis/i, answer: "For bronchitis diagnosis, please consult a healthcare professional for appropriate evaluation. Haemocare can support overall health." },
-    { keywords: /bronchitis management|i want to manage my bronchitis|what can i use for my bronchitis management|what can i use to my bronchitis management/i, answer: "For bronchitis management, please consult a healthcare professional for appropriate care. Haemocare can support overall health." },
-    { keywords: /bronchitis and asthma|i have bronchitis and asthma|what can i use for my bronchitis and asthma|what can i use to my bronchitis and asthma/i, answer: "For bronchitis and asthma, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-    { keywords: /bronchitis and COPD|i have bronchitis and COPD|what can i use for my bronchitis and COPD|what can i use to my bronchitis and COPD/i, answer: "For bronchitis and COPD, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-    { keywords: /bronchitis and pneumonia|i have bronchitis and pneumonia|what can i use for my bronchitis and pneumonia|what can i use to my bronchitis and pneumonia/i, answer: "For bronchitis and pneumonia, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-    { keywords: /bronchitis and smoking|i have bronchitis and smoking|what can i use for my bronchitis and smoking|what can i use to my bronchitis and smoking/i, answer: "For bronchitis related to smoking, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-    { keywords: /bronchitis and allergies|i have bronchitis and allergies|what can i use for my bronchitis and allergies|what can i use to my bronchitis and allergies/i, answer: "For bronchitis related to allergies, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-    { keywords: /bronchitis and air pollution|i have bronchitis and air pollution|what can i use for my bronchitis and air pollution|what can i use to my bronchitis and air pollution/i, answer: "For bronchitis related to air pollution, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-    { keywords: /bronchitis and respiratory infections|i have bronchitis and respiratory infections|what can i use for my bronchitis and respiratory infections|what can i use to my bronchitis and respiratory infections/i, answer: "For bronchitis related to respiratory infections, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-    { keywords: /bronchitis and lung health|i have bronchitis and lung health|what can i use for my bronchitis and lung health|what can i use to my bronchitis and lung health/i, answer: "For bronchitis related to lung health, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-    { keywords: /bronchitis and breathing difficulties|i have bronchitis and breathing difficulties|what can i use for my bronchitis and breathing difficulties|what can i use to my bronchitis and breathing difficulties/i, answer: "For bronchitis related to breathing difficulties, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-    { keywords: /bronchitis and cough|i have bronchitis and cough|what can i use for my bronchitis and cough|what can i use to my bronchitis and cough/i, answer: "For bronchitis related to cough, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-    { keywords: /bronchitis and mucus|i have bronchitis and mucus|what can i use for my bronchitis and mucus|what can i use to my bronchitis and mucus/i, answer: "For bronchitis related to mucus, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-    { keywords: /bronchitis and wheezing|i have bronchitis and wheezing|what can i use for my bronchitis and wheezing|what can i use to my bronchitis and wheezing/i, answer: "For bronchitis related to wheezing, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-    { keywords: /bronchitis and chest pain|i have bronchitis and chest pain|what can i use for my bronchitis and chest pain|what can i use to my bronchitis and chest pain/i, answer: "For bronchitis related to chest pain, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-    { keywords: /bronchitis and fatigue|i have bronchitis and fatigue|what can i use for my bronchitis and fatigue|what can i use to my bronchitis and fatigue/i, answer: "For bronchitis related to fatigue, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-    { keywords: /bronchitis and fever|i have bronchitis and fever|what can i use for my bronchitis and fever|what can i use to my bronchitis and fever/i, answer: "For bronchitis related to fever, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-    { keywords: /bronchitis and chills|i have bronchitis and chills|what can i use for my bronchitis and chills|what can i use to my bronchitis and chills/i, answer: "For bronchitis related to chills, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-    { keywords: /bronchitis and night sweats|i have bronchitis and night sweats|what can i use for my bronchitis and night sweats|what can i use to my bronchitis and night sweats/i, answer: "For bronchitis related to night sweats, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-    { keywords: /bronchitis and sleep disturbances|i have bronchitis and sleep disturbances|what can i use for my bronchitis and sleep disturbances|what can i use to my bronchitis and sleep disturbances/i, answer: "For bronchitis related to sleep disturbances, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-    { keywords: /bronchitis and exercise|i have bronchitis and exercise|what can i use for my bronchitis and exercise|what can i use to my bronchitis and exercise/i, answer: "For bronchitis related to exercise, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-    { keywords: /bronchitis and lifestyle changes|i have bronchitis and lifestyle changes|what can i use for my bronchitis and lifestyle changes|what can i use to my bronchitis and lifestyle changes/i, answer: "For bronchitis related to lifestyle changes, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-    {keywords: /bronchitis and nutrition|i have bronchitis and nutrition|what can i use for my bronchitis and nutrition|what can i use to my bronchitis and nutrition/i, answer: "For bronchitis related to nutrition, please consult a healthcare professional for appropriate dietary advice. Haemocare can support overall health." },
-    { keywords: /bronchitis and hydration|i have bronchitis and hydration|what can i use for my bronchitis and hydration|what can i use to my bronchitis and hydration/i, answer: "For bronchitis related to hydration, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
-    {keywords: /bronchitis and supplements|i have bronchitis and supplements|what can i use for my bronchitis and supplements|what can i use to my bronchitis and supplements/i, answer: "For bronchitis related to supplements, please consult a healthcare professional for appropriate advice. Haemocare can support overall health." },
-    { keywords: /bronchitis and vitamins|i have bronchitis and vitamins|what can i use for my bronchitis and vitamins|what can i use to my bronchitis and vitamins/i, answer: "For bronchitis related to vitamins, please consult a healthcare professional for appropriate advice. Haemocare can support overall health." },
-    { keywords: /bronchitis and minerals|i have bronchitis and minerals|what can i use for my bronchitis and minerals|what can i use to my bronchitis and minerals/i, answer: "For bronchitis related to minerals, please consult a healthcare professional for appropriate advice. Haemocare can support overall health." },
-    { keywords: /bronchitis and herbal remedies|i have bronchitis and herbal remedies|what can i use for my bronchitis and herbal remedies|what can i use to my bronchitis and herbal remedies/i, answer: "For bronchitis related to herbal remedies, please consult a healthcare professional for appropriate advice. Haemocare can support overall health." },
-    { keywords: /bronchitis and alternative therapies|i have bronchitis and alternative therapies|what can i use for my bronchitis and alternative therapies|what can i use to my bronchitis and alternative therapies/i, answer: "For bronchitis related to alternative therapies, please consult a healthcare professional for appropriate advice. Haemocare can support overall health." },
-    { keywords: /bronchitis|what is bronchitis/i, answer: "Bronchitis is an inflammation of the bronchial tubes, the airways that carry air to and from your lungs. This inflammation can be caused by infections like viruses or bacteria or by irritants like smoke or pollution. The inflammation leads to a cough, often with mucus production, and can make breathing difficult." },
-
-    //pneumonia
+  // FAQ data (example, replace with your actual FAQs)
+  const faqs = [
+    { q: /what are your products/i, a: "We offer a range of health and wellness products, including supplements, organic foods, and fitness gear." },
+    { q: /how can i order/i, a: "You can place an order directly on our website, or through our mobile app." },
+    { q: /shipping information/i, a: "Shipping usually takes 3-5 business days depending on your location." },
+    { q: /return policy/i, a: "We have a 30-day return policy for unopened products. Please see our website for more details." },
+    { q: /contact support/i, a: "You can contact our support team via email at support@example.com or call us at 123-456-7890." }
+  ];
+
+  // Health issues data (example, replace with your actual health issues and answers)
+  const healthIssues = [
+    { keywords: /headache|migraine/i, answer: "For headaches, consider hydration, rest, or over-the-counter pain relievers. If severe, please consult a doctor." },
+    { keywords: /fever|temperature/i, answer: "A fever indicates an infection. Rest, fluids, and fever-reducing medication can help. If persistent or very high, seek medical advice." },
+    { keywords: /diabetes|blood sugar|diabetes patient|what can i use for diabetes/i, answer: "For diabetes and blood sugar regulation, Diawell and Golden Six are recommended. Always consult your doctor before starting any supplement." },
+    { keywords: /hypertension|high blood pressure|what can a hypertensive patient use/i, answer: "For hypertension, Golden Six and Cello Q10 are helpful. Maintain a healthy lifestyle and consult your healthcare provider." },
+    { keywords: /prostate|men gland|men's disease|what can i use for prostate/i, answer: "Lycovite and Reishi are beneficial for prostate health and men's wellness." },
+    { keywords: /weight|obesity|i want to loose weight|what can i use to loose weight|i have obesity|what can i use to reduce obesity/i, answer: "Magilim is designed for weight management and fat burning." },
+    { keywords: /immunity|immune|i want to boost my immune system|immune booster|i want to be strong|i want to be strong always/i, answer: "Reishi, Golden Hypha, and Cordy Royal Jelly help boost immunity." },
+    { keywords: /what is your health challenge|health challenge/i, answer: "Your health challenge refers to any medical condition or issue you are currently facing or seeking help for." },
+    { keywords: /what can i do about my health challenge|how to address my health challenge/i, answer: "To address your health challenge, consider consulting a healthcare professional for personalized advice and treatment options." },
+    { keywords: /hi|hello|hey|greetings/i, answer: "Hello! How can I assist you today?" },
+    {keywords: /good morning|good afternoon|good evening|goodday/i, answer: "What’s your health challenge?🌿 Whether you're facing low energy, digestive issues, weak immunity, joint pain, or something deeper… there’s a natural path to support and healing — starting with understanding your body system.💡 Our interactive tool helps you identify:✅ The root of your health challenge.✅ Suggested cures and natural support.✅ Targeted supplement recommendations"},
+    { keywords: /how are you|how is it going|how do you do/i, answer: "I'm just a chatbot, but I'm here to help you! How can I assist you today?" },
+    { keywords: /what can you do|what can you help with/i, answer: "I can provide information on health challenges, recommend products, and answer frequently asked questions. How can I assist you?" },
+    { keywords: /bye|goodbye|see you later/i, answer: "Goodbye! Take care and feel free to return if you have more questions." },
+    { keywords: /thank you|thanks/i, answer: "You're welcome! If you have any more questions, feel free to ask." },
+    { keywords: /product|products|what can i use for/i, answer: "Please specify your health challenge or question so I can recommend the appropriate product." },
+    { keywords: /question|query|inquiry/i, answer: "What is your question? I'm here to help!" },
+    { keywords: /help|assist|support/i, answer: "I'm here to help! Please tell me about your health challenge or any questions you have." },
+    { keywords: /i want to know the status of my health challenge|i want to know the status of my health/i, answer: "OK! I'm here to help! kindly tell me the symptoms you're experiencing or you can ask me any questions you have." },
+    { keywords: /diagnosis|diag|iwant you to diagnos my health|what is my health issue/i, answer: "In what part of your body." },
+
+
+    //toothache and oral health related FAQs
+    { keywords: /toothache|i have toothache|what can i use for my toothache|what can i use to my toothache/i, answer: "For toothache, Gum Care Toothpaste is recommended to help with oral health." },
+    { keywords: /oral health|i want to improve my oral health|what can i use for my oral health|what can i use to my oral health/i, answer: "Gum Care Toothpaste is beneficial for maintaining good oral health." },
+    { keywords: /gum care|i want to take care of my gums|what can i use for my gum care|what can i use to my gum care/i, answer: "Gum Care Toothpaste is specifically designed for gum care and oral hygiene." },
+    { keywords: /mouth health|i want to improve my mouth health|what can i use for my mouth health|what can i use to my mouth health/i, answer: "Gum Care Toothpaste is effective for maintaining mouth health." },
+    { keywords: /dental care|i want to take care of my teeth|what can i use for my dental care|what can i use to my dental care/i, answer: "Gum Care Toothpaste is a great choice for dental care and oral hygiene." },
+    { keywords: /toothpaste|i want to use toothpaste|what can i use for my toothpaste|what can i use to my toothpaste/i, answer: "Gum Care Toothpaste is recommended for effective oral care." },
+    { keywords: /tooth health|i want to take care of my teeth|what can i use for my tooth health|what can i use to my tooth health/i, answer: "Gum Care Toothpaste is beneficial for maintaining healthy teeth." },
+    { keywords: /tooth care|i want to take care of my teeth|what can i use for my tooth care|what can i use to my tooth care/i, answer: "Gum Care Toothpaste is a great choice for tooth care and oral hygiene." },
+    { keywords: /toothpaste for gum care|i want to use toothpaste for gum care|what can i use for my gum care|what can i use to my gum care/i, answer: "Gum Care Toothpaste is specifically formulated for gum care and oral hygiene." },
+    { keywords: /oral hygiene|i want to improve my oral hygiene|what can i use for my oral hygiene|what can i use to my oral hygiene/i, answer: "Gum Care Toothpaste is effective for promoting good oral hygiene." },
+    { keywords: /tooth health|i want to improve my tooth health|what can i use for my tooth health|what can i use to my tooth health/i, answer: "Gum Care Toothpaste is beneficial for maintaining healthy teeth." },
+    { keywords: /dental hygiene|i want to improve my dental hygiene|what can i use for my dental hygiene|what can i use to my dental hygiene/i, answer: "Gum Care Toothpaste is effective for promoting good dental hygiene." },
+    { keywords: /oral care|i want to take care of my oral health|what can i use for my oral care|what can i use to my oral care/i, answer: "Gum Care Toothpaste is a great choice for overall oral care." },
+    { keywords: /toothpaste for mouth care|i want to use toothpaste for mouth care|what can i use for my mouth care|what can i use to my mouth care/i, answer: "Gum Care Toothpaste is specifically formulated for mouth care and oral hygiene." },
+    { keywords: /mouth care|i want to take care of my mouth|what can i use for my mouth care|what can i use to my mouth care/i, answer: "Gum Care Toothpaste is effective for maintaining mouth health." },
+
+    //Hepatitis and Liver related FAQs
+    { keywords: /hepatitis|i have hepatitis|what can i use for my hepatitis|what can i use to my hepatitis/i, answer: "For hepatitis, Haemocare is recommended to nourish the liver and support overall health." },
+    { keywords: /liver health|i want to improve my liver health|what can i use for my liver health|what can i use to my liver health/i, answer: "Haemocare is beneficial for supporting liver health and function." },
+    { keywords: /liver disease|i have liver disease|what can i use for my liver disease|what can i use to my liver disease/i, answer: "Haemocare is recommended for managing liver disease and promoting liver health." },
+    { keywords: /liver function|i want to improve my liver function|what can i use for my liver function|what can i use to my liver function/i, answer: "Haemocare helps support liver function and overall health." },
+    { keywords: /liver detox|i want to detox my liver|what can i use for my liver detox|what can i use to my liver detox/i, answer: "Haemocare is effective for liver detoxification and promoting liver health." },
+    { keywords: /liver support|i want to support my liver|what can i use for my liver support|what can i use to my liver support/i, answer: "Haemocare is a great choice for liver support and overall health." },
+    { keywords: /liver care|i want to take care of my liver|what can i use for my liver care|what can i use to my liver care/i, answer: "Haemocare is beneficial for liver care and promoting overall health." },
+    { keywords: /liver problems|i have liver problems|what can i use for my liver problems|what can i use to my liver problems/i, answer: "Haemocare is recommended for addressing liver problems and supporting liver health." },
+    { keywords: /liver issues|i have liver issues|what can i use for my liver issues|what can i use to my liver issues/i, answer: "Haemocare is effective for managing liver issues and promoting liver health." },
+
+      //tuberculosis and respiratory related FAQs
+    { keywords: /tuberculosis|i have tuberculosis|what can i use for my tuberculosis|what can i use to my tuberculosis/i, answer: "For tuberculosis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+    { keywords: /respiratory health|i want to improve my respiratory health|what can i use for my respiratory health|what can i use to my respiratory health/i, answer: "For respiratory health, consider using Haemocare to support overall well-being." },
+    { keywords: /lung health|i want to improve my lung health|what can i use for my lung health|what can i use to my lung health/i, answer: "Haemocare can help support lung health and overall respiratory function." },
+    { keywords: /asthma|i have asthma|what can i use for my asthma|what can i use to my asthma/i, answer: "For asthma, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+    { keywords: /bronchitis|i have bronchitis|what can i use for my bronchitis|what can i use to my bronchitis/i, answer: "For bronchitis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+    { keywords: /cough|i have a cough|what can i use for my cough|what can i use to my cough/i, answer: "For cough relief, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+    { keywords: /flu|i have the flu|what can i use for my flu|what can i use to my flu/i, answer: "For flu symptoms, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+    { keywords: /cold|i have a cold|what can i use for my cold|what can i use to my cold/i, answer: "For cold symptoms, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+
+
+    { keywords: /allergies|i have allergies|what can i use for my allergies|what can i use to my allergies/i, answer: "For allergies, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+    { keywords: /sinusitis|i have sinusitis|what can i use for my sinusitis|what can i use to my sinusitis/i, answer: "For sinusitis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
     { keywords: /pneumonia|i have pneumonia|what can i use for my pneumonia|what can i use to my pneumonia/i, answer: "For pneumonia, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
- 
+
+    //diarrhea and constipation related FAQs
+    { keywords: /diarrhea|i have diarrhea|what can i use for my diarrhea|what can i use to my diarrhea/i, answer: "For diarrhea, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+    { keywords: /constipation|i have constipation|what can i use for my constipation|what can i use to my constipation/i, answer: "For constipation, consider using Haemocare to support digestive health." },
 
 
-   //ringworm and skin related FAQs
-  { keywords: /ringworm|i have ringworm|what can i use for my ringworm|what can i use to my ringworm/i, answer: "For ringworm, Grapemin E is recommended for skin health and glow." },
-  { keywords: /fungal infection|i have fungal infection|what can i use for my fungal infection|what can i use to my fungal infection/i, answer: "Grapemin E is also beneficial for treating fungal infections and improving skin condition." },
-  { keywords: /skin rash|i have skin rash|what can i use for my skin rash|what can i use to my skin rash/i, answer: "Grapemin E is effective for soothing skin rashes and promoting healing." },
-  { keywords: /skin irritation|i have skin irritation|what can i use for my skin irritation|what can i use to my skin irritation/i, answer: "Grapemin E helps reduce skin irritation and improve overall skin health." },
-  { keywords: /skin infection|i have skin infection|what can i use for my skin infection|what can i use to my skin infection/i, answer: "Grapemin E is recommended for treating various skin infections and enhancing skin health." },
+    { keywords: /digestive health|i want to improve my digestive health|what can i use for my digestive health|what can i use to my digestive health/i, answer: "For digestive health, Haemocare is beneficial for supporting overall digestive function." },
 
-  //pimples and acne related FAQs
-  { keywords: /pimples|acne|i have pimples|i have acne|what can i use for my pimples|what can i use to my pimples/i, answer: "For acne and pimples, Grapemin E is recommended for skin health and glow." },
-  { keywords: /dark spots|dark skin|i have dark spots|i have dark skin|what can i use for my dark spots|what can i use to my dark skin/i, answer: "Grapemin E is also beneficial for reducing dark spots and improving skin tone." },
-  { keywords: /skin glow|i want my skin to glow|what can i use for my skin glow|what can i use to my skin glow/i, answer: "Grapemin E is recommended for enhancing skin glow and health." },
-  { keywords: /skin health|i want to improve my skin health|what can i use for my skin health|what can i use to my skin health/i, answer: "Grapemin E is beneficial for overall skin health." },
-  { keywords: /skin care|i want to take care of my skin|what can i use for my skin care|what can i use to my skin care/i, answer: "Grapemin E is a great choice for skin care, promoting health and glow." },
-  { keywords: /skin problems|i have skin problems|what can i use for my skin problems|what can i use to my skin problems/i, answer: "Grapemin E is effective for various skin problems, enhancing overall skin health." },
-  { keywords: /skin issues|i have skin issues|what can i use for my skin issues|what can i use to my skin issues/i, answer: "Grapemin E is recommended for addressing skin issues and promoting a healthy complexion." },
-  { keywords: /skin treatment|i want to treat my skin|what can i use for my skin treatment|what can i use to my skin treatment/i, answer: "Grapemin E is suitable for skin treatment, helping to improve skin condition and appearance." },
-   { keywords: /skin|what can i use to my skin|rough skin/i, answer: "Grapemin E is recommended for skin health and glow." },
-  { keywords: /hair|hair care|what can i use for my hair|what can i use to my hair|rough hair/i, answer: "Grapemin E is also beneficial for hair health." },
+    //diabetes and blood sugar related FAQs
+    { keywords: /diabetes|i have diabetes|what can i use for my diabetes|what can i use to my diabetes/i, answer: "For diabetes management, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+    { keywords: /blood sugar|i want to manage my blood sugar|what can i use for my blood sugar|what can i use to my blood sugar/i, answer: "For blood sugar management, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+    { keywords: /blood pressure|i want to manage my blood pressure|what can i use for my blood pressure|what can i use to my blood pressure/i, answer: "For blood pressure management, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+    { keywords: /hypertension|i have hypertension|what can i use for my hypertension|what can i use to my hypertension/i, answer: "For hypertension, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
 
-  //Joint and Bone related FAQs
-  { keywords: /joint pain|i have joint pain|what can i use for my joint pain|what can i use to my joint pain/i, answer: "For joint pain, Jointeez is recommended to support strong bones and relieve joint discomfort." },
-  { keywords: /bone health|i want to improve my bone health|what can i use for my bone health|what can i use to my bone health/i, answer: "For bone health, Calmazine is beneficial for building and supporting healthy bones and teeth." },
-  { keywords: /arthritis|i have arthritis|what can i use for my arthritis|what can i use to my arthritis/i, answer: "For arthritis, Jointeez is recommended to support joint health and relieve pain." },
-  { keywords: /osteoporosis|i have osteoporosis|what can i use for my osteoporosis|what can i use to my osteoporosis/i, answer: "For osteoporosis, Calmazine is beneficial for building and supporting healthy bones." },
-  { keywords: /muscle pain|i have muscle pain|what can i use for my muscle pain|what can i use to my muscle pain/i, answer: "For muscle pain, Jointeez is recommended to support joint and muscle health." },
-  { keywords: /back pain|i have back pain|what can i use for my back pain|what can i use to my back pain/i, answer: "For back pain, Jointeez is recommended to support joint health and relieve discomfort." },
-  { keywords: /knee pain|i have knee pain|what can i use for my knee pain|what can i use to my knee pain/i, answer: "For knee pain, Jointeez is recommended to support joint health and relieve discomfort." },
-  { keywords: /cartilage health|i want to improve my cartilage health|what can i use for my cartilage health|what can i use to my cartilage health/i, answer: "For cartilage health, Jointeez is beneficial for supporting joint function and reducing pain." },
-  { keywords: /rheumatoid arthritis|i have rheumatoid arthritis|what can i use for my rheumatoid arthritis|what can i use to my rheumatoid arthritis/i, answer: "For rheumatoid arthritis, Jointeez is recommended to support joint health and relieve discomfort." },
-  { keywords: /gout|i have gout|what can i use for my gout|what can i use to my gout/i, answer: "For gout, Jointeez is recommended to support joint health and reduce inflammation." },
-  { keywords: /joint stiffness|i have joint stiffness|what can i use for my joint stiffness|what can i use to my joint stiffness/i, answer: "For joint stiffness, Jointeez is recommended to support joint flexibility and reduce discomfort." },
-  { keywords: /joint flexibility|i want to improve my joint flexibility|what can i use for my joint flexibility|what can i use to my joint flexibility/i, answer: "For joint flexibility, Jointeez is beneficial for supporting joint function and reducing stiffness." },
-  { keywords: /joint health|i want to improve my joint health|what can i use for my joint health|what can i use to my joint health/i, answer: "For joint health, Jointeez is recommended to support strong bones and relieve joint discomfort." },
-  { keywords: /joint supplements|i want to take joint supplements|what can i use for my joint supplements|what can i use to my joint supplements/i, answer: "For joint supplements, Jointeez is recommended to support joint health and relieve discomfort." },
-  { keywords: /joint care|i want to take care of my joints|what can i use for my joint care|what can i use to my joint care/i, answer: "For joint care, Jointeez is recommended to support joint health and relieve discomfort." },
-  { keywords: /joint support|i want joint support|what can i use for my joint support|what can i use to my joint support/i, answer: "For joint support, Jointeez is recommended to support strong bones and relieve joint discomfort." },
-  { keywords: /joint inflammation|i have joint inflammation|what can i use for my joint inflammation|what can i use to my joint inflammation/i, answer: "For joint inflammation, Jointeez is recommended to support joint health and reduce swelling." },
-  { keywords: /joint discomfort|i have joint discomfort|what can i use for my joint discomfort|what can i use to my joint discomfort/i, answer: "For joint discomfort, Jointeez is recommended to support joint health and relieve pain." },
-  { keywords: /joint supplements|i want to take joint supplements|what can i use for my joint supplements|what can i use to my joint supplements/i, answer: "For joint supplements, Jointeez is recommended to support joint health and relieve discomfort." },
-  { keywords: /joint pain relief|i want joint pain relief|what can i use for my joint pain relief|what can i use to my joint pain relief/i, answer: "For joint pain relief, Jointeez is recommended to support strong bones and relieve joint discomfort." },
-  { keywords: /joint care products|i want joint care products|what can i use for my joint care products|what can i use to my joint care products/i, answer: "For joint care products, Jointeez is recommended to support joint health and relieve discomfort." },
+    //heart disease and cardiovascular related FAQs
+    { keywords: /heart disease|i have heart disease|what can i use for my heart disease|what can i use to my heart disease/i, answer: "For heart disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+    { keywords: /cardiovascular health|i want to improve my cardiovascular health|what can i use for my cardiovascular health|what can i use to my cardiovascular health/i, answer: "For cardiovascular health, consider using Haemocare to support overall heart function." },
+    { keywords: /cholesterol|i want to manage my cholesterol|what can i use for my cholesterol|what can i use to my cholesterol/i, answer: "For cholesterol management, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+    { keywords: /stroke|i have had a stroke|what can i use for my stroke|what can i use to my stroke/i, answer: "For stroke recovery, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
 
-  //Stomach and Intestinal related FAQs
-  { keywords: /stomach pain|i have stomach pain|what can i use for my stomach pain|what can i use to my stomach pain/i, answer: "For stomach pain, Gastritis Capsule is recommended to relieve symptoms and support digestive health." },
-  { keywords: /stomach issues|i have stomach issues|what can i use for my stomach issues|what can i use to my stomach issues/i, answer: "For stomach issues, Gastritis Capsule is recommended to relieve symptoms and support digestive health." },
-  { keywords: /stomach problems|i have stomach problems|what can i use for my stomach problems|what can i use to my stomach problems/i, answer: "For stomach problems, Gastritis Capsule is recommended to relieve symptoms and support digestive health." },
-  { keywords: /stomach upset|i have stomach upset|what can i use for my stomach upset|what can i use to my stomach upset/i, answer: "For stomach upset, Gastritis Capsule is recommended to relieve symptoms and support digestive health." },
-  { keywords: /stomach cramps|i have stomach cramps|what can i use for my stomach cramps|what can i use to my stomach cramps/i, answer: "For stomach cramps, Gastritis Capsule is recommended to relieve symptoms and support digestive health." },
+    //cancer and tumor related FAQs
+    { keywords: /cancer|i have cancer|what can i use for my cancer|what can i use to my cancer/i, answer: "For cancer treatment, please consult a healthcare professional for appropriate care. Haemocare can support overall health." },
+    { keywords: /tumor|i have a tumor|what can i use for my tumor|what can i use to my tumor/i, answer: "For tumor treatment, please consult a healthcare professional for appropriate care. Haemocare can support overall health." },
 
-  //Digestive related FAQs
-  { keywords: /digestion|digestive issues|i have digestive issues|what can i use for digestion|what can i use to my digestion/i, answer: "For digestive health, consider using Colon Tea Cleanser or Gastritis Capsule." },
-  { keywords: /constipation|i have constipation|what can i use for my constipation|what can i use to my constipation/i, answer: "For constipation, Constilese is recommended to relieve symptoms and support digestive health." },
-  { keywords: /bloating|i have bloating|what can i use for my bloating|what can i use to my bloating/i, answer: "For bloating, consider using Colon Tea Cleanser or Gastritis Capsule." },
-  { keywords: /indigestion|i have indigestion|what can i use for my indigestion|what can i use to my indigestion/i, answer: "For indigestion, Gastritis Capsule is recommended to relieve symptoms and support digestive health." },
-  { keywords: /heartburn|i have heartburn|what can i use for my heartburn|what can i use to my heartburn/i, answer: "For heartburn, Gastritis Capsule is recommended to relieve symptoms and support digestive health." },
-  { keywords: /acid reflux|i have acid reflux|what can i use for my acid reflux|what can i use to my acid reflux/i, answer: "For acid reflux, Gastritis Capsule is recommended to relieve symptoms and support digestive health." },
-  { keywords: /gastritis|i have gastritis|what can i use for my gastritis|what can i use to my gastritis/i, answer: "For gastritis, Gastritis Capsule is recommended to relieve symptoms and support digestive health." },
-  { keywords: /ulcer|i have ulcer|what can i use for my ulcer|what can i use to my ulcer/i, answer: "For ulcers, Gastritis Capsule is recommended to relieve symptoms and support digestive health." },
-  { keywords: /irritable bowel syndrome|i have irritable bowel syndrome|what can i use for my irritable bowel syndrome|what can i use to my irritable bowel syndrome/i, answer: "For irritable bowel syndrome (IBS), Gastritis Capsule is recommended to relieve symptoms and support digestive health." },
-  { keywords: /diarrhea|i have diarrhea|what can i use for my diarrhea|what can i use to my diarrhea/i, answer: "For diarrhea, consider using Colon Tea Cleanser or Gastritis Capsule." },
-  { keywords: /nausea|i have nausea|what can i use for my nausea|what can i use to my nausea/i, answer: "For nausea, Gastritis Capsule is recommended to relieve symptoms and support digestive health." },
-  { keywords: /vomiting|i have vomiting|what can i use for my vomiting|what can i use to my vomiting/i, answer: "For vomiting, Gastritis Capsule is recommended to relieve symptoms and support digestive health." },
+    //anemia and blood health related FAQs
+    { keywords: /anemia|i have anemia|what can i use for my anemia|what can i use to my anemia/i, answer: "For anemia, consider using Haemocare to support blood health and overall well-being." },
+    { keywords: /blood health|i want to improve my blood health|what can i use for my blood health|what can i use to my blood health/i, answer: "For blood health, Haemocare is beneficial for supporting overall blood function." },
+    { keywords: /iron deficiency|i have iron deficiency|what can i use for my iron deficiency|what can i use to my iron deficiency/i, answer: "For iron deficiency, consider using Haemocare to support blood health. Consult a healthcare professional for specific treatments." },
+    { keywords: /blood disorders|i have a blood disorder|what can i use for my blood disorder|what can i use to my blood disorder/i, answer: "For blood disorders, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
 
-  //Stress and Fatigue related FAQs
-  { keywords: /stress|fatigue|energy|i am stressed|i am tired|i want to boost my energy/i, answer: "For stress and fatigue, Ultramega, Vigor Essential, and Revive are recommended to help reduce stress and boost energy." },
-  { keywords: /stress|fatigue|energy/i, answer: "Ultramega, Vigor Essential, and Revive help reduce stress and boost energy." },
-  { keywords: /stress relief|i want stress relief|what can i use for stress relief|what can i use to my stress relief/i, answer: "For stress relief, Ultramega, Vigor Essential, and Revive are recommended to help reduce stress and boost energy." },
-  { keywords: /fatigue relief|i want fatigue relief|what can i use for fatigue relief|what can i use to my fatigue relief/i, answer: "For fatigue relief, Ultramega, Vigor Essential, and Revive are recommended to help reduce stress and boost energy." },
+    //allergies and immune system related FAQs
+    { keywords: /allergies|i have allergies|what can i use for my allergies|what can i use to my allergies/i, answer: "For allergies, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+    { keywords: /immune system|i want to boost my immune system|what can i use for my immune system|what can i use to my immune system/i, answer: "For boosting the immune system, consider using Haemocare to support overall health." },
+
+    //stress and anxiety related FAQs
+    { keywords: /stress|i have stress|what can i use for my stress|what can i use to my stress/i, answer: "For stress relief, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+    { keywords: /anxiety|i have anxiety|what can i use for my anxiety|what can i use to my anxiety/i, answer: "For anxiety relief, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+    { keywords: /depression|i have depression|what can i use for my depression|what can i use to my depression/i, answer: "For depression, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+    //mental health|i want to improve my mental health|what can i use for my mental health|what can i use to my mental health/i, answer: "For mental health support, consider using Haemocare to promote overall well-being." },
+    { keywords: /mental health|i want to improve my mental health|what can i use for my mental health|what can i use to my mental health/i, answer: "For mental health support, consider using Haemocare to promote overall well-being." },
+
+    //sleep disorders and insomnia related FAQs
+    { keywords: /sleep disorders|i have sleep disorders|what can i use for my sleep disorders|what can i use to my sleep disorders/i, answer: "For sleep disorders, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+    { keywords: /insomnia|i have insomnia|what can i use for my insomnia|what can i use to my insomnia/i, answer: "For insomnia, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+
+    ///fatigue and low energy related FAQs
+    { keywords: /fatigue|i have fatigue|what can i use for my fatigue|what can i use to my fatigue/i, answer: "For fatigue, consider using Haemocare to support overall health and energy levels." },
+    { keywords: /low energy|i have low energy|what can i use for my low energy|what can i use to my low energy/i, answer: "For low energy, consider using Haemocare to support overall health and vitality." },
+    { keywords: /chronic fatigue|i have chronic fatigue|what can i use for my chronic fatigue|what can i use to my chronic fatigue/i, answer: "For chronic fatigue, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+
+      //Ischemic Heart Disease (Coronary Artery Disease)
+    { keywords: /ischemic heart disease|i have ischemic heart disease|what can i use for my ischemic heart disease|what can i use to my ischemic heart disease/i, answer: "For ischemic heart disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+      //Obesity and Weight Management
+    { keywords: /obesity|i have obesity|what can i use for my obesity|what can i use to my obesity/i, answer: "For obesity management, consider using Magilim to support weight loss and fat burning." },
 
 
-  //Malaria related FAQs
-  { keywords: /malaria/i, answer: "Malaria is a serious, potentially life-threatening disease caused by Plasmodium parasites. These parasites are spread to humans through the bite of infected female Anopheles mosquitoes, and the disease is most prevalent in tropical and subtropical regions.  ==>Malaria is a serious, potentially life-threatening disease caused by Plasmodium parasites. These parasites are spread to humans through the bite of infected female Anopheles mosquitoes, and the disease is most prevalent in tropical and subtropical regions.   ==>Causes of Malaria   ==>Malaria is caused by five types of Plasmodium parasites, with P. falciparum being the most dangerous. The transmission cycle typically involves: =>An infected mosquito bites a human, injecting parasites into the bloodstream. =>The parasites travel to the liver, where they multiply and mature. =>Once mature, they leave the liver and infect red blood cells, continuing to multiply, which leads to malaria symptoms. =>If an uninfected mosquito then bites an infected person, it picks up the parasites and can spread the disease further." },
-  { keywords: /malaria drugs|drugs to treat malaria/i, answer: "Qinghao is used to treat malaria." },
-  { keywords: /symptoms of malaria|what are the symptoms of malaria|malaria symptoms/i, answer: "Symptoms of Malaria:Symptoms generally appear 10 to 15 days after an infected mosquito bite, though this can vary. They often come in cycles and can range from mild to very severe: =>Common symptoms include fever, chills, headache, fatigue, muscle aches, nausea, and vomiting. =>Severe symptoms, particularly with P. falciparum infection, can involve extreme tiredness, confusion, multiple convulsions, difficulty breathing, dark or bloody urine, jaundice (yellowing of the skin/eyes), unusual bleeding, severe anemia, and organ failure affecting the brain, kidneys, or lungs. Without quick treatment, severe malaria can be fatal." },
-  { keywords: /prevention malaria|how to prevent malaria|how can i avoid mosquito/i, answer: "Preventing Malaria:Prevention focuses on avoiding mosquito bites and using preventive medications: =>Mosquito Bite Prevention: =>Use insect repellent containing DEET, picaridin, or IR3535 on exposed skin. =>Sleep under insecticide-treated mosquito nets (ITNs). =>Wear protective clothing like long sleeves and pants, especially from dusk till dawn when Anopheles mosquitoes are most active. =>Use screens on windows and doors. =>Eliminate mosquito breeding sites by getting rid of stagnant water around your home and community.." },
-  { keywords: /preventive malaria|chemoprophylaxis/i, answer: "If you're traveling to a malaria-prone area, your healthcare provider may prescribe antimalarial drugs to take before, during, and after your trip. The specific drug will depend on the region and known parasite resistance." },
-  { keywords: /malaria treatment|treatment for malaria|how can i treat malaria|malaria medication/i, answer: "Medications: Treatment involves antimalarial medications designed to kill the parasites. The specific drugs and treatment duration depend on the parasite species, how severe the illness is, and where the infection was acquired (due to drug resistance).   =>Qinghao is used to treat malaria." },
-  { keywords: /malaria supportive car|seek medical advice on malaria|supportive care to treat malaria/i, answer: "Supportive Care: Severe cases often require hospitalization, fluid management, and treatment for complications like organ failure or cerebral malaria." },
-  { keywords: /medical attention|advice to treat malaria|what do i do if i notice any of these malaria symptoms|advice me on malaria/i, answer: "It's crucial to seek medical attention immediately if you suspect you have malaria, especially after visiting an endemic area. Early diagnosis and proper treatment are essential to prevent severe illness and potentially save lives." },
-  { keywords: /how much is Qinghao|Qinghao price/i, answer: "I can't provide the current price now,because the price might change.kindly check the main website for the actual price for Qinghao." },
-  { keywords: /Can i get Qinghao in nearby office|/i, answer: "Oops!, i can't provide the information right now but you can chat a Consultant @ https://wa.me/message/WNGLZNUXKXXIF1 . For guidance and support" },
-  { keywords: /nearby office to get Qinghao|/i, answer: "You can get our nearby office's by chatting the Customer support on WhatsApp @ https://wa.me/Message/WNGLZNUXKXXIF1 . For guidance and support" },
-  { keywords: /connect me to an online representative|online representative|online support|transfer me to an online agent|i need to speak to a consultant|consultant|what is your health challenge|/i, answer: "You're now being transfered to an online representative via WhatsApp @ https://wa.me/Message/WNGLZNUXKXXIF1 . For guidance and support" },
-  { keywords: /i need someone|i need someone to talk to|who's online|who can i talk to|i want to ask a question?|i wan to ask a question|/i, answer: "You're now being transfered to an online representative via WhatsApp @ https://wa.me/Message/WNGLZNUXKXXIF1 . For guidance and support" },
-  { keywords: /question|i need answer|i want answers|i need an answer|doctor|online consultation|/i, answer: "You're now being transfered to an online representative via WhatsApp @ https://wa.me/Message/WNGLZNUXKXXIF1 . For guidance and support" },
-  { keywords: /?|/i, answer: "You're now being transfered to an online representative via WhatsApp @ https://wa.me/Message/WNGLZNUXKXXIF1 . For guidance and support" },
-  { keywords: /are you a robot|are you a bot|are you a robot?|are youa bot?|/i, answer: "Smiles! No, i'm just your healthcare asssistant. " },
-   { keywords: /are you mad|/i, answer: "Yeah sure I'm MAKING ANY DIFFERENCE to you! and i expected you to be MAD as well. Don't be annoyed if someone calls you mad you're only making difference" },
-    { keywords: /are you a human|human|gpt|chatgpt|gemini|AI|models|AI models|are you a human?|/i, answer: "No, I'm not a human. I'm an AI assistant designed to help you with your health-related questions and provide information about our products." },
-
-  // Typhoid related FAQss
-  { keywords: /typhoid|what can i use tor typhoid|what can i use to typhoid|cure for typhoid/i, answer: "Qinghao is used to treat malaria and typhoid." },
-  { keywords: /typhoid|What is typhoid/i, answer: "Qinghao is used to treat malaria and typhoid." },
-  { keywords: /typhoid symptoms|what are the symptoms of typhoid|typhoid symptoms/i, answer: "Symptoms of Typhoid:Symptoms typically appear 6 to 30 days after exposure and can include: =>High fever (often reaching 103°F to 104°F or 39°C to 40°C) =>Weakness and fatigue =>Headache =>Stomach pain =>Loss of appetite and weight loss =>Diarrhea or constipation =>Rash with flat, rose-colored spots (rose spots) on the abdomen" },
-  { keywords: /typhoid prevention|how to prevent typhoid|how can i avoid typhoid/i, answer: "Preventing Typhoid:Prevention focuses on good hygiene and sanitation practices: =>Wash hands frequently with soap and clean water, especially before eating or preparing food. =>Drink only clean, boiled, or bottled water. Avoid ice made from contaminated water. =>Eat well-cooked food and avoid raw fruits and vegetables that may have been washed in contaminated water. =>Avoid street food or food from unhygienic sources." },
-  { keywords: /typhoid vaccine|vaccination for typhoid/i, answer: "Vaccination: Vaccines are available for typhoid fever, which can provide protection against the disease. Consult your healthcare provider about vaccination options." },
-  { keywords: /typhoid treatment|treatment for typhoid|how can i treat typhoid|typhoid medication/i, answer: "Medications: Typhoid is treated with antibiotics to kill the bacteria. The choice of antibiotic may depend on local resistance patterns." },
-  { keywords: /typhoid supportive care|seek medical advice on typhoid|supportive care to treat typhoid/i, answer: "Supportive Care: Severe cases may require hospitalization for intravenous fluids, electrolyte management, and monitoring for complications." },
-  { keywords: /typhoid complications|what are the complications of typhoid|typhoid complications/i, answer: "Complications of Typhoid: If left untreated, typhoid fever can lead to serious complications, including intestinal hemorrhage, perforation, and septicemia." },
-  { keywords: /typhoid medical attention|advice to treat typhoid|what do i do if i notice any of these typhoid symptoms|advice me on typhoid/i, answer: "Seek medical attention immediately if you suspect you have typhoid fever, especially after visiting an endemic area. Early diagnosis and proper treatment are crucial." },
-  { keywords: /how much is Qinghao|Qinghao price/i, answer: "I can't provide the current price now,because the price might change.kindly check the main website for the actual price for Qinghao." },
-  { keywords: /medical attention|advice to treat typhoid|what do i do if i notice any of these typhoid symptoms|advice me on typhoid/i, answer: "Seek medical attention immediately if you suspect you have typhoid fever, especially after visiting an endemic area. Early diagnosis and proper treatment are crucial." },
-  { keywords: /heart|cardiovascular|blood circulation|what can i use for my heart|what can i use for my blood circulation/i, answer: "CardiBetter and Cello Q10 are designed to improve heart health and circulation." },
-  { keywords: /digestion|constipation|gut health/i, answer: "Constilese and Colon Tea Cleanser support digestive health and relieve constipation." },
-  { keywords: /sleep|insomnia|i have sleep problem/i, answer: "Sleep Well helps promote relaxation and improve sleep quality." },
-  { keywords: /memory|brain|cognitive|i have memory problem/i, answer: "Memory 24/7 and Vitagent support brain function and memory." },
-  { keywords: /menstruation|irregular menstruation|women/i, answer: "Eve's Comfort, 7 Layer Sanitary Pad, and Vitaprego support women's health and regular menstruation." },
-  { keywords: /asthma|respiratory/i, answer: "Ultramega and Cordy Active support respiratory health and help with asthma." },
-  { keywords: /joint|bone|arthritis/i, answer: "Jointeez and Calmazine are good for joint pain, bone health, and arthritis." },
-  { keywords: /digestive|constipation|gut/i, answer: "Constilese and Colon Tea Cleanser support digestive health and relieve constipation." },
-  { keywords: /eye|vision|yellowish eye|eye problem|blur vision/i, answer: "Eye Beta supports eye health and vision." },
-  { keywords: /blood|liver|kidney|i have shortage of blood/i, answer: "Haemocare nourishes the blood and supports liver and kidney health." },
-  { keywords: /heart|cardiovascular/i, answer: "CardiBetter and Cello Q10 are designed to improve heart health and circulation." },
-  { keywords: /liver|kidney|i have kidney problem|i have kidey disfunction|i have liver problem| what can i use for my liver|what can i use for my kidney disfunction/i, answer: "Haemocare supports liver and kidney health." },
-  { keywords: /heart|cardiovascular|i have a chest pain|my chest keeps paining me|i can't breath well/i, answer: "CardiBetter and Cello Q10 are designed to improve heart health and circulation." },
-  { keywords: /libido|low erectile/i, answer: "Understanding Libido is your sexual desire or sex drive—the mental energy and interest you have in sexual activity. It's unique to each person and can shift throughout life.Several factors can influence your libido: Hormones: In both men and women, testosterone is crucial for sex drive. Estrogen levels also play a significant role in women, especially during life stages like menopause, pregnancy, and breastfeeding.Physical Health: Chronic conditions such as diabetes, heart disease, high blood pressure, or cancer can reduce libido. Fatigue, pain during sex, and even certain surgeries can also have an an impact.Medications: Many prescription drugs, particularly antidepressants (SSRIs), some blood pressure medications, antihistamines, and decongestants, can lower sex drive.Psychological Factors: Stress, anxiety, depression, poor body image, low self-esteem, past trauma (physical, emotional, or sexual abuse), and negative sexual experiences can all significantly affect your desire.Lifestyle Habits: Excessive alcohol use, substance abuse, smoking, and even too much or too little exercise can influence libido.Relationship Issues: A lack of emotional connection, unresolved conflicts, poor communication about sexual needs, or trust issues can decrease desire within a partnership.Age: While individual experiences vary, libido often gradually declines with age in both men and women.                    ==>Herbal Supplements: While some herbs like reishi, vigor essential, and revive are sometimes used to boost libido, scientific evidence for their effectiveness varies. Always discuss these with your doctor before use." },
-  { keywords: /sexual performance|erectile dysfunction/i, answer: "Sexual performance refers to the physical and physiological aspects of sexual activity. This includes your body's ability to become aroused, achieve and maintain an erection (for men), lubricate (for women), and reach orgasm. It's all about how your body physically responds to sexual stimulation.  ==>Here are some common sexual performance concerns:  =>For Men:Erectile Dysfunction (ED): Difficulty achieving or maintaining an erection firm enough for satisfying sexual intercourse. =>Premature Ejaculation: Ejaculating too quickly, often before or shortly after penetration. =>Delayed or Absent Ejaculation: Trouble or inability to ejaculate despite sufficient stimulation. =>Peyronie's Disease: A condition causing a painful, curved erection due to scar tissue in the penis. =>Priapism: A prolonged, often painful erection unrelated to sexual desire.  ==>For Women: =>Sexual Arousal Disorder: Difficulty becoming physically aroused or excited during sexual activity, even if desire is present, often leading to insufficient vaginal lubrication. Orgasmic Disorder (Anorgasmia): A delay in or absence of orgasm despite adequate sexual stimulation. =>Genito-Pelvic Pain/Penetration Disorder: Pain during sexual activity (dyspareunia) or involuntary tightening of vaginal muscles (vaginismus), making penetration difficult or impossible.    ===>Factors affecting sexual performance often overlap with those impacting libido:    ==>Physical Health: Conditions affecting blood flow (like cardiovascular disease), nerve damage (e.g., from diabetes), neurological disorders (like MS), hormonal imbalances (low testosterone in men, low estrogen in women), and chronic pain can all impair performance. =>Medications: Similar to libido, many medications can interfere with arousal and orgasm. =>Psychological Factors: Performance anxiety, stress, depression, anxiety, body image issues, and past sexual trauma are significant contributors to performance difficulties. =>Lifestyle: Smoking, excessive alcohol, drug use, obesity, and a poor diet can negatively impact physical sexual response. =>Relationship Issues: Unresolved conflict, lack of communication, and feeling disconnected from a partner can create performance pressure and reduce comfort during sex.   ==> ==>Herbal Supplements: While some herbs like reishi, vigor essential, and revive are sometimes used to boost libido, scientific evidence for their effectiveness varies. Always discuss these with your doctor before use." },
-  { keywords: /brain|memory|cognitive function/i, answer: "The human brain is an incredibly complex and vital organ that serves as the command center for the entire body. It controls everything from our thoughts, emotions, and memories to our movements, senses, and essential bodily functions like breathing and heart rate. Memory 24/7 and Reishi help boost brain function and memory." },
-
-  { keywords: /i want to boost my sexual performance|My wife complains of minutes in bed|how do i satisfy my wife on bed|sexual|libido|performance/i, answer: "Revive enhances sexual performance and libido." },
-  { keywords: /What can i use for malaria|I have malaria and typhoid|malaria|typhoid/i, answer: "Qinghao is recommended for malaria and typhoid support." },
-  { keywords: /What can i use to boost my brain|What can a dull person use to become sharp|Olodo|memory|brain/i, answer: "Memory 24/7 and Reishi help boost brain function and memory." },
-  { keywords: /What can i use for infertility|infertility|fertility|pregnancy/i, answer: "Vitaprego is formulated to support women's fertility and hormonal balance." },
-  { keywords: /i have bad breath|what can i use for mouth odour|bad breath|oral|tooth|mouth|gum/i, answer: "Gum Care Toothpaste is designed to promote oral health and relieve tooth or gum issues." },
-  { keywords: /i have cholesterol|cholesterol/i, answer: "Cordy Royal Jelly helps maintain normal cholesterol levels and supports cardiovascular health." },
-  { keywords: /what can i use for infection|i have infection|infection/i, answer: "7 Layer Sanitary Pad and Eve's Comfort are helpful for infection and women's health." }
-];
+    //Gastroesophageal Reflux Disease (GERD)
+    { keywords: /gastroesophageal reflux disease|i have gastroesophageal reflux disease|what can i use for my gastroesophageal reflux disease|what can i use to my gastroesophageal reflux disease/i, answer: "For GERD, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
 
 
-chatbotForm.onsubmit = function(e) {
-  e.preventDefault();
-  const userMsg = chatbotInput.value.trim();
-  if (!userMsg) return;
-  addMessage(userMsg, true);
-  chatbotInput.value = '';
+    //Peptic Ulcer Disease
+    { keywords: /peptic ulcer disease|i have peptic ulcer disease|what can i use for my peptic ulcer disease|what can i use to my peptic ulcer disease/i, answer: "For peptic ulcer disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
 
-  setTimeout(() => {
-    let botReplied = false; // Flag to ensure only one bot reply per user message
 
-    // Check FAQ
-    for (let faq of faqs) {
-      if (faq.q.test(userMsg)) {
-        addMessage(faq.a, false);
+    //Inflammatory Bowel Disease (IBD)
+    { keywords: /inflammatory bowel disease|i have inflammatory bowel disease|what can i use for my inflammatory bowel disease|what can i use to my inflammatory bowel disease/i, answer: "For inflammatory bowel disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+    //Chronic Kidney Disease (CKD)
+    { keywords: /chronic kidney disease|i have chronic kidney disease|what can i use for my chronic kidney disease|what can i use to my chronic kidney disease/i, answer: "For chronic kidney disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+    //Urinary Tract Infections (UTIs)
+    { keywords: /urinary tract infections|i have urinary tract infections|what can i use for my urinary tract infections|what can i use to my urinary tract infections/i, answer: "For urinary tract infections, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+
+    //Stroke (Cerebrovascular Accident)
+    { keywords: /stroke|i have had a stroke|what can i use for my stroke|what can i use to my stroke/i, answer: "For stroke recovery, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+    //Parkinson's Disease
+    { keywords: /parkinson's disease|i have parkinson's disease|what can i use for my parkinson's disease|what can i use to my parkinson's disease/i, answer: "For Parkinson's disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+    //Alzheimer's Disease
+    { keywords: /alzheimer's disease|i have alzheimer's disease|what can i use for my alzheimer's disease|what can i use to my alzheimer's disease/i, answer: "For Alzheimer's disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+    //Multiple Sclerosis (MS)
+    { keywords: /multiple sclerosis|i have multiple sclerosis|what can i use for my multiple sclerosis|what can i use to my multiple sclerosis/i, answer: "For multiple sclerosis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+    //Rheumatoid Arthritis
+    { keywords: /rheumatoid arthritis|i have rheumatoid arthritis|what can i use for my rheumatoid arthritis|what can i use to my rheumatoid arthritis/i, answer: "For rheumatoid arthritis, Jointeez is recommended to support joint health and relieve pain." },
+
+    //Psoriatic Arthritis
+    { keywords: /psoriatic arthritis|i have psoriatic arthritis|what can i use for my psoriatic arthritis|what can i use to my psoriatic arthritis/i, answer: "For psoriatic arthritis, Jointeez is recommended to support joint health and relieve pain." },
+
+    //Osteoarthritis
+    { keywords: /osteoarthritis|i have osteoarthritis|what can i use for my osteoarthritis|what can i use to my osteoarthritis/i, answer: "For osteoarthritis, Jointeez is recommended to support joint health and relieve pain." },
+
+    //Gout
+    { keywords: /gout|i have gout|what can i use for my gout|what can i use to my gout/i, answer: "For gout, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+      //Lung Cancer
+      { keywords: /lung cancer|i have lung cancer|what can i use for my lung cancer|what can i use to my lung cancer/i, answer: "For lung cancer, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+      //Colorectal Cancer
+    { keywords: /colorectal cancer|i have colorectal cancer|what can i use for my colorectal cancer|what can i use to my colorectal cancer/i, answer: "For colorectal cancer, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+      //Breast Cancer
+    { keywords: /breast cancer|i have breast cancer|what can i use for my breast cancer|what can i use to my breast cancer/i, answer: "For breast cancer, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+    //Prostate Cancer
+    { keywords: /prostate cancer|i have prostate cancer|what can i use for my prostate cancer|what can i use to my prostate cancer/i, answer: "For prostate cancer, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+    //lumps
+    { keywords: /lumps|i have lumps|what can i use for my lumps|what can i use to my lumps/i, answer: "For lumps, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump|i have a lump|what can i use for my lump|what can i use to my lump/i, answer: "For lumps, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },    
+    { keywords: /lumps in my body|i have lumps in my body|what can i use for my lumps in my body|what can i use to my lumps in my body/i, answer: "For lumps, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump in my body|i have a lump in my body|what can i use for my lump in my body|what can i use to my lump in my body/i, answer: "For lumps, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lumps in my breast|i have lumps in my breast|what can i use for my lumps in my breast|what can i use to my lumps in my breast/i, answer: "For lumps in the breast, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump in my breast|i have a lump in my breast|what can i use for my lump in my breast|what can i use to my lump in my breast/i, answer: "For lumps in the breast, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lumps in my neck|i have lumps in my neck|what can i use for my lumps in my neck|what can i use to my lumps in my neck/i, answer: "For lumps in the neck, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump in my neck|i have a lump in my neck|what can i use for my lump in my neck|what can i use to my lump in my neck/i, answer: "For lumps in the neck, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lumps in my armpit|i have lumps in my armpit|what can i use for my lumps in my armpit|what can i use to my lumps in my armpit/i, answer: "For lumps in the armpit, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump in my armpit|i have a lump in my armpit|what can i use for my lump in my armpit|what can i use to my lump in my armpit/i, answer: "For lumps in the armpit, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lumps in my abdomen|i have lumps in my abdomen|what can i use for my lumps in my abdomen|what can i use to my lumps in my abdomen/i, answer: "For lumps in the abdomen, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump in my abdomen|i have a lump in my abdomen|what can i use for my lump in my abdomen|what can i use to my lump in my abdomen/i, answer: "For lumps in the abdomen, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lumps in my groin|i have lumps in my groin|what can i use for my lumps in my groin|what can i use to my lumps in my groin/i, answer: "For lumps in the groin, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump in my groin|i have a lump in my groin|what can i use for my lump in my groin|what can i use to my lump in my groin/i, answer: "For lumps in the groin, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lumps in my leg|i have lumps in my leg|what can i use for my lumps in my leg|what can i use to my lumps in my leg/i, answer: "For lumps in the leg, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump in my leg|i have a lump in my leg|what can i use for my lump in my leg|what can i use to my lump in my leg/i, answer: "For lumps in the leg, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lumps in my arm|i have lumps in my arm|what can i use for my lumps in my arm|what can i use to my lumps in my arm/i, answer: "For lumps in the arm, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump in my arm|i have a lump in my arm|what can i use for my lump in my arm|what can i use to my lump in my arm/i, answer: "For lumps in the arm, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lumps in my back|i have lumps in my back|what can i use for my lumps in my back|what can i use to my lumps in my back/i, answer: "For lumps in the back, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump in my back|i have a lump in my back|what can i use for my lump in my back|what can i use to my lump in my back/i, answer: "For lumps in the back, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lumps in my chest|i have lumps in my chest|what can i use for my lumps in my chest|what can i use to my lumps in my chest/i, answer: "For lumps in the chest, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump in my chest|i have a lump in my chest|what can i use for my lump in my chest|what can i use to my lump in my chest/i, answer: "For lumps in the chest, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lumps in my face|i have lumps in my face|what can i use for my lumps in my face|what can i use to my lumps in my face/i, answer: "For lumps in the face, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump in my face|i have a lump in my face|what can i use for my lump in my face|what can i use to my lump in my face/i, answer: "For lumps in the face, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lumps in my scalp|i have lumps in my scalp|what can i use for my lumps in my scalp|what can i use to my lumps in my scalp/i, answer: "For lumps on the scalp, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." }
+  ];
+
+  // Product Data
+  const products = [
+    {
+      name: "Reishi",
+      image: "https://via.placeholder.com/150/0000FF/808080?text=Reishi", // Placeholder image URL
+      description: "A powerful mushroom known for its immune-boosting and stress-reducing properties.",
+      price: "$35.00",
+      buyNowLink: "https://example.com/reishi" // Replace with actual product link
+    },
+    {
+      name: "Re-Vive",
+      image: "https://via.placeholder.com/150/FF0000/FFFFFF?text=Re-Vive", // Placeholder image URL
+      description: "Supports vitality and energy levels, helping you feel refreshed.",
+      price: "$45.00",
+      buyNowLink: "https://example.com/re-vive" // Replace with actual product link
+    },
+    {
+      name: "Cordy Active",
+      image: "https://via.placeholder.com/150/008000/FFFFFF?text=CordyActive", // Placeholder image URL
+      description: "Enhances stamina, athletic performance, and respiratory health.",
+      price: "$55.00",
+      buyNowLink: "https://example.com/cordy-active" // Replace with actual product link
+    },
+    {
+      name: "Cordy Royal Jelly",
+      image: "https://via.placeholder.com/150/FFFF00/000000?text=CordyRoyal", // Placeholder image URL
+      description: "A unique blend for comprehensive health, combining cordyceps with royal jelly benefits.",
+      price: "$65.00",
+      buyNowLink: "https://example.com/cordy-royal-jelly" // Replace with actual product link
+    },
+    {
+      name: "Diawell",
+      image: "https://via.placeholder.com/150/00FFFF/000000?text=Diawell", // Placeholder image URL
+      description: "Supports healthy blood sugar levels and overall well-being.",
+      price: "$50.00",
+      buyNowLink: "https://example.com/diawell" // Replace with actual product link
+    },
+    {
+      name: "Golden Six",
+      image: "https://via.placeholder.com/150/FF8000/FFFFFF?text=GoldenSix", // Placeholder image URL
+      description: "A blend for overall health, immunity, and energy.",
+      price: "$40.00",
+      buyNowLink: "https://example.com/golden-six" // Replace with actual product link
+    },
+    {
+      name: "Cello Q10",
+      image: "https://via.placeholder.com/150/800080/FFFFFF?text=CelloQ10", // Placeholder image URL
+      description: "Supports cardiovascular health and energy production.",
+      price: "$70.00",
+      buyNowLink: "https://example.com/cello-q10" // Replace with actual product link
+    },
+    {
+      name: "Lycovite",
+      image: "https://via.placeholder.com/150/FFC0CB/000000?text=Lycovite", // Placeholder image URL
+      description: "Beneficial for prostate health and antioxidant support.",
+      price: "$48.00",
+      buyNowLink: "https://example.com/lycovite" // Replace with actual product link
+    },
+    {
+      name: "Magilim",
+      image: "https://via.placeholder.com/150/00FF00/000000?text=Magilim", // Placeholder image URL
+      description: "Aids in weight management and supports digestive health.",
+      price: "$30.00",
+      buyNowLink: "https://example.com/magilim" // Replace with actual product link
+    },
+    {
+      name: "Golden Hypha",
+      image: "https://via.placeholder.com/150/C0C0C0/000000?text=GoldenHypha", // Placeholder image URL
+      description: "Supports immune function and overall vitality.",
+      price: "$52.00",
+      buyNowLink: "https://example.com/golden-hypha" // Replace with actual product link
+    },
+    {
+      name: "Gum Care Toothpaste",
+      image: "https://via.placeholder.com/150/A0A0A0/FFFFFF?text=GumCare", // Placeholder image URL
+      description: "Promotes oral hygiene, strengthens gums, and freshens breath.",
+      price: "$15.00",
+      buyNowLink: "https://example.com/gum-care-toothpaste" // Replace with actual product link
+    },
+    {
+      name: "Haemocare",
+      image: "https://via.placeholder.com/150/000080/FFFFFF?text=Haemocare", // Placeholder image URL
+      description: "Supports blood health, liver function, and overall well-being.",
+      price: "$60.00",
+      buyNowLink: "https://example.com/haemocare" // Replace with actual product link
+    },
+    {
+      name: "Jointeez",
+      image: "https://via.placeholder.com/150/808000/FFFFFF?text=Jointeez", // Placeholder image URL
+      description: "Supports joint health, flexibility, and helps relieve discomfort.",
+      price: "$42.00",
+      buyNowLink: "https://example.com/jointeez" // Replace with actual product link
+    }
+  ];
+
+  // General Health Tips to suggest
+  const generalHealthTips = [
+    "Stay hydrated throughout the day by drinking plenty of water.",
+    "Aim for at least 30 minutes of moderate exercise most days of the week.",
+    "Prioritize getting 7-9 hours of quality sleep each night.",
+    "Incorporate a variety of fruits and vegetables into your diet.",
+    "Practice mindfulness or meditation to reduce stress."
+  ];
+
+  // Function to generate HTML for a product card
+  function createProductCardHtml(product) {
+    return `
+      <div class="product-card" style="padding: 15px; border-radius: 8px; text-align: center; font-family: sans-serif;">
+        <img src="${product.image}" alt="${product.name}" style="max-width: 100px; height: auto; border-radius: 4px; margin-bottom: 10px;">
+        <h4 style="margin: 5px 0; color: #333; font-size: 1.1em;">${product.name}</h4>
+        <p style="margin: 5px 0; color: #555; font-size: 0.9em; line-height: 1.4;">${product.description}</p>
+        <p style="margin: 10px 0; color: #27ae60; font-weight: bold; font-size: 1.2em;">${product.price}</p>
+        <a href="${product.buyNowLink}" target="_blank" style="display: inline-block; padding: 8px 15px; background-color: #27ae60; color: white; text-decoration: none; border-radius: 5px; font-size: 0.9em;">Buy Now</a>
+      </div>
+    `;
+  }
+
+  // Event listener for chatbot form submission
+  chatbotForm.addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent form submission
+    const userMsg = chatbotInput.value.trim();
+    if (!userMsg) return; // Do nothing if message is empty
+
+    addMessage(userMsg, true); // Display user's message
+    chatbotInput.value = ''; // Clear input
+
+    let botReplied = false;
+
+    // Check if user asks to see all products
+    if (userMsg.toLowerCase().includes("show me products") || userMsg.toLowerCase().includes("what products do you have")) {
+      addMessage("Here are some of our products:", false);
+      products.forEach(product => {
+        addMessage(createProductCardHtml(product), false);
+      });
+      botReplied = true;
+    }
+
+    // Check if user asks about a specific product
+    if (!botReplied) {
+      const lowerUserMsg = userMsg.toLowerCase();
+      // Find a product where the user message includes the product name
+      const matchedProduct = products.find(product => lowerUserMsg.includes(product.name.toLowerCase()));
+      if (matchedProduct) {
+        addMessage(`Here's information about ${matchedProduct.name}:`, false);
+        addMessage(createProductCardHtml(matchedProduct), false);
         botReplied = true;
-        break; // Exit loop once a match is found
       }
     }
 
-    // Check health issues only if bot hasn't replied yet
+    // Check FAQ
+    if (!botReplied) {
+      for (let faq of faqs) {
+        if (faq.q.test(userMsg)) {
+          addMessage(faq.a, false);
+          botReplied = true;
+          break; // Exit loop once a match is found
+        }
+      }
+    }
+
+    // Check health issues (now includes a much larger list)
     if (!botReplied) {
       for (let issue of healthIssues) {
         if (issue.keywords.test(userMsg)) {
@@ -9069,26 +8498,36 @@ chatbotForm.onsubmit = function(e) {
       }
     }
 
-    // Check general health challenges (greetings, common questions) only if bot hasn't replied yet
+    // Proactively suggest health tips and products IF the bot hasn't replied yet to a specific query
     if (!botReplied) {
-      for (let challenge of WhatisyourHealthChallenge) {
-        if (challenge.keywords.test(userMsg)) {
-          addMessage(challenge.answer, false);
-          botReplied = true;
-          break; // Exit loop once a match is found
-        }
-      }
+      addMessage("You might find these general health tips and our products useful:", false);
+      
+      // Suggest health tips
+      generalHealthTips.forEach(tip => {
+        addMessage(`- ${tip}`, false);
+      });
+
+      // Suggest products (display product cards)
+      addMessage("Here are some of our recommended products:", false); // Add a header for products
+      products.forEach(product => {
+        addMessage(createProductCardHtml(product), false);
+      });
+
+      // Always suggest WhatsApp link for immediate purchase/assistance
+      addMessage(`For further assistance or to buy immediately, please contact our customer care on WhatsApp: ${WHATSAPP_BUSINESS_LINK}`, false);
+      
+      botReplied = true; // Mark as replied to prevent default fallback
     }
 
-    // Default fallback - now includes a WhatsApp link, only if bot hasn't replied yet
+    // Default fallback - this block will now only be reached if even the proactive suggestions aren't triggered
     if (!botReplied) {
-      const whatsappLink = "https://wa.me/message/WNGLZNUXKXXIF1"; // Replace with your actual WhatsApp Business link
-      addMessage(`I'm here to help! Ask me about our products, health issues, or for recommendations. For further assistance, please contact our customer care via ${whatsappLink}.`, false);
+      addMessage(`I'm here to help! Ask me about our products, health issues, or for recommendations. For further assistance, please contact our customer care on WhatsApp: ${WHATSAPP_BUSINESS_LINK}`);
     }
-  }, 600); // Simulate a delay for the bot response
-  // return false; // This line is not needed in modern JavaScript for form submissions
-};
+  });
+
+  // Initial bot message when opening
+  addMessage("Hi there! How can I help you today?", false);
+
 </script>
-
 </body>
 </html>
