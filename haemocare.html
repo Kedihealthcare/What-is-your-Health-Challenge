@@ -1,31 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>KEDI Haemocare: Blood Health & Vitality</title>
-
-    <!-- Social Media Snippets (Open Graph for Facebook, Twitter Cards for Twitter) -->
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare">
-    <meta property="og:title" content="KEDI Haemocare: Blood Health & Vitality">
-    <meta property="og:description" content="Discover KEDI Haemocare, a natural supplement formulated to support healthy blood production, improve circulation, and boost overall vitality.">
-    <meta property="og:image" content="https://placehold.co/800x450/8B0000/ffffff?text=KEDI+Haemocare">
-    <meta property="og:image:alt" content="Illustration of KEDI Haemocare product with deep red and vibrant tones">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare">
-    <meta property="twitter:title" content="KEDI Haemocare: Blood Health & Vitality">
-    <meta property="twitter:description" content="Discover KEDI Haemocare, a natural supplement formulated to support healthy blood production, improve circulation, and boost overall vitality.">
-    <meta property="twitter:image" content="https://placehold.co/800x450/8B0000/ffffff?text=KEDI+Haemocare">
-    <meta property="twitter:image:alt" content="Illustration of KEDI Haemocare product with deep red and vibrant tones">
-
-    <!-- Structured Data for SEO (JSON-LD) -->
-    <script type="application/ld+json">
+<!-- Required meta tags -->
+<meta charset="utf-8"/>
+<meta content="ie=edge" http-equiv="x-ua-compatible"/>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<title>KEDI Haemocare: Blood Health &amp; Vitality</title>
+<!-- Social Media Snippets (Open Graph for Facebook, Twitter Cards for Twitter) -->
+<!-- Open Graph / Facebook -->
+<meta content="article" property="og:type"/>
+<meta content="https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare" property="og:url"/>
+<meta content="KEDI Haemocare: Blood Health &amp; Vitality" property="og:title"/>
+<meta content="Discover KEDI Haemocare, a natural supplement formulated to support healthy blood production, improve circulation, and boost overall vitality." property="og:description"/>
+<meta content="https://placehold.co/800x450/8B0000/ffffff?text=KEDI+Haemocare" property="og:image"/>
+<meta content="Illustration of KEDI Haemocare product with deep red and vibrant tones" property="og:image:alt"/>
+<!-- Twitter -->
+<meta content="summary_large_image" property="twitter:card"/>
+<meta content="https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare" property="twitter:url"/>
+<meta content="KEDI Haemocare: Blood Health &amp; Vitality" property="twitter:title"/>
+<meta content="Discover KEDI Haemocare, a natural supplement formulated to support healthy blood production, improve circulation, and boost overall vitality." property="twitter:description"/>
+<meta content="https://placehold.co/800x450/8B0000/ffffff?text=KEDI+Haemocare" property="twitter:image"/>
+<meta content="Illustration of KEDI Haemocare product with deep red and vibrant tones" property="twitter:image:alt"/>
+<style>
+</style>
+<!-- Structured Data for SEO (JSON-LD) -->
+<script type="application/ld+json">
     [
       {
         "@context": "https://schema.org",
@@ -127,16 +127,15 @@
       }
     ]
     </script>
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Slick Carousel CSS -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
-    <style>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- FontAwesome for icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<!-- Slick Carousel CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" rel="stylesheet" type="text/css"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" rel="stylesheet" type="text/css"/>
+<style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f8f8f8;
@@ -213,409 +212,620 @@
         .slick-next {
             right: -25px !important; /* Adjust position */
         }
+        /* General styling for a clean background - removed global overflow: hidden */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      /* overflow: hidden; -- REMOVED THIS GLOBAL OVERFLOW HIDDEN */
+    }
+
+    /* New class to apply overflow hidden only when chatbot is active */
+    .chatbot-active-body {
+        overflow: hidden; /* Prevent body scroll when chatbot is open */
+    }
+
+    /* Chatbot Button Styling */
+    #open-chatbot-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #27ae60; /* Kedi green */
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1000; /* Ensure button is on top */
+      transition: background-color 0.3s ease;
+    }
+
+    #open-chatbot-btn:hover {
+      background-color: #219d55; /* Darker green on hover */
+    }
+
+    /* Chatbot Window Styling */
+    #chatbot-window {
+      display: none; /* Hidden by default */
+      position: fixed;
+      bottom: 90px; /* Above the button */
+      right: 20px;
+      width: 350px; /* Standard chatbot width */
+      height: 500px; /* Standard chatbot height */
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 999; /* Below the button but above page content */
+      animation: fadeIn 0.3s ease-out; /* Smooth fade-in animation */
+    }
+
+    /* Chatbot Header */
+    .chatbot-header {
+      background-color: #27ae60; /* Kedi green */
+      color: white;
+      padding: 15px;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+
+    #close-chatbot-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5em;
+      cursor: pointer;
+      padding: 0 5px;
+      transition: color 0.3s ease;
+    }
+
+    #close-chatbot-btn:hover {
+      color: #f0f0f0;
+    }
+
+    /* Chatbot Messages Area */
+    #chatbot-messages {
+      flex-grow: 1;
+      padding: 15px;
+      overflow-y: auto; /* Enable scrolling for messages */
+      display: flex;
+      flex-direction: column;
+      gap: 10px; /* Spacing between messages */
+      background-color: #f9f9f9; /* Light background for messages area */
+    }
+
+    /* Message Bubble Styling (inline styles are also applied in JS, but these provide defaults/overrides) */
+    #chatbot-messages div {
+      padding: 10px 14px;
+      border-radius: 16px;
+      max-width: 80%;
+      word-wrap: break-word;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Specific styles for user messages */
+    #chatbot-messages div[style*="align-self: flex-end"] {
+      background-color: #27ae60; /* User message green */
+      color: white;
+      margin-left: auto;
+      border-bottom-right-radius: 4px; /* Pointy corner effect */
+    }
+
+    /* Specific styles for bot messages */
+    #chatbot-messages div[style*="align-self: flex-start"] {
+      background-color: #e0f7ea; /* Bot message light green */
+      color: #222;
+      margin-right: auto;
+      border-bottom-left-radius: 4px; /* Pointy corner effect */
+    }
+
+    /* Product Card Styling (overrides for inline styles, general look) */
+    .product-card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 5px; /* Adjust margin within messages */
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      max-width: 100% !important; /* Ensure product cards fill message width */
+    }
+
+    .product-card img {
+      max-width: 100px;
+      height: auto;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .product-card h4 {
+      color: #333;
+      font-size: 1.1em;
+      margin: 5px 0;
+    }
+
+    .product-card p {
+      color: #555;
+      font-size: 0.9em;
+      line-height: 1.4;
+      margin: 5px 0;
+    }
+
+    .product-card a {
+      display: inline-block;
+      padding: 8px 15px;
+      background-color: #27ae60;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 0.9em;
+      transition: background-color 0.3s ease;
+    }
+
+    .product-card a:hover {
+      background-color: #219d55;
+    }
+
+    /* Chatbot Input Form */
+    #chatbot-form {
+      padding: 15px;
+      border-top: 1px solid #eee;
+      display: flex;
+      background-color: #fff;
+    }
+
+    #chatbot-input {
+      flex-grow: 1;
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: 20px; /* Rounded input field */
+      font-size: 1em;
+      outline: none;
+      margin-right: 10px;
+      transition: border-color 0.3s ease;
+    }
+
+    #chatbot-input:focus {
+      border-color: #27ae60; /* Highlight on focus */
+    }
+
+    #chatbot-form button {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 20px; /* Rounded send button */
+      padding: 10px 18px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #chatbot-form button:hover {
+      background-color: #219d55;
+    }
+
+    /* Scrollbar Styling (Webkit - for Chrome, Safari) */
+    #chatbot-messages::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    #chatbot-messages::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    #chatbot-messages::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 10px;
+    }
+
+    #chatbot-messages::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    /* Fade-in animation for chatbot window */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
-    <div class="body_wrap">
-        <!-- Header start -->
-        <header class="header header__style-one bg-white shadow-sm py-4">
-            <div class="container mx-auto px-4">
-                <div class="header__middle flex justify-between items-center">
-                    <div class="header__logo">
-                        <a href="index.html" class="text-2xl font-bold text-red-700">
-                            <!-- Placeholder for KEDI logo -->
-                            <img src="https://placehold.co/100x40/800000/ffffff?text=KEDI+LOGO" alt="KEDI Healthcare Logo" class="h-10">
-                        </a>
-                    </div>
-                    <!-- Navigation or other header elements can go here if needed -->
-                </div>
-            </div>
-        </header>
-        <!-- Header end -->
-
-        <!-- Main content start -->
-        <main class="container mx-auto px-4 py-8 md:py-12 bg-white shadow-lg rounded-lg my-8">
-            <h1 class="section-heading text-4xl md:text-5xl font-extrabold text-center mb-10 text-red-900 leading-tight">
-                <span>Nourish Your Blood: The Comprehensive Benefits of KEDI Haemocare for Blood Health and Vitality</span>
-            </h1>
-
-            <div class="blog-meta text-center text-gray-500 mb-8 text-sm">
-                <p>Published on: <time datetime="2025-06-18">June 18, 2025</time> | By: KEDI Health Expert</p>
-            </div>
-
-            <div class="blog-content prose max-w-none md:max-w-3xl lg:max-w-4xl mx-auto">
-                <p class="text-lg leading-relaxed mb-6">
+<div class="body_wrap">
+<!-- Header start -->
+<header class="header header__style-one bg-white shadow-sm py-4">
+<div class="container mx-auto px-4">
+<div class="header__middle flex justify-between items-center">
+<div class="header__logo">
+<a class="text-2xl font-bold text-red-700" href="index.html">
+<!-- Placeholder for KEDI logo -->
+<img alt="KEDI Healthcare Logo" class="h-10" src="https://placehold.co/100x40/800000/ffffff?text=KEDI+LOGO"/>
+</a>
+</div>
+<!-- Navigation or other header elements can go here if needed -->
+</div>
+</div>
+</header>
+<!-- Header end -->
+<!-- Main content start -->
+<main class="container mx-auto px-4 py-8 md:py-12 bg-white shadow-lg rounded-lg my-8">
+<h1 class="section-heading text-4xl md:text-5xl font-extrabold text-center mb-10 text-red-900 leading-tight">
+<span>Nourish Your Blood: The Comprehensive Benefits of KEDI Haemocare for Blood Health and Vitality</span>
+</h1>
+<div class="blog-meta text-center text-gray-500 mb-8 text-sm">
+<p>Published on: <time datetime="2025-06-18">June 18, 2025</time> | By: KEDI Health Expert</p>
+</div>
+<div class="blog-content prose max-w-none md:max-w-3xl lg:max-w-4xl mx-auto">
+<p class="text-lg leading-relaxed mb-6">
                     Healthy blood is fundamental to overall well-being, influencing energy levels, organ function, and vitality. KEDI Haemocare is a specialized natural supplement formulated to deeply nourish your blood, support its healthy production, and enhance vital circulation throughout your body. Whether you're experiencing fatigue, looking to improve your complexion, or simply aiming for optimal internal balance, Haemocare offers targeted support to revitalize your system.
                 </p>
-
-                <figure class="mb-8 rounded-lg overflow-hidden shadow-md">
-                    <img src="https://placehold.co/800x450/8B0000/ffffff?text=KEDI+Haemocare+Bottle" alt="Image of KEDI Haemocare product bottle" class="w-full h-auto object-cover">
-                    <figcaption class="text-center text-sm text-gray-500 mt-2 p-2 bg-gray-50 rounded-b-lg">Figure 1: KEDI Haemocare - Essential support for vibrant blood health.</figcaption>
-                </figure>
-
-                <h2 class="text-2xl md:text-3xl font-bold text-red-800 mb-4 mt-8">
+<figure class="mb-8 rounded-lg overflow-hidden shadow-md">
+<img alt="Image of KEDI Haemocare product bottle" class="w-full h-auto object-cover" src="https://placehold.co/800x450/8B0000/ffffff?text=KEDI+Haemocare+Bottle"/>
+<figcaption class="text-center text-sm text-gray-500 mt-2 p-2 bg-gray-50 rounded-b-lg">Figure 1: KEDI Haemocare - Essential support for vibrant blood health.</figcaption>
+</figure>
+<h2 class="text-2xl md:text-3xl font-bold text-red-800 mb-4 mt-8">
                     Understanding KEDI Haemocare: Key Ingredients and Their Action
                 </h2>
-                <p class="text-base leading-relaxed mb-4">
+<p class="text-base leading-relaxed mb-4">
                     KEDI Haemocare's effectiveness comes from its blend of crucial vitamins, minerals, and traditional herbs:
                 </p>
-                <ol class="list-decimal list-inside space-y-3 mb-6 text-base leading-relaxed">
-                    <li><strong>Ferrous Gluconate (Iron):</strong> An easily absorbed form of iron, vital for hemoglobin formation and oxygen transport, essential in preventing and managing iron-deficiency anemia.</li>
-                    <li><strong>Folic Acid (Vitamin B9):</strong> Crucial for red blood cell production and DNA synthesis. Works synergistically with Vitamin B12.</li>
-                    <li><strong>Vitamin B12:</strong> Essential for healthy neurological function and plays a critical role in red blood cell maturation.</li>
-                    <li><strong>Radix Astragali (Huang Qi):</strong> A powerful adaptogenic herb known to boost energy (Qi), enhance immunity, and support overall vitality, often used in blood-tonifying formulas.</li>
-                    <li><strong>Angelica Sinensis (Dong Quai):</strong> Referred to as 'female ginseng,' it's widely used to nourish blood, improve circulation, and balance hormonal health.</li>
-                </ol>
-
-                <figure class="mb-8 rounded-lg overflow-hidden shadow-md">
-                    <img src="https://placehold.co/800x450/A52A2A/ffffff?text=Blood+Health+Circulation" alt="Diagram illustrating healthy blood cells and circulation" class="w-full h-auto object-cover">
-                    <figcaption class="text-center text-sm text-gray-500 mt-2 p-2 bg-gray-50 rounded-b-lg">Figure 2: How KEDI Haemocare promotes robust blood and healthy circulation.</figcaption>
-                </figure>
-
-                <h2 class="text-2xl md:text-3xl font-bold text-red-800 mb-4 mt-8">
+<ol class="list-decimal list-inside space-y-3 mb-6 text-base leading-relaxed">
+<li><strong>Ferrous Gluconate (Iron):</strong> An easily absorbed form of iron, vital for hemoglobin formation and oxygen transport, essential in preventing and managing iron-deficiency anemia.</li>
+<li><strong>Folic Acid (Vitamin B9):</strong> Crucial for red blood cell production and DNA synthesis. Works synergistically with Vitamin B12.</li>
+<li><strong>Vitamin B12:</strong> Essential for healthy neurological function and plays a critical role in red blood cell maturation.</li>
+<li><strong>Radix Astragali (Huang Qi):</strong> A powerful adaptogenic herb known to boost energy (Qi), enhance immunity, and support overall vitality, often used in blood-tonifying formulas.</li>
+<li><strong>Angelica Sinensis (Dong Quai):</strong> Referred to as 'female ginseng,' it's widely used to nourish blood, improve circulation, and balance hormonal health.</li>
+</ol>
+<figure class="mb-8 rounded-lg overflow-hidden shadow-md">
+<img alt="Diagram illustrating healthy blood cells and circulation" class="w-full h-auto object-cover" src="https://placehold.co/800x450/A52A2A/ffffff?text=Blood+Health+Circulation"/>
+<figcaption class="text-center text-sm text-gray-500 mt-2 p-2 bg-gray-50 rounded-b-lg">Figure 2: How KEDI Haemocare promotes robust blood and healthy circulation.</figcaption>
+</figure>
+<h2 class="text-2xl md:text-3xl font-bold text-red-800 mb-4 mt-8">
                     Key Benefits of Incorporating KEDI Haemocare
                 </h2>
-                <p class="text-base leading-relaxed mb-4">
+<p class="text-base leading-relaxed mb-4">
                     Regular use of KEDI Haemocare can lead to significant improvements in:
                 </p>
-                <ul class="list-disc list-inside space-y-3 mb-6 text-base leading-relaxed">
-                    <li><strong>Enhanced Blood Production:</strong> Supports the bone marrow in forming healthy red blood cells.</li>
-                    <li><strong>Alleviates Anemia Symptoms:</strong> Reduces fatigue, dizziness, and pallor often associated with iron deficiency.</li>
-                    <li><strong>Improves Blood Circulation:</strong> Promotes better flow of oxygen and nutrients throughout the body.</li>
-                    <li><strong>Boosts Energy & Stamina:</strong> Combats lethargy and enhances physical endurance.</li>
-                    <li><strong>Supports a Healthy Complexion:</strong> Improved blood health can reflect in clearer, more vibrant skin.</li>
-                    <li><strong>Overall Vitality:</strong> Contributes to a feeling of renewed strength and well-being.</li>
-                </ul>
-
-                <h2 class="text-2xl md:text-3xl font-bold text-red-800 mb-4 mt-8">
+<ul class="list-disc list-inside space-y-3 mb-6 text-base leading-relaxed">
+<li><strong>Enhanced Blood Production:</strong> Supports the bone marrow in forming healthy red blood cells.</li>
+<li><strong>Alleviates Anemia Symptoms:</strong> Reduces fatigue, dizziness, and pallor often associated with iron deficiency.</li>
+<li><strong>Improves Blood Circulation:</strong> Promotes better flow of oxygen and nutrients throughout the body.</li>
+<li><strong>Boosts Energy &amp; Stamina:</strong> Combats lethargy and enhances physical endurance.</li>
+<li><strong>Supports a Healthy Complexion:</strong> Improved blood health can reflect in clearer, more vibrant skin.</li>
+<li><strong>Overall Vitality:</strong> Contributes to a feeling of renewed strength and well-being.</li>
+</ul>
+<h2 class="text-2xl md:text-3xl font-bold text-red-800 mb-4 mt-8">
                     Who Can Benefit from KEDI Haemocare?
                 </h2>
-                <p class="text-lg leading-relaxed mb-6">
+<p class="text-lg leading-relaxed mb-6">
                     KEDI Haemocare is an excellent option for individuals experiencing:
                 </p>
-                <ul class="list-disc list-inside space-y-3 mb-6 text-base leading-relaxed">
-                    <li>Symptoms of anemia, such as chronic fatigue, weakness, or dizziness.</li>
-                    <li>Pale complexion or brittle nails.</li>
-                    <li>Poor circulation, cold hands and feet.</li>
-                    <li>Women during menstruation or pregnancy (consult doctor first).</li>
-                    <li>Those seeking natural support for general blood health and increased vitality.</li>
-                </ul>
-
-                <h2 class="text-2xl md:text-3xl font-bold text-red-800 mb-4 mt-8">
+<ul class="list-disc list-inside space-y-3 mb-6 text-base leading-relaxed">
+<li>Symptoms of anemia, such as chronic fatigue, weakness, or dizziness.</li>
+<li>Pale complexion or brittle nails.</li>
+<li>Poor circulation, cold hands and feet.</li>
+<li>Women during menstruation or pregnancy (consult doctor first).</li>
+<li>Those seeking natural support for general blood health and increased vitality.</li>
+</ul>
+<h2 class="text-2xl md:text-3xl font-bold text-red-800 mb-4 mt-8">
                     Making an Informed Choice for Your Health
                 </h2>
-                <p class="text-lg leading-relaxed mb-6">
+<p class="text-lg leading-relaxed mb-6">
                     When choosing KEDI Haemocare, always ensure you purchase from authorized retailers to guarantee product authenticity and quality. Carefully read and adhere to the recommended dosage instructions on the packaging. Since it contains iron, it's particularly important not to exceed the recommended dose without professional guidance. If you have any underlying health conditions, are pregnant or nursing, or are taking other medications, it is crucial to consult with a healthcare professional to ensure suitability and avoid interactions.
                 </p>
-
-                <p class="text-lg leading-relaxed mb-6 italic text-gray-600">
+<p class="text-lg leading-relaxed mb-6 italic text-gray-600">
                     Feel the difference of revitalized blood and renewed energy with KEDI Haemocare.
                 </p>
-
-                <!-- FAQ Section -->
-                <section class="faq-section mt-12 p-6 bg-red-100 rounded-lg shadow-inner">
-                    <h2 class="text-2xl md:text-3xl font-bold text-red-800 mb-6 text-center">Frequently Asked Questions about KEDI Haemocare</h2>
-
-                    <div class="space-y-6">
-                        <div class="faq-item bg-white p-4 rounded-lg shadow-sm cursor-pointer hover:bg-gray-50 transition-colors duration-200">
-                            <h3 class="font-semibold text-lg text-gray-800 mb-2">What is KEDI Haemocare?</h3>
-                            <p class="text-gray-700">KEDI Haemocare is a natural health supplement specifically formulated to support healthy blood production, improve blood circulation, and enhance overall vitality. It's designed to address common issues related to blood deficiency and poor circulation.</p>
-                        </div>
-
-                        <div class="faq-item bg-white p-4 rounded-lg shadow-sm cursor-pointer hover:bg-gray-50 transition-colors duration-200">
-                            <h3 class="font-semibold text-lg text-gray-800 mb-2">What are the main benefits of using KEDI Haemocare?</h3>
-                            <p class="text-gray-700">The main benefits include promoting red blood cell formation, alleviating symptoms of anemia (like fatigue, dizziness), improving blood circulation, enhancing energy levels and physical stamina, and contributing to a healthy complexion.</p>
-                        </div>
-
-                        <div class="faq-item bg-white p-4 rounded-lg shadow-sm cursor-pointer hover:bg-gray-50 transition-colors duration-200">
-                            <h3 class="font-semibold text-lg text-gray-800 mb-2">What are the key ingredients in KEDI Haemocare?</h3>
-                            <p class="text-gray-700">Haemocare typically contains a blend of blood-nourishing ingredients such as Folic Acid, Ferrous Gluconate (Iron), Vitamin B12, and traditional herbal extracts like Radix Astragali and Angelica Sinensis (Dong Quai), known for their blood-building properties. Always refer to the product packaging for the full list.</p>
-                        </div>
-
-                        <div class="faq-item bg-white p-4 rounded-lg shadow-sm cursor-pointer hover:bg-gray-50 transition-colors duration-200">
-                            <h3 class="font-semibold text-lg text-gray-800 mb-2">How should I take KEDI Haemocare?</h3>
-                            <p class="text-gray-700">Dosage and usage instructions will be provided on the product packaging. It is crucial to follow these guidelines carefully. Generally, it is taken with water, and consistent daily use is recommended for best results, as directed by a healthcare professional.</p>
-                        </div>
-
-                        <div class="faq-item bg-white p-4 rounded-lg shadow-sm cursor-pointer hover:bg-gray-50 transition-colors duration-200">
-                            <h3 class="font-semibold text-lg text-gray-800 mb-2">Are there any side effects of KEDI Haemocare?</h3>
-                            <p class="text-gray-700">When taken as directed, KEDI Haemocare is generally well-tolerated. Some individuals might experience mild digestive upset, particularly due to iron content. Consult a healthcare professional if side effects persist or if you have pre-existing conditions or are on other medications.</p>
-                        </div>
-                        <div class="faq-item bg-white p-4 rounded-lg shadow-sm cursor-pointer hover:bg-gray-50 transition-colors duration-200">
-                            <h3 class="font-semibold text-lg text-gray-800 mb-2">Can Haemocare help with anemia?</h3>
-                            <p class="text-gray-700">Yes, KEDI Haemocare is specifically formulated with ingredients like iron, folic acid, and vitamin B12, which are essential for red blood cell production and are commonly used to support individuals with iron-deficiency anemia, under the guidance of a healthcare professional.</p>
-                        </div>
-                        <div class="faq-item bg-white p-4 rounded-lg shadow-sm cursor-pointer hover:bg-gray-50 transition-colors duration-200">
-                            <h3 class="font-semibold text-lg text-gray-800 mb-2">Is KEDI Haemocare suitable for long-term use?</h3>
-                            <p class="text-gray-700">For ongoing blood health and vitality, Haemocare can be used long-term as directed. However, if you have severe or chronic blood conditions, it's advisable to consult with a healthcare professional for a proper diagnosis and treatment plan.</p>
-                        </div>
-                        <div class="faq-item bg-white p-4 rounded-lg shadow-sm cursor-pointer hover:bg-gray-50 transition-colors duration-200">
-                            <h3 class="font-semibold text-lg text-gray-800 mb-2">How long does it take to see results with Haemocare?</h3>
-                            <p class="text-gray-700">Individual responses vary, but many users report feeling significant improvements in energy and reduction in fatigue within a few weeks to a few months of consistent use. For optimal and lasting benefits, continuous use as directed is often recommended.</p>
-                        </div>
-                    </div>
-                </section>
-                <!-- End FAQ Section -->
-
-                <!-- Testimonial Section -->
-                <section class="testimonial-section mt-12 p-6 bg-red-200 rounded-lg shadow-inner">
-                    <h2 class="text-2xl md:text-3xl font-bold text-red-800 mb-6 text-center">What Our Customers Say About KEDI Haemocare</h2>
-                    <div class="slick-carousel-testimonials">
-                        <!-- Testimonial Item 1 -->
-                        <div class="p-4 bg-white rounded-lg shadow-md mx-2">
-                            <div class="flex flex-col items-center text-center">
-                                <img src="https://placehold.co/80x80/8B0000/ffffff?text=User1" alt="Customer 1" class="w-20 h-20 rounded-full object-cover mb-4 border-2 border-darkred-400">
-                                <p class="text-gray-700 italic mb-3">"Haemocare has truly boosted my energy! I used to feel tired all the time, but now I have so much more vitality. Highly recommend!"</p>
-                                <div class="text-yellow-500 mb-2">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                </div>
-                                <h4 class="font-semibold text-gray-800">- Aisha M.</h4>
-                                <p class="text-sm text-gray-500">Verified User</p>
-                            </div>
-                        </div>
-                        <!-- Testimonial Item 2 -->
-                        <div class="p-4 bg-white rounded-lg shadow-md mx-2">
-                            <div class="flex flex-col items-center text-center">
-                                <img src="https://placehold.co/80x80/A52A2A/ffffff?text=User2" alt="Customer 2" class="w-20 h-20 rounded-full object-cover mb-4 border-2 border-brown-400">
-                                <p class="text-gray-700 italic mb-3">"My doctor recommended an iron supplement, and I chose KEDI Haemocare. My complexion has improved, and I no longer feel dizzy. It works!"</p>
-                                <div class="text-yellow-500 mb-2">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                </div>
-                                <h4 class="font-semibold text-gray-800">- John K.</h4>
-                                <p class="text-sm text-gray-500">Anemia Support</p>
-                            </div>
-                        </div>
-                        <!-- Testimonial Item 3 -->
-                        <div class="p-4 bg-white rounded-lg shadow-md mx-2">
-                            <div class="flex flex-col items-center text-center">
-                                <img src="https://placehold.co/80x80/800000/ffffff?text=User3" alt="Customer 3" class="w-20 h-20 rounded-full object-cover mb-4 border-2 border-maroon-400">
-                                <p class="text-gray-700 italic mb-3">"I've felt a significant improvement in my circulation since starting Haemocare. My hands and feet feel warmer, and I just feel healthier overall."</p>
-                                <div class="text-yellow-500 mb-2">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                </div>
-                                <h4 class="font-semibold text-gray-800">- Sarah P.</h4>
-                                <p class="text-sm text-gray-500">Circulation Boost</p>
-                            </div>
-                        </div>
-                         <!-- Testimonial Item 4 -->
-                        <div class="p-4 bg-white rounded-lg shadow-md mx-2">
-                            <div class="flex flex-col items-center text-center">
-                                <img src="https://placehold.co/80x80/B22222/ffffff?text=User4" alt="Customer 4" class="w-20 h-20 rounded-full object-cover mb-4 border-2 border-firebrick-400">
-                                <p class="text-gray-700 italic mb-3">"As an active individual, I needed something to help maintain my blood health. Haemocare has given me consistent energy and recovery. Very satisfied!"</p>
-                                <div class="text-yellow-500 mb-2">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                </div>
-                                <h4 class="font-semibold text-gray-800">- David L.</h4>
-                                <p class="text-sm text-gray-500">Vitality Seeker</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- End Testimonial Section -->
-
-                <!-- Product Recommendation Section -->
-                <section class="product-recommendation-section mt-12 p-6 bg-red-50 rounded-lg shadow-inner">
-                    <h2 class="text-2xl md:text-3xl font-bold text-red-700 mb-6 text-center">Other KEDI Products for Vitality & General Wellness</h2>
-                    <p class="text-center text-gray-700 mb-4">Search for products or click on an FAQ to see relevant recommendations.</p>
-                    <div class="flex flex-col md:flex-row items-center justify-center mb-6">
-                        <input type="text" id="product-search-input" placeholder="e.g., 'KEDI Vigor', 'fatigue relief'" class="w-full md:w-1/2 p-3 border border-red-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 mb-4 md:mb-0 md:mr-4">
-                        <button id="search-products-btn" class="bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-700 transition-colors duration-300">Search KEDI Products</button>
-                    </div>
-                    <div id="recommended-products-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <!-- Recommended products will be displayed here -->
-                        <p class="text-gray-500 text-center col-span-full">No recommendations found for this query. Try a different search term or FAQ.</p>
-                    </div>
-                </section>
-                <!-- End Product Recommendation Section -->
-
-                <!-- LLM Response Section -->
-                <section class="llm-response-section mt-12 p-6 bg-rose-50 rounded-lg shadow-inner">
-                    <h2 class="text-2xl md:text-3xl font-bold text-rose-700 mb-6 text-center">AI Model Response</h2>
-                    <div id="llm-response-text" class="bg-white p-4 rounded-lg shadow text-gray-800 italic">
+<!-- FAQ Section -->
+<section class="faq-section mt-12 p-6 bg-red-100 rounded-lg shadow-inner">
+<h2 class="text-2xl md:text-3xl font-bold text-red-800 mb-6 text-center">Frequently Asked Questions about KEDI Haemocare</h2>
+<div class="space-y-6">
+<div class="faq-item bg-white p-4 rounded-lg shadow-sm cursor-pointer hover:bg-gray-50 transition-colors duration-200">
+<h3 class="font-semibold text-lg text-gray-800 mb-2">What is KEDI Haemocare?</h3>
+<p class="text-gray-700">KEDI Haemocare is a natural health supplement specifically formulated to support healthy blood production, improve blood circulation, and enhance overall vitality. It's designed to address common issues related to blood deficiency and poor circulation.</p>
+</div>
+<div class="faq-item bg-white p-4 rounded-lg shadow-sm cursor-pointer hover:bg-gray-50 transition-colors duration-200">
+<h3 class="font-semibold text-lg text-gray-800 mb-2">What are the main benefits of using KEDI Haemocare?</h3>
+<p class="text-gray-700">The main benefits include promoting red blood cell formation, alleviating symptoms of anemia (like fatigue, dizziness), improving blood circulation, enhancing energy levels and physical stamina, and contributing to a healthy complexion.</p>
+</div>
+<div class="faq-item bg-white p-4 rounded-lg shadow-sm cursor-pointer hover:bg-gray-50 transition-colors duration-200">
+<h3 class="font-semibold text-lg text-gray-800 mb-2">What are the key ingredients in KEDI Haemocare?</h3>
+<p class="text-gray-700">Haemocare typically contains a blend of blood-nourishing ingredients such as Folic Acid, Ferrous Gluconate (Iron), Vitamin B12, and traditional herbal extracts like Radix Astragali and Angelica Sinensis (Dong Quai), known for their blood-building properties. Always refer to the product packaging for the full list.</p>
+</div>
+<div class="faq-item bg-white p-4 rounded-lg shadow-sm cursor-pointer hover:bg-gray-50 transition-colors duration-200">
+<h3 class="font-semibold text-lg text-gray-800 mb-2">How should I take KEDI Haemocare?</h3>
+<p class="text-gray-700">Dosage and usage instructions will be provided on the product packaging. It is crucial to follow these guidelines carefully. Generally, it is taken with water, and consistent daily use is recommended for best results, as directed by a healthcare professional.</p>
+</div>
+<div class="faq-item bg-white p-4 rounded-lg shadow-sm cursor-pointer hover:bg-gray-50 transition-colors duration-200">
+<h3 class="font-semibold text-lg text-gray-800 mb-2">Are there any side effects of KEDI Haemocare?</h3>
+<p class="text-gray-700">When taken as directed, KEDI Haemocare is generally well-tolerated. Some individuals might experience mild digestive upset, particularly due to iron content. Consult a healthcare professional if side effects persist or if you have pre-existing conditions or are on other medications.</p>
+</div>
+<div class="faq-item bg-white p-4 rounded-lg shadow-sm cursor-pointer hover:bg-gray-50 transition-colors duration-200">
+<h3 class="font-semibold text-lg text-gray-800 mb-2">Can Haemocare help with anemia?</h3>
+<p class="text-gray-700">Yes, KEDI Haemocare is specifically formulated with ingredients like iron, folic acid, and vitamin B12, which are essential for red blood cell production and are commonly used to support individuals with iron-deficiency anemia, under the guidance of a healthcare professional.</p>
+</div>
+<div class="faq-item bg-white p-4 rounded-lg shadow-sm cursor-pointer hover:bg-gray-50 transition-colors duration-200">
+<h3 class="font-semibold text-lg text-gray-800 mb-2">Is KEDI Haemocare suitable for long-term use?</h3>
+<p class="text-gray-700">For ongoing blood health and vitality, Haemocare can be used long-term as directed. However, if you have severe or chronic blood conditions, it's advisable to consult with a healthcare professional for a proper diagnosis and treatment plan.</p>
+</div>
+<div class="faq-item bg-white p-4 rounded-lg shadow-sm cursor-pointer hover:bg-gray-50 transition-colors duration-200">
+<h3 class="font-semibold text-lg text-gray-800 mb-2">How long does it take to see results with Haemocare?</h3>
+<p class="text-gray-700">Individual responses vary, but many users report feeling significant improvements in energy and reduction in fatigue within a few weeks to a few months of consistent use. For optimal and lasting benefits, continuous use as directed is often recommended.</p>
+</div>
+</div>
+</section>
+<!-- End FAQ Section -->
+<!-- Testimonial Section -->
+<section class="testimonial-section mt-12 p-6 bg-red-200 rounded-lg shadow-inner">
+<h2 class="text-2xl md:text-3xl font-bold text-red-800 mb-6 text-center">What Our Customers Say About KEDI Haemocare</h2>
+<div class="slick-carousel-testimonials">
+<!-- Testimonial Item 1 -->
+<div class="p-4 bg-white rounded-lg shadow-md mx-2">
+<div class="flex flex-col items-center text-center">
+<img alt="Customer 1" class="w-20 h-20 rounded-full object-cover mb-4 border-2 border-darkred-400" src="https://placehold.co/80x80/8B0000/ffffff?text=User1"/>
+<p class="text-gray-700 italic mb-3">"Haemocare has truly boosted my energy! I used to feel tired all the time, but now I have so much more vitality. Highly recommend!"</p>
+<div class="text-yellow-500 mb-2">
+<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+</div>
+<h4 class="font-semibold text-gray-800">- Aisha M.</h4>
+<p class="text-sm text-gray-500">Verified User</p>
+</div>
+</div>
+<!-- Testimonial Item 2 -->
+<div class="p-4 bg-white rounded-lg shadow-md mx-2">
+<div class="flex flex-col items-center text-center">
+<img alt="Customer 2" class="w-20 h-20 rounded-full object-cover mb-4 border-2 border-brown-400" src="https://placehold.co/80x80/A52A2A/ffffff?text=User2"/>
+<p class="text-gray-700 italic mb-3">"My doctor recommended an iron supplement, and I chose KEDI Haemocare. My complexion has improved, and I no longer feel dizzy. It works!"</p>
+<div class="text-yellow-500 mb-2">
+<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+</div>
+<h4 class="font-semibold text-gray-800">- John K.</h4>
+<p class="text-sm text-gray-500">Anemia Support</p>
+</div>
+</div>
+<!-- Testimonial Item 3 -->
+<div class="p-4 bg-white rounded-lg shadow-md mx-2">
+<div class="flex flex-col items-center text-center">
+<img alt="Customer 3" class="w-20 h-20 rounded-full object-cover mb-4 border-2 border-maroon-400" src="https://placehold.co/80x80/800000/ffffff?text=User3"/>
+<p class="text-gray-700 italic mb-3">"I've felt a significant improvement in my circulation since starting Haemocare. My hands and feet feel warmer, and I just feel healthier overall."</p>
+<div class="text-yellow-500 mb-2">
+<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+</div>
+<h4 class="font-semibold text-gray-800">- Sarah P.</h4>
+<p class="text-sm text-gray-500">Circulation Boost</p>
+</div>
+</div>
+<!-- Testimonial Item 4 -->
+<div class="p-4 bg-white rounded-lg shadow-md mx-2">
+<div class="flex flex-col items-center text-center">
+<img alt="Customer 4" class="w-20 h-20 rounded-full object-cover mb-4 border-2 border-firebrick-400" src="https://placehold.co/80x80/B22222/ffffff?text=User4"/>
+<p class="text-gray-700 italic mb-3">"As an active individual, I needed something to help maintain my blood health. Haemocare has given me consistent energy and recovery. Very satisfied!"</p>
+<div class="text-yellow-500 mb-2">
+<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+</div>
+<h4 class="font-semibold text-gray-800">- David L.</h4>
+<p class="text-sm text-gray-500">Vitality Seeker</p>
+</div>
+</div>
+</div>
+</section>
+<!-- End Testimonial Section -->
+<!-- Product Recommendation Section -->
+<section class="product-recommendation-section mt-12 p-6 bg-red-50 rounded-lg shadow-inner">
+<h2 class="text-2xl md:text-3xl font-bold text-red-700 mb-6 text-center">Other KEDI Products for Vitality &amp; General Wellness</h2>
+<p class="text-center text-gray-700 mb-4">Search for products or click on an FAQ to see relevant recommendations.</p>
+<div class="flex flex-col md:flex-row items-center justify-center mb-6">
+<input class="w-full md:w-1/2 p-3 border border-red-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 mb-4 md:mb-0 md:mr-4" id="product-search-input" placeholder="e.g., 'KEDI Vigor', 'fatigue relief'" type="text"/>
+<button class="bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-700 transition-colors duration-300" id="search-products-btn">Search KEDI Products</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="recommended-products-container">
+<!-- Recommended products will be displayed here -->
+<p class="text-gray-500 text-center col-span-full">No recommendations found for this query. Try a different search term or FAQ.</p>
+</div>
+</section>
+<!-- End Product Recommendation Section -->
+<!-- LLM Response Section -->
+<section class="llm-response-section mt-12 p-6 bg-rose-50 rounded-lg shadow-inner">
+<h2 class="text-2xl md:text-3xl font-bold text-rose-700 mb-6 text-center">AI Model Response</h2>
+<div class="bg-white p-4 rounded-lg shadow text-gray-800 italic" id="llm-response-text">
                         The AI model is ready to assist with product recommendations based on your input.
                     </div>
-                </section>
-                <!-- End LLM Response Section -->
-
-
-                <!-- Browsing History Section -->
-                <section class="browsing-history-section mt-12 p-6 bg-red-300 rounded-lg shadow-inner">
-                    <h2 class="text-2xl md:text-3xl font-bold text-red-900 mb-6 text-center">Your Recent Browsing History</h2>
-                    <ul id="history-list" class="list-disc list-inside space-y-2 text-gray-700">
-                        <!-- History items will be dynamically inserted here by JavaScript -->
-                    </ul>
-                    <div class="flex justify-center mt-6">
-                        <button id="clear-history-btn" class="bg-red-700 text-white px-6 py-2 rounded-full hover:bg-red-800 transition-colors duration-300 mr-4">Clear History</button>
-                        <button id="request-notification-btn" class="bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 transition-colors duration-300">Enable Notifications</button>
-                    </div>
-                </section>
-                <!-- End Browsing History Section -->
-
-                <!-- Website Suggestions Section -->
-                <section class="suggestions-section mt-12 p-6 bg-rose-100 rounded-lg shadow-inner">
-                    <h2 class="text-2xl md:text-3xl font-bold text-rose-700 mb-6 text-center">You Might Also Like</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="suggestions-container">
-                        <!-- Suggestions will be dynamically inserted here or hardcoded -->
-                        <a href="https://what-is-your-health-challenge.vercel.app/blog/foods-for-blood-health" class="block bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow duration-200">
-                            <h3 class="font-semibold text-lg text-rose-800 mb-2">Foods to Boost Your Blood Health</h3>
-                            <p class="text-gray-700 text-sm">Discover dietary choices that support healthy blood.</p>
-                        </a>
-                        <a href="https://what-is-your-health-challenge.vercel.app/blog/natural-remedies-fatigue" class="block bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow duration-200">
-                            <h3 class="font-semibold text-lg text-rose-800 mb-2">Natural Remedies for Battling Fatigue</h3>
-                            <p class="text-gray-700 text-sm">Explore holistic ways to regain your energy.</p>
-                        </a>
-                        <a href="https://what-is-your-health-challenge.vercel.app/products/kedi-vitality-supplements" class="block bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow duration-200">
-                            <h3 class="font-semibold text-lg text-rose-800 mb-2">Browse All KEDI Vitality Supplements</h3>
-                            <p class="text-gray-700 text-sm">Explore KEDI's range of products for overall strength and well-being.</p>
-                        </a>
-                    </div>
-                </section>
-                <!-- End Website Suggestions Section -->
-
-
-                <!-- Shareability Section -->
-                <div class="share-section mt-10 p-6 bg-red-100 rounded-lg shadow-inner text-center">
-                    <h3 class="text-xl md:text-2xl font-bold text-red-800 mb-4">Share This Article</h3>
-                    <p class="text-gray-700 mb-6">Found this article helpful? Share it with your friends and family!</p>
-                    <div class="flex justify-center space-x-4">
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare" target="_blank" rel="noopener noreferrer" class="share-button bg-blue-600 text-white p-3 rounded-full shadow-md hover:bg-blue-700 transition-all duration-300">
-                            <i class="fab fa-facebook-f text-lg"></i>
-                        </a>
-                        <a href="https://twitter.com/intent/tweet?url=https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare&text=Nourish%20Your%20Blood%20with%20KEDI%20Haemocare!" target="_blank" rel="noopener noreferrer" class="share-button bg-blue-400 text-white p-3 rounded-full shadow-md hover:bg-blue-500 transition-all duration-300">
-                            <i class="fab fa-twitter text-lg"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare&title=KEDI%20Haemocare:%20Blood%20Health%20&%20Vitality" target="_blank" rel="noopener noreferrer" class="share-button bg-blue-700 text-white p-3 rounded-full shadow-md hover:bg-blue-800 transition-all duration-300">
-                            <i class="fab fa-linkedin-in text-lg"></i>
-                        </a>
-                        <a href="mailto:?subject=Read this article about KEDI Haemocare&body=Check out this informative article: https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare" class="share-button bg-gray-500 text-white p-3 rounded-full shadow-md hover:bg-gray-600 transition-all duration-300">
-                            <i class="fas fa-envelope text-lg"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </main>
-        <!-- Main content end -->
-
-        <!-- Footer start -->
-        <footer class="footer bg-gray-900 text-gray-300 py-10 mt-auto">
-            <div class="newslater newslater__border py-6 border-b border-gray-700">
-                <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-                    <div class="newslater__content text-center md:text-left mb-4 md:mb-0">
-                        <h2 class="title text-white text-2xl font-bold">We are ready to <span class="text-red-400">help</span></h2>
-                        <p class="text-gray-400">For information Consult with our expert members</p>
-                    </div>
-                    <form class="newslater__form flex w-full md:w-auto">
-                        <input placeholder="Enter your Email" type="text" class="px-4 py-2 rounded-l-full focus:outline-none focus:ring-2 focus:ring-red-500 w-full md:w-auto text-gray-800">
-                        <button type="submit" class="bg-red-600 text-white px-6 py-2 rounded-r-full hover:bg-red-700 transition-colors duration-300">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-            <div class="container mx-auto px-4 pt-10 pb-6">
-                <div class="row flex flex-wrap -mx-4">
-                    <div class="footer__widget col-lg-3 col-md-6 w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
-                        <div class="footer__logo mb-4">
-                            <a href="index.html" class="text-xl font-bold text-red-500">
-                                <img src="https://placehold.co/100x40/800000/ffffff?text=KEDI+LOGO" alt="KEDI Healthcare Logo" class="h-10">
-                            </a>
-                        </div>
-                        <p class="text-sm text-gray-400 mb-4">4517 Washington Ave. Manchester, Kentucky 39495 ashington Ave. Manchester,</p>
-                        <ul class="footer__info space-y-2 text-sm text-gray-400">
-                            <li><i class="far fa-map-marker-alt mr-2"></i>254 Lillian Blvd, Holbrook</li>
-                            <li><i class="fas fa-phone mr-2"></i>1-800-654-3210</li>
-                        </ul>
-                        <div class="apps-img mt-4 flex space-x-2">
-                            <a href="#!" class="w-1/2"><img src="https://placehold.co/100x30/3498db/ffffff?text=GooglePlay" alt="Google Play" class="rounded"></a>
-                            <a href="#!" class="w-1/2"><img src="https://placehold.co/100x30/2ecc71/ffffff?text=AppStore" alt="App Store" class="rounded"></a>
-                        </div>
-                    </div>
-                    <div class="footer__widget col-lg-3 col-md-6 w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
-                        <h2 class="title text-white text-lg font-bold mb-4">Find It Fast</h2>
-                        <ul class="quick-links space-y-2 text-sm text-gray-400">
-                            <li><a href="#!" class="hover:text-red-400 transition-colors duration-200">Blood Health</a></li>
-                            <li><a href="#!" class="hover:text-red-400 transition-colors duration-200">Anemia Support</a></li>
-                            <li><a href="#!" class="hover:text-red-400 transition-colors duration-200">Circulation Boost</a></li>
-                            <li><a href="#!" class="hover:text-red-400 transition-colors duration-200">Energy & Vitality</a></li>
-                            <li><a href="#!" class="hover:text-red-400 transition-colors duration-200">Herbal Supplements</a></li>
-                            <li><a href="#!" class="hover:text-red-400 transition-colors duration-200">Traditional Chinese Medicine</a></li>
-                            <li><a href="#!" class="hover:text-red-400 transition-colors duration-200">Wellness Products</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer__widget col-lg-3 col-md-6 w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
-                        <h2 class="title text-white text-lg font-bold mb-4">Quick Links</h2>
-                        <ul class="quick-links space-y-2 text-sm text-gray-400">
-                            <li><a href="#!" class="hover:text-red-400 transition-colors duration-200">Your Account</a></li>
-                            <li><a href="#!" class="hover:text-red-400 transition-colors duration-200">Returns & Exchanges</a></li>
-                            <li><a href="#!" class="hover:text-red-400 transition-colors duration-200">Return Center</a></li>
-                            <li><a href="#!" class="hover:text-red-400 transition-colors duration-200">Purchase History</a></li>
-                            <li><a href="#!" class="hover:text-red-400 transition-colors duration-200">App Download</a></li>
-                            <li><a href="#!" class="hover:text-red-400 transition-colors duration-200">Latest News Blog</a></li>
-                            <li><a href="#!" class="hover:text-red-400 transition-colors duration-200">Shipping & Delivery</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer__widget col-lg-3 col-md-6 w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
-                        <h2 class="title text-white text-lg font-bold mb-4">Service us</h2>
-                        <ul class="category space-y-2 text-sm text-gray-400">
-                            <li><a href="#!" class="hover:text-red-400 transition-colors duration-200">Support Center</a></li>
-                            <li><a href="#!" class="hover:text-red-400 transition-colors duration-200">Term & Conditions</a></li>
-                            <li><a href="#!" class="hover:text-red-400 transition-colors duration-200">Shipping</a></li>
-                            <li><a href="#!" class="hover:text-red-400 transition-colors duration-200">Privacy Policy</a></li>
-                            <li><a href="#!" class="hover:text-red-400 transition-colors duration-200">Help</a></li>
-                            <li><a href="#!" class="hover:text-red-400 transition-colors duration-200">Products Return</a></li>
-                            <li><a href="#!" class="hover:text-red-400 transition-colors duration-200">FAQS</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="footer__bottom flex flex-col md:flex-row justify-center md:justify-between items-center pt-4 border-t border-gray-700 mt-4">
-                    <div class="footer__copyright mt-4 text-sm text-gray-400 text-center md:text-left">
-                        &copy; 2025 <a href="#!" class="text-red-400 hover:underline">KEDI Healthcare</a> . All Rights Reserved.
-                    </div>
-                    <div class="footer__social mt-4 flex space-x-4 md:mr-8">
-                        <a href="#!" class="text-gray-400 hover:text-red-400 transition-colors duration-200"><i class="fab fa-facebook-f text-lg"></i></a>
-                        <a href="#!" class="text-gray-400 hover:text-red-400 transition-colors duration-200"><i class="fab fa-twitter text-lg"></i></a>
-                        <a href="#!" class="text-gray-400 hover:text-red-400 transition-colors duration-200"><i class="fab fa-instagram text-lg"></i></a>
-                        <a href="#!" class="text-gray-400 hover:text-red-400 transition-colors duration-200"><i class="fab fa-youtube text-lg"></i></a>
-                        <a href="#!" class="text-gray-400 hover:text-red-400 transition-colors duration-200"><i class="fab fa-pinterest text-lg"></i></a>
-                    </div>
-                    <div class="feature__item flex items-center mt-4 self-end md:ml-auto">
-                        <div class="icon mr-2">
-                            <!-- Placeholder for Pi Network icon -->
-                            <img src="https://placehold.co/40x40/FF5722/ffffff?text=Pi" alt="Pi Network" class="rounded-full">
-                        </div>
-                        <div class="content">
-                            <h3 class="text-white text-md font-bold">Pi Network Payment</h3>
-                            <p class="text-gray-400 text-sm">Purchase your item securely with Pi Network</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- footer end -->
-
-        <!-- Start cookies-area (optional, can be kept or removed based on privacy policy) -->
-        <div class="cookies-area bg-gray-800 text-white p-4 flex flex-col md:flex-row items-center justify-between text-sm fixed bottom-0 w-full z-50">
-            <p class="mb-2 md:mb-0 text-center md:text-left"> This website uses cookies to improve your experience. By using this website you agree to our <a href="#" class="text-red-400 hover:underline">Data Protection Policy</a>. </p>
-            <div class="flex items-center">
-                <a href="#" class="read-more text-red-400 hover:underline mr-4">Read more</a>
-                <button class="cookie-btn bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition-colors duration-300">Accept</button>
-            </div>
-        </div>
-        <!-- End cookies-area -->
-
+</section>
+<!-- End LLM Response Section -->
+<!-- Browsing History Section -->
+<section class="browsing-history-section mt-12 p-6 bg-red-300 rounded-lg shadow-inner">
+<h2 class="text-2xl md:text-3xl font-bold text-red-900 mb-6 text-center">Your Recent Browsing History</h2>
+<ul class="list-disc list-inside space-y-2 text-gray-700" id="history-list">
+<!-- History items will be dynamically inserted here by JavaScript -->
+</ul>
+<div class="flex justify-center mt-6">
+<button class="bg-red-700 text-white px-6 py-2 rounded-full hover:bg-red-800 transition-colors duration-300 mr-4" id="clear-history-btn">Clear History</button>
+<button class="bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 transition-colors duration-300" id="request-notification-btn">Enable Notifications</button>
+</div>
+</section>
+<!-- End Browsing History Section -->
+<!-- Website Suggestions Section -->
+<section class="suggestions-section mt-12 p-6 bg-rose-100 rounded-lg shadow-inner">
+<h2 class="text-2xl md:text-3xl font-bold text-rose-700 mb-6 text-center">You Might Also Like</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="suggestions-container"><div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow duration-200"><a href="#article=foods-for-blood-health"><img alt="Foods to Boost Your Blood Health" class="w-full h-48 object-cover rounded mb-3" src="https://placehold.co/400x250/E9967A/ffffff?text=Blood+Foods"/><h3 class="font-semibold text-lg text-rose-800 mb-2">Foods to Boost Your Blood Health</h3><p class="text-gray-700 text-sm mb-2">Discover dietary choices that support healthy blood.</p><p class="text-xs text-gray-500 mb-2">Published on: 2024-10-12</p></a><div class="flex space-x-2 mt-2"><a class="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full shadow-md transition-all duration-300" href="https://www.facebook.com/sharer/sharer.php?u=#article=foods-for-blood-health" rel="noopener noreferrer" target="_blank"><i class="fab fa-facebook-f text-sm"></i></a><a class="bg-blue-400 hover:bg-blue-500 text-white p-2 rounded-full shadow-md transition-all duration-300" href="https://twitter.com/intent/tweet?url=#article=foods-for-blood-health&amp;text=Foods to Boost Your Blood Health" rel="noopener noreferrer" target="_blank"><i class="fab fa-twitter text-sm"></i></a><a class="bg-blue-700 hover:bg-blue-800 text-white p-2 rounded-full shadow-md transition-all duration-300" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=#article=foods-for-blood-health&amp;title=Foods to Boost Your Blood Health" rel="noopener noreferrer" target="_blank"><i class="fab fa-linkedin-in text-sm"></i></a></div></div><div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow duration-200"><a href="#article=natural-remedies-fatigue"><img alt="Natural Remedies for Battling Fatigue" class="w-full h-48 object-cover rounded mb-3" src="https://placehold.co/400x250/F4A460/ffffff?text=Fatigue+Relief"/><h3 class="font-semibold text-lg text-rose-800 mb-2">Natural Remedies for Battling Fatigue</h3><p class="text-gray-700 text-sm mb-2">Explore holistic ways to regain your energy.</p><p class="text-xs text-gray-500 mb-2">Published on: 2024-11-03</p></a><div class="flex space-x-2 mt-2"><a class="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full shadow-md transition-all duration-300" href="https://www.facebook.com/sharer/sharer.php?u=#article=natural-remedies-fatigue" rel="noopener noreferrer" target="_blank"><i class="fab fa-facebook-f text-sm"></i></a><a class="bg-blue-400 hover:bg-blue-500 text-white p-2 rounded-full shadow-md transition-all duration-300" href="https://twitter.com/intent/tweet?url=#article=natural-remedies-fatigue&amp;text=Natural Remedies for Battling Fatigue" rel="noopener noreferrer" target="_blank"><i class="fab fa-twitter text-sm"></i></a><a class="bg-blue-700 hover:bg-blue-800 text-white p-2 rounded-full shadow-md transition-all duration-300" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=#article=natural-remedies-fatigue&amp;title=Natural Remedies for Battling Fatigue" rel="noopener noreferrer" target="_blank"><i class="fab fa-linkedin-in text-sm"></i></a></div></div><div class="bg-white p-4 rounded-lg shadow hover:shadow-md transition-shadow duration-200"><a href="#article=kedi-vitality-supplements"><img alt="Browse All KEDI Vitality Supplements" class="w-full h-48 object-cover rounded mb-3" src="https://placehold.co/400x250/CD5C5C/ffffff?text=Vitality+Supplements"/><h3 class="font-semibold text-lg text-rose-800 mb-2">Browse All KEDI Vitality Supplements</h3><p class="text-gray-700 text-sm mb-2">Explore KEDI's range of products for overall strength and well-being.</p><p class="text-xs text-gray-500 mb-2">Published on: 2025-01-15</p></a><div class="flex space-x-2 mt-2"><a class="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full shadow-md transition-all duration-300" href="https://www.facebook.com/sharer/sharer.php?u=#article=kedi-vitality-supplements" rel="noopener noreferrer" target="_blank"><i class="fab fa-facebook-f text-sm"></i></a><a class="bg-blue-400 hover:bg-blue-500 text-white p-2 rounded-full shadow-md transition-all duration-300" href="https://twitter.com/intent/tweet?url=#article=kedi-vitality-supplements&amp;text=Browse All KEDI Vitality Supplements" rel="noopener noreferrer" target="_blank"><i class="fab fa-twitter text-sm"></i></a><a class="bg-blue-700 hover:bg-blue-800 text-white p-2 rounded-full shadow-md transition-all duration-300" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=#article=kedi-vitality-supplements&amp;title=Browse All KEDI Vitality Supplements" rel="noopener noreferrer" target="_blank"><i class="fab fa-linkedin-in text-sm"></i></a></div></div></div>
+</section>
+<!-- End Website Suggestions Section -->
+<!-- Shareability Section -->
+<div class="share-section mt-10 p-6 bg-red-100 rounded-lg shadow-inner text-center">
+<h3 class="text-xl md:text-2xl font-bold text-red-800 mb-4">Share This Article</h3>
+<p class="text-gray-700 mb-6">Found this article helpful? Share it with your friends and family!</p>
+<div class="flex justify-center space-x-4">
+<a class="share-button bg-blue-600 text-white p-3 rounded-full shadow-md hover:bg-blue-700 transition-all duration-300" href="https://www.facebook.com/sharer/sharer.php?u=https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare" rel="noopener noreferrer" target="_blank">
+<i class="fab fa-facebook-f text-lg"></i>
+</a>
+<a class="share-button bg-blue-400 text-white p-3 rounded-full shadow-md hover:bg-blue-500 transition-all duration-300" href="https://twitter.com/intent/tweet?url=https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare&amp;text=Nourish%20Your%20Blood%20with%20KEDI%20Haemocare!" rel="noopener noreferrer" target="_blank">
+<i class="fab fa-twitter text-lg"></i>
+</a>
+<a class="share-button bg-blue-700 text-white p-3 rounded-full shadow-md hover:bg-blue-800 transition-all duration-300" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare&amp;title=KEDI%20Haemocare:%20Blood%20Health%20&amp;%20Vitality" rel="noopener noreferrer" target="_blank">
+<i class="fab fa-linkedin-in text-lg"></i>
+</a>
+<a class="share-button bg-gray-500 text-white p-3 rounded-full shadow-md hover:bg-gray-600 transition-all duration-300" href="mailto:?subject=Read this article about KEDI Haemocare&amp;body=Check out this informative article: https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare">
+<i class="fas fa-envelope text-lg"></i>
+</a>
+</div>
+</div>
+</div>
+<aside class="hidden lg:block w-full lg:w-1/3 px-4 mt-10" id="sidebar-tips">
+    <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+        <h3 class="text-xl font-semibold text-red-800 mb-3">Wellness Tips</h3>
+        <p id="health-tip" class="text-gray-700 text-sm">
+            Loading health tip...
+        </p>
     </div>
-
-    <!-- Custom Message Box -->
-    <div id="messageBox" class="message-box">
-        <p id="messageBoxText"></p>
-        <button onclick="document.getElementById('messageBox').style.display='none'">OK</button>
+    <div class="bg-white p-4 rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-red-800 mb-3">Did You Know?</h3>
+        <ul class="list-disc pl-5 text-sm text-gray-700 space-y-2">
+            <li>Hydration is key to optimal blood flow.</li>
+            <li>Iron-rich foods support red blood cell production.</li>
+            <li>Daily walks boost circulation naturally.</li>
+            <li>Vitamin B12 is crucial for energy and focus.</li>
+        </ul>
     </div>
+</aside>
 
-    <!-- jQuery and Slick JS for carousel -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-
-    <!-- JavaScript for client-side functionalities -->
-    <script>
+</main>
+<!-- Main content end -->
+<!-- Footer start -->
+<footer class="footer bg-gray-900 text-gray-300 py-10 mt-auto">
+<div class="newslater newslater__border py-6 border-b border-gray-700">
+<div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+<div class="newslater__content text-center md:text-left mb-4 md:mb-0">
+<h2 class="title text-white text-2xl font-bold">We are ready to <span class="text-red-400">help</span></h2>
+<p class="text-gray-400">For information Consult with our expert members</p>
+</div>
+<form class="newslater__form flex w-full md:w-auto">
+<input class="px-4 py-2 rounded-l-full focus:outline-none focus:ring-2 focus:ring-red-500 w-full md:w-auto text-gray-800" placeholder="Enter your Email" type="text"/>
+<button class="bg-red-600 text-white px-6 py-2 rounded-r-full hover:bg-red-700 transition-colors duration-300" type="submit">Subscribe</button>
+</form>
+</div>
+</div>
+<div class="container mx-auto px-4 pt-10 pb-6">
+<div class="row flex flex-wrap -mx-4">
+<div class="footer__widget col-lg-3 col-md-6 w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
+<div class="footer__logo mb-4">
+<a class="text-xl font-bold text-red-500" href="index.html">
+<img alt="KEDI Healthcare Logo" class="h-10" src="https://placehold.co/100x40/800000/ffffff?text=KEDI+LOGO"/>
+</a>
+</div>
+<p class="text-sm text-gray-400 mb-4">4517 Washington Ave. Manchester, Kentucky 39495 ashington Ave. Manchester,</p>
+<ul class="footer__info space-y-2 text-sm text-gray-400">
+<li><i class="far fa-map-marker-alt mr-2"></i>254 Lillian Blvd, Holbrook</li>
+<li><i class="fas fa-phone mr-2"></i>1-800-654-3210</li>
+</ul>
+<div class="apps-img mt-4 flex space-x-2">
+<a class="w-1/2" href="#!"><img alt="Google Play" class="rounded" src="https://placehold.co/100x30/3498db/ffffff?text=GooglePlay"/></a>
+<a class="w-1/2" href="#!"><img alt="App Store" class="rounded" src="https://placehold.co/100x30/2ecc71/ffffff?text=AppStore"/></a>
+</div>
+</div>
+<div class="footer__widget col-lg-3 col-md-6 w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
+<h2 class="title text-white text-lg font-bold mb-4">Find It Fast</h2>
+<ul class="quick-links space-y-2 text-sm text-gray-400">
+<li><a class="hover:text-red-400 transition-colors duration-200" href="#!">Blood Health</a></li>
+<li><a class="hover:text-red-400 transition-colors duration-200" href="#!">Anemia Support</a></li>
+<li><a class="hover:text-red-400 transition-colors duration-200" href="#!">Circulation Boost</a></li>
+<li><a class="hover:text-red-400 transition-colors duration-200" href="#!">Energy &amp; Vitality</a></li>
+<li><a class="hover:text-red-400 transition-colors duration-200" href="#!">Herbal Supplements</a></li>
+<li><a class="hover:text-red-400 transition-colors duration-200" href="#!">Traditional Chinese Medicine</a></li>
+<li><a class="hover:text-red-400 transition-colors duration-200" href="#!">Wellness Products</a></li>
+</ul>
+</div>
+<div class="footer__widget col-lg-3 col-md-6 w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
+<h2 class="title text-white text-lg font-bold mb-4">Quick Links</h2>
+<ul class="quick-links space-y-2 text-sm text-gray-400">
+<li><a class="hover:text-red-400 transition-colors duration-200" href="#!">Your Account</a></li>
+<li><a class="hover:text-red-400 transition-colors duration-200" href="#!">Returns &amp; Exchanges</a></li>
+<li><a class="hover:text-red-400 transition-colors duration-200" href="#!">Return Center</a></li>
+<li><a class="hover:text-red-400 transition-colors duration-200" href="#!">Purchase History</a></li>
+<li><a class="hover:text-red-400 transition-colors duration-200" href="#!">App Download</a></li>
+<li><a class="hover:text-red-400 transition-colors duration-200" href="#!">Latest News Blog</a></li>
+<li><a class="hover:text-red-400 transition-colors duration-200" href="#!">Shipping &amp; Delivery</a></li>
+</ul>
+</div>
+<div class="footer__widget col-lg-3 col-md-6 w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
+<h2 class="title text-white text-lg font-bold mb-4">Service us</h2>
+<ul class="category space-y-2 text-sm text-gray-400">
+<li><a class="hover:text-red-400 transition-colors duration-200" href="#!">Support Center</a></li>
+<li><a class="hover:text-red-400 transition-colors duration-200" href="#!">Term &amp; Conditions</a></li>
+<li><a class="hover:text-red-400 transition-colors duration-200" href="#!">Shipping</a></li>
+<li><a class="hover:text-red-400 transition-colors duration-200" href="#!">Privacy Policy</a></li>
+<li><a class="hover:text-red-400 transition-colors duration-200" href="#!">Help</a></li>
+<li><a class="hover:text-red-400 transition-colors duration-200" href="#!">Products Return</a></li>
+<li><a class="hover:text-red-400 transition-colors duration-200" href="#!">FAQS</a></li>
+</ul>
+</div>
+</div>
+<div class="footer__bottom flex flex-col md:flex-row justify-center md:justify-between items-center pt-4 border-t border-gray-700 mt-4">
+<div class="footer__copyright mt-4 text-sm text-gray-400 text-center md:text-left">
+                        © 2025 <a class="text-red-400 hover:underline" href="#!">KEDI Healthcare</a> . All Rights Reserved.
+                    </div>
+<div class="footer__social mt-4 flex space-x-4 md:mr-8">
+<a class="text-gray-400 hover:text-red-400 transition-colors duration-200" href="#!"><i class="fab fa-facebook-f text-lg"></i></a>
+<a class="text-gray-400 hover:text-red-400 transition-colors duration-200" href="#!"><i class="fab fa-twitter text-lg"></i></a>
+<a class="text-gray-400 hover:text-red-400 transition-colors duration-200" href="#!"><i class="fab fa-instagram text-lg"></i></a>
+<a class="text-gray-400 hover:text-red-400 transition-colors duration-200" href="#!"><i class="fab fa-youtube text-lg"></i></a>
+<a class="text-gray-400 hover:text-red-400 transition-colors duration-200" href="#!"><i class="fab fa-pinterest text-lg"></i></a>
+</div>
+<div class="feature__item flex items-center mt-4 self-end md:ml-auto">
+<div class="icon mr-2">
+<!-- Placeholder for Pi Network icon -->
+<img alt="Pi Network" class="rounded-full" src="https://placehold.co/40x40/FF5722/ffffff?text=Pi"/>
+</div>
+<div class="content">
+<h3 class="text-white text-md font-bold">Pi Network Payment</h3>
+<p class="text-gray-400 text-sm">Purchase your item securely with Pi Network</p>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- footer end -->
+<!-- Start cookies-area (optional, can be kept or removed based on privacy policy) -->
+<div class="cookies-area bg-gray-800 text-white p-4 flex flex-col md:flex-row items-center justify-between text-sm fixed bottom-0 w-full z-50">
+<p class="mb-2 md:mb-0 text-center md:text-left"> This website uses cookies to improve your experience. By using this website you agree to our <a class="text-red-400 hover:underline" href="#">Data Protection Policy</a>. </p>
+<div class="flex items-center">
+<a class="read-more text-red-400 hover:underline mr-4" href="#">Read more</a>
+<button class="cookie-btn bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition-colors duration-300">Accept</button>
+</div>
+</div>
+<!-- End cookies-area -->
+</div>
+<!-- Custom Message Box -->
+<div class="message-box" id="messageBox">
+<p id="messageBoxText"></p>
+<button onclick="document.getElementById('messageBox').style.display='none'">OK</button>
+</div>
+<!-- jQuery and Slick JS for carousel -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" type="text/javascript"></script>
+<!-- JavaScript for client-side functionalities -->
+<script>
         // --- Utility for custom message box ---
         function showMessageBox(message) {
             const messageBox = document.getElementById('messageBox');
@@ -908,5 +1118,1152 @@
             initializeSlickCarousel();
         });
     </script>
+<script>(function() { // Self-executing anonymous function to encapsulate the code
+
+  // === CSS Styling (as a string) ===
+  const chatbotCSS = `
+    /* General styling for a clean background - removed global overflow: hidden */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      /* overflow: hidden; -- REMOVED THIS GLOBAL OVERFLOW HIDDEN */
+    }
+
+    /* New class to apply overflow hidden only when chatbot is active */
+    .chatbot-active-body {
+        overflow: hidden; /* Prevent body scroll when chatbot is open */
+    }
+
+    /* Chatbot Button Styling */
+    #open-chatbot-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #27ae60; /* Kedi green */
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1000; /* Ensure button is on top */
+      transition: background-color 0.3s ease;
+    }
+
+    #open-chatbot-btn:hover {
+      background-color: #219d55; /* Darker green on hover */
+    }
+
+    /* Chatbot Window Styling */
+    #chatbot-window {
+      display: none; /* Hidden by default */
+      position: fixed;
+      bottom: 90px; /* Above the button */
+      right: 20px;
+      width: 350px; /* Standard chatbot width */
+      height: 500px; /* Standard chatbot height */
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 999; /* Below the button but above page content */
+      animation: fadeIn 0.3s ease-out; /* Smooth fade-in animation */
+    }
+
+    /* Chatbot Header */
+    .chatbot-header {
+      background-color: #27ae60; /* Kedi green */
+      color: white;
+      padding: 15px;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+
+    #close-chatbot-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5em;
+      cursor: pointer;
+      padding: 0 5px;
+      transition: color 0.3s ease;
+    }
+
+    #close-chatbot-btn:hover {
+      color: #f0f0f0;
+    }
+
+    /* Chatbot Messages Area */
+    #chatbot-messages {
+      flex-grow: 1;
+      padding: 15px;
+      overflow-y: auto; /* Enable scrolling for messages */
+      display: flex;
+      flex-direction: column;
+      gap: 10px; /* Spacing between messages */
+      background-color: #f9f9f9; /* Light background for messages area */
+    }
+
+    /* Message Bubble Styling (inline styles are also applied in JS, but these provide defaults/overrides) */
+    #chatbot-messages div {
+      padding: 10px 14px;
+      border-radius: 16px;
+      max-width: 80%;
+      word-wrap: break-word;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Specific styles for user messages */
+    #chatbot-messages div[style*="align-self: flex-end"] {
+      background-color: #27ae60; /* User message green */
+      color: white;
+      margin-left: auto;
+      border-bottom-right-radius: 4px; /* Pointy corner effect */
+    }
+
+    /* Specific styles for bot messages */
+    #chatbot-messages div[style*="align-self: flex-start"] {
+      background-color: #e0f7ea; /* Bot message light green */
+      color: #222;
+      margin-right: auto;
+      border-bottom-left-radius: 4px; /* Pointy corner effect */
+    }
+
+    /* Product Card Styling (overrides for inline styles, general look) */
+    .product-card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 5px; /* Adjust margin within messages */
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      max-width: 100% !important; /* Ensure product cards fill message width */
+    }
+
+    .product-card img {
+      max-width: 100px;
+      height: auto;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .product-card h4 {
+      color: #333;
+      font-size: 1.1em;
+      margin: 5px 0;
+    }
+
+    .product-card p {
+      color: #555;
+      font-size: 0.9em;
+      line-height: 1.4;
+      margin: 5px 0;
+    }
+
+    .product-card a {
+      display: inline-block;
+      padding: 8px 15px;
+      background-color: #27ae60;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 0.9em;
+      transition: background-color 0.3s ease;
+    }
+
+    .product-card a:hover {
+      background-color: #219d55;
+    }
+
+    /* Chatbot Input Form */
+    #chatbot-form {
+      padding: 15px;
+      border-top: 1px solid #eee;
+      display: flex;
+      background-color: #fff;
+    }
+
+    #chatbot-input {
+      flex-grow: 1;
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: 20px; /* Rounded input field */
+      font-size: 1em;
+      outline: none;
+      margin-right: 10px;
+      transition: border-color 0.3s ease;
+    }
+
+    #chatbot-input:focus {
+      border-color: #27ae60; /* Highlight on focus */
+    }
+
+    #chatbot-form button {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 20px; /* Rounded send button */
+      padding: 10px 18px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #chatbot-form button:hover {
+      background-color: #219d55;
+    }
+
+    /* Scrollbar Styling (Webkit - for Chrome, Safari) */
+    #chatbot-messages::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    #chatbot-messages::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    #chatbot-messages::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 10px;
+    }
+
+    #chatbot-messages::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    /* Fade-in animation for chatbot window */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  `;
+
+  // === Dynamic HTML Structure ===
+  const chatbotHTML = `
+    <button id="open-chatbot-btn">
+      <i class="fas fa-comment-dots">&#x1F4AC;</i> <!-- Unicode for speech bubble icon -->
+    </button>
+
+    <div id="chatbot-window">
+      <div class="chatbot-header">
+        <span>Kedi Bot</span>
+        <button id="close-chatbot-btn">&times;</button>
+      </div>
+      <div id="chatbot-messages">
+        <!-- Messages will be appended here by JavaScript -->
+      </div>
+      <form id="chatbot-form">
+        <input type="text" id="chatbot-input" placeholder="Type your message...">
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  `;
+
+  // === Inject CSS ===
+  const styleTag = document.createElement('style');
+  styleTag.textContent = chatbotCSS;
+  document.head.appendChild(styleTag);
+
+  // === Inject HTML ===
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = chatbotHTML;
+  while (tempDiv.firstChild) {
+    document.body.appendChild(tempDiv.firstChild);
+  }
+
+  // --- Start of Chatbot Logic (Copied directly from your previous code) ---
+
+  // === Constants ===
+  const WHATSAPP_BUSINESS_LINK = "https://wa.me/message/WNGLZNUXKXXIF1";
+
+  // === FAQs ===
+  const faqs = [
+    { q: /what are your products/i, a: "We offer a range of health and wellness products, including supplements, organic foods, and fitness gear." },
+    { q: /how can i order/i, a: "You can place an order directly on our website, or through our mobile app." },
+    { q: /shipping information/i, a: "Shipping usually takes 3-5 business days depending on your location." },
+    { q: /return policy/i, a: "We have a 30-day return policy for unopened products. Please see our website for more details." },
+    { q: /contact support/i, a: "You can contact our support team via email at support@example.com or call us at 123-456-7890." }
+  ];
+
+  // === Health Issues Data ===
+  const healthIssues = [
+    { keywords: /headache|migraine/i, answer: "For headaches or migraines, we recommend rest and hydration. If persistent, consult your physician." },
+    { keywords: /fever|temperature/i, answer: "A fever indicates an infection. Rest, fluids, and fever-reducing medication can help. If persistent or very high, seek medical advice." },
+    { keywords: /diabetes|blood sugar|diabetes patient|what can i use for diabetes/i, answer: "For diabetes and blood sugar regulation, Diawell and Golden Six are recommended. Always consult your doctor before starting any supplement." },
+    { keywords: /hypertension|high blood pressure|what can a hypertensive patient use/i, answer: "For hypertension, Golden Six and Cello Q10 are helpful. Maintain a healthy lifestyle and consult your healthcare provider." },
+    { keywords: /prostate|men gland|men's disease|what can i use for prostate/i, answer: "Lycovite and Reishi are beneficial for prostate health and men's wellness." },
+    { keywords: /weight|obesity|i want to loose weight|what can i use to loose weight|i have obesity|what can i use to reduce obesity/i, answer: "Magilim is designed for weight management and fat burning." },
+    { keywords: /immunity|immune|i want to boost my immune system|immune booster|i want to be strong|i want to be strong always/i, answer: "Reishi, Golden Hypha, and Cordy Royal Jelly help boost immunity." },
+    { keywords: /what is your health challenge|health challenge/i, answer: "Your health challenge refers to any medical condition or issue you are currently facing or seeking help for." },
+    { keywords: /what can i do about my health challenge|how to address my health challenge/i, answer: "To address your health challenge, consider consulting a healthcare professional for personalized advice and treatment options." },
+    { keywords: /hi|hello|hey|greetings/i, answer: "Hello! How can I assist you today?" },
+    {keywords: /good morning|good afternoon|good evening|goodday/i, answer: "What’s your health challenge?🌿 Whether you're facing low energy, digestive issues, weak immunity, joint pain, or something deeper… there’s a natural path to support and healing — starting with understanding your body system.💡 Our interactive tool helps you identify:✅ The root of your health challenge.✅ Suggested cures and natural support.✅ Targeted supplement recommendations"},
+    { keywords: /how are you|how is it going|how do you do/i, answer: "I'm just a chatbot, but I'm here to help you! How can I assist you today?" },
+    { keywords: /what can you do|what can you help with/i, answer: "I can provide information on health challenges, recommend products, and answer frequently asked questions. How can I assist you?" },
+    { keywords: /bye|goodbye|see you later/i, answer: "Goodbye! Take care and feel free to return if you have more questions." },
+    { keywords: /thank you|thanks/i, answer: "You're welcome! If you have any more questions, feel free to ask." },
+    { keywords: /product|products|what can i use for/i, answer: "Please specify your health challenge or question so I can recommend the appropriate product." },
+    { keywords: /question|query|inquiry/i, answer: "What is your question? I'm here to help!" },
+    { keywords: /help|assist|support/i, answer: "I'm here to help! Please tell me about your health challenge or any questions you have." },
+    { keywords: /i want to know the status of my health challenge|i want to know the status of my health/i, answer: "OK! I'm here to help! kindly tell me the symptoms you're experiencing or you can ask me any questions you have." },
+    { keywords: /diagnosis|diag|iwant you to diagnos my health|what is my health issue/i, answer: "In what part of your body." },
+
+    //toothache and oral health related FAQs
+    { keywords: /toothache|i have toothache|what can i use for my toothache|what can i use to my toothache/i, answer: "For toothache, Gum Care Toothpaste is recommended to help with oral health." },
+    { keywords: /oral health|i want to improve my oral health|what can i use for my oral health|what can i use to my oral health/i, answer: "Gum Care Toothpaste is beneficial for maintaining good oral health." },
+    { keywords: /gum care|i want to take care of my gums|what can i use for my gum care|what can i use to my gum care/i, answer: "Gum Care Toothpaste is specifically designed for gum care and oral hygiene." },
+    { keywords: /mouth health|i want to improve my mouth health|what can i use for my mouth health|what can i use to my mouth health/i, answer: "Gum Care Toothpaste is effective for maintaining mouth health." },
+    { keywords: /dental care|i want to take care of my teeth|what can i use for my dental care|what can i use to my dental care/i, answer: "Gum Care Toothpaste is a great choice for dental care and oral hygiene." },
+    { keywords: /toothpaste|i want to use toothpaste|what can i use for my toothpaste|what can i use to my toothpaste/i, answer: "Gum Care Toothpaste is recommended for effective oral care." },
+    { keywords: /tooth health|i want to take care of my teeth|what can i use for my tooth health|what can i use to my tooth health/i, answer: "Gum Care Toothpaste is beneficial for maintaining healthy teeth." },
+    { keywords: /tooth care|i want to take care of my teeth|what can i use for my tooth care|what can i use to my tooth care/i, answer: "Gum Care Toothpaste is a great choice for tooth care and oral hygiene." },
+    { keywords: /toothpaste for gum care|i want to use toothpaste for gum care|what can i use for my gum care|what can i use to my gum care/i, answer: "Gum Care Toothpaste is specifically formulated for gum care and oral hygiene." },
+    { keywords: /oral hygiene|i want to improve my oral hygiene|what can i use for my oral hygiene|what can i use to my oral hygiene/i, answer: "Gum Care Toothpaste is effective for promoting good oral hygiene." },
+    { keywords: /tooth health|i want to improve my tooth health|what can i use for my tooth health|what can i use to my tooth health/i, answer: "Gum Care Toothpaste is beneficial for maintaining healthy teeth." },
+    { keywords: /dental hygiene|i want to improve my dental hygiene|what can i use for my dental hygiene|what can i use to my dental hygiene/i, answer: "Gum Care Toothpaste is effective for promoting good dental hygiene." },
+    { keywords: /oral care|i want to take care of my oral health|what can i use for my oral care|what can i use to my oral care/i, answer: "Gum Care Toothpaste is a great choice for overall oral care." },
+    { keywords: /toothpaste for mouth care|i want to use toothpaste for mouth care|what can i use for my mouth care|what can i use to my mouth care/i, answer: "Gum Care Toothpaste is specifically formulated for mouth care and oral hygiene." },
+    { keywords: /mouth care|i want to take care of my mouth|what can i use for my mouth care|what can i use to my mouth care/i, answer: "Gum Care Toothpaste is effective for maintaining mouth health." },
+
+    //Hepatitis and Liver related FAQs
+    { keywords: /hepatitis|i have hepatitis|what can i use for my hepatitis|what can i use to my hepatitis/i, answer: "For hepatitis, Haemocare is recommended to nourish the liver and support overall health." },
+    { keywords: /liver health|i want to improve my liver health|what can i use for my liver health|what can i use to my liver health/i, answer: "Haemocare is beneficial for supporting liver health and function." },
+    { keywords: /liver disease|i have liver disease|what can i use for my liver disease|what can i use to my liver disease/i, answer: "Haemocare is recommended for managing liver disease and promoting liver health." },
+    { keywords: /liver function|i want to improve my liver function|what can i use for my liver function|what can i use to my liver function/i, answer: "Haemocare helps support liver function and overall health." },
+    { keywords: /liver detox|i want to detox my liver|what can i use for my liver detox|what can i use to my liver detox/i, answer: "Haemocare is effective for liver detoxification and promoting liver health." },
+    { keywords: /liver support|i want to support my liver|what can i use for my liver support|what can i use to my liver support/i, answer: "Haemocare is a great choice for liver support and overall health." },
+    { keywords: /liver care|i want to take care of my liver|what can i use for my liver care|what can i use to my liver care/i, answer: "Haemocare is beneficial for liver care and promoting overall health." },
+    { keywords: /liver problems|i have liver problems|what can i use for my liver problems|what can i use to my liver problems/i, answer: "Haemocare is recommended for addressing liver problems and supporting liver health." },
+    { keywords: /liver issues|i have liver issues|what can i use for my liver issues|what can i use to my liver issues/i, answer: "Haemocare is effective for managing liver issues and promoting liver health." },
+
+      //tuberculosis and respiratory related FAQs
+    { keywords: /tuberculosis|i have tuberculosis|what can i use for my tuberculosis|what can i use to my tuberculosis/i, answer: "For tuberculosis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+    { keywords: /respiratory health|i want to improve my respiratory health|what can i use for my respiratory health|what can i use to my respiratory health/i, answer: "For respiratory health, consider using Haemocare to support overall well-being." },
+    { keywords: /lung health|i want to improve my lung health|what can i use for my lung health|what can i use to my lung health/i, answer: "Haemocare can help support lung health and overall respiratory function." },
+    { keywords: /asthma|i have asthma|what can i use for my asthma|what can i use to my asthma/i, answer: "For asthma, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+    { keywords: /bronchitis|i have bronchitis|what can i use for my bronchitis|what can i use to my bronchitis/i, answer: "For bronchitis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+    { keywords: /cough|i have a cough|what can i use for my cough|what can i use to my cough/i, answer: "For cough relief, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+    { keywords: /flu|i have the flu|what can i use for my flu|what can i use to my flu/i, answer: "For flu symptoms, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+    { keywords: /cold|i have a cold|what can i use for my cold|what can i use to my cold/i, answer: "For cold symptoms, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+
+
+    { keywords: /allergies|i have allergies|what can i use for my allergies|what can i use to my allergies/i, answer: "For allergies, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+    { keywords: /sinusitis|i have sinusitis|what can i use for my sinusitis|what can i use to my sinusitis/i, answer: "For sinusitis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+    { keywords: /pneumonia|i have pneumonia|what can i use for my pneumonia|what can i use to my pneumonia/i, answer: "For pneumonia, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+    //diarrhea and constipation related FAQs
+    { keywords: /diarrhea|i have diarrhea|what can i use for my diarrhea|what can i use to my diarrhea/i, answer: "For diarrhea, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+    { keywords: /constipation|i have constipation|what can i use for my constipation|what can i use to my constipation/i, answer: "For constipation, consider using Haemocare to support digestive health." },
+
+
+    { keywords: /digestive health|i want to improve my digestive health|what can i use for my digestive health|what can i use to my digestive health/i, answer: "For digestive health, Haemocare is beneficial for supporting overall digestive function." },
+
+    //diabetes and blood sugar related FAQs
+    { keywords: /diabetes|i have diabetes|what can i use for my diabetes|what can i use to my diabetes/i, answer: "For diabetes management, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+    { keywords: /blood sugar|i want to manage my blood sugar|what can i use for my blood sugar|what can i use to my blood sugar/i, answer: "For blood sugar management, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+    { keywords: /blood pressure|i want to manage my blood pressure|what can i use for my blood pressure|what can i use to my blood pressure/i, answer: "For blood pressure management, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+    { keywords: /hypertension|i have hypertension|what can i use for my hypertension|what can i use to my hypertension/i, answer: "For hypertension, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+    //heart disease and cardiovascular related FAQs
+    { keywords: /heart disease|i have heart disease|what can i use for my heart disease|what can i use to my heart disease/i, answer: "For heart disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+    { keywords: /cardiovascular health|i want to improve my cardiovascular health|what can i use for my cardiovascular health|what can i use to my cardiovascular health/i, answer: "For cardiovascular health, consider using Haemocare to support overall heart function." },
+    { keywords: /cholesterol|i want to manage my cholesterol|what can i use for my cholesterol|what can i use to my cholesterol/i, answer: "For cholesterol management, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+    { keywords: /stroke|i have had a stroke|what can i use for my stroke|what can i use to my stroke/i, answer: "For stroke recovery, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+    //cancer and tumor related FAQs
+    { keywords: /cancer|i have cancer|what can i use for my cancer|what can i use to my cancer/i, answer: "For cancer treatment, please consult a healthcare professional for appropriate care. Haemocare can support overall health." },
+    { keywords: /tumor|i have a tumor|what can i use for my tumor|what can i use to my tumor/i, answer: "For tumor treatment, please consult a healthcare professional for appropriate care. Haemocare can support overall health." },
+
+    //anemia and blood health related FAQs
+    { keywords: /anemia|i have anemia|what can i use for my anemia|what can i use to my anemia/i, answer: "For anemia, consider using Haemocare to support blood health and overall well-being." },
+    { keywords: /blood health|i want to improve my blood health|what can i use for my blood health|what can i use to my blood health/i, answer: "For blood health, Haemocare is beneficial for supporting overall blood function." },
+    { keywords: /iron deficiency|i have iron deficiency|what can i use for my iron deficiency|what can i use to my iron deficiency/i, answer: "For iron deficiency, consider using Haemocare to support blood health. Consult a healthcare professional for specific treatments." },
+    { keywords: /blood disorders|i have a blood disorder|what can i use for my blood disorder|what can i use to my blood disorder/i, answer: "For blood disorders, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+    //allergies and immune system related FAQs
+    { keywords: /allergies|i have allergies|what can i use for my allergies|what can i use to my allergies/i, answer: "For allergies, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+    { keywords: /immune system|i want to boost my immune system|what can i use for my immune system|what can i use to my immune system/i, answer: "For boosting the immune system, consider using Haemocare to support overall health." },
+
+    //stress and anxiety related FAQs
+    { keywords: /stress|i have stress|what can i use for my stress|what can i use to my stress/i, answer: "For stress relief, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+    { keywords: /anxiety|i have anxiety|what can i use for my anxiety|what can i use to my anxiety/i, answer: "For anxiety relief, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+    { keywords: /depression|i have depression|what can i use for my depression|what can i use to my depression/i, answer: "For depression, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+    { keywords: /mental health|i want to improve my mental health|what can i use for my mental health|what can i use to my mental health/i, answer: "For mental health support, consider using Haemocare to promote overall well-being." },
+
+    //sleep disorders and insomnia related FAQs
+    { keywords: /sleep disorders|i have sleep disorders|what can i use for my sleep disorders|what can i use to my sleep disorders/i, answer: "For sleep disorders, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+    { keywords: /insomnia|i have insomnia|what can i use for my insomnia|what can i use to my insomnia/i, answer: "For insomnia, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+
+    ///fatigue and low energy related FAQs
+    { keywords: /fatigue|i have fatigue|what can i use for my fatigue|what can i use to my fatigue/i, answer: "For fatigue, consider using Haemocare to support overall health and energy levels." },
+    { keywords: /low energy|i have low energy|what can i use for my low energy|what can i use to my low energy/i, answer: "For low energy, consider using Haemocare to support overall health and vitality." },
+    { keywords: /chronic fatigue|i have chronic fatigue|what can i use for my chronic fatigue|what can i use to my chronic fatigue/i, answer: "For chronic fatigue, consider using Haemocare to support overall health. Consult a healthcare professional for specific treatments." },
+
+      //Ischemic Heart Disease (Coronary Artery Disease)
+    { keywords: /ischemic heart disease|i have ischemic heart disease|what can i use for my ischemic heart disease|what can i use to my ischemic heart disease/i, answer: "For ischemic heart disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+      //Obesity and Weight Management
+    { keywords: /obesity|i have obesity|what can i use for my obesity|what can i use to reduce obesity/i, answer: "For obesity management, consider using Magilim to support weight loss and fat burning." },
+
+
+    //Gastroesophageal Reflux Disease (GERD)
+    { keywords: /gastroesophageal reflux disease|i have gastroesophageal reflux disease|what can i use for my gastroesophageal reflux disease|what can i use to my gastroesophageal reflux disease/i, answer: "For GERD, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+
+    //Peptic Ulcer Disease
+    { keywords: /peptic ulcer disease|i have peptic ulcer disease|what can i use for my peptic ulcer disease|what can i use to my peptic ulcer disease/i, answer: "For peptic ulcer disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+
+    //Inflammatory Bowel Disease (IBD)
+    { keywords: /inflammatory bowel disease|i have inflammatory bowel disease|what can i use for my inflammatory bowel disease|what can i use to my inflammatory bowel disease/i, answer: "For inflammatory bowel disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+    //Chronic Kidney Disease (CKD)
+    { keywords: /chronic kidney disease|i have chronic kidney disease|what can i use for my chronic kidney disease|what can i use to my chronic kidney disease/i, answer: "For chronic kidney disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+    //Urinary Tract Infections (UTIs)
+    { keywords: /urinary tract infections|i have urinary tract infections|what can i use for my urinary tract infections|what can i use to my urinary tract infections/i, answer: "For urinary tract infections, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+
+    //Stroke (Cerebrovascular Accident)
+    { keywords: /stroke|i have had a stroke|what can i use for my stroke|what can i use to my stroke/i, answer: "For stroke recovery, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+    //Parkinson's Disease
+    { keywords: /parkinson's disease|i have parkinson's disease|what can i use for my parkinson's disease|what can i use to my parkinson's disease/i, answer: "For Parkinson's disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+    //Alzheimer's Disease
+    { keywords: /alzheimer's disease|i have alzheimer's disease|what can i use for my alzheimer's disease|what can i use to my alzheimer's disease/i, answer: "For Alzheimer's disease, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+    //Multiple Sclerosis (MS)
+    { keywords: /multiple sclerosis|i have multiple sclerosis|what can i use for my multiple sclerosis|what can i use to my multiple sclerosis/i, answer: "For multiple sclerosis, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+    //Rheumatoid Arthritis
+    { keywords: /rheumatoid arthritis|i have rheumatoid arthritis|what can i use for my rheumatoid arthritis|what can i use to my rheumatoid arthritis/i, answer: "For rheumatoid arthritis, Jointeez is recommended to support joint health and relieve pain." },
+
+    //Psoriatic Arthritis
+    { keywords: /psoriatic arthritis|i have psoriatic arthritis|what can i use for my psoriatic arthritis|what can i use to my psoriatic arthritis/i, answer: "For psoriatic arthritis, Jointeez is recommended to support joint health and relieve pain." },
+
+    //Osteoarthritis
+    { keywords: /osteoarthritis|i have osteoarthritis|what can i use for my osteoarthritis|what can i use to my osteoarthritis/i, answer: "For osteoarthritis, Jointeez is recommended to support joint health and relieve pain." },
+
+    //Gout
+    { keywords: /gout|i have gout|what can i use for my gout|what can i use to my gout/i, answer: "For gout, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+      //Lung Cancer
+      { keywords: /lung cancer|i have lung cancer|what can i use for my lung cancer|what can i use to my lung cancer/i, answer: "For lung cancer, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+      //Colorectal Cancer
+    { keywords: /colorectal cancer|i have colorectal cancer|what can i use for my colorectal cancer|what can i use to my colorectal cancer/i, answer: "For colorectal cancer, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+      //Breast Cancer
+    { keywords: /breast cancer|i have breast cancer|what can i use for my breast cancer|what can i use to my breast cancer/i, answer: "For breast cancer, please consult a healthcare professional for appropriate treatment. Haemocare can support overall health." },
+
+    //Prostate Cancer
+    { keywords: /prostate cancer|i have prostate cancer|what can i use for my prostate cancer|what can i use to my prostate cancer/i, answer: "For prostate cancer, please consult a healthcare professional for appropriate treatment. Lycovite and Reishi are beneficial for prostate health and men's wellness." },
+
+    //lumps
+    { keywords: /lumps|i have lumps|what can i use for my lumps|what can i use to my lumps/i, answer: "For lumps, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump|i have a lump|what can i use for my lump|what can i use to my lump/i, answer: "For lumps, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },    
+    { keywords: /lumps in my body|i have lumps in my body|what can i use for my lumps in my body|what can i use to my lumps in my body/i, answer: "For lumps, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump in my body|i have a lump in my body|what can i use for my lump in my body|what can i use to my lump in my body/i, answer: "For lumps, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lumps in my breast|i have lumps in my breast|what can i use for my lumps in my breast|what can i use to my lumps in my breast/i, answer: "For lumps in the breast, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump in my breast|i have a lump in my breast|what can i use for my lump in my breast|what can i use to my lump in my breast/i, answer: "For lumps in the breast, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lumps in my neck|i have lumps in my neck|what can i use for my lumps in my neck|what can i use to my lumps in my neck/i, answer: "For lumps in the neck, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump in my neck|i have a lump in my neck|what can i use for my lump in my neck|what can i use to my lump in my neck/i, answer: "For lumps in the neck, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lumps in my armpit|i have lumps in my armpit|what can i use for my lumps in my armpit|what can i use to my lumps in my armpit/i, answer: "For lumps in the armpit, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump in my armpit|i have a lump in my armpit|what can i use for my lump in my armpit|what can i use to my lump in my armpit/i, answer: "For lumps in the armpit, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lumps in my abdomen|i have lumps in my abdomen|what can i use for my lumps in my abdomen|what can i use to my lumps in my abdomen/i, answer: "For lumps in the abdomen, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump in my abdomen|i have a lump in my abdomen|what can i use for my lump in my abdomen|what can i use to my lump in my abdomen/i, answer: "For lumps in the abdomen, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lumps in my groin|i have lumps in my groin|what can i use for my lumps in my groin|what can i use to my lumps in my groin/i, answer: "For lumps in the groin, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump in my groin|i have a lump in my groin|what can i use for my lump in my groin|what can i use to my lump in my groin/i, answer: "For lumps in the groin, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lumps in my leg|i have lumps in my leg|what can i use for my lumps in my leg|what can i use to my lumps in my leg/i, answer: "For lumps in the leg, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump in my leg|i have a lump in my leg|what can i use for my lump in my leg|what can i use to my lump in my leg/i, answer: "For lumps in the leg, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lumps in my arm|i have lumps in my arm|what can i use for my lumps in my arm|what can i use to my lumps in my arm/i, answer: "For lumps in the arm, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump in my arm|i have a lump in my arm|what can i use for my lump in my arm|what can i use to my lump in my arm/i, answer: "For lumps in the arm, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lumps in my back|i have lumps in my back|what can i use for my lumps in my back|what can i use to my lumps in my back/i, answer: "For lumps in the back, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump in my back|i have a lump in my back|what can i use for my lump in my back|what can i use to my lump in my back/i, answer: "For lumps in the back, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lumps in my chest|i have lumps in my chest|what can i use for my lumps in my chest|what can i use to my lumps in my chest/i, answer: "For lumps in the chest, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump in my chest|i have a lump in my chest|what can i use for my lump in my chest|what can i use to my lump in my chest/i, answer: "For lumps in the chest, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lumps in my face|i have lumps in my face|what can i use for my lumps in my face|what can i use to my lumps in my face/i, answer: "For lumps in the face, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lump in my face|i have a lump in my face|what can i use for my lump in my face|what can i use to my lump in my face/i, answer: "For lumps in the face, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." },
+    { keywords: /lumps in my scalp|i have lumps in my scalp|what can i use for my lumps in my scalp|what can i use to my lumps in my scalp/i, answer: "For lumps on the scalp, please consult a healthcare professional for appropriate evaluation and treatment. Haemocare can support overall health." }
+  ];
+
+  // === Chatbot Responses for general queries (NEW) ===
+  const chatbotResponses = [
+    { keywords: /what is kedi healthcare|i want to know about kedi healthcare|tell me about kedi healthcare/i, answer: "Kedi Healthcare is a company that specializes in natural health products, focusing on herbal and nutritional supplements to promote overall well-being." },
+    { keywords: /kedi healthcare products|i want to know about kedi healthcare products|tell me about kedi healthcare products/i, answer: "Kedi Healthcare offers a range of natural health products, including supplements for immune support, sexual health, respiratory health, and more." },
+    // These will now trigger the display of product cards from respondToUser for consistency
+    { keywords: /kedi healthcare products list|i want to see kedi healthcare products list|show me kedi healthcare products list/i, answer: "Certainly! Here is a list of Kedi Healthcare products:" }, // Simple intro message
+    { keywords: /kedi healthcare products details|i want to know kedi healthcare products details|tell me about kedi healthcare products details/i, answer: "Here are the details for Kedi Healthcare products:" }, // Simple intro message
+    { keywords: /kedi healthcare product prices|i want to know kedi healthcare product prices|tell me about kedi healthcare product prices/i, answer: "Here are the prices for Kedi Healthcare products:" }, // Simple intro message
+  ];
+
+  // === Products Data (Kedi Healthcare Products) ===
+  const products = [
+    { name: "Reishi", image: "https://via.placeholder.com/150/0000FF/808080?text=Reishi", description: "Immune-boosting and anti-fatigue properties.", price: "₦35,000", buyNowLink: "https://www.jumia.com.ng/kedi-reishi-capsule-immune-booster-jumia-health-111162791.html" },
+    { name: "Re-Vive", image: "https://via.placeholder.com/150/FF0000/FFFFFF?text=Re-Vive", description: "Supports male sexual health and vitality.", price: "₦39,000", buyNowLink: "https://www.jumia.com.ng/kedi-healthcare-kedi-revive-capsules-x-10-3-packs-99885856.html" },
+    { name: "Cordy Active", image: "https://via.placeholder.com/150/008000/FFFFFF?text=CordyActive", description: "Enhances stamina, athletic performance, and respiratory health.", price: "₦25,000", buyNowLink: "https://www.jumia.com.ng/kedi-healthcare-cordy-active-natural-formula-for-stamina-and-vitality-big-99885871.html" },
+    { name: "Cordy Royal Jelly", image: "https://via.placeholder.com/150/FFFF00/000000?text=CordyRoyal", description: "Comprehensive health benefits, combining Cordyceps and Royal Jelly.", price: "₦39,999", buyNowLink: "https://www.konga.com/product/kedi-cordy-royal-jelly-2432655" },
+    { name: "Diawell", image: "https://via.placeholder.com/150/00FFFF/000000?text=Diawell", description: "Helps manage blood sugar levels and supports pancreatic health.", price: "₦33,600", buyNowLink: "https://www.konga.com/product/kedi-diawell-capsule-manages-blood-sugar-level-3972620" },
+    { name: "Golden Six", image: "https://via.placeholder.com/150/FF8000/FFFFFF?text=GoldenSix", description: "Supports hormonal balance, strengthens the kidney and liver, anti-aging.", price: "₦30,000", buyNowLink: "https://www.konga.com/product/kedi-golden-six-capsules-30s-for-yin-yang-balance-3972621" },
+    { name: "Cello Q10", image: "https://via.placeholder.com/150/800080/FFFFFF?text=CelloQ10", description: "Supports cardiovascular health and energy production at cellular level.", price: "₦45,000", buyNowLink: "#" }, // Price based on Jumia search
+    { name: "Lycovite", image: "https://via.placeholder.com/150/FFC0CB/000000?text=Lycovite", description: "Beneficial for prostate health and antioxidant support.", price: "₦38,500", buyNowLink: "https://www.konga.com/product/kedi-i-revive-last-long-in-bed-strong-erection-bo-5645543" }, // Found with similar products, actual Lycovite price needs verification
+    { name: "Magilim", image: "https://via.placeholder.com/150/00FF00/000000?text=Magilim", description: "Aids in weight management by promoting satiety and fat burning.", price: "₦30,000", buyNowLink: "https://www.konga.com/product/kedi-magilim-natural-weight-management-digestive-3972625" },
+    { name: "Golden Hypha", image: "https://via.placeholder.com/150/C0C0C0/000000?text=GoldenHypha", description: "Powerful immune system booster and anti-cancer properties.", price: "₦52,000", buyNowLink: "https://www.jumia.com.ng/kedi-healthcare-golden-hypha-capsule-90s-99885859.html" },
+    { name: "Gum Care Toothpaste", image: "https://via.placeholder.com/150/A0A0A0/FFFFFF?text=GumCare", description: "Promotes oral hygiene, strengthens gums, and freshens breath.", price: "₦6,999", buyNowLink: "#" }, // Placeholder price/link
+    { name: "Haemocare", image: "https://via.placeholder.com/150/000080/FFFFFF?text=Haemocare", description: "Supports blood health, liver function, and overall well-being.", price: "₦28,000", buyNowLink: "https://www.jumia.com.ng/kedi-healthcare-haemocare-blood-tonic-blood-purifier-iron-supplement-99885857.html" },
+    { name: "Jointeez", image: "https://via.placeholder.com/150/808000/FFFFFF?text=Jointeez", description: "Relieves muscular, joint, and waist pain; supports bone health.", price: "₦18,000", buyNowLink: "https://www.jumia.com.ng/kedi-healthcare-jointeez-capsule-eliminates-muscular-joint-and-waist-pain-99885858.html" },
+    { name: "Refresh Tea", image: "https://via.placeholder.com/150/FFD700/000000?text=RefreshTea", description: "Clears the throat, improves vision, and detoxifies.", price: "₦20,000", buyNowLink: "https://www.jumia.com.ng/kedi-healthcare-refresh-tea-clears-the-throat-and-improves-vision-20-bags-99885873.html" },
+    { name: "Memory 24/7 Capsule", image: "https://via.placeholder.com/150/4B0082/FFFFFF?text=Memory24/7", description: "Enhances brain functionality, memory, and concentration.", price: "₦36,000", buyNowLink: "https://www.jumia.com.ng/kedi-healthcare-memory-247-capsule-secret-of-brain-functionality-99885860.html" },
+    { name: "Eye Beta Capsule", image: "https://via.placeholder.com/150/8A2BE2/FFFFFF?text=EyeBeta", description: "Promotes healthy vision and relieves eye fatigue.", price: "₦30,000", buyNowLink: "https://www.konga.com/product/kedi-eye-beta-capsule-30-capsules-4375080" },
+    { name: "Gastrifort Capsule", image: "https://via.placeholder.com/150/DC143C/FFFFFF?text=Gastrifort", description: "Premium tonic for stomach health, digestion, and ulcers.", price: "₦35,000", buyNowLink: "https://www.konga.com/product/kedi-gastrifort-capsule-90-capsules-premium-toni-3972624" },
+    { name: "Constilease", image: "https://via.placeholder.com/150/964B00/FFFFFF?text=Constilease", description: "Herbal solution for chronic constipation and digestive regularity.", price: "₦25,000", buyNowLink: "https://www.konga.com/product/kedi-constilease-herbal-solution-for-constipation-3972623" },
+    { name: "Vigor Essential", image: "https://via.placeholder.com/150/FF4500/FFFFFF?text=VigorEssential", description: "Herbal supplement for energy, stamina, and male vitality.", price: "₦24,000", buyNowLink: "https://www.konga.com/product/kedi-vigor-essential-herbal-supplement-for-energy-3972626" },
+    { name: "Gynapharm Capsule", image: "https://via.placeholder.com/150/FF69B4/FFFFFF?text=Gynapharm", description: "For PID (Pelvic Inflammatory Disease) and ovarian cysts.", price: "₦34,000", buyNowLink: "https://www.konga.com/product/kedi-gynapharm-capsule-for-pid-and-ovarian-cyst-72-c-3972622" }
+  ];
+
+  // === Medicine Information (NEW DATA) - Modified to include related products ===
+  const medicineInfo = [
+      { keywords: /haemocare|about haemocare|what is haemocare/i, answer: "Haemocare is a powerful supplement that nourishes the liver and kidney, enriches blood, and improves the body's immunity. It is recommended for conditions like Hepatitis B and C, Anemia, and can support general well-being.", relatedProductNames: ["Haemocare"] },
+      { keywords: /vigor essential|about vigor essential|what is vigor essential/i, answer: "Vigor Essential is a natural supplement designed to enhance male sexual health, boost energy, and improve stamina. It is beneficial for issues like erectile dysfunction and premature ejaculation.", relatedProductNames: ["Vigor Essential"] },
+      { keywords: /re-vive|about re-vive|what is re-vive/i, answer: "Re-Vive is a supplement aimed at improving male sexual function, increasing libido, and enhancing vitality. It supports reproductive health and overall male wellness.", relatedProductNames: ["Re-Vive"] },
+      { keywords: /lycovite|about lycovite|what is lycovite/i, answer: "Lycovite is an effective product for prostate health, helping to prevent and manage prostate enlargement. It also serves as a strong antioxidant.", relatedProductNames: ["Lycovite"] },
+      { keywords: /gastrifort|about gastrifort|what is gastrifort/i, answer: "Gastrifort is a premium tonic for stomach health. It's effective for treating stomach ulcers, improving digestion, and alleviating gastrointestinal discomfort.", relatedProductNames: ["Gastrifort Capsule"] },
+      { keywords: /cordy active|about cordy active|what is cordy active/i, answer: "Cordy Active is known for boosting energy, stamina, and athletic performance. It also supports respiratory health and has anti-fatigue properties.", relatedProductNames: ["Cordy Active"] },
+      { keywords: /reishi|about reishi|what is reishi/i, answer: "Reishi is a powerful immune booster, offering anti-cancer benefits and improving overall body immunity. It helps to enhance vitality and reduce fatigue.", relatedProductNames: ["Reishi"] },
+      { keywords: /golden hypha|about golden hypha|what is golden hypha/i, answer: "Golden Hypha is a strong immune system booster with anti-cancer and anti-tumor properties. It enhances the body's natural defense mechanisms.", relatedProductNames: ["Golden Hypha"] },
+      { keywords: /ginapharm|about ginapharm|what is ginapharm/i, answer: "Ginapharm Capsule is specifically formulated for women's reproductive health, helping with conditions like Pelvic Inflammatory Disease (PID) and ovarian cysts.", relatedProductNames: ["Gynapharm Capsule"] },
+      { keywords: /diawell|about diawell|what is diawell/i, answer: "Diawell is designed to help manage blood sugar levels, making it beneficial for individuals with diabetes. It supports pancreatic function and metabolic health.", relatedProductNames: ["Diawell"] },
+      { keywords: /golden six|about golden six|what is golden six/i, answer: "Golden Six supports hormonal balance, strengthens the kidney and liver, and has anti-aging properties. It's a comprehensive tonic for overall well-being.", relatedProductNames: ["Golden Six"] },
+      { keywords: /jointeez|about jointeez|what is jointeez/i, answer: "Jointeez is effective in relieving muscular, joint, and waist pain. It supports bone health and improves mobility, making it ideal for arthritis and rheumatic conditions.", relatedProductNames: ["Jointeez"] },
+      { keywords: /magilim|about magilim|what is magilim/i, answer: "Magilim is a weight management supplement that helps in burning fat, reducing appetite, and promoting a feeling of fullness, aiding in healthy weight loss.", relatedProductNames: ["Magilim"] },
+      { keywords: /refresh tea|about refresh tea|what is refresh tea/i, answer: "Refresh Tea helps to clear the throat, improve vision, and detoxify the body. It's a refreshing beverage with multiple health benefits.", relatedProductNames: ["Refresh Tea"] },
+      { keywords: /memory 24\/7|about memory 24\/7|what is memory 24\/7/i, answer: "Memory 24/7 Capsule enhances brain functionality, improves memory retention, and boosts concentration. It's ideal for students and professionals seeking cognitive support.", relatedProductNames: ["Memory 24/7 Capsule"] },
+      { keywords: /eye beta|about eye beta|what is eye beta/i, answer: "Eye Beta Capsule promotes healthy vision, relieves eye fatigue, and protects against age-related eye conditions. It is rich in nutrients essential for ocular health.", relatedProductNames: ["Eye Beta Capsule"] },
+      { keywords: /constilease|about constilease|what is constilease/i, answer: "Constilease is an herbal solution for chronic constipation, promoting regular bowel movements and improving digestive regularity without harsh side effects.", relatedProductNames: ["Constilease"] },
+      { keywords: /gum care toothpaste|about gum care toothpaste|what is gum care toothpaste/i, answer: "Gum Care Toothpaste promotes oral hygiene, strengthens gums, prevents cavities, and freshens breath. It's effective for maintaining overall mouth health.", relatedProductNames: ["Gum Care Toothpaste"] }
+  ];
+
+  // === Prescription Data (NEW) ===
+  const prescriptions = [
+      { keywords: /drugs to use for diabetes|what are the drugs to use for diabetes|what can i use for diabetes|medication for diabetes/i, relatedProductNames: ["Diawell", "Golden Six"] },
+      { keywords: /drugs to use for hypertension|what are the drugs to use for hypertension|what can i use for hypertension|medication for hypertension/i, relatedProductNames: ["Golden Six", "Cello Q10"] },
+      { keywords: /drugs to use for prostate|what are the drugs to use for prostate|what can i use for prostate|medication for prostate/i, relatedProductNames: ["Lycovite", "Reishi"] },
+      { keywords: /drugs to use for weight loss|what are the drugs to use for weight loss|what can i use to lose weight|medication for obesity/i, relatedProductNames: ["Magilim"] },
+      { keywords: /drugs to use for immunity|what are the drugs to use for immunity|what can i use to boost my immune system|medication for immune system/i, relatedProductNames: ["Reishi", "Golden Hypha", "Cordy Royal Jelly"] },
+      { keywords: /drugs to use for liver|what are the drugs to use for liver|what can i use for liver disease|medication for liver/i, relatedProductNames: ["Haemocare"] },
+      { keywords: /drugs to use for joint pain|what are the drugs to use for joint pain|what can i use for arthritis|medication for joint pain/i, relatedProductNames: ["Jointeez"] },
+      { keywords: /drugs to use for memory|what are the drugs to use for memory|what can i use for memory loss|medication for memory/i, relatedProductNames: ["Memory 24/7 Capsule"] },
+      { keywords: /drugs to use for vision|what are the drugs to use for vision|what can i use for eye health|medication for eyes/i, relatedProductNames: ["Eye Beta Capsule", "Refresh Tea"] },
+      { keywords: /drugs to use for constipation|what are the drugs to use for constipation|what can i use for constipation|medication for constipation/i, relatedProductNames: ["Constilease"] },
+      { keywords: /drugs to use for stomach ulcer|what are the drugs to use for stomach ulcer|what can i use for ulcers|medication for stomach/i, relatedProductNames: ["Gastrifort Capsule"] },
+      { keywords: /drugs to use for male vitality|what are the drugs to use for male vitality|what can i use for erectile dysfunction|medication for male sexual health/i, relatedProductNames: ["Re-Vive", "Vigor Essential"] },
+      { keywords: /drugs to use for female health|what are the drugs to use for female health|what can i use for PID|medication for women/i, relatedProductNames: ["Gynapharm Capsule"] },
+      { keywords: /drugs to use for oral health|what are the drugs to use for oral health|what can i use for toothache|medication for gums/i, relatedProductNames: ["Gum Care Toothpaste"] }
+  ];
+
+  // === Health Tips ===
+  const generalHealthTips = [
+    "Drink plenty of water daily.",
+    "Exercise regularly and stay active.",
+    "Get at least 7–8 hours of sleep per night.",
+    "Eat a balanced and nutritious diet.",
+    "Practice stress-reducing techniques like meditation or yoga."
+  ];
+
+  // === UI Element References (now defined after HTML injection) ===
+  let openBtn, closeBtn, chatbotWindow, chatbotForm, chatbotInput, chatbotMessages;
+
+  // Ensure DOM is ready before getting elements and adding event listeners
+  document.addEventListener('DOMContentLoaded', () => {
+    openBtn = document.getElementById('open-chatbot-btn');
+    closeBtn = document.getElementById('close-chatbot-btn');
+    chatbotWindow = document.getElementById('chatbot-window');
+    chatbotForm = document.getElementById('chatbot-form');
+    chatbotInput = document.getElementById('chatbot-input');
+    chatbotMessages = document.getElementById('chatbot-messages');
+
+    // === Helper Functions ===
+
+    /**
+     * Adds a message to the chatbot display.
+     * @param {string} sender - 'user' or 'bot'
+     * @param {string} text - The message text, can be plain text or HTML for product cards/links.
+     */
+    function addMessage(sender, text) {
+      const msg = document.createElement('div');
+      msg.style.padding = "10px 14px";
+      msg.style.margin = "8px 0"; // Consistent margin
+      msg.style.borderRadius = "16px";
+      msg.style.maxWidth = "80%";
+      msg.style.wordWrap = "break-word";
+      msg.style.textAlign = "left"; // Default to left for both for simplicity or adjust as needed
+
+      if (sender === "user") {
+        msg.style.alignSelf = "flex-end"; // Align user messages to the right
+        msg.style.background = '#27ae60'; // User message background
+        msg.style.color = '#fff';        // User message text color
+        msg.style.marginLeft = 'auto';   // Push user message to right
+        msg.textContent = text; // User messages are always plain text
+      } else { // sender === "bot"
+        msg.style.alignSelf = "flex-start"; // Align bot messages to the left
+        msg.style.background = '#e0f7ea'; // Bot message background
+        msg.style.color = '#222';        // Bot message text color
+        msg.style.marginRight = 'auto';  // Push bot message to left
+
+        // Check if the text is a product card HTML or contains the WhatsApp link
+        if (text.includes('<div class="product-card"')) {
+          msg.innerHTML = text; // Insert pre-formatted HTML directly
+          // Adjust styling for product cards within bot messages
+          msg.style.maxWidth = '90%'; // Allow product cards to be wider
+          msg.style.background = 'white'; // White background for product cards
+          msg.style.color = '#333';
+          msg.style.border = '1px solid #ddd';
+          msg.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
+          msg.style.padding = '0'; // Product card internal padding
+        } else {
+          // For general bot text messages, check for and make WhatsApp link clickable
+          const whatsappRegex = new RegExp(WHATSAPP_BUSINESS_LINK.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'i');
+          if (whatsappRegex.test(text)) {
+            const parts = text.split(whatsappRegex);
+            const linkHtml = `<a href="${WHATSAPP_BUSINESS_LINK}" target="_blank" style="color: #27ae60; text-decoration: underline;">Contact Customer Care on WhatsApp</a>`; // Inline style for link
+            msg.innerHTML = parts[0] + linkHtml + parts[2];
+          } else {
+            msg.textContent = text; // Default for plain bot text
+          }
+        }
+      }
+      
+      chatbotMessages.appendChild(msg);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Auto-scroll to bottom
+    }
+
+    /**
+     * Generates the HTML string for a product card.
+     * @param {object} product - Product object from the products array.
+     * @returns {string} HTML string for the product card.
+     */
+    function createProductCardHtml(product) {
+      return `
+        <div class="product-card" style="padding: 15px; border-radius: 8px; text-align: center; font-family: sans-serif; background-color: #fff;">
+          <img src="${product.image}" alt="${product.name}" style="max-width: 100px; height: auto; border-radius: 4px; margin-bottom: 10px;">
+          <h4 style="margin: 5px 0; color: #333; font-size: 1.1em;">${product.name}</h4>
+          <p style="margin: 5px 0; color: #555; font-size: 0.9em; line-height: 1.4;">${product.description}</p>
+          <p style="margin: 10px 0; color: #27ae60; font-weight: bold; font-size: 1.2em;">${product.price}</p>
+          <a href="${product.buyNowLink}" target="_blank" style="display: inline-block; padding: 8px 15px; background-color: #27ae60; color: white; text-decoration: none; border-radius: 5px; font-size: 0.9em;">Buy Now</a>
+        </div>
+      `;
+    }
+
+    /**
+     * Determines the chatbot's response based on user input.
+     * @param {string} userMsg - The user's input message.
+     */
+    function respondToUser(userMsg) {
+      const lowerUserMsg = userMsg.toLowerCase();
+      let botReplied = false;
+
+      // 1. Check for specific Prescription (list of drugs for a condition)
+      const prescription = prescriptions.find(p => p.keywords.test(lowerUserMsg));
+      if (prescription) {
+          addMessage("bot", `Here are the recommended products for ${userMsg}:`);
+          prescription.relatedProductNames.forEach(productName => {
+              const product = products.find(p => p.name === productName);
+              if (product) {
+                  addMessage("bot", createProductCardHtml(product));
+              }
+          });
+          addMessage("bot", `For further assistance or personalized advice, please contact our customer care on WhatsApp: ${WHATSAPP_BUSINESS_LINK}`);
+          botReplied = true;
+      }
+
+      // 2. Check for specific Medicine Information (PRIORITIZED AS PER REQUEST)
+      if (!botReplied) {
+        const medicine = medicineInfo.find(m => m.keywords.test(lowerUserMsg));
+        if (medicine) {
+          addMessage("bot", medicine.answer);
+          botReplied = true;
+
+          // Introduce a 3-second delay before showing specific related products
+          setTimeout(() => {
+            if (medicine.relatedProductNames && medicine.relatedProductNames.length > 0) {
+                addMessage("bot", "You might also be interested in this related product:");
+                medicine.relatedProductNames.forEach(productName => {
+                    const product = products.find(p => p.name === productName);
+                    if (product) {
+                        addMessage("bot", createProductCardHtml(product));
+                    }
+                });
+            }
+            // Always suggest WhatsApp link after showing products for immediate purchase/assistance
+            addMessage("bot", `For further assistance, personalized advice, or to buy immediately, please contact our customer care on WhatsApp: ${WHATSAPP_BUSINESS_LINK}`);
+          }, 3000); // 3-second delay
+        }
+      }
+
+      // 3. Check for specific "show products" command (show all products)
+      if (!botReplied && (lowerUserMsg.includes("show me products") || lowerUserMsg.includes("what products do you have"))) {
+        addMessage("bot", "Certainly! Here are some of our top products:");
+        products.forEach(product => {
+          addMessage("bot", createProductCardHtml(product));
+        });
+        // Always suggest WhatsApp link after showing products for immediate purchase/assistance
+        addMessage("bot", `For further assistance, personalized advice, or to buy immediately, please contact our customer care on WhatsApp: ${WHATSAPP_BUSINESS_LINK}`);
+        botReplied = true;
+      }
+
+      // 4. Check for specific product name mention (after detailed medicine info)
+      if (!botReplied) {
+        const matchedProduct = products.find(p => lowerUserMsg.includes(p.name.toLowerCase()));
+        if (matchedProduct) {
+          addMessage("bot", `Here's information about ${matchedProduct.name}:`);
+          addMessage("bot", createProductCardHtml(matchedProduct));
+          // Always suggest WhatsApp link after showing products for immediate purchase/assistance
+          addMessage("bot", `For further assistance, personalized advice, or to buy immediately, please contact our customer care on WhatsApp: ${WHATSAPP_BUSINESS_LINK}`);
+          botReplied = true;
+        }
+      }
+
+      // 5. Check FAQs
+      if (!botReplied) {
+        const faq = faqs.find(f => f.q.test(lowerUserMsg));
+        if (faq) {
+          addMessage("bot", faq.a);
+          botReplied = true;
+        }
+      }
+
+      // 6. Check Health Issues
+      if (!botReplied) {
+        const issue = healthIssues.find(i => i.keywords.test(lowerUserMsg));
+        if (issue) {
+          addMessage("bot", issue.answer);
+          botReplied = true;
+        }
+      }
+
+      // 7. Check new chatbotResponses (general Kedi info)
+      if (!botReplied) {
+        const chatResponse = chatbotResponses.find(cr => cr.keywords.test(lowerUserMsg));
+        if (chatResponse) {
+            addMessage("bot", chatResponse.answer); 
+            
+            // If the matched response is about listing products, then display all products using cards
+            if (chatResponse.keywords.test("kedi healthcare products list") ||
+                chatResponse.keywords.test("kedi healthcare products details") ||
+                chatResponse.keywords.test("kedi healthcare product prices")) {
+                products.forEach(product => {
+                    addMessage("bot", createProductCardHtml(product));
+                });
+            }
+            // Always suggest WhatsApp link after showing products for immediate purchase/assistance
+            addMessage("bot", `For further assistance, personalized advice, or to buy immediately, please contact our customer care on WhatsApp: ${WHATSAPP_BUSINESS_LINK}`);
+            botReplied = true;
+        }
+      }
+
+      // 8. Proactive Suggestion / Default Fallback (for confused users or unhandled queries)
+      if (!botReplied) {
+        addMessage("bot", "I'm not sure how to respond to that specific query, but you might find these general health tips and our products useful:");
+        
+        // Suggest health tips
+        generalHealthTips.forEach(tip => {
+          addMessage("bot", `- ${tip}`);
+        });
+
+        // Suggest products (display all product cards)
+        addMessage("bot", "Here are some of our recommended products:");
+        products.forEach(product => {
+          addMessage("bot", createProductCardHtml(product));
+        });
+
+        // Always suggest WhatsApp link for immediate purchase/assistance
+        addMessage("bot", `For further assistance, personalized advice, or if you're confused, please contact our customer care on WhatsApp: ${WHATSAPP_BUSINESS_LINK}`);
+        
+        botReplied = true; // Mark as replied
+      }
+    }
+
+    // === Event Listeners ===
+    openBtn.onclick = () => {
+        chatbotWindow.style.display = 'flex';
+        document.body.classList.add('chatbot-active-body'); // Add class to body
+    };
+    closeBtn.onclick = () => {
+        chatbotWindow.style.display = 'none';
+        document.body.classList.remove('chatbot-active-body'); // Remove class from body
+    };
+
+    chatbotForm.addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent form submission
+      const userMsg = chatbotInput.value.trim();
+      if (!userMsg) return; // Do nothing if message is empty
+
+      addMessage("user", userMsg); // Display user's message
+      chatbotInput.value = ''; // Clear input
+
+      respondToUser(userMsg); // Get chatbot's response
+    });
+
+    // Initial bot message when opening (you can customize this prompt)
+    addMessage("bot", "Hello! I'm here to help you with your health challenges. You can ask me about specific **health issues**, get **product recommendations**, or ask **general questions**.", false);
+  }); // End of DOMContentLoaded
+})(); // End of self-executing function
+</script>
+<!-- Article Templates (hidden) -->
+<template id="article-foods-for-blood-health">
+<section>
+<!-- Main content start -->
+<main class="container mx-auto px-4 py-8 md:py-12 bg-white shadow-lg rounded-lg my-8">
+<h1 class="section-heading text-4xl md:text-5xl font-extrabold text-center mb-10 text-red-900 leading-tight">
+<span>Foods to Boost Your Blood Health</span>
+</h1>
+<div class="blog-meta text-center text-gray-500 mb-8 text-sm">
+<p>Published on: June 19, 2025 | By: KEDI Health Expert</p>
+</div>
+<div class="blog-content prose max-w-none md:max-w-3xl lg:max-w-4xl mx-auto">
+<p class="text-lg leading-relaxed mb-6">
+    Your blood plays a vital role in transporting oxygen, nutrients, and hormones throughout the body. 
+    To support healthy blood production and circulation, it’s essential to incorporate iron-rich and nutrient-dense foods into your daily meals.
+</p>
+<figure class="mb-8 rounded-lg overflow-hidden shadow-md">
+<img alt="Healthy Blood Foods" class="w-full h-auto object-cover" src="https://placehold.co/800x450/8B0000/ffffff?text=Iron+Rich+Foods"/>
+<figcaption class="text-center text-sm text-gray-500 mt-2 p-2 bg-gray-50 rounded-b-lg">
+        Figure 1: A selection of foods that promote healthy blood.
+    </figcaption>
+</figure>
+<h2 class="text-2xl md:text-3xl font-bold text-red-800 mb-4 mt-8">Top Foods That Boost Blood Health</h2>
+<ul class="list-disc list-inside space-y-3 mb-6 text-base leading-relaxed">
+<li><strong>Spinach:</strong> High in non-heme iron and vitamin C, making it easier to absorb.</li>
+<li><strong>Red Meat:</strong> Contains heme iron, which is more easily absorbed by the body.</li>
+<li><strong>Lentils:</strong> A rich plant-based source of iron, protein, and folate.</li>
+<li><strong>Beets:</strong> Known to support blood flow and oxygen delivery.</li>
+<li><strong>Oranges &amp; Citrus Fruits:</strong> Rich in vitamin C to help absorb iron efficiently.</li>
+</ul>
+<h2 class="text-2xl md:text-3xl font-bold text-red-800 mb-4 mt-8">Why Diet Matters for Blood Health</h2>
+<p class="text-base leading-relaxed mb-6">
+    Without proper nutrients, your body cannot produce enough hemoglobin or red blood cells, leading to fatigue, weakness, and anemia.
+    A balanced diet that includes iron, folate, and B12 is key to maintaining optimal vitality.
+</p>
+<p class="text-base leading-relaxed mb-6 italic text-gray-700">
+    Nourishing your blood naturally starts with what’s on your plate.
+</p>
+</div>
+<!-- Shareability Section -->
+<div class="share-section mt-10 p-6 bg-red-100 rounded-lg shadow-inner text-center">
+<h3 class="text-xl md:text-2xl font-bold text-red-800 mb-4">Share This Article</h3>
+<p class="text-gray-700 mb-6">Found this article helpful? Share it with your friends and family!</p>
+<div class="flex justify-center space-x-4">
+<a class="share-button bg-blue-600 text-white p-3 rounded-full shadow-md hover:bg-blue-700 transition-all duration-300" href="https://www.facebook.com/sharer/sharer.php?u=https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare" rel="noopener noreferrer" target="_blank">
+<i class="fab fa-facebook-f text-lg"></i>
+</a>
+<a class="share-button bg-blue-400 text-white p-3 rounded-full shadow-md hover:bg-blue-500 transition-all duration-300" href="https://twitter.com/intent/tweet?url=https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare&amp;text=Nourish%20Your%20Blood%20with%20KEDI%20Haemocare!" rel="noopener noreferrer" target="_blank">
+<i class="fab fa-twitter text-lg"></i>
+</a>
+<a class="share-button bg-blue-700 text-white p-3 rounded-full shadow-md hover:bg-blue-800 transition-all duration-300" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare&amp;title=KEDI%20Haemocare:%20Blood%20Health%20&amp;%20Vitality" rel="noopener noreferrer" target="_blank">
+<i class="fab fa-linkedin-in text-lg"></i>
+</a>
+<a class="share-button bg-gray-500 text-white p-3 rounded-full shadow-md hover:bg-gray-600 transition-all duration-300" href="mailto:?subject=Read this article about KEDI Haemocare&amp;body=Check out this informative article: https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare">
+<i class="fas fa-envelope text-lg"></i>
+</a>
+</div>
+</div>
+
+</main>
+<!-- Main content end -->
+<button onclick="location.href='#'">← Back to Home</button>
+</section>
+</template>
+<template id="article-natural-remedies-fatigue">
+<section>
+<!-- Main content start -->
+<main class="container mx-auto px-4 py-8 md:py-12 bg-white shadow-lg rounded-lg my-8">
+<h1 class="section-heading text-4xl md:text-5xl font-extrabold text-center mb-10 text-red-900 leading-tight">
+<span>Natural Remedies for Battling Fatigue</span>
+</h1>
+<div class="blog-meta text-center text-gray-500 mb-8 text-sm">
+<p>Published on: June 20, 2025 | By: KEDI Health Expert</p>
+</div>
+<div class="blog-content prose max-w-none md:max-w-3xl lg:max-w-4xl mx-auto">
+<p class="text-lg leading-relaxed mb-6">
+    Fatigue is more than just tiredness — it’s a persistent state of physical and mental exhaustion that doesn’t improve with rest. 
+    Chronic fatigue can interfere with your productivity, mood, and overall health. Thankfully, there are natural ways to help restore your vitality and regain energy.
+</p>
+<figure class="mb-8 rounded-lg overflow-hidden shadow-md">
+<img alt="Natural Remedies for Energy" class="w-full h-auto object-cover" src="https://placehold.co/800x450/4B0082/ffffff?text=Natural+Energy+Boosters"/>
+<figcaption class="text-center text-sm text-gray-500 mt-2 p-2 bg-gray-50 rounded-b-lg">
+        Figure 1: Natural adaptogens and whole foods can combat fatigue effectively.
+    </figcaption>
+</figure>
+<h2 class="text-2xl md:text-3xl font-bold text-red-800 mb-4 mt-8">Top Natural Ways to Beat Fatigue</h2>
+<ul class="list-disc list-inside space-y-3 mb-6 text-base leading-relaxed">
+<li><strong>Ginseng &amp; Ashwagandha:</strong> Adaptogens that reduce stress and enhance stamina.</li>
+<li><strong>Proper Hydration:</strong> Dehydration is a leading cause of daytime fatigue.</li>
+<li><strong>Balanced Diet:</strong> Eat foods rich in B vitamins, protein, and complex carbs.</li>
+<li><strong>Physical Activity:</strong> Even light exercise boosts oxygenation and energy flow.</li>
+<li><strong>Magnesium &amp; Iron:</strong> Essential minerals that aid energy metabolism.</li>
+</ul>
+<h2 class="text-2xl md:text-3xl font-bold text-red-800 mb-4 mt-8">Lifestyle Tweaks to Consider</h2>
+<p class="text-base leading-relaxed mb-6">
+    Create a consistent sleep schedule, manage screen time before bed, and minimize caffeine after 2 PM. 
+    Meditation, yoga, and nature walks are also known to combat fatigue naturally.
+</p>
+<p class="text-base leading-relaxed mb-6 italic text-gray-700">
+    Small lifestyle changes can spark big improvements in your energy and outlook.
+</p>
+</div>
+<!-- Shareability Section -->
+<div class="share-section mt-10 p-6 bg-red-100 rounded-lg shadow-inner text-center">
+<h3 class="text-xl md:text-2xl font-bold text-red-800 mb-4">Share This Article</h3>
+<p class="text-gray-700 mb-6">Found this article helpful? Share it with your friends and family!</p>
+<div class="flex justify-center space-x-4">
+<a class="share-button bg-blue-600 text-white p-3 rounded-full shadow-md hover:bg-blue-700 transition-all duration-300" href="https://www.facebook.com/sharer/sharer.php?u=https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare" rel="noopener noreferrer" target="_blank">
+<i class="fab fa-facebook-f text-lg"></i>
+</a>
+<a class="share-button bg-blue-400 text-white p-3 rounded-full shadow-md hover:bg-blue-500 transition-all duration-300" href="https://twitter.com/intent/tweet?url=https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare&amp;text=Nourish%20Your%20Blood%20with%20KEDI%20Haemocare!" rel="noopener noreferrer" target="_blank">
+<i class="fab fa-twitter text-lg"></i>
+</a>
+<a class="share-button bg-blue-700 text-white p-3 rounded-full shadow-md hover:bg-blue-800 transition-all duration-300" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare&amp;title=KEDI%20Haemocare:%20Blood%20Health%20&amp;%20Vitality" rel="noopener noreferrer" target="_blank">
+<i class="fab fa-linkedin-in text-lg"></i>
+</a>
+<a class="share-button bg-gray-500 text-white p-3 rounded-full shadow-md hover:bg-gray-600 transition-all duration-300" href="mailto:?subject=Read this article about KEDI Haemocare&amp;body=Check out this informative article: https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare">
+<i class="fas fa-envelope text-lg"></i>
+</a>
+</div>
+</div>
+
+</main>
+<!-- Main content end -->
+<button onclick="location.reload()">← Back to Home</button>
+</section>
+</template>
+<template id="article-kedi-vitality-supplements">
+<section>
+<!-- Main content start -->
+<main class="container mx-auto px-4 py-8 md:py-12 bg-white shadow-lg rounded-lg my-8">
+<h1 class="section-heading text-4xl md:text-5xl font-extrabold text-center mb-10 text-red-900 leading-tight">
+<span>Browse All KEDI Vitality Supplements</span>
+</h1>
+<div class="blog-meta text-center text-gray-500 mb-8 text-sm">
+<p>Published on: June 20, 2025 | By: KEDI Health Expert</p>
+</div>
+<div class="blog-content prose max-w-none md:max-w-3xl lg:max-w-4xl mx-auto">
+<p class="text-lg leading-relaxed mb-6">
+   KEDI is a multinational health and wellness company offering herbal supplements, personal care, and diagnostic solutions.
+ Their formulas blend Chinese herbal traditions with modern science to address chronic health issues like fatigue, blood disorders, immune weakness, and more.
+</p>
+<figure class="mb-8 rounded-lg overflow-hidden shadow-md">
+<img alt="Natural Remedies for Energy" class="w-full h-auto object-cover" src="https://placehold.co/800x450/4B0082/ffffff?text=Natural+Energy+Boosters"/>
+<figcaption class="text-center text-sm text-gray-500 mt-2 p-2 bg-gray-50 rounded-b-lg">
+        Figure 1: Natural adaptogens and whole foods can combat fatigue effectively.
+    </figcaption>
+</figure>
+<h2 class="text-2xl md:text-3xl font-bold text-red-800 mb-4 mt-8">Haemocare</h2>
+<p>
+    Purpose: Boosts blood production, treats anemia Key Ingredients: Iron, folic acid, vitamin B12 Best For:
+</p>
+<ul class="list-disc list-inside space-y-3 mb-6 text-base leading-relaxed">
+<li><strong>Fatigue:</strong> .</li>
+<li><strong>Dizziness:</strong>.</li>
+<li><strong>Low hemoglobin:</strong> .</li>
+</ul>
+<h2 class="text-2xl md:text-3xl font-bold text-red-800 mb-4 mt-8">Reishi</h2>
+<p class="text-base leading-relaxed mb-6">
+   Purpose: Immune modulation and anti-fatigue
+Key Ingredient: Ganoderma (Reishi mushroom)
+Best For:
+</p>
+<ul class="list-disc list-inside space-y-3 mb-6 text-base leading-relaxed">
+<li><strong>Immune support:</strong> .</li>
+<li><strong>Stress relief:</strong>.</li>
+<li><strong>Chronic Fatigue:</strong> .</li>
+</ul>
+<h2 class="text-2xl md:text-3xl font-bold text-red-800 mb-4 mt-8">Magilim</h2>
+<p class="text-base leading-relaxed mb-6">
+   Purpose: Weight management, detox support
+Key Ingredients: Dietary fiber, herbal extracts
+Best For:
+</p>
+<ul class="list-disc list-inside space-y-3 mb-6 text-base leading-relaxed">
+<li><strong>Obesity:</strong> .</li>
+<li><strong>Constipation:</strong>.</li>
+<li><strong>Gut health:</strong> .</li>
+</ul>
+<h2 class="text-2xl md:text-3xl font-bold text-red-800 mb-4 mt-8">Cordy Royal Jelly</h2>
+<p class="text-base leading-relaxed mb-6">
+  Purpose: Energy boost and hormonal balance
+Key Ingredients: Cordyceps &amp; royal jelly
+Best For:
+</p>
+<ul class="list-disc list-inside space-y-3 mb-6 text-base leading-relaxed">
+<li><strong>Hormonal imbalance</strong> .</li>
+<li><strong>Chronic Fatigue</strong>.</li>
+<li><strong>Low Libido or Stamina</strong> .</li>
+</ul>
+<h2 class="text-2xl md:text-3xl font-bold text-red-800 mb-4 mt-8">Re-vive Capsule</h2>
+<p class="text-base leading-relaxed mb-6">
+Purpose: Cardiovascular and nerve support
+Best For:
+</p>
+<ul class="list-disc list-inside space-y-3 mb-6 text-base leading-relaxed">
+<li><strong>Stroke recovery</strong> .</li>
+<li><strong>Heart health</strong>.</li>
+<li><strong>Nervous system care</strong> .</li>
+</ul>
+<p class="text-base leading-relaxed mb-6 italic text-gray-700">
+    Small lifestyle changes can spark big improvements in your energy and outlook.
+</p>
+</div>
+<!-- Shareability Section -->
+<div class="share-section mt-10 p-6 bg-red-100 rounded-lg shadow-inner text-center">
+<h3 class="text-xl md:text-2xl font-bold text-red-800 mb-4">Share This Article</h3>
+<p class="text-gray-700 mb-6">Found this article helpful? Share it with your friends and family!</p>
+<div class="flex justify-center space-x-4">
+<a class="share-button bg-blue-600 text-white p-3 rounded-full shadow-md hover:bg-blue-700 transition-all duration-300" href="https://www.facebook.com/sharer/sharer.php?u=https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare" rel="noopener noreferrer" target="_blank">
+<i class="fab fa-facebook-f text-lg"></i>
+</a>
+<a class="share-button bg-blue-400 text-white p-3 rounded-full shadow-md hover:bg-blue-500 transition-all duration-300" href="https://twitter.com/intent/tweet?url=https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare&amp;text=Nourish%20Your%20Blood%20with%20KEDI%20Haemocare!" rel="noopener noreferrer" target="_blank">
+<i class="fab fa-twitter text-lg"></i>
+</a>
+<a class="share-button bg-blue-700 text-white p-3 rounded-full shadow-md hover:bg-blue-800 transition-all duration-300" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare&amp;title=KEDI%20Haemocare:%20Blood%20Health%20&amp;%20Vitality" rel="noopener noreferrer" target="_blank">
+<i class="fab fa-linkedin-in text-lg"></i>
+</a>
+<a class="share-button bg-gray-500 text-white p-3 rounded-full shadow-md hover:bg-gray-600 transition-all duration-300" href="mailto:?subject=Read this article about KEDI Haemocare&amp;body=Check out this informative article: https://what-is-your-health-challenge.vercel.app/blog/kedi-haemocare">
+<i class="fas fa-envelope text-lg"></i>
+</a>
+</div>
+</div>
+
+</main>
+<!-- Main content end -->
+<button onclick="location.reload()">← Back to Home</button>
+</section>
+</template>
+<!-- Loading animation -->
+<div id="article-loading" style="display: none; text-align: center; padding: 30px;">Loading...</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const main = document.querySelector("main");
+  const loader = document.getElementById("article-loading");
+
+  function showArticle(articleId) {
+    const template = document.getElementById("article-" + articleId);
+    if (!template) return;
+    main.style.display = "none";
+    loader.style.display = "block";
+    setTimeout(() => {
+      loader.style.display = "none";
+      main.innerHTML = "";
+      main.appendChild(template.content.cloneNode(true));
+      main.style.display = "block";
+      window.scrollTo(0, 0);
+    }, 700);
+  }
+
+  function route() {
+    const hash = window.location.hash;
+    if (hash.startsWith("#article=")) {
+      const id = hash.split("=")[1];
+      showArticle(id);
+    }
+  }
+
+  window.addEventListener("hashchange", route);
+  route(); // for initial load
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const itemsPerPage = 2;
+    const container = document.getElementById("suggestions-container");
+    const items = Array.from(container.children);
+    let currentPage = 1;
+    const totalPages = Math.ceil(items.length / itemsPerPage);
+
+    function showPage(page) {
+        container.innerHTML = '';
+        const start = (page - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        items.slice(start, end).forEach(item => container.appendChild(item));
+        renderPaginationControls();
+    }
+
+    function renderPaginationControls() {
+        let pagination = document.getElementById("pagination-controls");
+        if (!pagination) {
+            pagination = document.createElement("div");
+            pagination.id = "pagination-controls";
+            pagination.className = "mt-4 flex justify-center space-x-2";
+            container.parentNode.appendChild(pagination);
+        }
+        pagination.innerHTML = '';
+        for (let i = 1; i <= totalPages; i++) {
+            const btn = document.createElement("button");
+            btn.textContent = i;
+            btn.className = "px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700";
+            if (i === currentPage) btn.classList.add("bg-red-800");
+            btn.addEventListener("click", () => {
+                currentPage = i;
+                showPage(currentPage);
+            });
+            pagination.appendChild(btn);
+        }
+    }
+
+    if (items.length > itemsPerPage) {
+        showPage(currentPage);
+    }
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const tips = [
+        "Drink plenty of water to maintain optimal blood flow.",
+        "Incorporate leafy greens for iron and folate.",
+        "Exercise regularly to improve circulation.",
+        "Avoid smoking to keep your arteries healthy.",
+        "Get adequate sleep to support overall wellness.",
+        "Eat vitamin C-rich foods to aid iron absorption.",
+        "Try deep breathing to reduce blood pressure naturally.",
+        "Add turmeric and ginger for natural anti-inflammatory benefits."
+    ];
+    const tipEl = document.getElementById("health-tip");
+    let index = 0;
+    function rotateTip() {
+        tipEl.textContent = tips[index];
+        index = (index + 1) % tips.length;
+    }
+    rotateTip();
+    setInterval(rotateTip, 5000);
+});
+</script>
+
 </body>
 </html>
