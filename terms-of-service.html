@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - KEDI Healthcare</title>
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8;
+        }
+        .body_wrap {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1;
+        }
+        .section-heading span {
+            position: relative;
+            z-index: 1;
+        }
+        .section-heading span::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 5px;
+            background-color: #8A2BE2; /* Blue Violet for feminine touch */
+            z-index: -1;
+        }
+        .share-button {
+            transition: transform 0.2s;
+        }
+        .share-button:hover {
+            transform: translateY(-3px);
+        }
+        /* Style for custom message box */
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none; /* Hidden by default */
+            text-align: center;
+        }
+        .message-box button {
+            background-color: #8A2BE2; /* Blue Violet */
+            color: white; /* Text color for contrast */
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        /* Custom Slick Dots for better visibility */
+        .slick-dots li button:before {
+            font-size: 12px; /* Adjust size */
+            color: #ccc; /* Inactive dot color */
+            opacity: 0.75;
+        }
+        .slick-dots li.slick-active button:before {
+            color: #8A2BE2; /* Active dot color */
+            opacity: 1;
+        }
+        .slick-prev:before, .slick-next:before {
+            color: #8A2BE2 !important; /* Make arrows blue violet */
+            font-size: 30px !important; /* Make arrows larger */
+        }
+        .slick-prev {
+            left: -25px !important; /* Adjust position */
+        }
+        .slick-next {
+            right: -25px !important; /* Adjust position */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+    <main class="max-w-4xl mx-auto px-6 py-10">
+        <h1 class="text-4xl font-bold text-purple-700 text-center mb-10">Terms of Service</h1>
+
+        <p class="mb-6">By accessing or using the KEDI Healthcare website, you agree to comply with and be bound by the following terms and conditions. Please read them carefully.</p>
+
+        <h2 class="text-2xl font-semibold text-purple-600 mb-2">1. Use of Our Website</h2>
+        <p class="mb-6">You agree to use this website only for lawful purposes and in accordance with all applicable laws and regulations. Any misuse or unauthorized use of our website may result in legal action.</p>
+
+        <h2 class="text-2xl font-semibold text-purple-600 mb-2">2. Intellectual Property</h2>
+        <p class="mb-6">All content on this site, including text, graphics, logos, and images, is the property of KEDI Healthcare or its content suppliers and is protected by copyright and intellectual property laws.</p>
+
+        <h2 class="text-2xl font-semibold text-purple-600 mb-2">3. Product Information</h2>
+        <p class="mb-6">All product descriptions and prices are subject to change without notice. We strive to provide accurate information, but we do not guarantee that all details are always up to date or error-free.</p>
+
+        <h2 class="text-2xl font-semibold text-purple-600 mb-2">4. User Accounts</h2>
+        <p class="mb-6">When you create an account on our website, you are responsible for maintaining the confidentiality of your login credentials and for all activities that occur under your account.</p>
+
+        <h2 class="text-2xl font-semibold text-purple-600 mb-2">5. Limitation of Liability</h2>
+        <p class="mb-6">KEDI Healthcare shall not be liable for any direct, indirect, incidental, or consequential damages arising out of your use of or inability to use the website or products.</p>
+
+        <h2 class="text-2xl font-semibold text-purple-600 mb-2">6. Third-Party Links</h2>
+        <p class="mb-6">Our website may contain links to third-party sites. We are not responsible for the content, accuracy, or privacy practices of those sites.</p>
+
+        <h2 class="text-2xl font-semibold text-purple-600 mb-2">7. Changes to Terms</h2>
+        <p class="mb-6">We reserve the right to update or change these Terms of Service at any time. Continued use of the site after such changes constitutes your acceptance of the new terms.</p>
+
+        <h2 class="text-2xl font-semibold text-purple-600 mb-2">8. Contact Us</h2>
+        <p>If you have any questions about these Terms of Service, please contact us at:</p>
+        <ul class="list-none mt-2">
+            <li><strong>Email:</strong> kedihealthcaresolution1@gmail.com</li>
+            <li><strong>Phone:</strong> +234-811-427-0136</li>
+        </ul> 
+    </main>
+</body>
+</html>
