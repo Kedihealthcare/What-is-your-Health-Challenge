@@ -1,0 +1,423 @@
+/* General styling for a clean background */
+.ai-chatbot body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* New class to apply overflow hidden only when chatbot is active */
+.chatbot-active-body {
+    overflow: hidden; /* Prevent body scroll when chatbot is open */
+}
+
+/* Chatbot Button Styling */
+#open-chatbot-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #27ae60; /* Kedi green */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Ensure button is on top */
+    transition: background-color 0.3s ease;
+}
+
+#open-chatbot-btn:hover {
+    background-color: #219d55; /* Darker green on hover */
+}
+
+/* Chatbot Window Styling */
+#chatbot-window {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 90px; /* Above the button */
+    right: 20px;
+    width: 350px; /* Standard chatbot width */
+    height: 500px; /* Standard chatbot height */
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 999; /* Below the button but above page content */
+    animation: fadeIn 0.3s ease-out; /* Smooth fade-in animation */
+}
+
+/* Class to show the chatbot window */
+#chatbot-window.open {
+    display: flex;
+}
+
+/* Class to hide the chatbot window */
+#chatbot-window.hidden {
+    display: none;
+}
+
+/* Keyframe animation for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+    #chatbot-window {
+        bottom: 0;
+        right: 0;
+        width: 100vw; /* Take full viewport width */
+        height: 100vh; /* Take full viewport height */
+        border-radius: 0; /* No rounded corners on full screen */
+        box-shadow: none; /* No shadow on full screen */
+    }
+
+    #open-chatbot-btn {
+        bottom: 10px; /* Adjust button position for smaller screens */
+        right: 10px;
+        width: 50px; /* Slightly smaller button */
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .chatbot-header {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    /* Message bubble adjustments for mobile */
+    #chatbot-messages div {
+        max-width: 90%; /* Allow messages to be wider on smaller screens */
+        font-size: 1.05em; /* Slightly increase font size for readability */
+        font-weight: bold; /* Make text bold for better visibility */
+    }
+
+    /* Suggestion buttons on mobile */
+    .suggestion-button {
+        padding: 8px 12px; /* Slightly larger padding for easier tapping */
+        font-size: 0.9em; /* Larger font size for readability */
+        font-weight: bold; /* Make text bold */
+    }
+
+    /* Product card buttons on mobile */
+    .product-card .buy-now-btn,
+    .product-card .blog-btn,
+    .product-card .qna-btn {
+        padding: 8px 15px; /* Slightly larger padding */
+        font-size: 0.9em; /* Larger font size */
+        font-weight: bold; /* Make text bold */
+    }
+}
+
+/* Chatbot Header */
+.chatbot-header {
+    background-color: #27ae60; /* Kedi green */
+    color: white;
+    padding: 15px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+#close-chatbot-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 0 5px;
+    transition: color 0.3s ease;
+}
+
+#close-chatbot-btn:hover {
+    color: #f0f0f0;
+}
+
+/* Chatbot Messages Area */
+#chatbot-messages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto; /* Enable scrolling for messages */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Spacing between messages */
+    background-color: #f9f9f9; /* Light background for messages area */
+}
+
+/* Message Bubble Styling */
+#chatbot-messages div {
+    padding: 10px 14px;
+    border-radius: 16px;
+    max-width: 80%;
+    word-wrap: break-word;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    font-size: 0.95em; /* Base font size for messages */
+}
+
+/* User messages */
+.user-message {
+    background-color: #27ae60; /* User message green */
+    color: white;
+    margin-left: auto;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px; /* Pointy corner effect */
+}
+
+/* Bot messages */
+.bot-message {
+    background-color: #e0f7ea; /* Bot message light green */
+    color: #222;
+    margin-right: auto;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px; /* Pointy corner effect */
+}
+
+/* Typing indicator dots */
+.typing-indicator .dots {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.typing-indicator .dots span {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: #777;
+    border-radius: 50%;
+    margin: 0 2px;
+    animation: bounce 1.4s infinite ease-in-out;
+}
+
+.typing-indicator .dots span:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.typing-indicator .dots span:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+    0%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Chatbot Input Area */
+.chatbot-input-area {
+    display: flex;
+    padding: 10px 15px; /* Reduced padding */
+    border-top: 1px solid #eee;
+    background-color: #fff;
+    align-items: center; /* Vertically align items */
+}
+
+#chatbot-input {
+    flex-grow: 1;
+    padding: 8px 12px; /* Reduced padding */
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 0.95em; /* Slightly smaller font */
+    margin-right: 8px; /* Reduced margin */
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#chatbot-input:focus {
+    border-color: #27ae60;
+}
+
+#send-btn {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px; /* Reduced size */
+    height: 36px; /* Reduced size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1em; /* Adjusted font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#send-btn:hover {
+    background-color: #219d55;
+    transform: scale(1.05);
+}
+
+/* Product Card Styling */
+.product-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 10px; /* Reduced padding */
+    margin-bottom: 8px; /* Reduced margin */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.product-card img {
+    width: 70px; /* Further reduced image size */
+    height: 70px; /* Further reduced image size */
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 6px; /* Reduced margin */
+}
+
+.product-card h4 {
+    font-size: 0.95em; /* Slightly smaller font */
+    color: #27ae60;
+    margin-bottom: 3px; /* Reduced margin */
+}
+
+.product-card p {
+    font-size: 0.8em; /* Slightly smaller font */
+    color: #555;
+    margin-bottom: 6px; /* Reduced margin */
+}
+
+.product-card .price {
+    font-size: 0.95em; /* Slightly smaller font */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px; /* Reduced margin */
+}
+
+.product-card .button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px; /* Reduced gap */
+}
+
+.product-card .buy-now-btn,
+.product-card .blog-btn,
+.product-card .qna-btn {
+    background-color: #27ae60;
+    color: white;
+    padding: 5px 10px; /* Reduced padding */
+    border-radius: 14px; /* Adjusted border-radius */
+    text-decoration: none;
+    font-size: 0.75em; /* Reduced font size */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.product-card .buy-now-btn:hover,
+.product-card .blog-btn:hover,
+.product-card .qna-btn:hover {
+    background-color: #219d55;
+    transform: translateY(-2px);
+}
+
+/* Suggestions Styling */
+.suggestions-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px; /* Reduced gap */
+    margin-top: 8px; /* Reduced margin */
+    justify-content: flex-start;
+}
+
+.suggestion-button {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 4px 8px; /* Reduced padding */
+    border-radius: 12px; /* Adjusted border-radius */
+    border: 1px solid #ddd;
+    cursor: pointer;
+    font-size: 0.75em; /* Reduced font size */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.suggestion-button:hover {
+    background-color: #e0e0e0;
+    border-color: #c0c0c0;
+}
+
+/* WhatsApp Link Button */
+.whatsapp-link-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #25D366; /* WhatsApp green */
+    color: white;
+    padding: 6px 10px; /* Reduced padding */
+    border-radius: 16px; /* Adjusted border-radius */
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 8px; /* Reduced margin */
+    transition: background-color 0.3s ease;
+}
+
+.whatsapp-link-btn svg {
+    margin-right: 5px; /* Reduced margin */
+    width: 16px; /* Reduced size */
+    height: 16px; /* Reduced size */
+}
+
+.whatsapp-link-btn:hover {
+    background-color: #1DA851;
+}
+
+/* General utility classes for spacing and text */
+.mt-4 {
+    margin-top: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-1 {
+    margin-bottom: 0.25rem;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.text-gray-700 {
+    color: #4a5568;
+}
+
+.text-green-700 {
+    color: #2f855a;
+}
+
+.text-gray-600 {
+    color: #718096;
+}
+
+.text-lg {
+    font-size: 1.125rem;
+}
