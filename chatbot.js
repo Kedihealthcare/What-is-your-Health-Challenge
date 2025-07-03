@@ -1,4 +1,4 @@
- (function() {
+(function() {
             // --- Start of Chatbot Logic ---
 
             // === Constants ===
@@ -36,7 +36,7 @@
     },
     {
       name: "Cordy Active",
-      keywords: /cordy active|stamina|athletic performance/i,
+      keywords: /cordy active|stamina|athletic performance|respiratory health/i,
       image: "https://via.placeholder.com/150/008000/FFFFFF?text=CordyActive",
       description: "Enhances stamina, athletic performance, and respiratory health.",
       price: "₦25,000",
@@ -82,7 +82,7 @@
       image: "https://via.placeholder.com/150/800080/FFFFFF?text=CelloQ10",
       description: "Supports cardiovascular health and energy production at cellular level.",
       price: "₦45,000",
-      buyNowLink: "#",
+      buyNowLink: "https://wa.me/message/WNGLZNUXKXXIF1",
       blogLink: "https://blog.example.com/cello-q10-heart-health",
       qna: []
     },
@@ -122,7 +122,7 @@
       image: "https://via.placeholder.com/150/A0A0A0/FFFFFF?text=GumCare",
       description: "Promotes oral hygiene, strengthens gums, and freshens breath.",
       price: "₦6,999",
-      buyNowLink: "#",
+      buyNowLink: "https://wa.me/message/WNGLZNUXKXXIF1",
       blogLink: "https://blog.example.com/gum-care-toothpaste",
       qna: []
     },
@@ -212,10 +212,20 @@
       image: "https://via.placeholder.com/150/FF69B4/000000?text=Gynapharm",
       description: "Supports female reproductive health and hormonal balance.",
       price: "₦28,000",
-      buyNowLink: "#",
+      buyNowLink: "https://wa.me/message/WNGLZNUXKXXIF1",
       blogLink: "https://blog.example.com/gynapharm-female-health",
       qna: []
     },
+    {
+      name: "Qinghao",
+      keywords: /qinghao|artemisia|malaria support/i,
+      image: "https://via.placeholder.com/150/00BFFF/FFFFFF?text=Qinghao",
+      description: "A traditional herbal supplement often associated with supporting the body's response to fever and general well-being. *Note: Not a cure for malaria; always consult a doctor.*",
+      price: "₦22,000",
+      buyNowLink: "https://wa.me/message/WNGLZNUXKXXIF1", // Placeholder link
+      blogLink: "https://wa.me/message/WNGLZNUXKXXIF1", // Placeholder link
+      qna: []
+    }
        
             ];
 
@@ -224,6 +234,7 @@
                 {
                     name: "Malaria",
                     keywords: /malaria|fever|chills|headache|vomiting/i,
+                    definition: "Malaria is a serious and sometimes fatal disease caused by a parasite that commonly infects a certain type of mosquito which feeds on humans. It is characterized by recurrent attacks of chills and fever.",
                     symptoms: "Fever, chills, headache, muscle aches, fatigue, nausea, vomiting, diarrhea. Can be severe.",
                     dosage: [
                         "Requires antimalarial drugs prescribed by a doctor (e.g., Artemether-Lumefantrine, Arthesunate).",
@@ -231,13 +242,13 @@
                         "Rest and stay hydrated.",
                         "Seek immediate medical attention if symptoms worsen."
                     ],
-                    recommendedProducts: [], // No Kedi products directly treat Malaria
+                    recommendedProducts: ["Qinghao"], // Added Qinghao here
                     qna: [
                         { question: "How is Malaria transmitted?", answer: "Malaria is transmitted through the bite of infected female Anopheles mosquitoes." },
                         { question: "Can Malaria be prevented?", answer: "Yes, prevention methods include using insecticide-treated bed nets, insect repellents, and prophylactic medications." }
                     ]
                 },
-                {
+                 {
                     name: "Diabetes",
                     keywords: /diabetes|blood sugar|high sugar/i,
                     symptoms: "Frequent urination, increased thirst, increased hunger, unexplained weight loss, fatigue, blurred vision, slow-healing sores.",
@@ -1914,6 +1925,7 @@
   dosage: ["3*2 daily"],
   qna: []
 }
+               
             ];
 
 
@@ -1922,12 +1934,33 @@
                 { q: /how can i order|where to buy|buy products/i, a: "You can place an order directly on our website, or through our mobile app. You can also click the 'Buy Now' links provided for each product." },
                 { q: /shipping information|delivery time/i, a: "Shipping usually takes 3-5 business days depending on your location within Nigeria. International shipping times vary." },
                 { q: /return policy|refunds/i, a: "We have a 30-day return policy for unopened products. Please see our website for more details or contact our support team." },
-                { q: /contact support|customer service|helpline/i, a: "You can contact our support team via email at support@kedihealthcare.com or call us at +234 800 123 4567. You can also reach us via WhatsApp using the link below." },
+                { q: /contact support|customer service|helpline/i, a: "You can contact our support team via email at support@kedihealthcare.com or call us at +234 811 427 0136. You can also reach us via WhatsApp using the link: <a href='https://wa.me/message/WNGLZNUXKXXIF1' target='_blank' class='text-green-600 underline'>Chat on WhatsApp</a>." },
                 { q: /what is kedi healthcare|about kedi healthcare/i, a: "Kedi Healthcare is a leading traditional Chinese medicine (TCM) company in Nigeria, dedicated to providing high-quality herbal and nutritional supplements for various health needs. We focus on natural solutions for overall well-being." },
                 { q: /kedi healthcare products|what products do you offer/i, a: "Kedi Healthcare offers a wide range of natural health products, including supplements for immune support (Reishi), male sexual health (Re-Vive), kidney health (Golden Six), digestive health (Colon Cleanse), energy (Vigor Essential), respiratory health (Cordy Active), weight management (Magilim), and cardiovascular health (Blood Fat Reducing)." },
                 { q: /kedi healthcare products list|list all products/i, a: "Certainly! Here is a list of Kedi Healthcare products: Reishi, Re-Vive, Golden Six, Colon Cleanse, Vigor Essential, Cordy Active, Magilim, and Blood Fat Reducing. You can ask for details on any of these." },
                 { q: /kedi healthcare products details|tell me about your products/i, a: "To get details about a specific product, please ask me about it by name, e.g., 'Tell me about Reishi' or 'What is Re-Vive?'" },
-                { q: /kedi healthcare product prices|how much are your products/i, a: "Product prices vary. For example, Reishi is ₦35,000, and Re-Vive is ₦39,000. You can ask me about the price of a specific product." }
+                { q: /kedi healthcare product prices|how much are your products/i, a: "Product prices vary. For example, Reishi is ₦35,000, and Re-Vive is ₦39,000. You can ask me about the price of a specific product." },
+                {
+                    q: /how to make money with kedi|kedi business model|become a kedi distributor|kedi income|kedi earnings|kedi opportunity/i,
+                    a: `
+                        <p class="mb-2">Kedi Healthcare offers a unique opportunity to improve your health and wealth through its direct selling and multi-level marketing (MLM) business model. Here's how you can make money with Kedi:</p>
+                        <ul class="list-disc list-inside mb-4 text-gray-700">
+                            <li><strong>Become a Registered Distributor:</strong> The first step is to register as an independent Kedi distributor. This usually involves a small registration fee and purchasing a starter kit.</li>
+                            <li><strong>Retail Profit:</strong> You buy Kedi products at a wholesale price and sell them to customers at the retail price. The difference is your immediate profit.</li>
+                            <li><strong>Performance Bonuses:</strong> As you sell more products and build a team, you earn performance bonuses based on your personal sales volume and the sales volume of your team (downline). Kedi has a structured compensation plan that rewards higher sales and team growth.</li>
+                            <li><strong>Leadership Bonuses:</strong> For those who build and mentor successful teams, Kedi offers leadership bonuses and incentives, which can include car awards, house funds, and international trips.</li>
+                            <li><strong>Recruitment and Team Building:</strong> A significant part of the MLM model is recruiting new distributors into your team. You earn commissions and bonuses not just from your sales, but also from the sales generated by the people you recruit and their recruits.</li>
+                        </ul>
+                        <p class="mb-2"><strong>Benefits of the Kedi Business:</strong></p>
+                        <ul class="list-disc list-inside mb-4 text-gray-700">
+                            <li><strong>Flexibility:</strong> Work at your own pace and set your own hours.</li>
+                            <li><strong>High-Quality Products:</strong> Promote natural health products that genuinely benefit people.</li>
+                            <li><strong>Training and Support:</strong> Kedi often provides training, seminars, and support materials to help distributors succeed.</li>
+                            <li><strong>Community:</strong> Become part of a network of like-minded individuals.</li>
+                        </ul>
+                        <p class="font-semibold text-green-700">To get detailed information on the compensation plan, registration process, and to start your Kedi business, we recommend visiting the official Kedi Healthcare website or contacting their nearest office/distributor directly. You can also reach out to our customer service for general inquiries.</p>
+                    `
+                }
             ];
 
             // === Chatbot Responses for general queries ===
@@ -1944,7 +1977,12 @@
                 "Practice stress-reducing techniques like meditation, yoga, or deep breathing.",
                 "Limit processed foods, sugary drinks, and unhealthy fats.",
                 "Avoid smoking and excessive alcohol consumption.",
-                "Get regular medical check-ups and screenings."
+                "Get regular medical check-ups and screenings.",
+                "Wash your hands frequently to prevent the spread of germs.",
+                "Spend time outdoors for fresh air and sunlight (with sun protection).",
+                "Maintain a healthy weight to reduce the risk of chronic diseases.",
+                "Limit screen time and take regular breaks to rest your eyes.",
+                "Stay socially connected with friends and family."
             ];
 
             // === UI Element References ===
@@ -1953,8 +1991,9 @@
             let currentSuggestions = [];
             let waitingForSymptoms = false; // Flag to manage symptom checker state
             let waitingForHealthGoal = false; // New flag for personalized recommendations
+            let currentHealthTipIndex = 0; // Index for "Did you know" health tips
 
-            document.addEventListener('DOMContentLoaded', () => {
+            document.addEventListener('DOMContentLoaded', async () => {
                 openBtn = document.getElementById('open-chatbot-btn');
                 closeBtn = document.getElementById('close-chatbot-btn');
                 chatbotWindow = document.getElementById('chatbot-window');
@@ -2002,9 +2041,29 @@
                 // Automatically open chatbot and send initial message on page load
                 chatbotWindow.classList.add('open');
                 if (chatbotMessages.children.length === 0) {
-                    sendBotMessageWithTyping("Hello! I'm your Kedi Healthcare assistant. How can I help you today?");
+                    // Get current time for greeting in Lagos timezone
+                    // Using Intl.DateTimeFormat for reliable timezone conversion
+                    const options = { hour: 'numeric', hourCycle: 'h23', timeZone: 'Africa/Lagos' };
+                    const dateInLagos = new Intl.DateTimeFormat('en-US', options).format(new Date());
+                    const hour = parseInt(dateInLagos);
+
+                    let greeting;
+                    let emoji;
+                    if (hour >= 5 && hour < 12) {
+                        greeting = "Good morning";
+                        emoji = "☀️";
+                    } else if (hour >= 12 && hour < 18) {
+                        greeting = "Good afternoon";
+                        emoji = "👋";
+                    } else {
+                        greeting = "Good evening";
+                        emoji = "🌙";
+                    }
+
+                    await sendBotMessageWithTyping(`${greeting} ${emoji}! I'm your Kedi Healthcare assistant. I can tell you about our products, health conditions, and even how to make money with Kedi! How can I help you today?`);
                     displaySuggestions([
                         { text: "List all products", type: "text" },
+                        { text: "How to make money with Kedi?", type: "text" }, // New suggestion
                         { text: "Tell me about Diabetes", type: "text" },
                         { text: "General health tips", type: "text" },
                         { text: "Symptom Checker ✨", type: "text" },
@@ -2064,6 +2123,7 @@
                                 <a href="${product.buyNowLink}" target="_blank" class="buy-now-btn">Buy Now</a>
                                 ${product.blogLink ? `<a href="${product.blogLink}" target="_blank" class="blog-btn">Read Blog</a>` : ''}
                                 ${qnaButton}
+                                <a href="${WHATSAPP_BUSINESS_LINK}" target="_blank" class="whatsapp-buy-btn">Chat to Buy 💬</a>
                             </div>
                         </div>
                     `;
@@ -2087,15 +2147,24 @@
                         if (suggestion.name) { // For product/condition specific Q&A
                             button.dataset.name = suggestion.name;
                         }
-
-                        button.addEventListener('click', () => {
-                            addMessage('user', suggestion.text); // Show user's "click" as a message
-                            chatbotInput.value = ''; // Clear input after suggestion click
-                            respondToUser(suggestion.text);
-                            // Remove suggestions after one is clicked
-                            suggestionsContainer.remove();
-                            currentSuggestions = [];
-                        });
+                        if (suggestion.type === "link" && suggestion.url) { // Handle link type suggestions
+                            button.addEventListener('click', () => {
+                                window.open(suggestion.url, '_blank');
+                                addMessage('user', suggestion.text); // Show user's "click" as a message
+                                chatbotInput.value = ''; // Clear input after suggestion click
+                                suggestionsContainer.remove();
+                                currentSuggestions = [];
+                            });
+                        } else {
+                            button.addEventListener('click', () => {
+                                addMessage('user', suggestion.text); // Show user's "click" as a message
+                                chatbotInput.value = ''; // Clear input after suggestion click
+                                respondToUser(suggestion.text);
+                                // Remove suggestions after one is clicked
+                                suggestionsContainer.remove();
+                                currentSuggestions = [];
+                            });
+                        }
                         suggestionsContainer.appendChild(button);
                     });
                     chatbotMessages.appendChild(suggestionsContainer);
@@ -2164,11 +2233,13 @@
                                     responseHtml += `<li class="mb-2"><strong class="text-green-700">${qa.question}</strong><br>${qa.answer}</li>`;
                                 });
                                 responseHtml += `</ul>`;
-                                suggestions.push({ text: `Buy ${item.name}`, type: "text" });
-                                suggestions.push({ text: `More about Kedi products`, type: "text" });
                             } else {
                                 responseHtml += `<p class="mt-4 text-gray-600">No specific Q&A available for ${item.name} at the moment.</p>`;
                             }
+                            // Add specific buy suggestions after product details
+                            suggestions.push({ text: `Buy ${item.name}`, type: "link", url: item.buyNowLink });
+                            suggestions.push({ text: `Chat to Buy ${item.name} 💬`, type: "link", url: WHATSAPP_BUSINESS_LINK });
+                            suggestions.push({ text: `More about Kedi products`, type: "text" });
                             suggestions.push({ text: `List all products`, type: "text" });
                             suggestions.push({ text: `General health tips`, type: "text" });
                             suggestions.push({ text: "Symptom Checker ✨", type: "text" });
@@ -2178,6 +2249,9 @@
                         item = healthConditions.find(c => c.name === name);
                         if (item) {
                             responseHtml += `<h4 class="text-lg font-semibold text-green-700 mb-2">${item.name}</h4>`;
+                            if (item.definition) {
+                                responseHtml += `<p class="mb-2"><strong class="text-gray-700">Definition:</strong> ${item.definition}</p>`;
+                            }
                             responseHtml += `<p class="mb-2"><strong class="text-gray-700">Symptoms:</strong> ${item.symptoms}</p>`;
                             responseHtml += `<p class="mb-2"><strong class="text-gray-700">Recommended Approach/Dosage:</strong></p><ul>`;
                             item.dosage.forEach(d => {
@@ -2219,325 +2293,384 @@
                         if (suggestions.length > 0) {
                             displaySuggestions(suggestions);
                         }
-                    } else {
-                        await sendBotMessageWithTyping("I couldn't find detailed information for that request. Please try again or ask a different question.");
                     }
-                }
-
-                /**
-                 * Finds matching products or health conditions based on the user query.
-                 * @param {string} query - The user's input query.
-                 * @returns {object} An object containing arrays of matched products and conditions.
-                 */
-                function findMatches(query) {
-                    const lowerQuery = query.toLowerCase();
-                    const matchedProducts = products.filter(p => p.keywords.test(lowerQuery) || p.name.toLowerCase().includes(lowerQuery));
-                    const matchedConditions = healthConditions.filter(c => c.keywords.test(lowerQuery) || c.name.toLowerCase().includes(lowerQuery));
-                    return { matchedProducts, matchedConditions };
-                }
-
-                /**
-                 * Calls the Gemini API with a given prompt.
-                 * @param {string} promptText - The text to send to the LLM.
-                 * @returns {Promise<string>} The response text from the LLM.
-                 */
-                async function callGeminiAPI(promptText) {
-                    try {
-                        const chatHistory = [{ role: "user", parts: [{ text: promptText }] }];
-                        const payload = { contents: chatHistory };
-
-                        const response = await fetch(API_URL, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(payload)
-                        });
-
-                        const result = await response.json();
-                        if (result.candidates && result.candidates.length > 0 &&
-                            result.candidates[0].content && result.candidates[0].content.parts &&
-                            result.candidates[0].content.parts.length > 0) {
-                            return result.candidates[0].content.parts[0].text;
-                        } else {
-                            console.error("Gemini API returned an unexpected structure:", result);
-                            return "I apologize, I couldn't generate a response at this time. Please try again later.";
-                        }
-                    } catch (error) {
-                        console.error("Error calling Gemini API:", error);
-                        return "I'm having trouble connecting to my knowledge base right now. Please try again in a moment.";
-                    }
-                }
-
-                /**
-                 * Handles the symptom checker logic using Gemini API.
-                 * @param {string} symptoms - The user's described symptoms.
-                 */
-                async function handleSymptomChecker(symptoms) {
-                    await sendBotMessageWithTyping("Analyzing your symptoms and consulting my knowledge base...");
-
-                    const prompt = `You are a helpful Kedi Healthcare chatbot. Based on the user's symptoms, suggest potential health conditions and relevant Kedi Healthcare products that might offer *support*. Always include a disclaimer that this is not medical advice and they should consult a doctor.
-
-Here is a list of Kedi Healthcare products and their descriptions:
-${JSON.stringify(products, null, 2)}
-
-Here is a list of common health conditions, their symptoms, and recommended approaches (Kedi products are for support, not direct treatment):
-${JSON.stringify(healthConditions, null, 2)}
-
-User's symptoms: "${symptoms}"
-
-Please provide:
-1. Potential health conditions based on symptoms.
-2. Kedi Healthcare products that may offer support for these conditions (if any).
-3. A clear disclaimer about consulting a doctor.`;
-
-                    const llmResponse = await callGeminiAPI(prompt);
-                    await sendBotMessageWithTyping(llmResponse);
-                    waitingForSymptoms = false; // Reset flag
-
-                    displaySuggestions([
-                        { text: "List all products", type: "text" },
-                        { text: "General health tips", type: "text" },
-                        { text: "Personalized Product Recommendation ✨", type: "text" },
-                        { text: "Contact support", type: "text" }
-                    ]);
-                }
-
-                /**
-                 * Handles the personalized product recommendation logic using Gemini API.
-                 * @param {string} healthGoal - The user's described health goal.
-                 */
-                async function handlePersonalizedRecommendation(healthGoal) {
-                    await sendBotMessageWithTyping("Understanding your health goals and finding the best Kedi products for you...");
-
-                    const prompt = `You are a helpful Kedi Healthcare chatbot. Based on the user's health goal, suggest relevant Kedi Healthcare products that might offer *support*. Explain why each product is suitable. Always include a disclaimer that this is not medical advice and they should consult a doctor.
-
-Here is a list of Kedi Healthcare products and their descriptions:
-${JSON.stringify(products, null, 2)}
-
-User's health goal: "${healthGoal}"
-
-Please provide:
-1. Kedi Healthcare products that may offer support for this health goal.
-2. A brief explanation for each recommended product.
-3. A clear disclaimer about consulting a doctor.`;
-
-                    const llmResponse = await callGeminiAPI(prompt);
-                    await sendBotMessageWithTyping(llmResponse);
-                    waitingForHealthGoal = false; // Reset flag
-
-                    displaySuggestions([
-                        { text: "List all products", type: "text" },
-                        { text: "General health tips", type: "text" },
-                        { text: "Symptom Checker ✨", type: "text" },
-                        { text: "Contact support", type: "text" }
-                    ]);
-                }
-
-                /**
-                 * Responds to the user's message based on predefined rules and data.
-                 * @param {string} userMsg - The user's input message.
-                 */
-                async function respondToUser(userMsg) {
-                    const normalizedMsg = userMsg.toLowerCase().trim();
-
-                    // If waiting for symptoms, process the input as symptoms
-                    if (waitingForSymptoms) {
-                        await handleSymptomChecker(userMsg);
-                        return;
-                    }
-
-                    // If waiting for health goal, process the input as health goal
-                    if (waitingForHealthGoal) {
-                        await handlePersonalizedRecommendation(userMsg);
-                        return;
-                    }
-
-                    // 1. Check for greetings
-                    const greetings = /^(hi|hello|hey|greetings|good day|how are you|whats up|sup|yo|hola|bonjour|konnichiwa|namaste)\b/i;
-                    if (greetings.test(normalizedMsg)) {
-                        await sendBotMessageWithTyping("Hello there! How can I assist you today? Feel free to ask about health conditions, products, or general inquiries.");
-                        displaySuggestions([
-                            { text: "List all products", type: "text" },
-                            { text: "Tell me about Diabetes", type: "text" },
-                            { text: "General health tips", type: "text" },
-                            { text: "Symptom Checker ✨", type: "text" },
-                            { text: "Personalized Product Recommendation ✨", type: "text" }, // New suggestion button
-                            { text: "Contact support", type: "text" }
-                        ]);
-                        return;
-                    }
-
-                    // 2. Check for "list all products"
-                    if (normalizedMsg.includes("list all products") || normalizedMsg.includes("show me all products") || normalizedMsg.includes("what products do you have")) {
-                        await sendBotMessageWithTyping("Certainly! Here are all our Kedi Healthcare products:");
-                        for (const product of products) {
-                            await sendBotMessageWithTyping(createProductCardHtml(product));
-                        }
-                        displaySuggestions([
-                            { text: "Tell me about Reishi", type: "text" },
-                            { text: "Symptom Checker ✨", type: "text" },
-                            { text: "Personalized Product Recommendation ✨", type: "text" },
-                            { text: "General health tips", type: "text" }
-                        ]);
-                        return;
-                    }
-
-
-                    // 3. Check for Symptom Checker trigger
-                    if (normalizedMsg.includes("symptom checker") || normalizedMsg.includes("check my symptoms") || normalizedMsg.includes("what product for my symptoms")) {
-                        await sendBotMessageWithTyping("Please describe your symptoms, and I'll do my best to suggest potential conditions and supporting Kedi Healthcare products. Remember, this is not medical advice.");
-                        waitingForSymptoms = true; // Set flag to true
-                        return;
-                    }
-
-                    // 4. Check for Personalized Product Recommendation trigger
-                    if (normalizedMsg.includes("personalized product recommendation") || normalizedMsg.includes("recommend product") || normalizedMsg.includes("health goal")) {
-                        await sendBotMessageWithTyping("I can help with that! Please tell me your health goal or what you are looking to improve (e.g., 'boost energy', 'support digestion', 'improve sleep').");
-                        waitingForHealthGoal = true; // Set flag to true
-                        return;
-                    }
-
-                    // 5. Check for specific product/health condition details or Q&A
-                    let detailedMatchFound = false;
-                    for (const product of products) {
-                        const productKeywords = new RegExp(`(tell me about|what is|q&a about|qna about|details on|info on|${product.name})\\s*${product.name.toLowerCase()}|${product.name.toLowerCase()}\\s*(q&a|qna|details|info)`, 'i');
-                        if (productKeywords.test(normalizedMsg) || normalizedMsg === product.name.toLowerCase()) {
-                            await displayDetailedInfo('product', product.name);
-                            detailedMatchFound = true;
-                            break;
-                        }
-                    }
-                    if (detailedMatchFound) return;
-
-                    for (const condition of healthConditions) {
-                        const conditionKeywords = new RegExp(`(tell me about|what is|q&a about|qna about|details on|info on|${condition.name})\\s*${condition.name.toLowerCase()}|${condition.name.toLowerCase()}\\s*(q&a|qna|details|info)`, 'i');
-                        if (conditionKeywords.test(normalizedMsg) || normalizedMsg === condition.name.toLowerCase()) {
-                            await displayDetailedInfo('condition', condition.name);
-                            detailedMatchFound = true;
-                            break;
-                        }
-                    }
-                    if (detailedMatchFound) return;
-
-                    // 6. Check for general FAQs
-                    for (const faq of faqs) {
-                        if (faq.q.test(normalizedMsg)) {
-                            await sendBotMessageWithTyping(faq.a);
-                            if (faq.q.source.includes('contact support')) { // Special handling for contact support
-                                const whatsappLinkHtml = `
-                                    <a href="${WHATSAPP_BUSINESS_LINK}" target="_blank" class="whatsapp-link-btn">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.6-3.882-1.6-6.063c0-6.627 5.373-12 12-12s12 5.373 12 12-5.373 12-12 12c-1.933 0-3.812-.579-5.442-1.657l-6.082 1.626zm18.704-5.429c-.198-.307-1.334-.676-1.86-.916-.525-.24-.904-.36-1.283.36-.379.72-.485.916-.964.916-.481 0-.964-.12-.198-.36.66-.24 1.86-1.816 2.325-2.583.464-.767.333-1.416-.165-2.064-.5-.648-1.283-1.547-1.81-2.072-.526-.526-.648-.787-.033-1.205.615-.418 1.579-.922 2.104-.922.526 0 1.052.198 1.283.496.23.297.307.72.082 1.204-.225.483-.526.916-.757 1.188-.231.272-.462.36-.12.629.34.27.97.877 1.674 1.334.704.457 1.254.654 1.6.849.34.196.571.294.757.389.19.098.381.184.57.265.189.082.381.171.569.249.57.246 1.139.426 1.64.473.502.047 1.205.033 1.64-.311.436-.343.896-.804 1.127-1.163.231-.359.231-.663.165-.787-.066-.124-.198-.307-.297-.495z"/>
-                                        </svg>
-                                        Chat on WhatsApp
-                                    </a>
-                                `;
-                                await sendBotMessageWithTyping(whatsappLinkHtml);
-                            }
-                            displaySuggestions([
-                                { text: "List all products", type: "text" },
-                                { text: "General health tips", type: "text" },
-                                { text: "Symptom Checker ✨", type: "text" },
-                                { text: "Personalized Product Recommendation ✨", type: "text" },
-                                { text: "Tell me about Reishi", type: "text" }
-                            ]);
-                            return;
-                        }
-                    }
-
-                    // 7. Check for general health tips
-                    if (chatbotResponses[0].keywords.test(normalizedMsg)) {
-                        await sendBotMessageWithTyping(chatbotResponses[0].answer);
-                        generalHealthTips.forEach(async (tip, index) => {
-                            await sendBotMessageWithTyping(`- ${tip}`);
-                            if (index === generalHealthTips.length - 1) {
-                                displaySuggestions([
-                                    { text: "List all products", type: "text" },
-                                    { text: "Tell me about Diabetes", type: "text" },
-                                    { text: "Symptom Checker ✨", type: "text" },
-                                    { text: "Personalized Product Recommendation ✨", type: "text" },
-                                    { text: "Contact support", type: "text" }
-                                ]);
-                            }
-                        });
-                        return;
-                    }
-
-                    // 8. If no specific match, try to find product/condition by name/keyword
-                    const { matchedProducts, matchedConditions } = findMatches(normalizedMsg);
-
-                    if (matchedProducts.length > 0 && matchedConditions.length === 0) {
-                        if (matchedProducts.length === 1) {
-                            await displayDetailedInfo('product', matchedProducts[0].name);
-                        } else {
-                            let response = "I found several products matching your query: ";
-                            matchedProducts.forEach((p, index) => {
-                                response += `${p.name}${index < matchedProducts.length - 1 ? ', ' : '.'}`;
-                            });
-                            response += " Which one would you like to know more about?";
-                            await sendBotMessageWithTyping(response);
-                            const productSuggestions = matchedProducts.map(p => ({ text: p.name, type: "text" }));
-                            displaySuggestions([...productSuggestions, { text: "Symptom Checker ✨", type: "text" }, { text: "Personalized Product Recommendation ✨", type: "text" }]);
-                        }
-                        return;
-                    }
-
-                    if (matchedConditions.length > 0 && matchedProducts.length === 0) {
-                        if (matchedConditions.length === 1) {
-                            await displayDetailedInfo('condition', matchedConditions[0].name);
-                        } else {
-                            let response = "I found several health conditions matching your query: ";
-                            matchedConditions.forEach((c, index) => {
-                                response += `${c.name}${index < matchedConditions.length - 1 ? ', ' : '.'}`;
-                            });
-                            response += " Which one would you like to know more about?";
-                            await sendBotMessageWithTyping(response);
-                            const conditionSuggestions = matchedConditions.map(c => ({ text: c.name, type: "text" }));
-                            displaySuggestions([...conditionSuggestions, { text: "Symptom Checker ✨", type: "text" }, { text: "Personalized Product Recommendation ✨", type: "text" }]);
-                        }
-                        return;
-                    }
-
-                    if (matchedProducts.length > 0 && matchedConditions.length > 0) {
-                        let response = "I found both products and health conditions related to your query. Could you please specify if you're looking for a product or a health condition?";
-                        await sendBotMessageWithTyping(response);
-                        const combinedSuggestions = [
-                            ...matchedProducts.map(p => ({ text: `Tell me about ${p.name}`, type: "text" })),
-                            ...matchedConditions.map(c => ({ text: `Tell me about ${c.name}`, type: "text" })),
-                            { text: "Symptom Checker ✨", type: "text" },
-                            { text: "Personalized Product Recommendation ✨", type: "text" }
-                        ];
-                        displaySuggestions(combinedSuggestions);
-                        return;
-                    }
-
-                    // 9. Default fallback
-                    await sendBotMessageWithTyping("I'm sorry, I didn't understand that. Could you please rephrase your question or ask about our products, health conditions, or general inquiries?");
-                    displaySuggestions([
-                        { text: "List all products", type: "text" },
-                        { text: "Tell me about Malaria", type: "text" },
-                        { text: "General health tips", type: "text" },
-                        { text: "Symptom Checker ✨", type: "text" },
-                        { text: "Personalized Product Recommendation ✨", type: "text" },
-                        { text: "Contact support", type: "text" }
-                    ]);
                 }
 
                 /**
                  * Handles sending a message from the user.
                  */
-                function sendMessage() {
+                async function sendMessage() {
                     const userMessage = chatbotInput.value.trim();
-                    if (userMessage) {
-                        addMessage("user", userMessage);
-                        chatbotInput.value = ""; // Clear input immediately
-                        // Remove any existing suggestions before responding
-                        const existingSuggestions = chatbotMessages.querySelector('.suggestions-container');
-                        if (existingSuggestions) {
-                            existingSuggestions.remove();
-                            currentSuggestions = [];
-                        }
-                        respondToUser(userMessage);
+                    if (userMessage === '') return;
+
+                    addMessage('user', userMessage);
+                    chatbotInput.value = ''; // Clear input immediately
+
+                    await respondToUser(userMessage);
+                }
+
+                /**
+                 * Displays a single "Did you know?" health tip along with a "Next Tip" button.
+                 * @param {number} index - The index of the tip to display.
+                 */
+                async function displayHealthTip(index) {
+                    if (index >= 0 && index < generalHealthTips.length) {
+                        const tip = generalHealthTips[index];
+                        await sendBotMessageWithTyping(`✨ Did you know? ✨<br>${tip}`);
+                        currentHealthTipIndex = index; // Update the current index
+
+                        const suggestions = [];
+                        suggestions.push({ text: "Next Tip", type: "text", action: "next-tip" });
+                        suggestions.push({ text: "See all health tips", type: "text" }); // Option to see all tips at once
+                        suggestions.push({ text: "Back to main menu", type: "text" });
+                        displaySuggestions(suggestions);
+                    } else {
+                        // If all tips have been shown, or index is out of bounds
+                        await sendBotMessageWithTyping("That's all the tips I have for now! I hope they were helpful.");
+                        currentHealthTipIndex = 0; // Reset for next time
+                        displaySuggestions([
+                            { text: "List all products", type: "text" },
+                            { text: "General health tips", type: "text" }, // Offer to restart tips
+                            { text: "Symptom Checker ✨", type: "text" },
+                            { text: "Personalized Product Recommendation ✨", type: "text" },
+                            { text: "Contact support", type: "text" }
+                        ]);
                     }
+                }
+
+                /**
+                 * Responds to the user's message based on predefined rules or LLM.
+                 * @param {string} message - The user's message.
+                 */
+                async function respondToUser(message) {
+                    let botResponse = "I'm sorry, I didn't quite understand that. Could you please rephrase or ask something else?";
+                    let suggestions = [];
+
+                    // Handle "Next Tip" button click
+                    if (message.toLowerCase() === "next tip") {
+                        currentHealthTipIndex++;
+                        await displayHealthTip(currentHealthTipIndex);
+                        return;
+                    }
+                    if (message.toLowerCase() === "see all health tips") {
+                        let tipsHtml = "Here are all our general health tips:<br><br><ul>";
+                        generalHealthTips.forEach(tip => {
+                            tipsHtml += `<li>${tip}</li>`;
+                        });
+                        tipsHtml += "</ul><br>Remember, these are general tips and not medical advice.";
+                        await sendBotMessageWithTyping(tipsHtml);
+                        suggestions = [
+                            { text: "List all products", type: "text" },
+                            { text: "General health tips", type: "text" }, // Offer to restart tips
+                            { text: "Symptom Checker ✨", type: "text" },
+                            { text: "Personalized Product Recommendation ✨", type: "text" },
+                            { text: "Contact support", type: "text" }
+                        ];
+                        displaySuggestions(suggestions);
+                        return;
+                    }
+                    if (message.toLowerCase() === "back to main menu") {
+                        await sendBotMessageWithTyping("Welcome back to the main menu! How can I help you further?");
+                        suggestions = [
+                            { text: "List all products", type: "text" },
+                            { text: "How to make money with Kedi?", type: "text" },
+                            { text: "Tell me about Diabetes", type: "text" },
+                            { text: "General health tips", type: "text" },
+                            { text: "Symptom Checker ✨", type: "text" },
+                            { text: "Personalized Product Recommendation ✨", type: "text" },
+                            { text: "Contact support", type: "text" }
+                        ];
+                        displaySuggestions(suggestions);
+                        return;
+                    }
+
+
+                    // --- Symptom Checker Logic ---
+                    if (waitingForSymptoms) {
+                        const symptoms = message.toLowerCase().split(',').map(s => s.trim());
+                        await sendBotMessageWithTyping("Thank you for providing your symptoms. Let me analyze them to see if I can find a match or provide some general guidance.");
+
+                        let matchedConditions = [];
+                        healthConditions.forEach(condition => {
+                            const conditionKeywords = condition.keywords.source.split('|').map(k => k.replace(/\\/g, '').trim());
+                            const commonSymptoms = symptoms.filter(symptom =>
+                                conditionKeywords.some(keyword => symptom.includes(keyword))
+                            );
+                            if (commonSymptoms.length > 0) {
+                                matchedConditions.push(condition);
+                            }
+                        });
+
+                        if (matchedConditions.length > 0) {
+                            let conditionsHtml = "Based on your symptoms, here are some health conditions that might be relevant. Please remember, I am an AI and cannot provide medical diagnoses. Always consult a healthcare professional for accurate diagnosis and treatment:<br><br>";
+                            matchedConditions.forEach(condition => {
+                                conditionsHtml += `<div class="product-card">
+                                    <h4 class="text-lg font-semibold text-green-700">${condition.name}</h4>
+                                    ${condition.definition ? `<p><strong class="text-gray-700">Definition:</strong> ${condition.definition}</p>` : ''}
+                                    <p><strong class="text-gray-700">Symptoms:</strong> ${condition.symptoms}</p>
+                                    <p><strong class="text-gray-700">Recommended Approach:</strong> ${condition.dosage.join(' ')}</p>
+                                    <button class="suggestion-button mt-2" data-type="condition-qna" data-name="${condition.name}">More about ${condition.name}</button>
+                                </div>`;
+                            });
+                            await sendBotMessageWithTyping(conditionsHtml);
+                        } else {
+                            await sendBotMessageWithTyping("I couldn't find a direct match for your symptoms in my database. It's crucial to consult a healthcare professional for any health concerns. Would you like general health tips instead?");
+                            suggestions.push({ text: "General health tips", type: "text" });
+                        }
+                        waitingForSymptoms = false; // Reset flag
+                        suggestions.push({ text: "List all products", type: "text" });
+                        suggestions.push({ text: "How to make money with Kedi?", type: "text" });
+                        suggestions.push({ text: "Personalized Product Recommendation ✨", type: "text" });
+                        displaySuggestions(suggestions);
+                        return;
+                    }
+
+                    // --- Personalized Product Recommendation Logic ---
+                    if (waitingForHealthGoal) {
+                        const healthGoal = message.toLowerCase();
+                        await sendBotMessageWithTyping("Understood. Let me see if I can suggest some Kedi products that align with your health goal.");
+
+                        let recommendedProducts = [];
+                        // Simple keyword matching for demonstration. In a real app, this would be more sophisticated.
+                        if (healthGoal.includes("immune") || healthGoal.includes("immunity") || healthGoal.includes("boost health")) {
+                            recommendedProducts.push(products.find(p => p.name === "Reishi"));
+                            recommendedProducts.push(products.find(p => p.name === "Golden Hypha"));
+                        }
+                        if (healthGoal.includes("energy") || healthGoal.includes("stamina") || healthGoal.includes("vitality")) {
+                            recommendedProducts.push(products.find(p => p.name === "Vigor Essential"));
+                            recommendedProducts.push(products.find(p => p.name === "Cordy Active"));
+                        }
+                        if (healthGoal.includes("male sexual health") || healthGoal.includes("libido") || healthGoal.includes("erection")) {
+                            recommendedProducts.push(products.find(p => p.name === "Re-Vive"));
+                            recommendedProducts.push(products.find(p => p.name === "Vigor Essential"));
+                        }
+                        if (healthGoal.includes("diabetes") || healthGoal.includes("blood sugar")) {
+                            recommendedProducts.push(products.find(p => p.name === "Diawell"));
+                        }
+                        if (healthGoal.includes("joint pain") || healthGoal.includes("arthritis")) {
+                            recommendedProducts.push(products.find(p => p.name === "Jointeez"));
+                        }
+                        if (healthGoal.includes("weight management") || healthGoal.includes("lose weight")) {
+                            recommendedProducts.push(products.find(p => p.name === "Magilim"));
+                        }
+                        if (healthGoal.includes("memory") || healthGoal.includes("concentration") || healthGoal.includes("brain")) {
+                            recommendedProducts.push(products.find(p => p.name === "Memory 24/7 Capsule"));
+                        }
+                        if (healthGoal.includes("vision") || healthGoal.includes("eye")) {
+                            recommendedProducts.push(products.find(p => p.name === "Eye Beta Capsule"));
+                            recommendedProducts.push(products.find(p => p.name === "Refresh Tea"));
+                        }
+                        if (healthGoal.includes("stomach") || healthGoal.includes("digestion") || healthGoal.includes("ulcers")) {
+                            recommendedProducts.push(products.find(p => p.name === "Gastrifort Capsule"));
+                            recommendedProducts.push(products.find(p => p.name === "Constilease"));
+                        }
+                        if (healthGoal.includes("female reproductive health") || healthGoal.includes("hormonal balance")) {
+                            recommendedProducts.push(products.find(p => p.name === "Gynapharm Capsule"));
+                            recommendedProducts.push(products.find(p => p.name === "Golden Six"));
+                        }
+                        if (healthGoal.includes("prostate health")) {
+                            recommendedProducts.push(products.find(p => p.name === "Lycovite"));
+                        }
+                        if (healthGoal.includes("cardiovascular") || healthGoal.includes("heart")) {
+                            recommendedProducts.push(products.find(p => p.name === "Cello Q10"));
+                        }
+                         if (healthGoal.includes("blood health") || healthGoal.includes("anemia")) {
+                            recommendedProducts.push(products.find(p => p.name === "Reishi (Blood Tonic)"));
+                        }
+
+
+                        if (recommendedProducts.length > 0) {
+                            let productHtml = "Based on your goal, here are some Kedi Healthcare products you might find beneficial:<br><br>";
+                            recommendedProducts.forEach(product => {
+                                if (product) { // Ensure product is not undefined
+                                    productHtml += createProductCardHtml(product);
+                                    suggestions.push({ text: `Tell me about ${product.name}`, type: "text" });
+                                }
+                            });
+                            await sendBotMessageWithTyping(productHtml);
+                        } else {
+                            await sendBotMessageWithTyping("I couldn't find specific product recommendations for that health goal in my current database. Kedi Healthcare has many products for general well-being. Would you like to see a list of all products or get general health tips?");
+                            suggestions.push({ text: "List all products", type: "text" });
+                            suggestions.push({ text: "General health tips", type: "text" });
+                        }
+                        waitingForHealthGoal = false; // Reset flag
+                        suggestions.push({ text: "Symptom Checker ✨", type: "text" });
+                        suggestions.push({ text: "How to make money with Kedi?", type: "text" });
+                        displaySuggestions(suggestions);
+                        return;
+                    }
+
+                    // --- Predefined Responses (FAQs, Products, Conditions, General Tips) ---
+
+                    // Check for product-specific queries
+                    const productMatch = products.find(p => p.keywords.test(message));
+                    if (productMatch) {
+                        await displayDetailedInfo('product', productMatch.name);
+                        return;
+                    }
+
+                    // Check for health condition queries
+                    const conditionMatch = healthConditions.find(c => c.keywords.test(message));
+                    if (conditionMatch) {
+                        await displayDetailedInfo('condition', conditionMatch.name);
+                        return;
+                    }
+
+                    // Check for FAQs
+                    const faqMatch = faqs.find(faq => faq.q.test(message));
+                    if (faqMatch) {
+                        await sendBotMessageWithTyping(faqMatch.a);
+                        suggestions = [
+                            { text: "List all products", type: "text" },
+                            { text: "General health tips", type: "text" },
+                            { text: "Symptom Checker ✨", type: "text" },
+                            { text: "Personalized Product Recommendation ✨", type: "text" },
+                            { text: "How to make money with Kedi?", type: "text" },
+                            { text: "Contact support", type: "text" }
+                        ];
+                        // The WhatsApp button is now handled by the FAQ answer itself, but we keep the suggestion for consistency if needed elsewhere.
+                        // if (faqMatch.q.test("contact support")) {
+                        //     suggestions.push({ text: "WhatsApp Us", type: "link", url: WHATSAPP_BUSINESS_LINK });
+                        // }
+                        displaySuggestions(suggestions);
+                        return;
+                    }
+
+                    // Check for general chatbot responses
+                    const generalResponseMatch = chatbotResponses.find(res => res.keywords.test(message));
+                    if (generalResponseMatch) {
+                        if (generalResponseMatch.keywords.test("general health tips")) {
+                            currentHealthTipIndex = 0; // Reset index to start from the first tip
+                            await displayHealthTip(currentHealthTipIndex);
+                        } else {
+                            await sendBotMessageWithTyping(generalResponseMatch.answer);
+                            suggestions = [
+                                { text: "List all products", type: "text" },
+                                { text: "How to make money with Kedi?", type: "text" },
+                                { text: "Tell me about Diabetes", type: "text" },
+                                { text: "Symptom Checker ✨", type: "text" },
+                                { text: "Personalized Product Recommendation ✨", type: "text" },
+                                { text: "Contact support", type: "text" }
+                            ];
+                            displaySuggestions(suggestions);
+                        }
+                        return;
+                    }
+
+                    // Special handling for "List all products"
+                    if (message.toLowerCase().includes("list all products")) {
+                        let productListHtml = "Here are some of our popular Kedi Healthcare products:<br><br>";
+                        products.forEach(p => {
+                            productListHtml += createProductCardHtml(p);
+                        });
+                        await sendBotMessageWithTyping(productListHtml);
+                        suggestions = [
+                            { text: "Tell me about Reishi", type: "text" },
+                            { text: "Tell me about Re-Vive", type: "text" },
+                            { text: "General health tips", type: "text" },
+                            { text: "Symptom Checker ✨", type: "text" },
+                            { text: "Personalized Product Recommendation ✨", type: "text" },
+                            { text: "How to make money with Kedi?", type: "text" },
+                        ];
+                        displaySuggestions(suggestions);
+                        return;
+                    }
+
+                    // Special handling for "Symptom Checker"
+                    if (message.toLowerCase().includes("symptom checker")) {
+                        waitingForSymptoms = true;
+                        await sendBotMessageWithTyping("Okay, let's try the Symptom Checker. Please tell me your symptoms, separated by commas (e.g., 'fever, headache, fatigue').");
+                        suggestions = [
+                            { text: "Cancel Symptom Checker", type: "text" },
+                            { text: "List all products", type: "text" },
+                            { text: "General health tips", type: "text" },
+                        ];
+                        displaySuggestions(suggestions);
+                        return;
+                    }
+
+                    // Special handling for "Cancel Symptom Checker"
+                    if (message.toLowerCase().includes("cancel symptom checker")) {
+                        waitingForSymptoms = false;
+                        await sendBotMessageWithTyping("Symptom Checker cancelled. How else can I assist you?");
+                        suggestions = [
+                            { text: "List all products", type: "text" },
+                            { text: "Tell me about Diabetes", type: "text" },
+                            { text: "General health tips", type: "text" },
+                            { text: "Symptom Checker ✨", type: "text" },
+                            { text: "Personalized Product Recommendation ✨", type: "text" },
+                            { text: "How to make money with Kedi?", type: "text" },
+                            { text: "Contact support", type: "text" }
+                        ];
+                        displaySuggestions(suggestions);
+                        return;
+                    }
+
+                    // Special handling for "Personalized Product Recommendation"
+                    if (message.toLowerCase().includes("personalized product recommendation")) {
+                        waitingForHealthGoal = true;
+                        await sendBotMessageWithTyping("Great! To give you a personalized recommendation, please tell me your primary health goal or concern (e.g., 'boost immunity', 'improve energy', 'manage blood sugar', 'support joint health').");
+                        suggestions = [
+                            { text: "Cancel Recommendation", type: "text" },
+                            { text: "List all products", type: "text" },
+                            { text: "General health tips", type: "text" },
+                        ];
+                        displaySuggestions(suggestions);
+                        return;
+                    }
+
+                    // Special handling for "Cancel Recommendation"
+                    if (message.toLowerCase().includes("cancel recommendation")) {
+                        waitingForHealthGoal = false;
+                        await sendBotMessageWithTyping("Personalized Product Recommendation cancelled. How else can I assist you?");
+                        suggestions = [
+                            { text: "List all products", type: "text" },
+                            { text: "Tell me about Diabetes", type: "text" },
+                            { text: "General health tips", type: "text" },
+                            { text: "Symptom Checker ✨", type: "text" },
+                            { text: "Personalized Product Recommendation ✨", type: "text" },
+                            { text: "How to make money with Kedi?", type: "text" },
+                            { text: "Contact support", type: "text" }
+                        ];
+                        displaySuggestions(suggestions);
+                        return;
+                    }
+
+
+                    // Fallback to LLM if no specific match
+                    await sendBotMessageWithTyping("Let me think about that for a moment...");
+                    try {
+                        const chatHistory = [{ role: "user", parts: [{ text: message }] }];
+                        const payload = { contents: chatHistory };
+                        const response = await fetch(API_URL, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+                        const result = await response.json();
+
+                        if (result.candidates && result.candidates.length > 0 &&
+                            result.candidates[0].content && result.candidates[0].content.parts &&
+                            result.candidates[0].content.parts.length > 0) {
+                            botResponse = result.candidates[0].content.parts[0].text;
+                        } else {
+                            botResponse = "I'm having trouble connecting to my knowledge base right now. Please try again later or ask a different question.";
+                        }
+                    } catch (error) {
+                        console.error("Error calling Gemini API:", error);
+                        botResponse = "I'm currently experiencing technical difficulties and cannot process your request. Please try again in a moment.";
+                    }
+
+                    await sendBotMessageWithTyping(botResponse);
+                    // Always offer general suggestions after an LLM response
+                    displaySuggestions([
+                        { text: "List all products", type: "text" },
+                        { text: "How to make money with Kedi?", type: "text" },
+                        { text: "General health tips", type: "text" },
+                        { text: "Symptom Checker ✨", type: "text" },
+                        { text: "Personalized Product Recommendation ✨", type: "text" },
+                        { text: "Contact support", type: "text" }
+                    ]);
                 }
             });
         })();
