@@ -1,10 +1,11 @@
-/* General body styling for font */
+ /* General body styling for font */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f0f2f5; /* Light gray background for the overall page */
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            margin: 0; /* Ensure no default body margin */
+            padding: 0; /* Ensure no default body padding */
+            box-sizing: border-box; /* Good practice for consistent box model */
+            /* Removed flex properties and min-height as they are not needed for a fixed overlay chatbot */
         }
 
         /* Styles for the chatbot open button */
