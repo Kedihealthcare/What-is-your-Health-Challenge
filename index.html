@@ -7957,10 +7957,35 @@ updateCartDisplay();
             </div>
         </div>
         <!-- end cookies-area -->
-
-
     </div>
    						    
+     <!-- Open Chatbot Button -->
+    <button id="open-chatbot-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path fill-rule="evenodd" d="M4.848 2.771A9.006 9.006 0 0 1 12 1.5c4.957 0 9.006 4.043 9.006 9.006 0 2.478-1.002 4.718-2.623 6.398l-1.353 1.354c-.621.621-1.455.972-2.341.972h-3.32c-.582 0-1.143-.113-1.666-.325A9.042 9.042 0 0 1 8.004 22.5c-4.957 0-9.006-4.043-9.006-9.006C-1.002 8.537 2.051 4.218 4.848 2.771ZM7.5 10.5a.75.75 0 0 0 0 1.5h7.5a.75.75 0 0 0 0-1.5h-7.5Zm0 3a.75.75 0 0 0 0 1.5h7.5a.75.75 0 0 0 0-1.5h-7.5Z" clip-rule="evenodd" />
+        </svg>
+        Chat with us
+    </button>
+
+    <!-- Chatbot Window -->
+    <div id="chatbot-window" class="hidden">
+        <div class="chatbot-header">
+            WIYHC Healthcare Assistant
+            <button id="close-chatbot-btn">&times;</button>
+        </div>
+        <div id="chatbot-messages">
+            <!-- Messages will be appended here -->
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" id="chatbot-input" placeholder="Type your message...">
+            <button id="send-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                    <path d="M3.478 2.404a.75.75 0 0 0-.926.941l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.404Z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
 							    
     <script>
         // Only add event listener if .share-toggle-btn exists
@@ -7992,8 +8017,8 @@ updateCartDisplay();
     <script src="metisMenu.min.js"></script>
     <script src="main.js"></script>
     <script src="Cart.js"></script>
-    <script src="products-popup.js"></script>
-    <script src="popup.js"></script>
+    <script src="product-popup.js"></script>
+    <script src="popu.js"></script>
     <script src="share.js"></script>
     <script src="tags.js"></script>
     <script src="chatbot.js"></script>
@@ -8042,32 +8067,6 @@ updateCartDisplay();
             }
         });
     </script>
-
-  <div id="chatbot-container">
-        <button id="open-chatbot-btn" aria-label="Open Chatbot">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
-            </svg>
-        </button>
-
-        <div id="chatbot-window" class=""> <!-- Removed 'hidden' class here -->
-            <div class="chatbot-header">
-                <h3 class="text-lg font-semibold">Kedi Healthcare Chatbot</h3>
-                <button id="close-chatbot-btn" aria-label="Close Chatbot">&times;</button>
-            </div>
-            <div id="chatbot-messages" class="flex flex-col flex-grow p-4 overflow-y-auto bg-gray-50">
-                <!-- Messages will be appended here -->
-            </div>
-            <div class="chatbot-input-container">
-                <input type="text" id="chatbot-input" placeholder="Type your message..." class="flex-grow px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:border-green-500">
-                <button id="send-btn" class="px-4 py-2 bg-green-600 text-white rounded-full ml-2 hover:bg-green-700 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </div>
 
 </body>
 </html>
