@@ -259,7 +259,7 @@
                         "Blood sugar monitoring.",
                         "Regular check-ups with a healthcare professional."
                     ],
-                    recommendedProducts: ["Blood Fat Reducing", "Golden Six"], // Example Kedi products for support
+                    recommendedProducts: ["Diawell", "Golden Six"], // Example Kedi products for support
                     qna: [
                         { question: "What are the types of Diabetes?", answer: "The main types are Type 1 (autoimmune, insulin-dependent) and Type 2 (insulin resistance, often lifestyle-related)." },
                         { question: "Is Diabetes curable?", answer: "Type 1 is not curable but manageable. Type 2 can sometimes be put into remission with significant lifestyle changes." }
@@ -274,7 +274,7 @@
                         "Lifestyle changes: healthy diet (low sodium), regular exercise, stress management, limiting alcohol.",
                         "Regular blood pressure monitoring."
                     ],
-                    recommendedProducts: ["Blood Fat Reducing", "Golden Six"], // Example Kedi products for support
+                    recommendedProducts: ["Cello Q10", "Reishi"], // Example Kedi products for support
                     qna: [
                         { question: "What causes Hypertension?", answer: "Causes can include genetics, age, obesity, high sodium intake, lack of exercise, smoking, and stress." },
                         { question: "How can I lower my blood pressure naturally?", answer: "Lifestyle changes like a healthy diet, regular exercise, maintaining a healthy weight, and reducing stress can help." }
@@ -291,7 +291,7 @@
                         "Heat and cold therapy.",
                         "Weight management."
                     ],
-                    recommendedProducts: ["Golden Six"], // Example Kedi products for support
+                    recommendedProducts: ["Jointeez", "Golden Six"], // Example Kedi products for support
                     qna: [
                         { question: "What are the common types of Arthritis?", answer: "Osteoarthritis (wear-and-tear) and Rheumatoid Arthritis (autoimmune) are common types." },
                         { question: "Can diet affect Arthritis?", answer: "Yes, an anti-inflammatory diet rich in fruits, vegetables, and omega-3 fatty acids can help manage symptoms." }
@@ -309,7 +309,7 @@
         "Practice strict hygiene to prevent spread (wash hands frequently).",
         "Follow up with your doctor for monitoring and recovery."
       ],
-      recommendedProducts: [],
+      recommendedProducts: ["Qinghao"],
       qna: [
         { question: "Is Typhoid contagious?", answer: "Yes, Typhoid fever is highly contagious and spreads through contaminated food and water." },
         { question: "How long does Typhoid last?", answer: "Without treatment, symptoms can last for weeks or even months. With proper treatment, recovery can be quicker." }
@@ -320,7 +320,7 @@
       keywords: /headache|migraine|tension headache|cluster headache/i,
       symptoms: "Pain in the head, throbbing sensation, sensitivity to light/sound.",
       dosage: ["Rest and hydration are recommended. If persistent, consult your physician."],
-      recommendedProducts: [],
+      recommendedProducts: ["Memory 24/7 Capsule", "Refresh Tea"],
       qna: []
     },
     {
@@ -328,7 +328,7 @@
       keywords: /fever|temperature|high temperature/i,
       symptoms: "Elevated body temperature, indicating an infection.",
       dosage: ["Rest, fluids, and fever-reducing medication can help. If persistent or very high, seek medical advice."],
-      recommendedProducts: [],
+      recommendedProducts: ["Reishi", "Qinghao"],
       qna: []
     },
     {
@@ -336,7 +336,7 @@
       keywords: /hepatitis|i have hepatitis|what can i use for my hepatitis|liver inflammation|hepatitis b|hepatitis c/i,
       symptoms: "Liver inflammation, fatigue, jaundice.",
       dosage: ["Reishi is recommended to nourish the liver and support overall health. Consult a healthcare professional for specific treatment."],
-      recommendedProducts: ["Reishi"],
+      recommendedProducts: ["Reishi", "Golden Six"],
       qna: []
     },
     {
@@ -344,7 +344,7 @@
       keywords: /tuberculosis|tb infection/i,
       symptoms: "Chronic cough, fever, night sweats, weight loss.",
       dosage: ["Please consult a healthcare professional for appropriate treatment. Reishi can support overall health."],
-      recommendedProducts: ["Reishi"],
+      recommendedProducts: ["Reishi", "Cordy Active"],
       qna: []
     },
     {
@@ -352,7 +352,7 @@
       keywords: /cough|dry cough|wet cough/i,
       symptoms: "A sudden expulsion of air from the lungs.",
       dosage: ["Consider using Reishi to support overall health. Consult a healthcare professional for specific treatments."],
-      recommendedProducts: ["Reishi"],
+      recommendedProducts: ["Reishi", "Cordy Active"],
       qna: []
     },
     {
@@ -360,7 +360,7 @@
       keywords: /flu|influenza/i,
       symptoms: "Fever, body aches, fatigue, respiratory symptoms.",
       dosage: ["Consider using Reishi to support overall health. Consult a healthcare professional for specific treatments."],
-      recommendedProducts: ["Reishi"],
+      recommendedProducts: ["Reishi", "Cordy Active"],
       qna: []
     },
     {
@@ -368,7 +368,7 @@
       keywords: /cold|common cold/i,
       symptoms: "Runny nose, sore throat, sneezing, mild fatigue.",
       dosage: ["Consider using Reishi to support overall health. Consult a healthcare professional for specific treatments."],
-      recommendedProducts: ["Reishi"],
+      recommendedProducts: ["Reishi", "Refresh Tea"],
       qna: []
     },
     {
@@ -384,7 +384,7 @@
       keywords: /sinusitis|sinus infection/i,
       symptoms: "Facial pain/pressure, nasal congestion, headache.",
       dosage: ["Please consult a healthcare professional for appropriate treatment. Reishi can support overall health."],
-      recommendedProducts: ["Reishi"],
+      recommendedProducts: ["Reishi", "Refresh Tea"],
       qna: []
     },
     {
@@ -392,7 +392,7 @@
       keywords: /pneumonia|lung infection/i,
       symptoms: "Cough, fever, difficulty breathing, chest pain.",
       dosage: ["Please consult a healthcare professional for appropriate treatment. Reishi can support overall health."],
-      recommendedProducts: ["Reishi"],
+      recommendedProducts: ["Reishi", "Cordy Active"],
       qna: []
     },
     {
@@ -400,7 +400,7 @@
       keywords: /diarrhea|loose stools/i,
       symptoms: "Frequent loose, watery bowel movements.",
       dosage: ["Please consult a healthcare professional for appropriate treatment. Reishi can support overall health."],
-      recommendedProducts: ["Reishi"],
+      recommendedProducts: ["Reishi", "Constilease"],
       qna: []
     },
     {
@@ -416,7 +416,7 @@
       keywords: /digestive health|gut health/i,
       symptoms: "General discomfort, bloating, irregular bowel movements.",
       dosage: ["Gastrifort Capsule is beneficial for supporting overall digestive function."],
-      recommendedProducts: ["Gastrifort Capsule"],
+      recommendedProducts: ["Gastrifort Capsule", "Constilease"],
       qna: []
     },
     {
@@ -424,7 +424,7 @@
       keywords: /blood sugar management|glucose control/i,
       symptoms: "Fluctuations in blood sugar levels.",
       dosage: ["Consider using Diawell to support overall health. Consult a healthcare professional for specific treatments."],
-      recommendedProducts: ["Diawell"],
+      recommendedProducts: ["Diawell", "Golden Six"],
       qna: []
     },
     {
@@ -440,7 +440,7 @@
       keywords: /heart disease|cardiac issues/i,
       symptoms: "Chest pain, shortness of breath, fatigue.",
       dosage: ["Please consult a healthcare professional for appropriate treatment. Cello Q10 and Reishi can support overall health."],
-      recommendedProducts: ["Cello Q10", "Reishi"],
+      recommendedProducts: ["Cello Q10", "Reishi", "Cordy Royal Jelly"],
       qna: []
     },
     {
@@ -448,7 +448,7 @@
       keywords: /cardiovascular health|heart health/i,
       symptoms: "General concern for heart and blood vessel well-being.",
       dosage: ["Consider using Cello Q10 and Reishi to support overall heart function."],
-      recommendedProducts: ["Cello Q10", "Reishi"],
+      recommendedProducts: ["Cello Q10", "Reishi", "Cordy Royal Jelly"],
       qna: []
     },
     {
@@ -464,7 +464,7 @@
       keywords: /stroke|cerebrovascular accident/i,
       symptoms: "Sudden weakness or numbness, difficulty speaking, vision problems.",
       dosage: ["For stroke recovery, please consult a healthcare professional for appropriate treatment. Reishi and Memory 24/7 Capsule can support overall health."],
-      recommendedProducts: ["Reishi", "Memory 24/7 Capsule"],
+      recommendedProducts: ["Reishi", "Memory 24/7 Capsule", "Cordy Royal Jelly"],
       qna: []
     },
     {
@@ -488,7 +488,7 @@
       keywords: /anemia|low blood count/i,
       symptoms: "Fatigue, weakness, pale skin, shortness of breath.",
       dosage: ["Consider using Reishi (Blood Tonic) to support blood health and overall well-being."],
-      recommendedProducts: ["Reishi (Blood Tonic)"],
+      recommendedProducts: ["Reishi (Blood Tonic)", "Cordy Royal Jelly"],
       qna: []
     },
     {
@@ -496,7 +496,7 @@
       keywords: /blood health|blood circulation|blood purification/i,
       symptoms: "General concern for blood quality and function.",
       dosage: ["Reishi (Blood Tonic) is beneficial for supporting overall blood function."],
-      recommendedProducts: ["Reishi (Blood Tonic)"],
+      recommendedProducts: ["Reishi (Blood Tonic)", "Reishi"],
       qna: []
     },
     {
@@ -504,7 +504,7 @@
       keywords: /iron deficiency|low iron/i,
       symptoms: "Fatigue, weakness, brittle nails.",
       dosage: ["Consider using Reishi (Blood Tonic) to support blood health. Consult a healthcare professional for specific treatments."],
-      recommendedProducts: ["Reishi (Blood Tonic)"],
+      recommendedProducts: ["Reishi (Blood Tonic)", "Cordy Royal Jelly"],
       qna: []
     },
     {
@@ -512,7 +512,7 @@
       keywords: /blood disorders|blood diseases/i,
       symptoms: "Various symptoms depending on the specific disorder.",
       dosage: ["For blood disorders, please consult a healthcare professional for appropriate treatment. Reishi (Blood Tonic) can support overall health."],
-      recommendedProducts: ["Reishi (Blood Tonic)"],
+      recommendedProducts: ["Reishi (Blood Tonic)", "Reishi"],
       qna: []
     },
     {
@@ -520,7 +520,7 @@
       keywords: /immune system|immunity enhancement/i,
       symptoms: "Frequent illness, low resistance.",
       dosage: ["Consider using Reishi and Golden Hypha to support overall health."],
-      recommendedProducts: ["Reishi", "Golden Hypha"],
+      recommendedProducts: ["Reishi", "Golden Hypha", "Cordy Active"],
       qna: []
     },
     {
@@ -528,7 +528,7 @@
       keywords: /stress|stress management/i,
       symptoms: "Tension, irritability, fatigue due to stress.",
       dosage: ["Consider using Reishi and Golden Six to support overall health. Consult a healthcare professional for specific treatments."],
-      recommendedProducts: ["Reishi", "Golden Six"],
+      recommendedProducts: ["Reishi", "Golden Six", "Cordy Active"],
       qna: []
     },
     {
@@ -536,7 +536,7 @@
       keywords: /anxiety|nervousness|worry/i,
       symptoms: "Excessive worry, restlessness, difficulty concentrating.",
       dosage: ["Consider using Reishi and Golden Six to support overall health. Consult a healthcare professional for specific treatments."],
-      recommendedProducts: ["Reishi", "Golden Six"],
+      recommendedProducts: ["Reishi", "Golden Six", "Cordy Active"],
       qna: []
     },
     {
@@ -544,7 +544,7 @@
       keywords: /depression|mood disorder/i,
       symptoms: "Persistent sadness, loss of interest, low energy.",
       dosage: ["For depression, please consult a healthcare professional for appropriate treatment. Reishi and Memory 24/7 Capsule can support overall health."],
-      recommendedProducts: ["Reishi", "Memory 24/7 Capsule"],
+      recommendedProducts: ["Reishi", "Memory 24/7 Capsule", "Cordy Active"],
       qna: []
     },
     {
@@ -552,7 +552,7 @@
       keywords: /mental health|cognitive well-being/i,
       symptoms: "General concern for cognitive function and emotional balance.",
       dosage: ["Consider using Reishi and Memory 24/7 Capsule to promote overall well-being."],
-      recommendedProducts: ["Reishi", "Memory 24/7 Capsule"],
+      recommendedProducts: ["Reishi", "Memory 24/7 Capsule", "Cordy Royal Jelly"],
       qna: []
     },
     {
@@ -576,7 +576,7 @@
       keywords: /fatigue|tiredness|exhaustion/i,
       symptoms: "Extreme tiredness, lack of energy.",
       dosage: ["Consider using Reishi and Cordy Active to support overall health and energy levels."],
-      recommendedProducts: ["Reishi", "Cordy Active"],
+      recommendedProducts: ["Reishi", "Cordy Active", "Vigor Essential"],
       qna: []
     },
     {
@@ -584,7 +584,7 @@
       keywords: /low energy|lack of vitality/i,
       symptoms: "Reduced physical and mental energy.",
       dosage: ["Consider using Reishi and Cordy Active to support overall health and vitality."],
-      recommendedProducts: ["Reishi", "Cordy Active"],
+      recommendedProducts: ["Reishi", "Cordy Active", "Vigor Essential"],
       qna: []
     },
     {
@@ -592,7 +592,7 @@
       keywords: /chronic fatigue|cfs/i,
       symptoms: "Persistent and debilitating fatigue.",
       dosage: ["Consider using Reishi and Cordy Active to support overall health. Consult a healthcare professional for specific treatments."],
-      recommendedProducts: ["Reishi", "Cordy Active"],
+      recommendedProducts: ["Reishi", "Cordy Active", "Golden Six"],
       qna: []
     },
     {
@@ -600,7 +600,7 @@
       keywords: /ischemic heart disease|coronary artery disease|cad/i,
       symptoms: "Chest pain, shortness of breath, fatigue due to reduced blood flow to heart.",
       dosage: ["Please consult a healthcare professional for appropriate treatment. Cello Q10 and Reishi can support overall health."],
-      recommendedProducts: ["Cello Q10", "Reishi"],
+      recommendedProducts: ["Cello Q10", "Reishi", "Cordy Royal Jelly"],
       qna: []
     },
     {
@@ -616,7 +616,7 @@
       keywords: /gastroesophageal reflux disease|acid reflux|heartburn/i,
       symptoms: "Heartburn, regurgitation, difficulty swallowing.",
       dosage: ["Please consult a healthcare professional for appropriate treatment. Gastrifort Capsule can support overall health."],
-      recommendedProducts: ["Gastrifort Capsule"],
+      recommendedProducts: ["Gastrifort Capsule", "Reishi"],
       qna: []
     },
     {
@@ -624,7 +624,7 @@
       keywords: /peptic ulcer disease|stomach ulcer|duodenal ulcer/i,
       symptoms: "Burning stomach pain, bloating, nausea.",
       dosage: ["Please consult a healthcare professional for appropriate treatment. Gastrifort Capsule can support overall health."],
-      recommendedProducts: ["Gastrifort Capsule"],
+      recommendedProducts: ["Gastrifort Capsule", "Reishi"],
       qna: []
     },
     {
@@ -632,7 +632,7 @@
       keywords: /inflammatory bowel disease|crohn's disease|ulcerative colitis/i,
       symptoms: "Abdominal pain, diarrhea, weight loss.",
       dosage: ["Please consult a healthcare professional for appropriate treatment. Reishi and Gastrifort Capsule can support overall health."],
-      recommendedProducts: ["Reishi", "Gastrifort Capsule"],
+      recommendedProducts: ["Reishi", "Gastrifort Capsule", "Constilease"],
       qna: []
     },
     {
@@ -656,7 +656,7 @@
       keywords: /parkinson's disease|pd/i,
       symptoms: "Tremors, rigidity, bradykinesia, postural instability.",
       dosage: ["Please consult a healthcare professional for appropriate treatment. Memory 24/7 Capsule and Reishi can support overall health."],
-      recommendedProducts: ["Memory 24/7 Capsule", "Reishi"],
+      recommendedProducts: ["Memory 24/7 Capsule", "Reishi", "Cordy Royal Jelly"],
       qna: []
     },
     {
@@ -664,7 +664,7 @@
       keywords: /alzheimer's disease|ad/i,
       symptoms: "Memory loss, cognitive decline, confusion.",
       dosage: ["Please consult a healthcare professional for appropriate treatment. Memory 24/7 Capsule and Reishi can support overall health."],
-      recommendedProducts: ["Memory 24/7 Capsule", "Reishi"],
+      recommendedProducts: ["Memory 24/7 Capsule", "Reishi", "Cordy Royal Jelly"],
       qna: []
     },
     {
@@ -672,7 +672,7 @@
       keywords: /multiple sclerosis|ms/i,
       symptoms: "Fatigue, numbness, muscle weakness, vision problems.",
       dosage: ["Please consult a healthcare professional for appropriate treatment. Memory 24/7 Capsule and Reishi can support overall health."],
-      recommendedProducts: ["Memory 24/7 Capsule", "Reishi"],
+      recommendedProducts: ["Memory 24/7 Capsule", "Reishi", "Golden Hypha"],
       qna: []
     },
    
@@ -681,7 +681,7 @@
       keywords: /psoriatic arthritis|psa/i,
       symptoms: "Joint pain, stiffness, swelling, often with psoriasis.",
       dosage: ["Jointeez is recommended to support joint health and relieve pain. Consult a healthcare professional for management."],
-      recommendedProducts: ["Jointeez"],
+      recommendedProducts: ["Jointeez", "Golden Six"],
       qna: []
     },
     {
@@ -689,7 +689,7 @@
       keywords: /osteoarthritis|oa|degenerative joint disease/i,
       symptoms: "Joint pain, stiffness, reduced flexibility.",
       dosage: ["Jointeez is recommended to support joint health and relieve pain. Consult a healthcare professional for management."],
-      recommendedProducts: ["Jointeez"],
+      recommendedProducts: ["Jointeez", "Golden Six"],
       qna: []
     },
     {
@@ -697,7 +697,7 @@
       keywords: /gout|uric acid arthritis/i,
       symptoms: "Severe joint pain, redness, swelling, tenderness.",
       dosage: ["Please consult a healthcare professional for appropriate treatment. Reishi can support overall health."],
-      recommendedProducts: ["Reishi"],
+      recommendedProducts: ["Reishi", "Golden Six"],
       qna: []
     },
     {
@@ -705,7 +705,7 @@
       keywords: /lung cancer|bronchogenic carcinoma/i,
       symptoms: "Persistent cough, chest pain, shortness of breath, weight loss.",
       dosage: ["For lung cancer, please consult a healthcare professional for appropriate treatment. Golden Hypha and Reishi can support overall health."],
-      recommendedProducts: ["Golden Hypha", "Reishi"],
+      recommendedProducts: ["Golden Hypha", "Reishi", "Cordy Active"],
       qna: []
     },
     {
@@ -713,7 +713,7 @@
       keywords: /colorectal cancer|colon cancer|rectal cancer/i,
       symptoms: "Changes in bowel habits, rectal bleeding, abdominal discomfort.",
       dosage: ["For colorectal cancer, please consult a healthcare professional for appropriate treatment. Golden Hypha and Reishi can support overall health."],
-      recommendedProducts: ["Golden Hypha", "Reishi"],
+      recommendedProducts: ["Golden Hypha", "Reishi", "Constilease"],
       qna: []
     },
     {
@@ -721,7 +721,7 @@
       keywords: /breast cancer|mammary cancer/i,
       symptoms: "Lump in breast, changes in breast size/shape, nipple discharge.",
       dosage: ["For breast cancer, please consult a healthcare professional for appropriate treatment. Golden Hypha and Reishi can support overall health."],
-      recommendedProducts: ["Golden Hypha", "Reishi"],
+      recommendedProducts: ["Golden Hypha", "Reishi", "Gynapharm Capsule"],
       qna: []
     },
     {
@@ -729,7 +729,7 @@
       keywords: /prostate cancer|prostate malignancy/i,
       symptoms: "Difficulty urinating, blood in urine/semen, bone pain.",
       dosage: ["For prostate cancer, please consult a healthcare professional for appropriate treatment. Lycovite and Reishi are beneficial for prostate health and men's wellness."],
-      recommendedProducts: ["Lycovite", "Reishi"],
+      recommendedProducts: ["Lycovite", "Reishi", "Vigor Essential"],
       qna: []
     },
     {
@@ -746,7 +746,7 @@
     keywords: /acne|pimples|blackheads|skin inflammation/i,
     symptoms: "Redness, swelling, and inflammation of the skin, black and chest caused by inflammation of oil glands.",
     dosage: ["Golden Six 1*2 daily"],
-    recommendedProducts: ["Wormore"],
+    recommendedProducts: ["Golden Six", "Reishi"],
     qna: []
   },
   {
@@ -754,7 +754,7 @@
     keywords: /amoebiasis|gallbladder inflammation|infection|gallstone/i,
     symptoms: "Gallbladder inflammation and infection caused by a gallstone (a stone-like mass that forms in the gallbladder).",
     dosage: ["Cordy Royal Jelly 3*2 daily"],
-    recommendedProducts: ["Contibetter"],
+    recommendedProducts: ["Cordy Royal Jelly", "Reishi"],
     qna: []
   },
   {
@@ -762,7 +762,7 @@
     keywords: /adenoids|adenoma|gland inflammation|throat growth/i,
     symptoms: "Inflammation of the adenoid gland (a tonsil-like growth located at the back of the throat).",
     dosage: ["3*2 daily"],
-    recommendedProducts: ["Reishi"],
+    recommendedProducts: ["Reishi", "Cordy Active"],
     qna: []
   },
   {
@@ -770,7 +770,7 @@
     keywords: /age spot|pigmentation|melanin patch|skin discoloration/i,
     symptoms: "Coloured patch on the skin (pigmentation due to the accumulation of melanin by the sebaceous glands under the skin).",
     dosage: ["3*2 daily"],
-    recommendedProducts: ["Reishi"],
+    recommendedProducts: ["Reishi", "Golden Six"],
     qna: []
   },
   {
@@ -778,7 +778,7 @@
     keywords: /aging|ageing|growing old|senescence/i,
     symptoms: "Multidimensional process of physical, psychological, and social changes that occur over time.",
     dosage: ["4*2 daily"],
-    recommendedProducts: ["Cordy Active"],
+    recommendedProducts: ["Cordy Active", "Golden Six", "Reishi"],
     qna: []
   },
   {
@@ -786,7 +786,7 @@
     keywords: /aids|hiv|immune deficiency|hiv positive/i,
     symptoms: "Disease that kills the immune system (defender) of the body, making the body vulnerable to all kinds of diseases.",
     dosage: ["3*2 daily"],
-    recommendedProducts: ["Reishi"],
+    recommendedProducts: ["Reishi", "Golden Hypha"],
     qna: []
   },
   {
@@ -794,7 +794,7 @@
     keywords: /alcoholism|alcohol|nervous system damage|collapse/i,
     symptoms: "Damages the nervous system and organs, characterized by chronic and tendency to collapse.",
     dosage: ["4*2 daily"],
-    recommendedProducts: ["Golden Hyphae"],
+    recommendedProducts: ["Golden Hypha", "Reishi"],
     qna: []
   },
   {
@@ -810,7 +810,7 @@
     keywords: /allergic rhinitis|hay fever|sneezing|runny nose|nasal allergy/i,
     symptoms: "Inflammation of the nasal mucosa, caused by allergic reactions, often accompanied by sneezing, itching, and a runny nose.",
     dosage: ["3*2 daily"],
-    recommendedProducts: ["Reishi"],
+    recommendedProducts: ["Reishi", "Refresh Tea"],
     qna: []
   },
   {
@@ -818,14 +818,14 @@
     keywords: /alzheimer|senility|memory loss|dementia|brain disorder/i,
     symptoms: "Progressive brain disorder that affects memory, thinking, and behavior, often leading to dementia.",
     dosage: ["3*2 daily"],
-    recommendedProducts: ["Cordy Royal Jelly"],
+    recommendedProducts: ["Cordy Royal Jelly", "Memory 24/7 Capsule", "Reishi"],
     qna: []
   },
   {
     name: "Amoeba",
     keywords: /amoeba|protozoa|single-celled|cytoplasm projections/i,
     symptoms: "A single-celled animal such as protozoa that moves by means of temporary projections of its cytoplasm.",
-    recommendedProducts: ["Reishi"],
+    recommendedProducts: ["Reishi", "Constilease"],
     dosage: ["3*2 daily"],
     qna: []
   },
@@ -833,7 +833,7 @@
     name: "Anemia",
     keywords: /anemia|low hemoglobin|red blood cells deficiency/i,
     symptoms: "Deficiency in the blood brought about by a decrease in the number of red blood cells or in the haemoglobin content.",
-    recommendedProducts: ["Cordy Royal Jelly"],
+    recommendedProducts: ["Cordy Royal Jelly", "Reishi (Blood Tonic)"],
     dosage: ["3*2 daily"],
     qna: []
   },
@@ -841,7 +841,7 @@
     name: "Angina",
     keywords: /angina|heart disease|chest pain|pectoris/i,
     symptoms: "Heart disease in which the patient suffers pectoris from inadequate supply of blood to the heart.",
-    recommendedProducts: ["Reishi"],
+    recommendedProducts: ["Reishi", "Cello Q10"],
     dosage: ["3*2 daily"],
     qna: []
   },
@@ -849,7 +849,7 @@
     name: "Anorexia",
     keywords: /anorexia|loss of appetite|can't eat/i,
     symptoms: "Inability to eat (loss of appetite).",
-    recommendedProducts: ["Cordy Active"],
+    recommendedProducts: ["Cordy Active", "Reishi"],
     dosage: ["4*2 daily"],
     qna: []
   },
@@ -857,7 +857,7 @@
     name: "Anuria",
     keywords: /anuria|kidney failure|scanty urine/i,
     symptoms: "Failure of kidney function causing scanty urine.",
-    recommendedProducts: ["Golden Six"],
+    recommendedProducts: ["Golden Six", "Reishi"],
     dosage: ["1*2 daily"],
     qna: []
   },
@@ -865,7 +865,7 @@
     name: "Anxiety",
     keywords: /anxiety|restlessness|apprehension|uneasiness/i,
     symptoms: "Restlessness, feeling of apprehension, the source of which is not recognized.",
-    recommendedProducts: ["Cordyceps"],
+    recommendedProducts: ["Cordy Active", "Reishi", "Golden Six"],
     dosage: ["2*2 daily"],
     qna: []
   },
@@ -873,7 +873,7 @@
     name: "Arrhythmia",
     keywords: /arrhythmia|irregular heartbeat|palpitations/i,
     symptoms: "Irregular heartbeat.",
-    recommendedProducts: ["Reishi"],
+    recommendedProducts: ["Reishi", "Cello Q10", "Cordy Royal Jelly"],
     dosage: ["3*2 daily"],
     qna: []
   },
@@ -881,7 +881,7 @@
     name: "Arteriosclerosis",
     keywords: /arteriosclerosis|cholesterol arteries|thickened arteries|hardened arteries/i,
     symptoms: "Degeneration and hardening of the (cholesterol) arteries, thickening of arterial walls due to cholesterol deposits. It also reduces blood flow and causes elasticity.",
-    recommendedProducts: ["Reishi"],
+    recommendedProducts: ["Reishi", "Cello Q10"],
     dosage: ["3*2 daily"],
     qna: []
   },
@@ -889,7 +889,7 @@
     name: "Asthma",
     keywords: /asthma|bronchial asthma|difficulty breathing|coughing|trouble breathing/i,
     symptoms: "Disease of the bronchial tubes which lead from the windpipe or trachea into lungs causing paroxysms of coughing or difficulty in breathing (technically called bronchial asthma).",
-    recommendedProducts: ["Reishi"],
+    recommendedProducts: ["Reishi", "Cordy Active"],
     dosage: ["3*2 daily"],
     qna: []
   },
@@ -897,8 +897,8 @@
   name: "Atherosclerosis",
   keywords: /atherosclerosis|artery hardening|plaque buildup|cholesterol|arterial blockage|arteriosclerosis/i,
   symptoms: "A condition characterized by the buildup of plaque inside the arteries, causing them to narrow and harden, leading to poor blood circulation and increased risk of heart disease.",
-  recommendedProducts: ["Reishi", "Omega-3", "Garlic Extract"],
-  dosage: ["Reishi: 3×2 daily", "Omega-3: 1,000 mg twice daily", "Garlic Extract: 600–1,200 mg daily"],
+  recommendedProducts: ["Reishi", "Cello Q10", "Magilim"],
+  dosage: ["Reishi: 3×2 daily", "Cello Q10: 1 capsule daily", "Magilim: 2 capsules twice daily"],
   qna: [
     {
       question: "What causes atherosclerosis?",
@@ -914,15 +914,15 @@
   name: "Athlete’s Foot",
   keywords: /athlete’s foot|foot fungus|toe cracks|itching toes|redness between toes|fungal foot infection/i,
   symptoms: "Fungal infection between the toes characterized by cracks, redness, itching, sores, pains and disabilities.",
-  recommendedProducts: ["Diawell"],
-  dosage: ["4*3 daily"],
+  recommendedProducts: ["Reishi"],
+  dosage: ["3*2 daily"],
   qna: []
 },
 {
   name: "Back Ache",
   keywords: /back ache|back pain|waist pain|spinal pain|backbone pain/i,
   symptoms: "Severe pains in the backbone, waist or back region.",
-  recommendedProducts: ["Golden Six"],
+  recommendedProducts: ["Golden Six", "Jointeez"],
   dosage: ["1*2 daily"],
   qna: []
 },
@@ -930,7 +930,7 @@
   name: "Bacteraemia",
   keywords: /bacteraemia|bacteria in blood|blood poisoning|septicemia/i,
   symptoms: "Presence of bacteria in the blood, causing blood poisoning.",
-  recommendedProducts: ["Reishi"],
+  recommendedProducts: ["Reishi", "Golden Hypha"],
   dosage: ["3*2 daily"],
   qna: []
 },
@@ -938,7 +938,7 @@
   name: "Barber’s Itch",
   keywords: /barber’s itch|beard fungus|face fungal infection|itchy beard|bearded area bumps/i,
   symptoms: "Bumps, fungal infections of the bearded portions in the face, head and neck, causing inflammation of glands, burning and itching.",
-  recommendedProducts: ["Golden Hyphae"],
+  recommendedProducts: ["Golden Hypha", "Reishi"],
   dosage: ["4*2 daily"],
   qna: []
 },
@@ -946,15 +946,15 @@
   name: "Bleeding Gums (gingivitis)",
   keywords: /bleeding gums|gingivitis|gum inflammation|swollen gums|gum pain/i,
   symptoms: "Inflammation of gums.",
-  recommendedProducts: ["Reishi"],
-  dosage: ["3*2 daily"],
+  recommendedProducts: ["Gum Care Toothpaste", "Reishi"],
+  dosage: ["Use as toothpaste", "3*2 daily"],
   qna: []
 },
 {
   name: "Blocked Fallopian Tube",
   keywords: /blocked fallopian tube|fallopian tube obstruction|fluid collection in tubes/i,
   symptoms: "Collections of fluid in the skin causing a raised area.",
-  recommendedProducts: ["Reishi"],
+  recommendedProducts: ["Gynapharm Capsule", "Reishi"],
   dosage: ["3*2 daily"],
   qna: []
 },
@@ -962,7 +962,7 @@
   name: "Blood Infection",
   keywords: /blood infection|bacterial blood infection|sepsis|septicemia/i,
   symptoms: "Infection in the blood caused by bacteria.",
-  recommendedProducts: ["Golden Six"],
+  recommendedProducts: ["Golden Six", "Reishi", "Golden Hypha"],
   dosage: ["1*2 daily"],
   qna: []
 },
@@ -970,7 +970,7 @@
   name: "Boils",
   keywords: /boils|pus-filled skin|raised skin infection|skin abscess|bacterial boils/i,
   symptoms: "Pus-filled, raised area on the skin caused by bacteria.",
-  recommendedProducts: ["Cordy Active"],
+  recommendedProducts: ["Cordy Active", "Reishi"],
   dosage: ["4*2 daily"],
   qna: []
 },
@@ -978,7 +978,7 @@
   name: "Breathing Difficulty",
   keywords: /breathing difficulty|dyspnoea|shortness of breath|trouble breathing|respiratory distress/i,
   symptoms: "Inability to breathe normally and painlessly, shortness of breath, also called dyspnoea.",
-  recommendedProducts: ["Cordy Active"],
+  recommendedProducts: ["Cordy Active", "Reishi"],
   dosage: ["4*2 daily"],
   qna: []
 },
@@ -986,7 +986,7 @@
   name: "Bronchitis",
   keywords: /bronchitis|coughing and sneezing|larynx swelling|upper respiratory tract inflammation/i,
   symptoms: "Swelling causing severe coughing and sneezing, thus affecting the larynx and the upper respiratory tract.",
-  recommendedProducts: ["Reishi"],
+  recommendedProducts: ["Reishi", "Cordy Active"],
   dosage: ["3*2 daily"],
   qna: []
 },
@@ -994,7 +994,7 @@
   name: "Bruxism",
   keywords: /bruxism|teeth grinding|night grinding|sleep bruxism|neurotic jaw clenching/i,
   symptoms: "Grinding of teeth while sleeping, sometimes a manifestation of neurosis.",
-  recommendedProducts: ["Reishi"],
+  recommendedProducts: ["Reishi", "Golden Six"],
   dosage: ["3*2 daily"],
   qna: []
 },
@@ -1002,7 +1002,7 @@
   name: "Bunion",
   keywords: /bunion|great toe swelling|painful toe joint|foot bunion/i,
   symptoms: "Swelling at the first joint of the great toe. This can be very painful.",
-  recommendedProducts: ["Cordy Royal Jelly"],
+  recommendedProducts: ["Cordy Royal Jelly", "Jointeez"],
   dosage: ["3*2 daily"],
   qna: []
 },
@@ -1018,7 +1018,7 @@
   name: "Cancer",
   keywords: /cancer|malignant tumour|uncontrolled cell growth|tumor spread|metastasis/i,
   symptoms: "Malignant tumour. Uncontrolled growth of cells that are unusually large and move into embryonic cells, then destroy the body's tissues. It can spread to other parts of the body.",
-  recommendedProducts: ["Reishi"],
+  recommendedProducts: ["Reishi", "Golden Hypha"],
   dosage: ["3*2 daily"],
   qna: []
 },
@@ -1026,7 +1026,7 @@
   name: "Cardiovascular",
   keywords: /cardiovascular|heart problems|blood vessel issues|hardened heart|heart membrane disorder/i,
   symptoms: "Problems in the heart and blood vessels characterized by hardening of the heart and membranes.",
-  recommendedProducts: ["Cordy Royal Jelly"],
+  recommendedProducts: ["Cordy Royal Jelly", "Cello Q10", "Reishi"],
   dosage: ["3*2 daily"],
   qna: []
 },
@@ -1034,15 +1034,15 @@
   name: "Cataract",
   keywords: /cataract|eye inflammation|iris inflammation|retina inflammation|clouded vision/i,
   symptoms: "Inflammation of the iris or retina in excess.",
-  recommendedProducts: ["Contibetter"],
-  dosage: ["4*2 daily"],
+  recommendedProducts: ["Eye Beta Capsule", "Refresh Tea"],
+  dosage: ["2*2 daily"],
   qna: []
 },
 {
   name: "Cholera",
   keywords: /cholera|acute diarrhoea|contaminated water|contaminated food|cholera infection/i,
   symptoms: "An acute diarrhoeal infection caused by consumption of contaminated food or water.",
-  recommendedProducts: ["Reishi"],
+  recommendedProducts: ["Reishi", "Constilease"],
   dosage: ["3*2 daily"],
   qna: []
 },
@@ -1050,7 +1050,7 @@
   name: "Chronic Fatigue Syndrome (Liver Disease)",
   keywords: /chronic fatigue|liver disease|fatigue syndrome|muscle pain|weakness|post-exertional malaise/i,
   symptoms: "Fatigue, weakness, muscle pain, and other symptoms that worsen with physical or mental activity.",
-  recommendedProducts: ["Cordy Active"],
+  recommendedProducts: ["Cordy Active", "Reishi", "Golden Six"],
   dosage: ["4*2 daily"],
   qna: []
 },
@@ -1058,7 +1058,7 @@
   name: "Cirrhosis",
   keywords: /cirrhosis|liver degeneration|infectious liver disease|contagious liver illness/i,
   symptoms: "Marked by degeneration of the liver, the disease is infectious and contagious.",
-  recommendedProducts: ["Golden Six"],
+  recommendedProducts: ["Golden Six", "Reishi"],
   dosage: ["1*2 daily"],
   qna: []
 },
@@ -1066,7 +1066,7 @@
   name: "Climacteric (Menopause)",
   keywords: /climacteric|menopause|hormonal changes|female transition|perimenopause|postmenopause/i,
   symptoms: "The period leading up to and after menopause, characterized by hormonal changes.",
-  recommendedProducts: ["Ginseng"],
+  recommendedProducts: ["Golden Six", "Gynapharm Capsule"],
   dosage: ["1*2 daily"],
   qna: []
 },
@@ -1074,7 +1074,7 @@
   name: "Cold Sore",
   keywords: /cold sore|fever blister|herpes simplex|lip sore|oral herpes/i,
   symptoms: "Fever blisters (sore on the lips, sometimes appears when the patient has fever) caused by the herpes simplex virus.",
-  recommendedProducts: ["Reishi"],
+  recommendedProducts: ["Reishi", "Golden Hypha"],
   dosage: ["3*2 daily"],
   qna: []
 },
@@ -1082,7 +1082,7 @@
   name: "Colitis",
   keywords: /colitis|colon inflammation|large intestine inflammation|intestinal swelling/i,
   symptoms: "Inflammation of the colon (large intestine).",
-  recommendedProducts: ["Reishi"],
+  recommendedProducts: ["Reishi", "Gastrifort Capsule", "Constilease"],
   dosage: ["3*2 daily"],
   qna: []
 },
@@ -1090,7 +1090,7 @@
   name: "Conjunctivitis (Pink Eye)",
   keywords: /conjunctivitis|pink eye|eye redness|eye discharge|eye inflammation/i,
   symptoms: "Inflammation of the conjunctiva.",
-  recommendedProducts: ["Eye Beta"],
+  recommendedProducts: ["Eye Beta Capsule", "Refresh Tea"],
   dosage: ["2*2 daily"],
   qna: []
 },
@@ -1098,7 +1098,7 @@
   name: "Constipation",
   keywords: /constipation|bowel difficulty|irregular bowel movement|headache from constipation|digestive blockage/i,
   symptoms: "Condition in which the bowels move less often than usual and with difficulty characterized by headache.",
-  recommendedProducts: ["ConstiEase"],
+  recommendedProducts: ["Constilease"],
   dosage: ["2*2 daily"],
   qna: []
 },
@@ -1114,7 +1114,7 @@
   name: "Coronary Thrombosis",
   keywords: /coronary thrombosis|blood clots|heart clot|blocked arteries|heart failure/i,
   symptoms: "Formation of blood clots in the coronary arteries, interfering with the blood supply to the heart muscles. This can cause heart failure.",
-  recommendedProducts: ["Cordy Royal Jelly"],
+  recommendedProducts: ["Cordy Royal Jelly", "Cello Q10", "Reishi"],
   dosage: ["3*2 daily"],
   qna: []
 },
@@ -1122,7 +1122,7 @@
   name: "Cystitis-Benign",
   keywords: /cystitis|benign cystitis|bladder inflammation|urinary discomfort/i,
   symptoms: "Inflammation of the bladder.",
-  recommendedProducts: ["Cordy Active"],
+  recommendedProducts: ["Cordy Active", "Golden Six"],
   dosage: ["4*2 daily"],
   qna: []
 },
@@ -1130,7 +1130,7 @@
   name: "Debility (General)",
   keywords: /debility|general weakness|body fatigue|low energy/i,
   symptoms: "General weakness of the body.",
-  recommendedProducts: ["Cordy Active"],
+  recommendedProducts: ["Cordy Active", "Reishi", "Vigor Essential"],
   dosage: ["4*2 daily"],
   qna: []
 },
@@ -1138,7 +1138,7 @@
   name: "Dehydration",
   keywords: /dehydration|water loss|fluid depletion|dry body|lack of hydration/i,
   symptoms: "Loss or removal of water from the body.",
-  recommendedProducts: ["Reishi"],
+  recommendedProducts: ["Reishi", "Refresh Tea"],
   dosage: ["3*2 daily"],
   qna: []
 },
@@ -1146,7 +1146,7 @@
   name: "Dementia (Mental Blockage)",
   keywords: /dementia|mental blockage|memory loss|reasoning deterioration|mental decline/i,
   symptoms: "Deterioration of mind, especially with respect to reasoning, willpower, and mind.",
-  recommendedProducts: ["Cordy Royal Jelly"],
+  recommendedProducts: ["Cordy Royal Jelly", "Memory 24/7 Capsule", "Reishi"],
   dosage: ["3*2 daily"],
   qna: []
 },
@@ -1154,7 +1154,7 @@
   name: "Depression",
   keywords: /depression|low spirit|hopelessness|mental dullness|sadness/i,
   symptoms: "A mental state of being in low spirit characterized by reactive dullness, lack of hope and absence of cheerfulness.",
-  recommendedProducts: ["Cordy Active"],
+  recommendedProducts: ["Cordy Active", "Memory 24/7 Capsule", "Reishi"],
   dosage: ["4*2 daily"],
   qna: []
 },
@@ -1170,7 +1170,7 @@
   name: "Diabetes Type II",
   keywords: /diabetes type 2|adult-onset diabetes|insulin resistance|type ii diabetes/i,
   symptoms: "Also known as adult-onset diabetes, characterized by the body being able to produce insulin but cells are unable to use it effectively.",
-  recommendedProducts: ["Diawell"],
+  recommendedProducts: ["Diawell", "Golden Six"],
   dosage: ["4*3 daily"],
   qna: []
 },
@@ -1178,7 +1178,7 @@
   name: "Diarrhoea",
   keywords: /diarrhoea|diarrhea|watery stool|abdominal pain|nausea vomiting/i,
   symptoms: "Frequent, watery, and uncontrolled bowel movements, accompanied by nausea, vomiting, constipation or abdominal pains.",
-  recommendedProducts: ["Reishi"],
+  recommendedProducts: ["Reishi", "Constilease"],
   dosage: ["3*2 daily"],
   qna: []
 },
@@ -1186,7 +1186,7 @@
   name: "Digestive Problem",
   keywords: /digestive problem|digestion issue|pancreas digestion|fat breakdown|oil digestion/i,
   symptoms: "Problem in the breakdown of body fat (oil) by the pancreas glands and crude fat.",
-  recommendedProducts: ["ConstiEase"],
+  recommendedProducts: ["Constilease", "Gastrifort Capsule"],
   dosage: ["2*2 daily"],
   qna: []
 },
@@ -1194,7 +1194,7 @@
   name: "Dry Skin",
   keywords: /dry skin|skin dryness|sebaceous gland deficiency|oil deficiency skin/i,
   symptoms: "Insufficient production of body fat (oil) by the sebaceous glands and crude oil.",
-  recommendedProducts: ["Golden Six"],
+  recommendedProducts: ["Golden Six", "Reishi"],
   dosage: ["1*2 daily"],
   qna: []
 },
@@ -1202,7 +1202,7 @@
   name: "Dysmenorrhoea",
   keywords: /dysmenorrhoea|painful menstruation|menstrual cramps|period pain/i,
   symptoms: "Painful menstruation (monthly flow of blood associated with pains).",
-  recommendedProducts: ["Golden Six"],
+  recommendedProducts: ["Golden Six", "Gynapharm Capsule"],
   dosage: ["1*2 daily"],
   qna: []
 },
@@ -1210,7 +1210,7 @@
   name: "Ear Infection",
   keywords: /ear infection|ear inflammation|earache|pain in ear/i,
   symptoms: "Inflammation, aches and pains in the ear.",
-  recommendedProducts: ["Cordy Active"],
+  recommendedProducts: ["Cordy Active", "Reishi"],
   dosage: ["4*2 daily"],
   qna: []
 },
@@ -1226,7 +1226,7 @@
   name: "Edema (Hydrops)",
   keywords: /edema|hydrops|capillary discharge|fluid retention|swelling from blood capillaries/i,
   symptoms: "Discharge from the blood capillaries.",
-  recommendedProducts: ["Cordy Royal Jelly"],
+  recommendedProducts: ["Cordy Royal Jelly", "Reishi"],
   dosage: ["3*2 daily"],
   qna: []
 },
@@ -1234,7 +1234,7 @@
   name: "Elephantiasis",
   keywords: /elephantiasis|limb swelling|genital swelling|enlarged glands/i,
   symptoms: "Swelling, especially of the limbs and genitalia by a result of enlargement of glands.",
-  recommendedProducts: ["Golden Hyphae"],
+  recommendedProducts: ["Golden Hypha", "Reishi"],
   dosage: ["4*2 daily"],
   qna: []
 },
@@ -1242,7 +1242,7 @@
   name: "Emaciation (Maciation)",
   keywords: /emaciation|maciation|weight loss|severe thinness|body wasting/i,
   symptoms: "Loss of body weight.",
-  recommendedProducts: ["Reishi"],
+  recommendedProducts: ["Reishi", "Cordy Active"],
   dosage: ["3*2 daily"],
   qna: []
 },
@@ -1250,7 +1250,7 @@
   name: "Embolism (Arterial Blockage)",
   keywords: /embolism|arterial blockage|blood clot|vessel obstruction|air bubble in blood/i,
   symptoms: "Obstruction of blood vessels by a blood clot, air bubbles, or other foreign material.",
-  recommendedProducts: ["Reishi"],
+  recommendedProducts: ["Reishi", "Cello Q10"],
   dosage: ["3*2 daily"],
   qna: []
 },
@@ -1258,7 +1258,7 @@
   name: "Enlarged Spleen",
   keywords: /enlarged spleen|spleen inflammation|chest organ swelling|splenomegaly/i,
   symptoms: "Inflammation of organs pertaining to the region over the chest.",
-  recommendedProducts: ["Cordy Active"],
+  recommendedProducts: ["Cordy Active", "Reishi"],
   dosage: ["4*2 daily"],
   qna: []
 },
@@ -1266,7 +1266,7 @@
   name: "Epilepsy",
   keywords: /epilepsy|seizures|neurological seizure|brain disorder|convulsions/i,
   symptoms: "A severe infectious disease in which the skin becomes pale.",
-  recommendedProducts: ["Reishi"],
+  recommendedProducts: ["Reishi", "Cordy Royal Jelly", "Memory 24/7 Capsule"],
   dosage: ["3*2 daily"],
   qna: []
 },
@@ -1274,7 +1274,7 @@
   name: "Erysipelas (rev. skin infection)",
   keywords: /erysipelas|skin infection|raised red rash|hot rash|sharp skin redness/i,
   symptoms: "A skin infection characterized by a sharply demarcated, raised, red, and hot rash.",
-  recommendedProducts: ["Cordy Active"],
+  recommendedProducts: ["Cordy Active", "Reishi"],
   dosage: ["4*2 daily"],
   qna: []
 },
@@ -1282,7 +1282,7 @@
   name: "Fainting Sickness",
   keywords: /fainting|fainting sickness|loss of consciousness|low blood to brain|syncope/i,
   symptoms: "A sudden and temporary loss of consciousness due to insufficient blood flow to the brain.",
-  recommendedProducts: ["Golden Six"],
+  recommendedProducts: ["Golden Six", "Reishi"],
   dosage: ["1*2 daily"],
   qna: []
 },
@@ -1290,7 +1290,7 @@
   name: "Fatigue",
   keywords: /fatigue|tiredness|exhaustion|mental weariness|physical fatigue/i,
   symptoms: "Extreme tiredness or exhaustion, often accompanied by mental and physical weariness.",
-  recommendedProducts: ["Cordy Active"],
+  recommendedProducts: ["Cordy Active", "Reishi", "Vigor Essential"],
   dosage: ["4*2 daily"],
   qna: []
 },
@@ -1298,7 +1298,7 @@
   name: "Female Infertility",
   keywords: /female infertility|infertility in women|inability to conceive|female conception issue/i,
   symptoms: "Inability to conceive after a year of unprotected intercourse.",
-  recommendedProducts: ["Golden Hyphae"],
+  recommendedProducts: ["Gynapharm Capsule", "Golden Six", "Reishi"],
   dosage: ["4*2 daily"],
   qna: []
 },
@@ -1306,7 +1306,7 @@
   name: "Fibroid",
   keywords: /fibroid|uterine fibroid|benign uterine tumor|noncancerous growth uterus/i,
   symptoms: "Benign tumours that develop in the uterus.",
-  recommendedProducts: ["Reishi"],
+  recommendedProducts: ["Reishi", "Gynapharm Capsule"],
   dosage: ["3*2 daily"],
   qna: []
 },
@@ -1314,7 +1314,7 @@
   name: "Flatulence (Stomach Gas)",
   keywords: /flatulence|stomach gas|gas discomfort|bloating|intestinal gas/i,
   symptoms: "Excessive formation of gas in the stomach or intestines, causing discomfort, bloating, and sometimes pain.",
-  recommendedProducts: ["ConstiEase"],
+  recommendedProducts: ["Constilease", "Gastrifort Capsule"],
   dosage: ["2*2 daily"],
   qna: []
 },
@@ -1322,7 +1322,7 @@
   name: "Flu (Cough)",
   keywords: /flu|cough|viral infection|fever and sore throat|muscle aches/i,
   symptoms: "A common viral infection of the respiratory tract, characterized by fever, cough, sore throat, and muscle aches.",
-  recommendedProducts: ["Reishi"],
+  recommendedProducts: ["Reishi", "Cordy Active", "Refresh Tea"],
   dosage: ["3*2 daily"],
   qna: []
 },
@@ -1330,31 +1330,31 @@
   name: "German Measles",
   keywords: /german measles|rubella|red rashes|viral rash|rubella virus/i,
   symptoms: "Caused by a virus, produces red rashes lasting a couple of days.",
-  recommendedProducts: [],
-  dosage: [],
+  recommendedProducts: ["Reishi", "Golden Hypha"],
+  dosage: ["3*2 daily", "4*2 daily"],
   qna: []
 },
 {
   name: "Goitre",
   keywords: /goitre|goiter|thyroid swelling|neck swelling|enlarged thyroid/i,
   symptoms: "Enlargement of the thyroid gland visible as swelling on the front of the neck.",
-  recommendedProducts: [],
-  dosage: [],
+  recommendedProducts: ["Reishi", "Golden Six"],
+  dosage: ["3*2 daily", "1*2 daily"],
   qna: []
 },
 {
   name: "Gonorrhoea",
   keywords: /gonorrhoea|gonorrhea|genital inflammation|neisseria gonococcus|std gonorrhoea/i,
   symptoms: "Contagious inflammation of genital mucous membranes, caused by Neisseria gonococcus.",
-  recommendedProducts: [],
-  dosage: [],
+  recommendedProducts: ["Reishi", "Golden Hypha"],
+  dosage: ["3*2 daily", "4*2 daily"],
   qna: []
 },
 {
   name: "Gout",
   keywords: /gout|metabolic arthritis|joint inflammation|toe pain|uric acid crystal/i,
   symptoms: "Metabolic disease with acute arthritis and joint inflammation, especially in the great toe.",
-  recommendedProducts: ["Golden Hypha"],
+  recommendedProducts: ["Golden Hypha", "Reishi", "Jointeez"],
   dosage: ["4*2 daily"],
   qna: []
 },
@@ -1362,47 +1362,47 @@
   name: "Halitosis",
   keywords: /halitosis|bad breath|offensive breath|mouth odor|foul breath/i,
   symptoms: "Offensive breath from the mouth or nostrils.",
-  recommendedProducts: [],
-  dosage: [],
+  recommendedProducts: ["Gum Care Toothpaste", "Reishi"],
+  dosage: ["Use as toothpaste", "3*2 daily"],
   qna: []
 },
 {
   name: "Headache",
   keywords: /headache|head pain|frontal pain|temporal headache|occipital pain/i,
   symptoms: "Pain in the head which may be dull, sharp or unbearable, frontal, temporal or occipital.",
-  recommendedProducts: [],
-  dosage: [],
+  recommendedProducts: ["Memory 24/7 Capsule", "Refresh Tea", "Reishi"],
+  dosage: ["2*2 daily", "As needed", "3*2 daily"],
   qna: []
 },
 {
   name: "Heartburn",
   keywords: /heartburn|esophagus burn|acid reflux|chest burning|breastbone pain/i,
   symptoms: "Burning sensation in the oesophagus or below the breastbone, common in women.",
-  recommendedProducts: [],
-  dosage: [],
+  recommendedProducts: ["Gastrifort Capsule", "Reishi"],
+  dosage: ["2*2 daily", "3*2 daily"],
   qna: []
 },
 {
   name: "Heart Failure",
   keywords: /heart failure|weak heart|cardiac weakness|ineffective pumping|deadly heart issue/i,
   symptoms: "Heart is too weak to pump blood effectively. This is deadly.",
-  recommendedProducts: ["Cordy Royal Jelly", "Cordy Active"],
-  dosage: ["3*2 daily", "4*2 daily"],
+  recommendedProducts: ["Cordy Royal Jelly", "Cello Q10", "Reishi"],
+  dosage: ["3*2 daily", "1*1 daily", "3*2 daily"],
   qna: []
 },
 {
   name: "Heart Palpitation",
   keywords: /heart palpitation|irregular heartbeat|strong heartbeat|poor circulation|fast pulse/i,
   symptoms: "Irregular or strong heartbeat, linked to poor circulation.",
-  recommendedProducts: ["Cordy Royal Jelly", "Cordy Active"],
-  dosage: ["1*2 daily", "4*2 daily"],
+  recommendedProducts: ["Cordy Royal Jelly", "Cello Q10", "Reishi"],
+  dosage: ["1*2 daily", "1*1 daily", "3*2 daily"],
   qna: []
 },
 {
   name: "Haemorrhoids (Piles)",
   keywords: /haemorrhoids|piles|anal veins|rectal bleeding|constipation piles/i,
   symptoms: "Enlarged veins in the anal region causing pain, bleeding, and constipation.",
-  recommendedProducts: ["Reishi", "Haemorate"],
+  recommendedProducts: ["Reishi", "Constilease"],
   dosage: ["3*2 daily", "2*2 daily"],
   qna: []
 },
@@ -1410,16 +1410,16 @@
   name: "Hematuria",
   keywords: /hematuria|blood in urine|bloody urine|urinary bleeding/i,
   symptoms: "Presence of blood in urine.",
-  recommendedProducts: ["Cardibyter", "Carmoletter", "Reishi"],
-  dosage: ["4*3 daily", "4*3 daily", "3*2 daily"],
+  recommendedProducts: ["Reishi (Blood Tonic)", "Golden Six"],
+  dosage: ["3*2 daily", "1*2 daily"],
   qna: []
 },
 {
   name: "Hepatitis",
   keywords: /hepatitis|liver inflammation|jaundice|vomiting|liver disease/i,
   symptoms: "Inflammation of the liver causing jaundice, nausea and vomiting.",
-  recommendedProducts: ["Golden Hypha", "Reishi"],
-  dosage: ["4*2 daily", "3*2 daily"],
+  recommendedProducts: ["Golden Hypha", "Reishi", "Golden Six"],
+  dosage: ["4*2 daily", "3*2 daily", "1*2 daily"],
   qna: []
 },
 {
@@ -1434,15 +1434,15 @@
   name: "Herpes Zoster",
   keywords: /herpes zoster|shingles|burning blisters|nerve pain blisters|zoster virus/i,
   symptoms: "Painful blisters on the body with burning sensation and nerve pain caused by a virus.",
-  recommendedProducts: [],
-  dosage: [],
+  recommendedProducts: ["Golden Hypha", "Reishi"],
+  dosage: ["4*2 daily", "3*2 daily"],
   qna: []
 },
 {
   name: "Hormonal Imbalance",
   keywords: /hormonal imbalance|gland secretion|endocrine disorder|hormone irregularity/i,
   symptoms: "Irregularities in glandular secretion carried in the bloodstream to the organs it regulates.",
-  recommendedProducts: ["Golden Six"],
+  recommendedProducts: ["Golden Six", "Gynapharm Capsule"],
   dosage: ["1*2 daily"],
   qna: []
 },
@@ -1450,7 +1450,7 @@
   name: "Hot Flushes",
   keywords: /hot flushes|head pain menopause|menopausal sweating|middle head pain/i,
   symptoms: "Severe pain in the middle of the head with sweating, associated with menopause.",
-  recommendedProducts: ["Golden Six"],
+  recommendedProducts: ["Golden Six", "Gynapharm Capsule"],
   dosage: ["1*2 daily"],
   qna: []
 },
@@ -1458,15 +1458,15 @@
   name: "Inflamed Intestines",
   keywords: /inflamed intestines|diverticulitis|intestinal swelling|colon sacs|faeces stagnation/i,
   symptoms: "Inflamed intestines causing stagnation of faeces in distended sacs of the colon (diverticula).",
-  recommendedProducts: [],
-  dosage: [],
+  recommendedProducts: ["Gastrifort Capsule", "Constilease", "Reishi"],
+  dosage: ["2*2 daily", "2*2 daily", "3*2 daily"],
   qna: []
 },
 {
   name: "Laryngitis",
   keywords: /laryngitis|voice box inflammation|hoarseness|sore throat|breathing difficulty/i,
   symptoms: "Inflammation of the larynx or voice box affecting voice and breathing. May include hoarseness, fever, or sore throat.",
-  recommendedProducts: ["Cordy Active", "Reishi"],
+  recommendedProducts: ["Cordy Active", "Reishi", "Refresh Tea"],
   dosage: ["4*2 daily", "3*2 daily"],
   qna: []
 },
@@ -1474,7 +1474,7 @@
   name: "Leg Cramps",
   keywords: /leg cramps|muscle contraction|calf pain|muscle pain legs/i,
   symptoms: "Muscle contraction causing pain in the calf or other muscles.",
-  recommendedProducts: ["Reishi"],
+  recommendedProducts: ["Reishi", "Jointeez"],
   dosage: ["3*2 daily"],
   qna: []
 },
@@ -1482,160 +1482,160 @@
   name: "Liver Problem",
   keywords: /liver problem|liver disease|hepatic disorder|liver malfunction/i,
   symptoms: "General liver disease or disorder.",
-  recommendedProducts: [],
-  dosage: [],
+  recommendedProducts: ["Reishi", "Golden Six"],
+  dosage: ["3*2 daily", "1*2 daily"],
   qna: []
 },
 {
   name: "Low Sperm Count",
   keywords: /low sperm count|male infertility|sperm deficiency|poor sperm quality/i,
   symptoms: "Inability to produce a sufficient number of sperm cells to impregnate a woman.",
-  recommendedProducts: [],
-  dosage: [],
+  recommendedProducts: ["Re-Vive", "Vigor Essential", "Cordy Royal Jelly"],
+  dosage: ["2*1 daily", "1*2 daily", "3*2 daily"],
   qna: []
 },
 {
   name: "Lupus Erythematosus (LE)",
   keywords: /lupus erythematosus|le|butterfly rash|autoimmune lupus|chronic lupus/i,
   symptoms: "Chronic, often fatal disease with characteristic butterfly-shaped rash on the face. Common in females between puberty and menopause.",
-  recommendedProducts: [],
-  dosage: [],
+  recommendedProducts: ["Reishi", "Golden Hypha"],
+  dosage: ["3*2 daily", "4*2 daily"],
   qna: []
 },
 {
   name: "Malnutrition",
   keywords: /malnutrition|undernourishment|inadequate nutrition|weakness|skinny appearance/i,
   symptoms: "Undernourishment due to inadequate nutritional intake; symptoms include weakness, skinny appearance, or anaemia.",
-  recommendedProducts: ["Lirich"],
-  dosage: ["3*3 daily"],
+  recommendedProducts: ["Cordy Royal Jelly", "Reishi"],
+  dosage: ["3*3 daily", "3*2 daily"],
   qna: []
 },
 {
   name: "Measles Sore",
   keywords: /measles sore|skin eruption|measles aftermath|measles rash/i,
   symptoms: "Sore resulting from skin eruptions following a measles attack.",
-  recommendedProducts: [],
-  dosage: [],
+  recommendedProducts: ["Reishi", "Golden Hypha"],
+  dosage: ["3*2 daily", "4*2 daily"],
   qna: []
 },
 {
   name: "Mental Block",
   keywords: /mental block|forgetfulness|memory lapse|lack of assimilation/i,
   symptoms: "Lack of assimilation or temporary forgetfulness.",
-  recommendedProducts: ["Vigor Essential", "Cordy Active", "Reishi", "Golden Hypha"],
-  dosage: ["1*2 daily", "4*2 daily", "3*2 daily", "4*2 daily"],
+  recommendedProducts: ["Vigor Essential", "Cordy Active", "Reishi", "Golden Hypha", "Memory 24/7 Capsule"],
+  dosage: ["1*2 daily", "4*2 daily", "3*2 daily", "4*2 daily", "2*2 daily"],
   qna: []
 },
 {
   name: "Migraine (Headache)",
   keywords: /migraine|unilateral headache|nausea and vision issues|recurring headache/i,
   symptoms: "Usually affects one side of the head, often with nausea and vision issues. Recurs periodically.",
-  recommendedProducts: ["Cordy Active", "V-Ca", "Reishi", "Cordy Royal Jelly"],
-  dosage: ["4*2 daily", "1*1 daily", "3*2 daily", "3*2 daily"],
+  recommendedProducts: ["Cordy Active", "Reishi", "Cordy Royal Jelly", "Memory 24/7 Capsule"],
+  dosage: ["4*2 daily", "3*2 daily", "3*2 daily", "2*2 daily"],
   qna: []
 },
 {
   name: "Multiple Sclerosis (MS)",
   keywords: /multiple sclerosis|ms|brain and spinal disorder|loss of mobility/i,
   symptoms: "Disabling disease of the brain and spinal cord. Symptoms vary and may result in loss of ability to walk.",
-  recommendedProducts: ["Golden Hypha"],
-  dosage: ["4*2 daily"],
+  recommendedProducts: ["Golden Hypha", "Reishi", "Memory 24/7 Capsule"],
+  dosage: ["4*2 daily", "3*2 daily", "2*2 daily"],
   qna: []
 },
 {
   name: "Mumps (Epidemic Parotitis)",
   keywords: /mumps|epidemic parotitis|swollen glands|painful jaw|fever and chills/i,
   symptoms: "An acute, contagious, febrile disease with inflammation of the parotid and other salivary glands. Gradual onset with symptoms like chillness, headache, pain below the ear, moderate to high fever, and painful jaw movements due to swelling.",
-  recommendedProducts: ["Reishi"],
-  dosage: ["3*2 daily"],
+  recommendedProducts: ["Reishi", "Golden Hypha"],
+  dosage: ["3*2 daily", "4*2 daily"],
   qna: []
 },
 {
   name: "Myocardial Infarction",
   keywords: /myocardial infarction|heart attack|angina|cardiac failure|myocardium damage/i,
   symptoms: "Damage to the myocardium (heart muscle) causing angina-like pain, shock, heart attack, and potential sudden death due to cardiac failure.",
-  recommendedProducts: ["Cordy Royal Jelly", "Cardibetter"],
-  dosage: ["3*2 daily", "4*3 daily"],
+  recommendedProducts: ["Cordy Royal Jelly", "Cello Q10", "Reishi"],
+  dosage: ["3*2 daily", "1*1 daily", "3*2 daily"],
   qna: []
 },
 {
   name: "Myocarditis (Myocardial Inflammation)",
   keywords: /myocarditis|heart inflammation|apex beat|irregular pulse|heart muscle swelling/i,
   symptoms: "Inflammation of the heart muscle due to infections, nephritis, or poisoning (e.g. carbon monoxide), with symptoms like apex beat, weakness, and irregular pulse.",
-  recommendedProducts: [],
-  dosage: [],
+  recommendedProducts: ["Reishi", "Cello Q10"],
+  dosage: ["3*2 daily", "1*1 daily"],
   qna: []
 },
 {
   name: "Muscle Cramps",
   keywords: /muscle cramps|muscle tightening|cold-induced cramps|overwork cramps/i,
   symptoms: "Sudden and painful tightening of muscles caused by cold, overwork, or inflexibility.",
-  recommendedProducts: ["Cordy Active", "V-Ca"],
-  dosage: ["3*2 daily", "1*1 daily"],
+  recommendedProducts: ["Cordy Active", "Jointeez"],
+  dosage: ["3*2 daily", "4*2 daily"],
   qna: []
 },
 {
   name: "Muscular Dystrophy",
   keywords: /muscular dystrophy|muscle wasting|nutritional deficiency muscle loss/i,
   symptoms: "Wasting away of body parts due to lack of nutrition.",
-  recommendedProducts: ["Cordy Active", "V-Ca"],
-  dosage: ["4*2 daily", "1*1 daily"],
+  recommendedProducts: ["Cordy Active", "Reishi"],
+  dosage: ["4*2 daily", "3*2 daily"],
   qna: []
 },
 {
   name: "Nails Whitlow",
   keywords: /nails whitlow|finger inflammation|pus in nails|toe infection/i,
   symptoms: "Painful inflammation at the tip of fingers or toes involving pus, possibly affecting bone or tissue.",
-  recommendedProducts: [],
-  dosage: [],
+  recommendedProducts: ["Reishi", "Golden Hypha"],
+  dosage: ["3*2 daily", "4*2 daily"],
   qna: []
 },
 {
   name: "Nausea & Vomiting",
   keywords: /nausea|vomiting|throwing up|feeling sick|stomach upset/i,
   symptoms: "Feeling sick and throwing up.",
-  recommendedProducts: [],
-  dosage: [],
+  recommendedProducts: ["Gastrifort Capsule", "Reishi"],
+  dosage: ["2*2 daily", "3*2 daily"],
   qna: []
 },
 {
   name: "Nervous Depression",
   keywords: /nervous depression|chronic sadness|low mood|mental fatigue|emotional numbness/i,
   symptoms: "A mental state marked by chronic low mood, sadness, numbness, and disinterest in activities.",
-  recommendedProducts: [],
-  dosage: [],
+  recommendedProducts: ["Cordy Active", "Memory 24/7 Capsule", "Reishi"],
+  dosage: ["4*2 daily", "2*2 daily", "3*2 daily"],
   qna: []
 },
 {
   name: "Nephritis",
   keywords: /nephritis|kidney inflammation|renal disorder|chronic kidney issue/i,
   symptoms: "Chronic inflammation of the kidneys.",
-  recommendedProducts: [],
-  dosage: [],
+  recommendedProducts: ["Golden Six", "Reishi"],
+  dosage: ["1*2 daily", "3*2 daily"],
   qna: []
 },
 {
   name: "Obesity (Exogenous)",
   keywords: /obesity|exogenous obesity|overweight|fat accumulation|overeating/i,
   symptoms: "Medically refers to abnormal fat accumulation due to overeating.",
-  recommendedProducts: ["Magilim", "Colon Cleanser"],
-  dosage: ["4*3 daily", "1*2 daily"],
+  recommendedProducts: ["Magilim"],
+  dosage: ["4*3 daily"],
   qna: []
 },
 {
   name: "Osteoporosis",
   keywords: /osteoporosis|bone weakness|calcium deficiency|brittle bones|painful bones/i,
   symptoms: "Softening and weakening of bones due to calcium or vitamin deficiency, making bones brittle and painful.",
-  recommendedProducts: ["Cordy Active", "V-Ca", "Jointeez"],
-  dosage: ["4*2 daily", "1*1 daily", "4*2 daily"],
+  recommendedProducts: ["Cordy Active", "Jointeez", "Golden Six"],
+  dosage: ["4*2 daily", "4*2 daily", "1*2 daily"],
   qna: []
 },
 {
   name: "Parkinson’s Disease",
   keywords: /parkinson’s disease|tremors|muscle rigidity|nervous disease|peculiar gait/i,
   symptoms: "Chronic nervous disease with slow-spreading tremors, muscular rigidity, weakness, and a peculiar gait. Starts in the hand or foot and progresses.",
-  recommendedProducts: [],
-  dosage: [],
+  recommendedProducts: ["Memory 24/7 Capsule", "Reishi", "Cordy Royal Jelly"],
+  dosage: ["2*2 daily", "3*2 daily", "3*2 daily"],
   qna: []
 },
 {
@@ -1650,8 +1650,8 @@
   name: "Pneumonia",
   keywords: /pneumonia|lung infection|fever cough|obstructed breathing|chest pain/i,
   symptoms: "Inflammatory swelling and acute edema causing obstructed breathing, rapid pulse, chills, high temperature, and joint pain. Infection of one or both lungs caused by bacteria, viruses, or fungi. Symptoms include fever, cough with mucus (rusty, green, or blood-tinged), and chest pain worsened by coughing.",
-  recommendedProducts: ["Cordy Active"],
-  dosage: ["4*2 daily"],
+  recommendedProducts: ["Cordy Active", "Reishi", "Golden Hypha"],
+  dosage: ["4*2 daily", "3*2 daily", "4*2 daily"],
   qna: []
 },
 {
@@ -1666,7 +1666,7 @@
   name: "Premenstrual Syndrome (PMS)",
   keywords: /pms|premenstrual syndrome|menstrual cramps|period fever|premenstrual pain/i,
   symptoms: "Pains, cramps, and feverish conditions before menstruation.",
-  recommendedProducts: ["Golden Six", "Eve's Comfort"],
+  recommendedProducts: ["Golden Six", "Gynapharm Capsule"],
   dosage: ["1*2 daily", "3*3 daily"],
   qna: []
 },
@@ -1674,8 +1674,8 @@
   name: "Prostatitis",
   keywords: /prostatitis|prostate inflammation|frequent urination|perineal pain|prostate infection/i,
   symptoms: "Inflammation of the prostate gland, possibly due to gonorrhoea infection. Symptoms: perineal pain, frequent urination, fever, constipation, thirst, vomiting, discharge from penis. May be chronic.",
-  recommendedProducts: ["Vigor Essential"],
-  dosage: ["1*2 daily"],
+  recommendedProducts: ["Vigor Essential", "Lycovite", "Reishi"],
+  dosage: ["1*2 daily", "2*2 daily", "3*2 daily"],
   qna: []
 },
 {
@@ -1690,136 +1690,136 @@
   name: "Pulmonary Emphysema",
   keywords: /pulmonary emphysema|ruptured alveoli|breathing difficulty|lung elasticity loss/i,
   symptoms: "Lung alveoli become ruptured due to loss of elasticity. Causes breathing difficulty.",
-  recommendedProducts: ["Cordy Active", "Cardibetter"],
-  dosage: ["4*2 daily", "4*3 daily"],
+  recommendedProducts: ["Cordy Active", "Reishi"],
+  dosage: ["4*2 daily", "3*2 daily"],
   qna: []
 },
 {
   name: "Rheumatic Fever",
   keywords: /rheumatic fever|joint inflammation|streptococcal fever|migratory pain|cardiac inflammation/i,
   symptoms: "Systemic febrile disease, inflammatory and non-suppurative. Often followed by serious heart disease. Caused by prior streptococcal infection. Symptoms: fever, migratory joint pain, abdominal pain, cardiac issues.",
-  recommendedProducts: ["Reishi", "Qinghao"],
-  dosage: ["3*2 daily", "as directed by your doctor"],
+  recommendedProducts: ["Reishi", "Golden Six", "Jointeez"],
+  dosage: ["3*2 daily", "1*2 daily", "4*2 daily"],
   qna: []
 },
 {
   name: "Scarlet Fever",
   keywords: /scarlet fever|scarlet rash|sore throat fever|contagious rash|rapid pulse/i,
   symptoms: "Acute contagious disease with sore throat, fever, scarlet rash, and rapid pulse. Requires rest and isolation.",
-  recommendedProducts: ["Reishi", "Cordy Royal Jelly"],
-  dosage: ["3*2 daily", "3*2 daily"],
+  recommendedProducts: ["Reishi", "Cordy Royal Jelly", "Golden Hypha"],
+  dosage: ["3*2 daily", "3*2 daily", "4*2 daily"],
   qna: []
 },
 {
   name: "Seizures (Epilepsy, Ictus, Raptus)",
   keywords: /seizures|epilepsy|ictus|raptus|muscle contractions/i,
   symptoms: "Involuntary muscle contractions.",
-  recommendedProducts: ["Reishi", "Cordy Royal Jelly"],
-  dosage: ["3*2 daily", "3*2 daily"],
+  recommendedProducts: ["Reishi", "Cordy Royal Jelly", "Memory 24/7 Capsule"],
+  dosage: ["3*2 daily", "3*2 daily", "2*2 daily"],
   qna: []
 },
 {
   name: "Sinusitis",
   keywords: /sinusitis|sinus inflammation|maxillary sinus|catarrh and cough|sinus headache/i,
   symptoms: "Inflammation of sinus cavities, especially maxillary. Symptoms: catarrh, fever, chills, cough, and headache.",
-  recommendedProducts: ["Reishi"],
-  dosage: ["3*2 daily"],
+  recommendedProducts: ["Reishi", "Refresh Tea", "Cordy Active"],
+  dosage: ["3*2 daily", "As needed", "4*2 daily"],
   qna: []
 },
 {
   name: "Skin Blemish",
   keywords: /skin blemish|wrinkles|skin scars|skin deformities|aging spots/i,
   symptoms: "Wrinkles, scars, or skin deformities due to aging or damage.",
-  recommendedProducts: ["Constilease"],
-  dosage: ["2*2 daily"],
+  recommendedProducts: ["Constilease", "Reishi", "Golden Six"],
+  dosage: ["2*2 daily", "3*2 daily", "1*2 daily"],
   qna: []
 },
 {
   name: "Sore (Ulcerated)",
   keywords: /ulcerated sore|chronic sore|non-healing wound|persistent ulcer/i,
   symptoms: "A chronic sore that seems incurable.",
-  recommendedProducts: [],
-  dosage: [],
+  recommendedProducts: ["Reishi", "Golden Hypha"],
+  dosage: ["3*2 daily", "4*2 daily"],
   qna: []
 },
 {
   name: "Spastic Colon (Irritable Bowel Syndrome / Mucous Colitis)",
   keywords: /spastic colon|irritable bowel syndrome|ibs|mucous colitis|colon paralysis/i,
   symptoms: "Paralysis in part of the large intestine causing continuous contraction and rigidity.",
-  recommendedProducts: [],
-  dosage: [],
+  recommendedProducts: ["Constilease", "Gastrifort Capsule", "Reishi"],
+  dosage: ["2*2 daily", "2*2 daily", "3*2 daily"],
   qna: []
 },
 {
   name: "Spines and Disc (Pain & Aches)",
   keywords: /back pain|waist pain|spinal aches|disc pain|backache/i,
   symptoms: "Backache or waist pain.",
-  recommendedProducts: [],
-  dosage: [],
+  recommendedProducts: ["Jointeez", "Golden Six"],
+  dosage: ["4*2 daily", "1*2 daily"],
   qna: []
 },
 {
   name: "Staphylococcus",
   keywords: /staphylococcus|boils|bacterial infection|cluster infection|blood infection/i,
   symptoms: "Pathogenic bacteria in clusters causing boils and infections. Spoils the blood.",
-  recommendedProducts: [],
-  dosage: [],
+  recommendedProducts: ["Golden Hypha", "Reishi"],
+  dosage: ["4*2 daily", "3*2 daily"],
   qna: []
 },
 {
   name: "Stomach Ulcer",
   keywords: /stomach ulcer|ulcer|open sore in stomach|gastric ulcer/i,
   symptoms: "An open sore in the stomach.",
-  recommendedProducts: ["Reishi", "Golden Hypha"],
-  dosage: ["3*2 daily", "4*2 daily"],
+  recommendedProducts: ["Reishi", "Gastrifort Capsule"],
+  dosage: ["3*2 daily", "2*2 daily"],
   qna: []
 },
 {
   name: "Stress",
   keywords: /stress|tiredness|body strain|mental exertion|dullness/i,
   symptoms: "Strain or exertion on the body causing tiredness and dullness.",
-  recommendedProducts: ["Golden Six"],
-  dosage: ["1*2 daily"],
+  recommendedProducts: ["Golden Six", "Reishi", "Cordy Active"],
+  dosage: ["1*2 daily", "3*2 daily", "4*2 daily"],
   qna: []
 },
 {
   name: "Stroke (Thrombosis in the Leg)",
   keywords: /stroke|thrombosis in leg|sudden paralysis|blood clot blockage/i,
   symptoms: "Sudden paralysis or clot formation blocking blood vessels.",
-  recommendedProducts: ["Cordy Royal Jelly"],
-  dosage: ["3*2 daily"],
+  recommendedProducts: ["Cordy Royal Jelly", "Cello Q10", "Memory 24/7 Capsule"],
+  dosage: ["3*2 daily", "1*1 daily", "2*2 daily"],
   qna: []
 },
 {
   name: "Sunburn (Erythema Solare)",
   keywords: /sunburn|erythema solare|skin inflammation from sun|prolonged sun exposure/i,
   symptoms: "Inflammation of the skin from prolonged sun exposure.",
-  recommendedProducts: ["Constilease"],
-  dosage: ["2*2 daily"],
+  recommendedProducts: ["Reishi"],
+  dosage: ["3*2 daily"],
   qna: []
 },
 {
   name: "Tetanus (Lockjaw)",
   keywords: /tetanus|lockjaw|clostridium tetani|jaw stiffness|muscle spasms/i,
   symptoms: "Infectious disease caused by clostridium tetani toxin. Causes painful muscle spasms, beginning with jaw stiffness and facial contractions.",
-  recommendedProducts: ["Reishi"],
-  dosage: ["3*2 daily"],
+  recommendedProducts: ["Reishi", "Golden Hypha"],
+  dosage: ["3*2 daily", "4*2 daily"],
   qna: []
 },
 {
   name: "Tonsillitis",
   keywords: /tonsillitis|inflamed tonsils|difficulty swallowing|throat inflammation/i,
   symptoms: "Inflammation of one or both tonsils. Causes difficulty swallowing.",
-  recommendedProducts: ["Reishi"],
-  dosage: ["3*2 daily"],
+  recommendedProducts: ["Reishi", "Refresh Tea", "Cordy Active"],
+  dosage: ["3*2 daily", "As needed", "4*2 daily"],
   qna: []
 },
 {
   name: "Tuberculosis (T.B. Bacillus)",
   keywords: /tuberculosis|tb bacillus|lung infection|infectious lung disease/i,
   symptoms: "Infectious disease affecting lungs and potentially other body systems like bones, joints, and lymph nodes.",
-  recommendedProducts: ["Cordy Active", "Reishi"],
-  dosage: ["4*2 daily", "3*2 daily"],
+  recommendedProducts: ["Cordy Active", "Reishi", "Golden Hypha"],
+  dosage: ["4*2 daily", "3*2 daily", "4*2 daily"],
   qna: []
 },
 {
@@ -1834,24 +1834,24 @@
   name: "Uric Acid",
   keywords: /uric acid|waste metabolism product|urine acid|uric acid in blood/i,
   symptoms: "A waste product of metabolism found in blood and urine.",
-  recommendedProducts: ["Reishi", "Gastrifort"],
-  dosage: ["3*2 daily", "4*2 daily"],
+  recommendedProducts: ["Reishi", "Golden Six"],
+  dosage: ["3*2 daily", "1*2 daily"],
   qna: []
 },
 {
   name: "Vaginitis",
   keywords: /vaginitis|vaginal inflammation|vaginal discomfort|vaginal irritation/i,
   symptoms: "Inflammation of the vagina causing discomfort.",
-  recommendedProducts: ["Reishi"],
-  dosage: ["3*2 daily"],
+  recommendedProducts: ["Reishi", "Gynapharm Capsule"],
+  dosage: ["3*2 daily", "3*3 daily"],
   qna: []
 },
 {
   name: "Varicose Vein",
   keywords: /varicose vein|swollen veins|enlarged leg veins|vein disorder/i,
   symptoms: "Swollen or enlarged veins, especially in the legs.",
-  recommendedProducts: ["Reishi"],
-  dosage: ["3*2 daily"],
+  recommendedProducts: ["Reishi", "Cello Q10"],
+  dosage: ["3*2 daily", "1*1 daily"],
   qna: []
 },
 {
@@ -1866,56 +1866,56 @@
   name: "Vertigo (Light Headedness)",
   keywords: /vertigo|light headedness|dizziness|spinning sensation|imbalance/i,
   symptoms: "Dizziness, giddiness, a feeling of spinning or imbalance. Mentally confused, unable to stand firm.",
-  recommendedProducts: ["Cordy Active"],
-  dosage: ["4*2 daily"],
+  recommendedProducts: ["Cordy Active", "Memory 24/7 Capsule", "Reishi"],
+  dosage: ["4*2 daily", "2*2 daily", "3*2 daily"],
   qna: []
 },
 {
   name: "Wart (Veruca)",
   keywords: /wart|veruca|skin bump|skin overgrowth|viral wart/i,
   symptoms: "A small overgrowth or bump on the skin.",
-  recommendedProducts: ["Golden Hypha"],
-  dosage: ["4*2 daily"],
+  recommendedProducts: ["Golden Hypha", "Reishi"],
+  dosage: ["4*2 daily", "3*2 daily"],
   qna: []
 },
 {
   name: "Weak Erection",
   keywords: /weak erection|erectile dysfunction|sexual dysfunction|incomplete erection/i,
   symptoms: "Failure to achieve or maintain a full erection during sexual activity.",
-  recommendedProducts: ["Re-vive"],
-  dosage: ["2*1 daily"],
+  recommendedProducts: ["Re-Vive", "Vigor Essential", "Lycovite"],
+  dosage: ["2*1 daily", "1*2 daily", "2*2 daily"],
   qna: []
 },
 {
   name: "Whitlow (Felon)",
   keywords: /whitlow|felon|finger inflammation|pus filled swelling|painful toe tip/i,
   symptoms: "Painful pus-filled inflammation at the end of a finger or toe.",
-  recommendedProducts: ["Reishi"],
-  dosage: ["3*2 daily"],
+  recommendedProducts: ["Reishi", "Golden Hypha"],
+  dosage: ["3*2 daily", "4*2 daily"],
   qna: []
 },
 {
   name: "Wound (Ulcerated)",
   keywords: /ulcerated wound|chronic wound|non-healing sore|tissue damage wound/i,
   symptoms: "Chronic wounds caused by trauma or tissue damage. Persistent and difficult to heal.",
-  recommendedProducts: ["Reishi"],
-  dosage: ["3*2 daily"],
+  recommendedProducts: ["Reishi", "Golden Hypha"],
+  dosage: ["3*2 daily", "4*2 daily"],
   qna: []
 },
 {
   name: "Wrinkles (Furrow Crease)",
   keywords: /wrinkles|furrow crease|skin folds|aging lines|skin aging/i,
   symptoms: "Small folds or lines on the skin, especially due to aging.",
-  recommendedProducts: ["Constilease"],
-  dosage: ["2*2 daily"],
+  recommendedProducts: ["Constilease", "Golden Six", "Reishi"],
+  dosage: ["2*2 daily", "1*2 daily", "3*2 daily"],
   qna: []
 },
 {
   name: "Yeast Infection",
   keywords: /yeast infection|vaginal yeast|candida|vaginal discharge|leucorrhoea/i,
   symptoms: "Inflammation of the vagina and vulva. Symptoms include burning, heat, pain, pelvic pressure, and discharge (leucorrhoea).",
-  recommendedProducts: ["Reishi"],
-  dosage: ["3*2 daily"],
+  recommendedProducts: ["Reishi", "Gynapharm Capsule"],
+  dosage: ["3*2 daily", "3*3 daily"],
   qna: []
 }
                
@@ -2222,17 +2222,11 @@
                 "🥦 Did you know? Broccoli contains fiber, vitamins, and antioxidants that support digestion and immunity? 🥦🛡️",
                 "💧 Did you know? Drinking enough water helps maintain body temperature and lubricates joints? 💧🔥",
                 "🧘 Did you know? Meditation can reduce anxiety, lower blood pressure, and improve focus? 🧘‍♂️🧠",
-                "🍓 Did you know? Strawberries contain antioxidants and vitamin C that support skin and immune health? 🍓✨",
-                "📵 Did you know? Reducing screen time before bed can improve sleep quality? 📵😴",
-                "🧴 Did you know? Moisturizing daily helps keep skin hydrated and prevents dryness and cracking? 🧴💧",
-                "🛀 Did you know? Warm baths can relax muscles, improve circulation, and reduce stress? 🛀😌",
-                "🥜 Did you know? Nuts provide healthy fats, protein, and fiber that support heart health? 🥜❤️",
-                "🍋 Did you know? Lemon water can aid digestion and boost your vitamin C intake? 🍋💧",
-                "🧃 Did you know? Choosing whole fruits over fruit juices reduces sugar intake and increases fiber? 🍎🚫🧃",
-                "🦵 Did you know? Regular leg exercises improve circulation and reduce the risk of blood clots? 🦵❤️",
-                "🍯 Did you know? Raw honey contains antioxidants and has antibacterial properties? 🍯🛡️",
-                "🧴 Did you know? Applying moisturizer right after a shower locks in hydration and keeps skin soft? 🧴🚿",
-                "🧠 Did you know? Learning a new language or skill strengthens neural connections in your brain? 🧠📚",
+                "🍓 Did you know? Strawberries have antioxidants that support skin health and reduce inflammation? 🍓✨",
+                "📵 Did you know? Reducing screen time before bed improves sleep and reduces eye strain? 📵😴",
+                "🍯 Did you know? Honey has antibacterial properties and can soothe sore throats? 🍯😌",
+                "🧴 Did you know? Applying sunscreen daily protects against UV damage and skin cancer? 🧴☀️",
+                "🧠 Did you know? Learning new skills stimulates brain plasticity and cognitive health? 🧠📚",
                 "🥒 Did you know? Cucumbers are 95% water and help keep you hydrated and refreshed? 🥒💧",
                 "🧃 Did you know? Drinking herbal infusions can support liver health and detoxification? 🍵🧼",
                 "🛏️ Did you know? Keeping a consistent sleep schedule improves sleep quality and overall health? 🛏️⏰",
