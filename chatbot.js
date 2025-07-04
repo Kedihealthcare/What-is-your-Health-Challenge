@@ -1919,6 +1919,7 @@
   qna: []
 }
                
+               
             ];
 
 
@@ -2269,11 +2270,8 @@
                 "🧴 Did you know? Applying sunscreen daily protects against UV damage and skin cancer? 🧴☀️",
                 "🧠 Did you know? Learning new skills stimulates brain plasticity and cognitive health? 🧠📚",
                 "🥛 Did you know? Calcium and vitamin D work together to keep your bones strong? 🥛🦴"
+            ];
 
-
-            ];  // End of health tips array
-
-            // === Product Suggestions ===
             // === UI Element References ===
             let openBtn, closeBtn, chatbotWindow, chatbotInput, chatbotMessages, sendBtn, scrollIndicator;
 
@@ -2281,6 +2279,11 @@
             let waitingForSymptoms = false; // Flag to manage symptom checker state
             let waitingForHealthGoal = false; // New flag for personalized recommendations
             let currentHealthTipIndex = 0; // Index for "Did you know" health tips
+
+            // Variables for scroll indicator dragging
+            let isDraggingIndicator = false;
+            let startY = 0;
+            let startScrollTop = 0;
 
             document.addEventListener('DOMContentLoaded', async () => {
                 openBtn = document.getElementById('open-chatbot-btn');
@@ -2386,7 +2389,9 @@
                     // Set a timeout to hide the indicator after a short delay if no further scrolling
                     clearTimeout(hideIndicatorTimeout);
                     hideIndicatorTimeout = setTimeout(() => {
-                        scrollIndicator.style.opacity = '0';
+                        if (!isDraggingIndicator) { // Only hide if not dragging
+                            scrollIndicator.style.opacity = '0';
+                        }
                     }, 1500); // Hide after 1.5 seconds of inactivity
                 }
 
@@ -2398,7 +2403,7 @@
                     }
                 });
                 chatbotMessages.addEventListener('mouseleave', () => {
-                    if (chatbotMessages.scrollHeight > chatbotMessages.clientHeight) {
+                    if (chatbotMessages.scrollHeight > chatbotMessages.clientHeight && !isDraggingIndicator) {
                         hideIndicatorTimeout = setTimeout(() => {
                             scrollIndicator.style.opacity = '0';
                         }, 500); // Fade out faster on mouse leave
@@ -2417,6 +2422,79 @@
                     }
                 });
                 observer.observe(chatbotWindow, { attributes: true });
+
+                // --- Scroll Indicator Draggability ---
+                scrollIndicator.addEventListener('mousedown', (e) => {
+                    isDraggingIndicator = true;
+                    startY = e.clientY;
+                    startScrollTop = chatbotMessages.scrollTop;
+                    scrollIndicator.classList.add('dragging');
+                    // Prevent text selection during drag
+                    e.preventDefault();
+                });
+
+                // Add touch event listeners for mobile dragging
+                scrollIndicator.addEventListener('touchstart', (e) => {
+                    isDraggingIndicator = true;
+                    startY = e.touches[0].clientY;
+                    startScrollTop = chatbotMessages.scrollTop;
+                    scrollIndicator.classList.add('dragging');
+                    e.preventDefault(); // Prevent default scrolling
+                }, { passive: false }); // Use passive: false to allow preventDefault
+
+                document.addEventListener('mousemove', (e) => {
+                    if (!isDraggingIndicator) return;
+
+                    const deltaY = e.clientY - startY;
+                    const scrollTrackHeight = chatbotMessages.clientHeight - scrollIndicator.offsetHeight;
+                    const scrollContentHeight = chatbotMessages.scrollHeight - chatbotMessages.clientHeight;
+
+                    if (scrollTrackHeight <= 0 || scrollContentHeight <= 0) return; // Avoid division by zero or negative values
+
+                    const scrollRatio = deltaY / scrollTrackHeight;
+                    let newScrollTop = startScrollTop + scrollRatio * scrollContentHeight;
+
+                    // Clamp newScrollTop within valid bounds
+                    newScrollTop = Math.max(0, Math.min(newScrollTop, scrollContentHeight));
+
+                    chatbotMessages.scrollTop = newScrollTop;
+                    updateScrollIndicator(); // Update indicator position immediately
+                });
+
+                document.addEventListener('touchmove', (e) => {
+                    if (!isDraggingIndicator) return;
+
+                    const deltaY = e.touches[0].clientY - startY;
+                    const scrollTrackHeight = chatbotMessages.clientHeight - scrollIndicator.offsetHeight;
+                    const scrollContentHeight = chatbotMessages.scrollHeight - chatbotMessages.clientHeight;
+
+                    if (scrollTrackHeight <= 0 || scrollContentHeight <= 0) return;
+
+                    const scrollRatio = deltaY / scrollTrackHeight;
+                    let newScrollTop = startScrollTop + scrollRatio * scrollContentHeight;
+
+                    newScrollTop = Math.max(0, Math.min(newScrollTop, scrollContentHeight));
+
+                    chatbotMessages.scrollTop = newScrollTop;
+                    updateScrollIndicator();
+                    e.preventDefault(); // Prevent default scrolling
+                }, { passive: false });
+
+                document.addEventListener('mouseup', () => {
+                    if (isDraggingIndicator) {
+                        isDraggingIndicator = false;
+                        scrollIndicator.classList.remove('dragging');
+                        updateScrollIndicator(); // Ensure indicator state is correct after drag ends
+                    }
+                });
+
+                document.addEventListener('touchend', () => {
+                    if (isDraggingIndicator) {
+                        isDraggingIndicator = false;
+                        scrollIndicator.classList.remove('dragging');
+                        updateScrollIndicator(); // Ensure indicator state is correct after drag ends
+                    }
+                });
 
 
                 /**
