@@ -82,7 +82,7 @@
       image: "https://via.placeholder.com/150/800080/FFFFFF?text=CelloQ10",
       description: "Supports cardiovascular health and energy production at cellular level.",
       price: "₦45,000",
-      buyNowLink: "https://wa.me/message/WNGLZNUXKXXIF1",
+      buyNowLink: "#",
       blogLink: "https://blog.example.com/cello-q10-heart-health",
       qna: []
     },
@@ -122,7 +122,7 @@
       image: "https://via.placeholder.com/150/A0A0A0/FFFFFF?text=GumCare",
       description: "Promotes oral hygiene, strengthens gums, and freshens breath.",
       price: "₦6,999",
-      buyNowLink: "https://wa.me/message/WNGLZNUXKXXIF1",
+      buyNowLink: "#",
       blogLink: "https://blog.example.com/gum-care-toothpaste",
       qna: []
     },
@@ -212,7 +212,7 @@
       image: "https://via.placeholder.com/150/FF69B4/000000?text=Gynapharm",
       description: "Supports female reproductive health and hormonal balance.",
       price: "₦28,000",
-      buyNowLink: "https://wa.me/message/WNGLZNUXKXXIF1",
+      buyNowLink: "#",
       blogLink: "https://blog.example.com/gynapharm-female-health",
       qna: []
     },
@@ -222,8 +222,8 @@
       image: "https://via.placeholder.com/150/00BFFF/FFFFFF?text=Qinghao",
       description: "A traditional herbal supplement often associated with supporting the body's response to fever and general well-being. *Note: Not a cure for malaria; always consult a doctor.*",
       price: "₦22,000",
-      buyNowLink: "https://wa.me/message/WNGLZNUXKXXIF1", // Placeholder link
-      blogLink: "https://wa.me/message/WNGLZNUXKXXIF1", // Placeholder link
+      buyNowLink: "#", // Placeholder link
+      blogLink: "#", // Placeholder link
       qna: []
     }
        
@@ -248,7 +248,7 @@
                         { question: "Can Malaria be prevented?", answer: "Yes, prevention methods include using insecticide-treated bed nets, insect repellents, and prophylactic medications." }
                     ]
                 },
-                 {
+                                {
                     name: "Diabetes",
                     keywords: /diabetes|blood sugar|high sugar/i,
                     symptoms: "Frequent urination, increased thirst, increased hunger, unexplained weight loss, fatigue, blurred vision, slow-healing sores.",
@@ -675,14 +675,7 @@
       recommendedProducts: ["Memory 24/7 Capsule", "Reishi"],
       qna: []
     },
-    {
-      name: "Rheumatoid Arthritis",
-      keywords: /rheumatoid arthritis|ra/i,
-      symptoms: "Joint pain, swelling, stiffness, fatigue.",
-      dosage: ["Jointeez is recommended to support joint health and relieve pain. Consult a healthcare professional for management."],
-      recommendedProducts: ["Jointeez"],
-      qna: []
-    },
+   
     {
       name: "Psoriatic Arthritis",
       keywords: /psoriatic arthritis|psa/i,
@@ -1934,7 +1927,7 @@
                 { q: /how can i order|where to buy|buy products/i, a: "You can place an order directly on our website, or through our mobile app. You can also click the 'Buy Now' links provided for each product." },
                 { q: /shipping information|delivery time/i, a: "Shipping usually takes 3-5 business days depending on your location within Nigeria. International shipping times vary." },
                 { q: /return policy|refunds/i, a: "We have a 30-day return policy for unopened products. Please see our website for more details or contact our support team." },
-                { q: /contact support|customer service|helpline/i, a: "You can contact our support team via email at support@kedihealthcare.com or call us at +234 811 427 0136. You can also reach us via WhatsApp using the link: <a href='https://wa.me/message/WNGLZNUXKXXIF1' target='_blank' class='text-green-600 underline'>Chat on WhatsApp</a>." },
+                { q: /contact support|customer service|helpline/i, a: "You can contact our support team via email at support@kedihealthcare.com or call us at +234 800 123 4567. You can also reach us via WhatsApp using the link: <a href='https://wa.me/message/WNGLZNUXKXXIF1' target='_blank' class='text-green-600 underline'>Chat on WhatsApp</a>." },
                 { q: /what is kedi healthcare|about kedi healthcare/i, a: "Kedi Healthcare is a leading traditional Chinese medicine (TCM) company in Nigeria, dedicated to providing high-quality herbal and nutritional supplements for various health needs. We focus on natural solutions for overall well-being." },
                 { q: /kedi healthcare products|what products do you offer/i, a: "Kedi Healthcare offers a wide range of natural health products, including supplements for immune support (Reishi), male sexual health (Re-Vive), kidney health (Golden Six), digestive health (Colon Cleanse), energy (Vigor Essential), respiratory health (Cordy Active), weight management (Magilim), and cardiovascular health (Blood Fat Reducing)." },
                 { q: /kedi healthcare products list|list all products/i, a: "Certainly! Here is a list of Kedi Healthcare products: Reishi, Re-Vive, Golden Six, Colon Cleanse, Vigor Essential, Cordy Active, Magilim, and Blood Fat Reducing. You can ask for details on any of these." },
@@ -1970,23 +1963,319 @@
 
             // === Health Tips ===
             const generalHealthTips = [
-                "Drink plenty of water daily to stay hydrated.",
-                "Exercise regularly (at least 30 minutes most days) and stay active.",
-                "Get at least 7–8 hours of quality sleep per night.",
-                "Eat a balanced and nutritious diet rich in fruits, vegetables, and whole grains.",
-                "Practice stress-reducing techniques like meditation, yoga, or deep breathing.",
-                "Limit processed foods, sugary drinks, and unhealthy fats.",
-                "Avoid smoking and excessive alcohol consumption.",
-                "Get regular medical check-ups and screenings.",
-                "Wash your hands frequently to prevent the spread of germs.",
+                "Using groundnut oil for frying more than 2 times a day can raise cholesterol levels? 🥜 It contains high levels of saturated fats that can be harmful to your heart!.",
+                "Using groundnut oil for cooking can help lower cholesterol levels? 🥜 It contains healthy fats that are good for your heart!.",
+                "Don't use groundnut oil for frying? 🥜 It has a low smoke point and can produce harmful compounds when overheated!.",
+                "Using sunflower oil for cooking can help lower cholesterol levels? 🌻 It contains healthy fats that are good for your heart!.",
+                "Better still, use olive oil for cooking? 🫒 It has a high smoke point and is rich in healthy monounsaturated fats!.",
+                "Don't use too much of coconut oil for cooking? 🥥 It contains high levels of saturated fats that can raise cholesterol levels!.",
+                "Don't use too much of palm oil for cooking? 🌴 It contains high levels of saturated fats that can raise cholesterol levels!.",
+                "🌿 Some herbs like Reishi, Moringa, and Ginseng support immunity and reduce fatigue? 🌱🛡️",
+                "🍠 Sweet potatoes are rich in beta-carotene, which helps improve eye health and immunity? 👁️🍠",
+                "🧠 Your brain is sometimes more active at night than during the day! 💤 It processes emotions and memories while you sleep.",
+                "💧 Drinking water boosts your energy, mood, and focus? 🚰 Even mild dehydration can make you feel tired and foggy!.",
+                "🏃‍♂️ Just 30 minutes of walking a day can reduce your risk of heart disease by up to 40%? ❤️.",
+                "🍎 Eating an apple a day really can help keep the doctor away? 🍏 Apples are rich in fiber and antioxidants that support gut and heart health!.",
+                "😄 Smiling can improve your immune system and lower stress? 😊 It releases endorphins, your body's natural feel-good chemicals..",
+                "🌞 10-15 minutes of sunlight a day helps your body make Vitamin D for stronger bones and better mood? ☀️.",
+                "🧘‍♀️ Practicing mindfulness and meditation can reduce anxiety and improve your overall well-being? 🧘‍♂️.",
+                "🧠 Your brain is sometimes more active at night than during the day! 💤 It processes emotions and memories while you sleep.",
+                "💤 Lack of sleep can make you gain weight? 😴 Sleep controls hunger hormones like ghrelin and leptin..",
                 "Spend time outdoors for fresh air and sunlight (with sun protection).",
-                "Maintain a healthy weight to reduce the risk of chronic diseases.",
-                "Limit screen time and take regular breaks to rest your eyes.",
-                "Stay socially connected with friends and family."
-            ];
+                "🧘‍♂️ Regular physical activity can improve your mood and reduce anxiety? 🏋️‍♀️ Aim for at least 150 minutes of moderate exercise each week.",
+                "🧘‍♀️ Practicing yoga can improve flexibility and reduce stress? 🧘‍♂️ Even a few minutes a day can make a difference.",
+                "🧄 Garlic is a natural antibiotic? 🧄 It boosts your immune system and fights bacteria and viruses!.",
+                "🧘‍♀️ Regular meditation can reduce blood pressure and anxiety? 🧘‍♂️ Just 10 minutes a day can make a big difference.",
+                "🧘‍♂️ Deep breathing exercises can help reduce stress and improve focus? 🧘‍♀️ Try taking a few deep breaths right now!",
+                "🧘‍♀️ Practicing gratitude can improve your mental health and overall well-being? 🙏 Consider keeping a gratitude journal!",
+                "🧘‍♂️ Engaging in creative activities can boost your mood and reduce stress? 🎨 Try drawing, painting, or crafting!",
+                "🧘‍♀️ Spending time in nature can improve your mood and reduce feelings of stress? 🌳 Try to get outside for at least a few minutes each day!",
+                "🧘‍♂️ Practicing self-care can improve your mental health and overall well-being? 🛁 Consider taking time for yourself each day!",
+                "🧘‍♀️ Prioritizing sleep can improve your mood and cognitive function? 😴 Aim for 7-9 hours of quality sleep each night.",
+                "🧘‍♂️ Staying socially connected can boost your mental health? 🤝 Make time for friends and family, even if it's just a quick call.",
+                "🍫 Did you know? Dark chocolate (in moderation) is good for your heart? 🍫❤️ It contains flavonoids that help lower blood pressure!",
+                "🍵 Green tea is packed with antioxidants and can boost your metabolism? 🍵🔥 Drinking 2-3 cups a day can be beneficial.",
+                "🥦 Eating a variety of colorful fruits and vegetables can improve your overall health? 🌈 Each color provides different nutrients and antioxidants!",
+                "🥑 Avocado is a nutrient-dense fruit that can support heart health? 🥑❤️ It's high in healthy fats and fiber!",
+                "🍓 Berries are low in calories and high in antioxidants? 🍓💪 They can help improve heart health and reduce inflammation!",
+                "🥕 Carrots are good for your eyes and skin? 🥕👀 They're high in beta-carotene, which your body converts to vitamin A!",
+                "🥬 Leafy greens are packed with vitamins and minerals? 🥬💚 They can help improve digestion and reduce the risk of chronic diseases!",
+                "🧄 Garlic is a natural antibiotic? 🧄 It boosts your immune system and fights bacteria and viruses!",
+                "🧘‍♂️ Practicing self-care can improve your mental health and overall well-being? 🛁 Consider taking time for yourself each day!",
+                "🦷 Poor oral hygiene is linked to heart disease? 🪥 Brushing and flossing daily protects more than just your teeth!",
+                "🫀 Laughter improves blood flow and can protect your heart? 😂❤️It’s like a mini workout for your cardiovascular system!",            
+                "Blueberries are brain food? 🧠🫐They improve memory and delay brain aging thanks to antioxidants.",
+                "🧘‍♀️ Did you know? Practicing gratitude improves sleep, reduces stress, and enhances your mental health? 🙏🧘",
+                "Eating nuts can boost your brain power? 🥜🧠 Nuts are rich in omega-3 fatty acids and antioxidants that support cognitive function.",
+                "Dark chocolate can improve your mood? 🍫😊 It contains compounds that boost serotonin and endorphin levels in the brain.",
+                "Regular exercise can enhance your brain health? 🏃‍♂️🧠 Physical activity increases blood flow to the brain and promotes the growth of new neurons.",
+                "Drinking enough water can improve your cognitive function? 💧🧠 Dehydration can lead to fatigue, confusion, and poor concentration.",
+                "Getting enough sunlight can boost your mood? ☀️😊 Sunlight increases the production of serotonin, a neurotransmitter that helps regulate mood.",
+                "🧘‍♀️ Mindfulness meditation can reduce stress and improve focus? 🧘‍♀️🧘‍♂️ Just a few minutes a day can make a difference.",
+                "🧘‍♂️ Practicing gratitude can improve your mental health? 🙏💖 Taking time to reflect on what you're thankful for can boost your mood.",
+                "🧘‍♀️ Engaging in creative activities can enhance your well-being? 🎨🖌️ Whether it's painting, writing, or playing music, creativity can be a great outlet.",
+                "🧘‍♂️ Taking breaks and disconnecting from technology can improve your mental health? 📵💆‍♀️ Consider a digital detox to recharge.",
+                "🧘‍♀️ Practicing mindfulness can reduce stress and improve focus? 🧘‍♀️🧘‍♂️ Just a few minutes a day can make a difference.",
+                "🧘‍♂️ Engaging in physical activity can boost your mood? 🏋️‍♀️😊 Exercise releases endorphins, which can help alleviate stress and anxiety.",
+                "🧘‍♀️ Connecting with nature can improve your mental health? 🌳💚 Spending time outdoors can reduce feelings of stress and anxiety.",
+                "🧘‍♂️ Practicing deep breathing can help reduce stress and anxiety? 🌬️🧘‍♀️ Just a few minutes a day can make a difference.",
+                "🧘‍♀️ Engaging in social activities can boost your mood? 👥😊 Connecting with others can provide support and reduce feelings of loneliness.",
+                "🧘‍♂️ Seeking professional help can be a sign of strength? 💪🧑‍⚕️ Therapy and counseling can provide valuable support.",
+                "🧘‍♀️ Practicing self-compassion can improve your mental health? 💖🧘‍♂️ Being kind to yourself can help reduce feelings of stress and anxiety.",
+                "Eating fish rich in omega-3s can boost your brain health? 🐟🧠 Omega-3 fatty acids are essential for cognitive function and mood regulation.",
+                "Drinking green tea can improve your metabolism? 🍵🔥 It contains catechins that help burn fat and boost energy levels.",
+                "Eating nuts can improve heart health? 🥜❤️ Nuts are packed with healthy fats, fiber, and antioxidants that support cardiovascular health.",
+                "Regular physical activity can reduce the risk of chronic diseases? 🏃‍♂️💪 Exercise helps maintain a healthy weight, lowers blood pressure, and improves overall health.",
+                "Getting enough sleep is crucial for overall health? 😴🛌 Sleep helps the body recover, boosts the immune system, and improves mental clarity.",
+                "Staying hydrated is essential for optimal body function? 💧🚰 Water regulates body temperature, aids digestion, and keeps skin healthy.",
+                "Eating a balanced diet rich in fruits and vegetables can improve overall health? 🍎🥦 A variety of nutrients supports immune function and reduces disease risk.",
+                "Incorporating whole grains into your diet can improve heart health? 🌾❤️ Whole grains are rich in fiber and can help lower cholesterol levels.",
+                "Eating cruciferous veggies like broccoli may help prevent cancer? 🥦🛡️They're rich in compounds that detoxify harmful substances.",
+                "Including berries in your diet can boost your brain health? 🍓🧠 Berries are packed with antioxidants that support cognitive function.",
+                "Incorporating legumes like beans and lentils can improve heart health? 🥗❤️ They're high in fiber and can help lower cholesterol levels.",
+                "Eating a variety of colorful fruits and vegetables can improve overall health? 🌈🥕 Different colors provide different nutrients and antioxidants.",
+                "Including seeds like chia and flaxseeds can boost your omega-3 intake? 🌱🐟 These tiny powerhouses are great for heart and brain health.",
+                "Incorporating fermented foods like yogurt and kimchi can improve gut health? 🥣🦠 Probiotics support a healthy microbiome and digestion.",
+                "Chronic inflammation is the root of many diseases like arthritis, diabetes, and even cancer?🫚 Eating anti-inflammatory foods like turmeric and ginger helps!",
+                "Maintaining a healthy weight is crucial for overall health? ⚖️🥗 It reduces the risk of chronic diseases and improves quality of life.",
+                "Managing stress is essential for overall health? 🧘‍♀️💆‍♂️ Chronic stress can lead to various health issues, so practicing relaxation techniques is important.",
+                "Building strong social connections can improve mental health? 🤝💬 Positive relationships provide support and reduce feelings of loneliness.",
+                "Engaging in regular physical activity can boost your mood? 🏋️‍♀️😊 Exercise releases endorphins, which are natural mood lifters.",
+                "Practicing mindfulness can reduce stress and improve focus? 🧘‍♀️🧘‍♂️ Just a few minutes a day can make a difference.",
+                "Prioritizing self-care is essential for overall well-being? 🛁💆‍♀️ Taking time to relax and recharge can improve mental health.",
+                "Setting realistic health goals can improve motivation and success? 🎯💪 Break your goals into smaller, achievable steps.",
+                "Eating a balanced diet rich in whole foods can improve overall health? 🥗🍎 Focus on fruits, vegetables, whole grains, lean proteins, and healthy fats.",
+                "📵 Too much screen time before bed can mess with your sleep? 😵‍💫The blue light from phones blocks melatonin—your sleep hormone. 🌙",
+                "💃 Did you know? Dancing improves not only fitness but also mental clarity and memory? 🕺🧠It’s a fun brain-body workout!",
+                "🥶 Did you know? Drinking cold water can help you burn a few extra calories? ❄️💦Your body uses energy to warm it up to body temperature.",
+                "🧘‍♂️ Did you know? Practicing yoga can improve flexibility and reduce stress? 🧘‍♀️🕉️ It's a great way to connect your mind and body.",
+                "💨 Did you know? Deep breathing can lower blood pressure and anxiety in minutes? 🌬️ Just inhale deeply... and exhale slowly. Repeat. It works!,",
+                "🧠 Did you know? Your brain uses about 20% of your body's total oxygen and calories? 🧠💡 So, keep it healthy with good nutrition and exercise!",
+                "🧴 Did you know? Your skin is your body’s largest organ? 🛡️ It protects you from bacteria, regulates temperature, and even detoxifies!",
+                "🦴 Did you know? Your bones are constantly being remodeled? 🦴🔄 This process helps maintain bone strength and integrity throughout your life.",
+                "🦷 Did you know? Your teeth are also considered bones? 🦷🦴 They are the hardest substances in your body and play a crucial role in digestion.",
+                "🧠 Did you know? Your brain generates enough electricity to power a small light bulb? 💡🧠 It’s the most energy-consuming organ in your body!",
+                "🧊 Did you know? Applying ice to a sprain right away can reduce swelling and speed up healing? 🦶❄️",
+                "🥚 Did you know? Eggs are one of the most nutrient-dense foods on the planet? 🍳One egg contains over a dozen essential vitamins and minerals!",
+                "🍌 Did you know? Bananas can naturally help fight depression? 🍌😊They contain tryptophan, which the body converts to serotonin — the feel-good hormone!",
+                "🚶 Sitting too long is now considered as harmful as smoking? 🪑🚫Try to move every 30 minutes to keep your body happy.",
+                "🥛 Did you know? Many people lose the ability to digest lactose as they age? 🐄This can cause bloating and discomfort after dairy products.",
+                "🧂 Too much salt can silently raise your blood pressure? 🧂⚠️Read labels and opt for natural seasoning like herbs!",
+                "🍉 Watermelon is 92% water — making it perfect for hydration and skin health? 🍉💧",
+                "🥦 Did you know? Broccoli is a superfood that can help detoxify your body? 🥦💪 It’s packed with vitamins, minerals, and antioxidants!",
+                "😴 Napping for 10-20 minutes can improve alertness without making you groggy? 😌🛏️",
+                "🧠 Learning new skills can grow your brain? 📚🧠Mental exercises strengthen neural pathways and improve memory.",
+                "🍋 Drinking warm lemon water in the morning aids digestion and boosts metabolism? 🍋💦",
+                "🫀 High cholesterol has no symptoms, yet it's a major risk factor for heart disease? 🧬Regular checkups are key! 🩺",
+                "🥥 Coconut oil has natural antibacterial and antifungal properties? 🥥🛡️It’s great for skin, hair, and even oral health (oil pulling).",
+                "🥶 Cold showers can boost circulation, reduce muscle soreness, and even improve mood? 🚿❄️",
+                "💉 Your immune system remembers every germ it has ever defeated? 🧬🛡️That’s how vaccines help protect you!",
+                "🌾 Did you know? Fiber helps regulate blood sugar, supports heart health, and keeps your gut happy? 🌾🍽️",
+                "🍓 Did you know? Strawberries contain more Vitamin C than oranges? 🍓💪They’re great for skin, immune health, and collagen production!",
+                "🥬 Did you know? Leafy greens like spinach and kale support detoxification and provide essential nutrients? 🥬🌿",
+                "🧊 Did you know? Drinking cold water slightly increases calorie burn as your body works to warm it up? ❄️🔥",
+                "📖 Did you know? Reading regularly can reduce stress and keep your brain sharp as you age? 📖🧠",
+                "🛌 Did you know? Sleep helps repair your body, balance hormones, and consolidate memories? 🛌💤",
+                "🍇 Did you know? Grapes contain resveratrol, a compound that supports heart and cellular health? 🍇❤️",
+                "🍠 Did you know? Sweet potatoes are rich in fiber, vitamins, and antioxidants that promote gut and eye health? 🍠👀",
+                "🥗 Did you know? Eating a rainbow of fruits and vegetables ensures a wide range of nutrients? 🌈🥗",
+                "🧘 Did you know? Deep breathing lowers cortisol levels and promotes relaxation almost instantly? 🌬️🧘‍♀️",
+                "🦵 Did you know? Regular stretching improves flexibility, reduces injury risk, and relieves tension? 🤸‍♂️🦵",
+                "🧴 Did you know? Sunscreen protects against premature aging and reduces the risk of skin cancer? 🧴☀️",
+                "🥛 Did you know? Calcium and vitamin D work together to keep your bones strong and prevent osteoporosis? 🥛🦴",
+                "🎧 Did you know? Listening to calming music can lower heart rate and reduce anxiety? 🎧💆",
+                "📅 Did you know? Health is a daily habit—not a one-time event. Small steps every day make a big difference! 📅💚",
+                "🥜 Did you know? Nuts like almonds and walnuts support heart health and provide healthy fats for brain function? 🥜🧠",
+                "🧠 Did you know? Staying mentally active through puzzles, reading, or learning helps delay age-related decline? 🧩📚",
+                "🚴 Did you know? Cycling regularly boosts joint mobility, cardiovascular health, and mental wellness? 🚴‍♀️💪",
+                "🍋 Did you know? Vitamin C helps your body heal wounds and absorb iron more effectively? 🍋🩹",
+                "👁️ Did you know? Omega-3 fatty acids from fish help protect your vision and reduce dry eyes? 🐟👁️",
+                "🍄 Did you know? Mushrooms are one of the few plant sources of vitamin D and support immune health? 🍄🌞",
+                "🍯 Did you know? Raw honey has natural antibacterial properties and can soothe a sore throat? 🍯👅",
+                "🫛 Did you know? Legumes like beans and lentils are rich in plant protein and help lower cholesterol? 🫘❤️",
+                "🧂 Did you know? Excess salt can cause water retention and strain your kidneys? Limit processed foods! 🧂🚱",
+                "🧃 Did you know? Most fruit juices contain more sugar than soda — eat whole fruits instead! 🍊🚫🥤",
+                "🧘 Did you know? Practicing yoga improves flexibility, reduces stress, and strengthens core muscles? 🧘‍♀️💪",
+                "💨 Did you know? Shallow breathing reduces oxygen flow — practice slow, deep breaths to energize your body? 🌬️🫁",
+                "🍕 Did you know? Highly processed foods can lead to inflammation and increased disease risk over time? 🍕⚠️",
+                "🥗 Did you know? Starting meals with salad or veggies can help control hunger and improve digestion? 🥗🕒",
+                "🍍 Did you know? Pineapple contains bromelain, an enzyme that aids digestion and reduces inflammation? 🍍🔥",
+                "🥤 Did you know? Carbonated drinks can weaken tooth enamel and increase acid reflux risk? 🥤🦷",
+                "👃 Did you know? A healthy gut can reduce allergies and even improve skin conditions? 🦠👃",
+                "🪞 Did you know? What shows on your skin often reflects what’s going on inside your gut and liver? ✨🧬",
+                "🌶️ Did you know? Spicy foods can temporarily boost metabolism and help clear sinus congestion? 🌶️💨",
+                "🍵 Did you know? Green tea is rich in antioxidants and can enhance fat burning during exercise? 🍵🔥",
+                "🍎 Did you know? Eating fruits with the skin on (like apples) provides more fiber and nutrients? 🍎🧠",
+                "🧃 Did you know? Drinking too many sugary drinks can lead to insulin resistance and weight gain? 🧃⚠️",
+                "🦠 Did you know? Over 70% of your immune system lives in your gut? Healthy digestion = strong immunity! 🦠💪",
+                "🥬 Did you know? Dark leafy greens help protect your eyes and reduce your risk of chronic diseases? 🥬👁️",
+                "🧖‍♀️ Did you know? A warm bath with Epsom salts can relax your muscles and improve sleep quality? 🛁😌",
+                "💤 Did you know? Consistent sleep schedules support hormone balance, memory, and mood regulation? 💤🧠",
+                "🧼 Did you know? Washing your hands properly reduces the risk of respiratory infections by up to 21%? 🧼🤲",
+                "🥤 Did you know? Caffeine late in the day can disrupt sleep even if you don’t feel wired? ☕🚫🌙",
+                "🥗 Did you know? Fermented foods like yogurt and kimchi contain probiotics that support gut health? 🥗🦠",
+                "🧊 Did you know? Icing sore muscles after exercise reduces inflammation and speeds up recovery? 🧊💪",
+                "🍊 Did you know? Oranges are not only rich in vitamin C but also boost collagen production for healthy skin? 🍊✨",
+                "👟 Did you know? Wearing the right shoes can prevent joint problems and improve your posture? 👟🦵",
+                "🫀 Did you know? Deep belly breathing helps slow your heart rate and ease anxiety? 🫀🌬️",
+                "🍳 Did you know? Skipping breakfast regularly can lead to poor concentration and low energy? 🍳🕒",
+                "🧠 Did you know? Positive thoughts can influence your body’s ability to heal and fight illness? 🧠💭",
+                "🍉 Did you know? Foods rich in water content (like cucumber and watermelon) help keep you full and hydrated? 🍉🥒",
+                "📵 Did you know? Taking digital breaks improves focus, eye health, and reduces stress levels? 📵👁️",
+                "🪥 Did you know? Brushing your tongue can reduce bacteria and improve breath freshness? 🪥👅",
+                "🧅 Did you know? Onions contain antioxidants and sulfur compounds that help fight inflammation? 🧅🔥",
+                "🏞️ Did you know? Spending time in nature can lower blood pressure, reduce stress, and improve mental health? 🌳🧘",
+                 "🍳 Did you know? Cooking with olive oil provides healthy fats that support heart and brain function? 🫒🧠",
+                "🥒 Did you know? Cucumbers contain antioxidants and help flush out toxins from your body? 🥒💧",
+                "🪴 Did you know? Houseplants like aloe vera and peace lily can purify indoor air and improve mental clarity? 🪴🌬️",
+                "🍂 Did you know? Seasonal foods often contain the exact nutrients your body needs for that time of year? 🍁🥗",
+                "🫁 Did you know? Breathing through your nose filters and humidifies air better than mouth breathing? 👃🫁",
+                "🥜 Did you know? Peanut butter is a good source of protein, but choose natural ones without added sugar or oil? 🥜⚖️",
+                "💧 Did you know? Even mild dehydration can impair your mood, memory, and motor coordination? 💧😵‍💫",
+                "🧠 Did you know? Omega-3 fatty acids found in fish help reduce depression and anxiety? 🐟🧘",
+                "🛡️ Did you know? Zinc supports immune function and wound healing, and is found in seeds, beans, and meat? 🥩🛡️",
+                "🌽 Did you know? Corn is a whole grain packed with fiber and antioxidants like lutein for eye health? 🌽👁️",
+                "🌜 Did you know? Exposure to moonlight and darkness boosts melatonin production for deeper sleep? 🌛😴",
+                "🧃 Did you know? Drinking infused water with lemon, cucumber, or mint can encourage better hydration? 🍋🥒💧",
+                "🍚 Did you know? Brown rice has more fiber and nutrients than white rice, making it better for blood sugar? 🍚🔁",
+                "🌰 Did you know? Brazil nuts are a rich source of selenium, a mineral that supports thyroid function? 🌰🦋",
+                "🍳 Did you know? Choline in eggs is essential for brain development and liver function? 🍳🧠",
+                "🍵 Did you know? Herbal teas like chamomile and peppermint can calm your digestive system and reduce bloating? 🍵🌿",
+                "🧘 Did you know? Practicing mindfulness can reduce inflammation markers in the body? 🧘‍♂️🧬",
+                "🩹 Did you know? Vitamin K found in leafy greens helps your blood clot and wounds heal faster? 🥬🩹",
+                "🍠 Did you know? Purple sweet potatoes are rich in anthocyanins, which have anti-aging and brain-protective effects? 🍠🧠",
+                "🐝 Did you know? Bee pollen is a natural energy booster loaded with enzymes, vitamins, and antioxidants? 🐝⚡",
+                "🍒 Did you know? Cherries contain melatonin, which can naturally improve sleep quality? 🍒🌙",
+                "🥶 Did you know? Cryotherapy or cold exposure may reduce muscle pain and boost recovery after exercise? ❄️💪",
+                "🍇 Did you know? Red grapes are rich in resveratrol, a compound that supports heart and brain health? 🍇🫀",
+                "🦴 Did you know? Weight-bearing exercises like walking and dancing help maintain strong bones? 💃🦴",
+                "🧼 Did you know? Sanitizing your phone regularly can reduce the spread of harmful bacteria to your face? 📱🧽",
+                "🍞 Did you know? Whole grains like oats and quinoa help reduce cholesterol and support digestion? 🌾🍞",
+                "🧈 Did you know? Grass-fed butter contains vitamin K2, which is important for bone and heart health? 🧈❤️",
+                "🍂 Did you know? Spending time outdoors during fall improves immunity and boosts serotonin levels? 🍂😊",
+                "🫒 Did you know? The Mediterranean diet is one of the most researched for reducing chronic disease? 🇬🇷🫒",
+                "🥤 Did you know? Drinking water before meals can help control appetite and support weight management? 🥤⚖️",
+                "🫖 Did you know? Ginger tea can soothe nausea, reduce bloating, and improve circulation? 🫖🫀",
+                "🧄 Did you know? Garlic can help reduce blood pressure and cholesterol levels when eaten regularly? 🧄📉",
+                "👣 Did you know? Going barefoot occasionally strengthens foot muscles and improves posture? 👣🌿",
+                "🍽️ Did you know? Eating slowly allows your brain time to signal fullness, preventing overeating? 🧠🍽️",
+                "🎯 Did you know? Setting health goals makes you more likely to stick to healthy habits long-term? 🎯📈",
+                "🍳 Did you know? Cooking at home helps control ingredients and reduces added sugars and unhealthy fats? 🍳🏠",
+                "🧃 Did you know? Store-bought smoothies can contain more sugar than soda — always check the label! 🧃🔍",
+                "🍋 Did you know? Lemons support liver detoxification and help alkalize the body despite their acidity? 🍋🧼",
+                "🧘 Did you know? Just five minutes of daily stretching can improve circulation and reduce muscle tension? 🧘‍♀️🕔",
+                "🥦 Did you know? Sulforaphane in broccoli helps fight inflammation and may protect against cancer? 🥦🧬",
+                "🦷 Did you know? Chewing sugar-free gum after meals can help prevent tooth decay by increasing saliva? 🦷🍬",
+                "🍊 Did you know? Vitamin C boosts collagen production, which keeps your skin firm and youthful? 🍊✨",
+                "👂 Did you know? Regular ear cleaning with harsh tools can actually damage your ear canal? 👂🚫",
+                "🥚 Did you know? Eggs are one of the few foods that naturally contain vitamin D? 🥚🌞",
+                "🌡️ Did you know? A fever is your body’s way of fighting infection — it raises temperature to kill pathogens? 🌡️🦠",
+                "🥥 Did you know? Coconut oil can be used for oil pulling to improve oral hygiene and freshen breath? 🥥👄",
+                "📚 Did you know? Reading before bed (instead of scrolling) improves sleep quality and reduces stress? 📚😴",
+                "🌾 Did you know? Gluten intolerance can cause digestive issues, fatigue, and even brain fog in some people? 🌾🤯",
+                "🏋️ Did you know? Strength training not only builds muscle but also boosts metabolism and bone density? 🏋️‍♂️🔥",
+                "🦠 Did you know? Antibiotics don’t work on viruses — they’re only effective against bacterial infections? 💊🚫🦠",
+                "🌶️ Did you know? Capsaicin in chili peppers boosts metabolism and supports pain relief? 🌶️🔥",
+                "🥬 Did you know? Kale contains more calcium per gram than milk — and it's easier to digest for many? 🥬🦴",
+                "📴 Did you know? Turning off notifications reduces anxiety and helps you stay focused and productive? 📴🧘",
+                "🧃 Did you know? Artificial sweeteners may confuse hunger hormones and increase cravings for sugar? 🍬🤖",
+                "🧼 Did you know? Most germs are spread by hands — handwashing is still the #1 defense against illness? 🧼🖐️",
+                "🍏 Did you know? Green apples are slightly lower in sugar and higher in fiber than red ones? 🍏⚖️",
+                "🚶 Did you know? Standing or walking after meals aids digestion and helps prevent energy crashes? 🚶‍♀️⚡",
+                "🥗 Did you know? Adding healthy fats like avocado or olive oil helps your body absorb fat-soluble vitamins? 🥑🛡️",
+                "🎧 Did you know? Nature sounds can lower cortisol and help calm your nervous system? 🌲🎧",
+                "💤 Did you know? Sleep deprivation can weaken immunity, increase inflammation, and disrupt hormones? 💤⚠️",
+                "🥛 Did you know? Lactose intolerance affects over 65% of the world’s population — plant-based milks are great alternatives? 🥛🌱",
+                "🪥 Did you know? Replacing your toothbrush every 3 months helps prevent bacterial buildup and improves oral hygiene? 🪥🦷",
+                "🍃 Did you know? Moringa leaves contain more iron than spinach and more calcium than milk? 🍃💪",
+                "🧘 Did you know? Just 5 minutes of focused breathing can lower heart rate and reduce anxiety? 🧘‍♂️🫁",
+                "🍍 Did you know? Bromelain in pineapple helps reduce inflammation and supports faster recovery? 🍍🔥",
+                "🍜 Did you know? Bone broth contains collagen and amino acids that support gut, joint, and skin health? 🍜✨",
+                "🧴 Did you know? Dry brushing your skin before showering can improve circulation and exfoliate dead cells? 🧴🧽",
+                "🏃 Did you know? Morning exercise can help regulate your circadian rhythm and improve nightly sleep? 🏃‍♂️🌞",
+                "🌙 Did you know? Exposure to darkness triggers melatonin production, signaling your body it’s time to sleep? 🌙🧠",
+                "🍓 Did you know? Berries are among the most antioxidant-rich fruits and help fight free radical damage? 🍓🛡️",
+                "🥕 Did you know? Cooking carrots increases beta-carotene absorption, which your body converts to vitamin A? 🥕🔥",
+                "💧 Did you know? Drinking water first thing in the morning kickstarts your metabolism and hydrates your organs? 💧🌅",
+                "🐟 Did you know? Fatty fish like salmon and sardines are rich in DHA, crucial for brain and eye development? 🐟👁️",
+                "📵 Did you know? Avoiding screens 1 hour before bed improves melatonin levels and sleep quality? 📵😴",
+                "👟 Did you know? Walking barefoot on natural surfaces (earthing) may help reduce inflammation and improve mood? 👟🌍",
+                "🧬 Did you know? Chronic stress can actually alter your DNA expression over time through epigenetics? 🧬⚠️",
+                "🍉 Did you know? Eating water-rich fruits like watermelon helps you stay hydrated and supports kidney function? 🍉💧",
+                "🧊 Did you know? Ice baths are popular among athletes for reducing inflammation and speeding up recovery? 🧊🏋️",
+                "🍠 Did you know? Orange vegetables like sweet potatoes support eye health and immune function due to high beta-carotene? 🍠👁️",
+                "🥦 Did you know? Broccoli sprouts may contain up to 100 times more sulforaphane than mature broccoli? 🥦💥 ",              
+                "🍵 Did you know? Drinking herbal teas like chamomile can help relax your muscles and improve digestion? 🍵🌿",
+                "🍇 Did you know? Grapes contain antioxidants that may help protect against heart disease and cancer? 🍇❤️",
+                "🧠 Did you know? Regularly challenging your brain with puzzles or learning new skills can help keep it sharp as you age? 🧠🧩",
+                "🧴 Did you know? Using sunscreen daily helps prevent premature aging and reduces skin cancer risk? 🧴☀️",
+                "🥑 Did you know? Avocados provide healthy monounsaturated fats that support heart health and brain function? 🥑🧠",
+                "🛌 Did you know? Poor sleep quality can impair memory, concentration, and immune function? 🛌🧠",
+                "🥥 Did you know? Coconut water is a natural source of electrolytes, making it great for hydration? 🥥💧",
+                "🧄 Did you know? Garlic has compounds that may help reduce blood pressure and cholesterol? 🧄❤️",
+                "🦴 Did you know? Vitamin D helps your body absorb calcium to keep your bones strong? 🦴☀️",
+                "🧠 Did you know? Regular social interaction can improve brain health and reduce dementia risk? 🧠🤝",
+                "🍊 Did you know? Oranges are high in vitamin C, which supports your immune system and skin health? 🍊🛡️",
+                "🚶 Did you know? Taking short breaks to walk during the day can boost your energy and reduce stress? 🚶‍♀️⚡",
+                "🥚 Did you know? Eggs are a great source of choline, important for brain and liver health? 🥚🧠",
+                "🥦 Did you know? Broccoli contains fiber, vitamins, and antioxidants that support digestion and immunity? 🥦🛡️",
+                "💧 Did you know? Drinking enough water helps maintain body temperature and lubricates joints? 💧🔥",
+                "🧘 Did you know? Meditation can reduce anxiety, lower blood pressure, and improve focus? 🧘‍♂️🧠",
+                "🍓 Did you know? Strawberries contain antioxidants and vitamin C that support skin and immune health? 🍓✨",
+                "📵 Did you know? Reducing screen time before bed can improve sleep quality? 📵😴",
+                "🧴 Did you know? Moisturizing daily helps keep skin hydrated and prevents dryness and cracking? 🧴💧",
+                "🛀 Did you know? Warm baths can relax muscles, improve circulation, and reduce stress? 🛀😌",
+                "🥜 Did you know? Nuts provide healthy fats, protein, and fiber that support heart health? 🥜❤️",
+                "🍋 Did you know? Lemon water can aid digestion and boost your vitamin C intake? 🍋💧",
+                "🧃 Did you know? Choosing whole fruits over fruit juices reduces sugar intake and increases fiber? 🍎🚫🧃",
+                "🦵 Did you know? Regular leg exercises improve circulation and reduce the risk of blood clots? 🦵❤️",
+                "🍯 Did you know? Raw honey contains antioxidants and has antibacterial properties? 🍯🛡️",
+                "🧴 Did you know? Applying moisturizer right after a shower locks in hydration and keeps skin soft? 🧴🚿",
+                "🧠 Did you know? Learning a new language or skill strengthens neural connections in your brain? 🧠📚",
+                "🥒 Did you know? Cucumbers are 95% water and help keep you hydrated and refreshed? 🥒💧",
+                "🧃 Did you know? Drinking herbal infusions can support liver health and detoxification? 🍵🧼",
+                "🛏️ Did you know? Keeping a consistent sleep schedule improves sleep quality and overall health? 🛏️⏰",
+                "🍓 Did you know? Berries are low in calories but high in fiber and antioxidants? 🍓💪",
+                "🦷 Did you know? Flossing daily helps prevent gum disease and cavities? 🦷🧵",
+                "🌞 Did you know? Moderate sun exposure boosts vitamin D but avoid peak hours to protect your skin? 🌞⛱️",
+                "🥬 Did you know? Spinach contains lutein and zeaxanthin, which protect your eyes from UV damage? 🥬👁️",
+                "🍵 Did you know? Green tea may boost metabolism and help burn fat? 🍵🔥",
+                "🧂 Did you know? Too much salt intake can lead to high blood pressure and heart problems? 🧂⚠️",
+                "🥚 Did you know? Eating eggs can improve your cholesterol profile by raising good HDL cholesterol? 🥚💪",
+                "🧘‍♀️ Did you know? Yoga improves flexibility, strength, and reduces stress? 🧘‍♀️🕉️",
+                "🍎 Did you know? Apples contain pectin, a fiber that supports gut health and lowers cholesterol? 🍎❤️",
+                "🚶‍♂️ Did you know? Walking after meals helps digestion and regulates blood sugar? 🚶‍♂️🍽️",
+                "🧃 Did you know? Staying hydrated can improve concentration and prevent headaches? 💧🧠",
+                "🛁 Did you know? Taking a warm bath before bed can help you fall asleep faster? 🛁😴",
+                "🍇 Did you know? Grapes contain resveratrol, which may help protect against heart disease? 🍇❤️",
+                "🥑 Did you know? Avocados are rich in healthy fats and can help lower bad cholesterol? 🥑💚",
+                "🥑 Did you know? Eating avocados regularly supports heart health with their healthy fats? 🥑❤️",
+                "🦴 Did you know? Weight-bearing exercise helps maintain bone density and prevent osteoporosis? 🏋️‍♂️🦴",
+                "🍋 Did you know? Vitamin C in lemons boosts your immune system and helps iron absorption? 🍋🛡️",
+                "🧠 Did you know? Sleep is critical for memory consolidation and learning? 💤🧠",
+                "🥦 Did you know? Broccoli contains sulforaphane, a compound that may protect against cancer? 🥦🛡️",
+                "🧃 Did you know? Drinking water instead of sugary drinks reduces calorie intake and supports weight loss? 💧⚖️",
+                "🧘‍♂️ Did you know? Meditation can lower blood pressure and reduce stress hormones? 🧘‍♂️🩺",
+                "🦷 Did you know? Brushing your teeth twice a day reduces the risk of cavities and gum disease? 🦷🪥",
+                "🥕 Did you know? Carrots are rich in beta-carotene which promotes healthy vision? 🥕👁️",
+                "🍓 Did you know? Strawberries have antioxidants that support skin health and reduce inflammation? 🍓✨",
+                "🚶‍♀️ Did you know? Walking 30 minutes a day improves cardiovascular health and mood? 🚶‍♀️❤️",
+                "🛌 Did you know? Poor sleep quality is linked to higher risks of obesity and diabetes? 🛌⚠️",
+                "🍄 Did you know? Mushrooms contain vitamin D and antioxidants that support immune function? 🍄🛡️",
+                "🧄 Did you know? Garlic has natural antimicrobial properties that help fight infections? 🧄🦠",
+                "🍉 Did you know? Watermelon helps keep you hydrated and provides antioxidants? 🍉💧",
+                "📵 Did you know? Reducing screen time before bed improves sleep and reduces eye strain? 📵😴",
+                "🍯 Did you know? Honey has antibacterial properties and can soothe sore throats? 🍯😌",
+                "🧴 Did you know? Applying sunscreen daily protects against UV damage and skin cancer? 🧴☀️",
+                "🧠 Did you know? Learning new skills stimulates brain plasticity and cognitive health? 🧠📚",
+                "🥛 Did you know? Calcium and vitamin D work together to keep your bones strong? 🥛🦴"
 
+
+            ];  // End of health tips array
+
+            // === Product Suggestions ===
             // === UI Element References ===
-            let openBtn, closeBtn, chatbotWindow, chatbotForm, chatbotInput, chatbotMessages, sendBtn;
+            let openBtn, closeBtn, chatbotWindow, chatbotInput, chatbotMessages, sendBtn, scrollIndicator;
 
             let currentSuggestions = [];
             let waitingForSymptoms = false; // Flag to manage symptom checker state
@@ -1997,25 +2286,51 @@
                 openBtn = document.getElementById('open-chatbot-btn');
                 closeBtn = document.getElementById('close-chatbot-btn');
                 chatbotWindow = document.getElementById('chatbot-window');
-                chatbotForm = document.getElementById('chatbot-form'); // This might be null if not present, but it's okay if using sendBtn click
                 chatbotInput = document.getElementById('chatbot-input');
                 chatbotMessages = document.getElementById('chatbot-messages');
-                sendBtn = document.getElementById('send-btn'); // Get the new send button
+                sendBtn = document.getElementById('send-btn');
+                scrollIndicator = document.getElementById('scroll-indicator'); // Get the new scroll indicator element
 
                 // Event Listeners
                 openBtn.addEventListener('click', () => {
                     chatbotWindow.classList.remove('hidden');
                     chatbotWindow.classList.add('open');
                     // Initial welcome message and suggestions
-                    if (chatbotMessages.children.length === 0) {
-                        sendBotMessageWithTyping("Hello! I'm your Kedi Healthcare assistant. How can I help you today?");
+                    if (chatbotMessages.children.length <= 1) { // Check if only the indicator is present
+                        // Get current time for greeting in Lagos timezone
+                        const options = { hour: 'numeric', hourCycle: 'h23', timeZone: 'Africa/Lagos' };
+                        const dateInLagos = new Intl.DateTimeFormat('en-US', options).format(new Date());
+                        const hour = parseInt(dateInLagos);
+
+                        let greeting;
+                        let emoji;
+                        if (hour >= 5 && hour < 12) {
+                            greeting = "Good morning";
+                            emoji = "☀️";
+                        } else if (hour >= 12 && hour < 18) {
+                            greeting = "Good afternoon";
+                            emoji = "👋";
+                        } else {
+                            greeting = "Good evening";
+                            emoji = "🌙";
+                        }
+
+                        sendBotMessageWithTyping(`${greeting} ${emoji}! I'm your Kedi Healthcare Assistant. I'm here to help you with:
+                        <ul>
+                            <li>Product information and benefits 💊</li>
+                            <li>Insights into various health conditions 🩺</li>
+                            <li>How to start your own Kedi business 💰</li>
+                            <li>General health tips and FAQs ❓</li>
+                        </ul>
+                        How can I help you today?`);
                         displaySuggestions([
                             { text: "List all products", type: "text" },
+                            { text: "How to make money with Kedi? 💰", type: "text" },
                             { text: "Tell me about Diabetes", type: "text" },
-                            { text: "General health tips", type: "text" },
+                            { text: "General health tips 💡", type: "text" },
                             { text: "Symptom Checker ✨", type: "text" },
-                            { text: "Personalized Product Recommendation ✨", type: "text" }, // New suggestion button
-                            { text: "Contact support", type: "text" }
+                            { text: "Personalized Product Recommendation ✨", type: "text" },
+                            { text: "Contact support 📞", type: "text" }
                         ]);
                     }
                 });
@@ -2038,39 +2353,70 @@
                     }
                 });
 
-                // Automatically open chatbot and send initial message on page load
-                chatbotWindow.classList.add('open');
-                if (chatbotMessages.children.length === 0) {
-                    // Get current time for greeting in Lagos timezone
-                    // Using Intl.DateTimeFormat for reliable timezone conversion
-                    const options = { hour: 'numeric', hourCycle: 'h23', timeZone: 'Africa/Lagos' };
-                    const dateInLagos = new Intl.DateTimeFormat('en-US', options).format(new Date());
-                    const hour = parseInt(dateInLagos);
+                // Scroll indicator logic
+                let hideIndicatorTimeout;
 
-                    let greeting;
-                    let emoji;
-                    if (hour >= 5 && hour < 12) {
-                        greeting = "Good morning";
-                        emoji = "☀️";
-                    } else if (hour >= 12 && hour < 18) {
-                        greeting = "Good afternoon";
-                        emoji = "👋";
-                    } else {
-                        greeting = "Good evening";
-                        emoji = "🌙";
+                function updateScrollIndicator() {
+                    const visibleHeight = chatbotMessages.clientHeight;
+                    const scrollHeight = chatbotMessages.scrollHeight;
+                    const scrollTop = chatbotMessages.scrollTop;
+
+                    if (scrollHeight <= visibleHeight) {
+                        // No scrollbar needed, hide indicator
+                        scrollIndicator.style.opacity = '0';
+                        return;
                     }
 
-                    await sendBotMessageWithTyping(`${greeting} ${emoji}! I'm your Kedi Healthcare assistant. I can tell you about our products, health conditions, and even how to make money with Kedi! How can I help you today?`);
-                    displaySuggestions([
-                        { text: "List all products", type: "text" },
-                        { text: "How to make money with Kedi?", type: "text" }, // New suggestion
-                        { text: "Tell me about Diabetes", type: "text" },
-                        { text: "General health tips", type: "text" },
-                        { text: "Symptom Checker ✨", type: "text" },
-                        { text: "Personalized Product Recommendation ✨", type: "text" },
-                        { text: "Contact support", type: "text" }
-                    ]);
+                    // Calculate indicator height proportional to visible content
+                    let indicatorHeight = (visibleHeight / scrollHeight) * visibleHeight;
+                    // Ensure a minimum height for usability, e.g., 20px
+                    indicatorHeight = Math.max(indicatorHeight, 20);
+
+                    // Calculate the maximum scrollable track height for the indicator
+                    const maxIndicatorTop = visibleHeight - indicatorHeight;
+
+                    // Calculate indicator top position
+                    const scrollRatio = scrollTop / (scrollHeight - visibleHeight);
+                    const indicatorTop = scrollRatio * maxIndicatorTop;
+
+                    scrollIndicator.style.height = `${indicatorHeight}px`;
+                    scrollIndicator.style.top = `${indicatorTop}px`;
+                    scrollIndicator.style.opacity = '1'; // Make it visible
+
+                    // Set a timeout to hide the indicator after a short delay if no further scrolling
+                    clearTimeout(hideIndicatorTimeout);
+                    hideIndicatorTimeout = setTimeout(() => {
+                        scrollIndicator.style.opacity = '0';
+                    }, 1500); // Hide after 1.5 seconds of inactivity
                 }
+
+                chatbotMessages.addEventListener('scroll', updateScrollIndicator);
+                chatbotMessages.addEventListener('mouseenter', () => {
+                    if (chatbotMessages.scrollHeight > chatbotMessages.clientHeight) {
+                        scrollIndicator.style.opacity = '1';
+                        clearTimeout(hideIndicatorTimeout);
+                    }
+                });
+                chatbotMessages.addEventListener('mouseleave', () => {
+                    if (chatbotMessages.scrollHeight > chatbotMessages.clientHeight) {
+                        hideIndicatorTimeout = setTimeout(() => {
+                            scrollIndicator.style.opacity = '0';
+                        }, 500); // Fade out faster on mouse leave
+                    }
+                });
+
+                // Initial update of the scroll indicator when the chatbot opens
+                // This will be called when the chatbot is made visible.
+                const observer = new MutationObserver((mutationsList, observer) => {
+                    for (const mutation of mutationsList) {
+                        if (mutation.attributeName === 'class' && chatbotWindow.classList.contains('open')) {
+                            updateScrollIndicator();
+                            observer.disconnect(); // Disconnect once opened for the first time
+                            break;
+                        }
+                    }
+                });
+                observer.observe(chatbotWindow, { attributes: true });
 
 
                 /**
@@ -2099,7 +2445,9 @@
                     }
 
                     chatbotMessages.appendChild(msg);
+                    // Ensure scroll to bottom after adding message
                     chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+                    updateScrollIndicator(); // Update indicator after new message
                     return msg;
                 }
 
@@ -2169,6 +2517,7 @@
                     });
                     chatbotMessages.appendChild(suggestionsContainer);
                     chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+                    updateScrollIndicator(); // Update indicator after new suggestions
                 }
 
                 /**
@@ -2210,6 +2559,7 @@
                         typingMsgElement.innerHTML = messageContent;
                     }
                     chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+                    updateScrollIndicator(); // Update indicator after bot message
                 }
 
 
@@ -2241,7 +2591,7 @@
                             suggestions.push({ text: `Chat to Buy ${item.name} 💬`, type: "link", url: WHATSAPP_BUSINESS_LINK });
                             suggestions.push({ text: `More about Kedi products`, type: "text" });
                             suggestions.push({ text: `List all products`, type: "text" });
-                            suggestions.push({ text: `General health tips`, type: "text" });
+                            suggestions.push({ text: `General health tips 💡`, type: "text" });
                             suggestions.push({ text: "Symptom Checker ✨", type: "text" });
                             suggestions.push({ text: "Personalized Product Recommendation ✨", type: "text" });
                         }
@@ -2282,7 +2632,7 @@
                                 responseHtml += `<p class="mt-4 text-gray-600">No specific Q&A available for ${item.name} at the moment.</p>`;
                             }
                             suggestions.push({ text: `More health conditions`, type: "text" });
-                            suggestions.push({ text: `General health tips`, type: "text" });
+                            suggestions.push({ text: `General health tips 💡`, type: "text" });
                             suggestions.push({ text: "Symptom Checker ✨", type: "text" });
                             suggestions.push({ text: "Personalized Product Recommendation ✨", type: "text" });
                         }
@@ -2316,7 +2666,15 @@
                 async function displayHealthTip(index) {
                     if (index >= 0 && index < generalHealthTips.length) {
                         const tip = generalHealthTips[index];
-                        await sendBotMessageWithTyping(`✨ Did you know? ✨<br>${tip}`);
+                        // Added styling for "Did you know?" section
+                        const styledTip = `
+                            <span class="font-bold text-green-700">💡 Did you know? 💡</span><br>
+                            <div class="bg-green-50 p-3 rounded-lg border border-green-200 mt-2">
+                                ${tip}
+                            </div>
+                            <br><small class="text-gray-500"><em>Please note: These are general health tips and not a substitute for professional medical advice. Always consult a healthcare professional for personalized guidance.</em></small>
+                        `;
+                        await sendBotMessageWithTyping(styledTip);
                         currentHealthTipIndex = index; // Update the current index
 
                         const suggestions = [];
@@ -2330,10 +2688,10 @@
                         currentHealthTipIndex = 0; // Reset for next time
                         displaySuggestions([
                             { text: "List all products", type: "text" },
-                            { text: "General health tips", type: "text" }, // Offer to restart tips
+                            { text: "General health tips 💡", type: "text" }, // Offer to restart tips
                             { text: "Symptom Checker ✨", type: "text" },
                             { text: "Personalized Product Recommendation ✨", type: "text" },
-                            { text: "Contact support", type: "text" }
+                            { text: "Contact support 📞", type: "text" }
                         ]);
                     }
                 }
@@ -2357,14 +2715,14 @@
                         generalHealthTips.forEach(tip => {
                             tipsHtml += `<li>${tip}</li>`;
                         });
-                        tipsHtml += "</ul><br>Remember, these are general tips and not medical advice.";
+                        tipsHtml += `</ul><br><small class="text-gray-500"><em>Please note: These are general health tips and not a substitute for professional medical advice. Always consult a healthcare professional for personalized guidance.</em></small>`;
                         await sendBotMessageWithTyping(tipsHtml);
                         suggestions = [
                             { text: "List all products", type: "text" },
-                            { text: "General health tips", type: "text" }, // Offer to restart tips
+                            { text: "General health tips 💡", type: "text" }, // Offer to restart tips
                             { text: "Symptom Checker ✨", type: "text" },
                             { text: "Personalized Product Recommendation ✨", type: "text" },
-                            { text: "Contact support", type: "text" }
+                            { text: "Contact support 📞", type: "text" }
                         ];
                         displaySuggestions(suggestions);
                         return;
@@ -2373,12 +2731,12 @@
                         await sendBotMessageWithTyping("Welcome back to the main menu! How can I help you further?");
                         suggestions = [
                             { text: "List all products", type: "text" },
-                            { text: "How to make money with Kedi?", type: "text" },
+                            { text: "How to make money with Kedi? 💰", type: "text" },
                             { text: "Tell me about Diabetes", type: "text" },
-                            { text: "General health tips", type: "text" },
+                            { text: "General health tips 💡", type: "text" },
                             { text: "Symptom Checker ✨", type: "text" },
                             { text: "Personalized Product Recommendation ✨", type: "text" },
-                            { text: "Contact support", type: "text" }
+                            { text: "Contact support 📞", type: "text" }
                         ];
                         displaySuggestions(suggestions);
                         return;
@@ -2412,14 +2770,15 @@
                                     <button class="suggestion-button mt-2" data-type="condition-qna" data-name="${condition.name}">More about ${condition.name}</button>
                                 </div>`;
                             });
+                            conditionsHtml += `<small class="text-gray-500"><em>Please note: This information is for general guidance and not a substitute for professional medical diagnosis or treatment. Always consult a healthcare professional for accurate diagnosis and treatment.</em></small>`;
                             await sendBotMessageWithTyping(conditionsHtml);
                         } else {
                             await sendBotMessageWithTyping("I couldn't find a direct match for your symptoms in my database. It's crucial to consult a healthcare professional for any health concerns. Would you like general health tips instead?");
-                            suggestions.push({ text: "General health tips", type: "text" });
+                            suggestions.push({ text: "General health tips 💡", type: "text" });
                         }
                         waitingForSymptoms = false; // Reset flag
                         suggestions.push({ text: "List all products", type: "text" });
-                        suggestions.push({ text: "How to make money with Kedi?", type: "text" });
+                        suggestions.push({ text: "How to make money with Kedi? 💰", type: "text" });
                         suggestions.push({ text: "Personalized Product Recommendation ✨", type: "text" });
                         displaySuggestions(suggestions);
                         return;
@@ -2487,15 +2846,16 @@
                                     suggestions.push({ text: `Tell me about ${product.name}`, type: "text" });
                                 }
                             });
+                            productHtml += `<small class="text-gray-500"><em>Please note: These recommendations are based on general health goals and are not a substitute for professional medical advice. Always consult a healthcare professional for personalized guidance.</em></small>`;
                             await sendBotMessageWithTyping(productHtml);
                         } else {
                             await sendBotMessageWithTyping("I couldn't find specific product recommendations for that health goal in my current database. Kedi Healthcare has many products for general well-being. Would you like to see a list of all products or get general health tips?");
                             suggestions.push({ text: "List all products", type: "text" });
-                            suggestions.push({ text: "General health tips", type: "text" });
+                            suggestions.push({ text: "General health tips 💡", type: "text" });
                         }
                         waitingForHealthGoal = false; // Reset flag
                         suggestions.push({ text: "Symptom Checker ✨", type: "text" });
-                        suggestions.push({ text: "How to make money with Kedi?", type: "text" });
+                        suggestions.push({ text: "How to make money with Kedi? 💰", type: "text" });
                         displaySuggestions(suggestions);
                         return;
                     }
@@ -2522,11 +2882,11 @@
                         await sendBotMessageWithTyping(faqMatch.a);
                         suggestions = [
                             { text: "List all products", type: "text" },
-                            { text: "General health tips", type: "text" },
+                            { text: "General health tips 💡", type: "text" },
                             { text: "Symptom Checker ✨", type: "text" },
                             { text: "Personalized Product Recommendation ✨", type: "text" },
-                            { text: "How to make money with Kedi?", type: "text" },
-                            { text: "Contact support", type: "text" }
+                            { text: "How to make money with Kedi? 💰", type: "text" },
+                            { text: "Contact support 📞", type: "text" }
                         ];
                         // The WhatsApp button is now handled by the FAQ answer itself, but we keep the suggestion for consistency if needed elsewhere.
                         // if (faqMatch.q.test("contact support")) {
@@ -2546,11 +2906,12 @@
                             await sendBotMessageWithTyping(generalResponseMatch.answer);
                             suggestions = [
                                 { text: "List all products", type: "text" },
-                                { text: "How to make money with Kedi?", type: "text" },
+                                { text: "How to make money with Kedi? 💰", type: "text" },
                                 { text: "Tell me about Diabetes", type: "text" },
+                                { text: "General health tips 💡", type: "text" },
                                 { text: "Symptom Checker ✨", type: "text" },
                                 { text: "Personalized Product Recommendation ✨", type: "text" },
-                                { text: "Contact support", type: "text" }
+                                { text: "Contact support 📞", type: "text" }
                             ];
                             displaySuggestions(suggestions);
                         }
@@ -2567,10 +2928,10 @@
                         suggestions = [
                             { text: "Tell me about Reishi", type: "text" },
                             { text: "Tell me about Re-Vive", type: "text" },
-                            { text: "General health tips", type: "text" },
+                            { text: "General health tips 💡", type: "text" },
                             { text: "Symptom Checker ✨", type: "text" },
                             { text: "Personalized Product Recommendation ✨", type: "text" },
-                            { text: "How to make money with Kedi?", type: "text" },
+                            { text: "How to make money with Kedi? 💰", type: "text" },
                         ];
                         displaySuggestions(suggestions);
                         return;
@@ -2583,7 +2944,7 @@
                         suggestions = [
                             { text: "Cancel Symptom Checker", type: "text" },
                             { text: "List all products", type: "text" },
-                            { text: "General health tips", type: "text" },
+                            { text: "General health tips 💡", type: "text" },
                         ];
                         displaySuggestions(suggestions);
                         return;
@@ -2596,11 +2957,11 @@
                         suggestions = [
                             { text: "List all products", type: "text" },
                             { text: "Tell me about Diabetes", type: "text" },
-                            { text: "General health tips", type: "text" },
+                            { text: "General health tips 💡", type: "text" },
                             { text: "Symptom Checker ✨", type: "text" },
                             { text: "Personalized Product Recommendation ✨", type: "text" },
-                            { text: "How to make money with Kedi?", type: "text" },
-                            { text: "Contact support", type: "text" }
+                            { text: "How to make money with Kedi? 💰", type: "text" },
+                            { text: "Contact support 📞", type: "text" }
                         ];
                         displaySuggestions(suggestions);
                         return;
@@ -2613,7 +2974,7 @@
                         suggestions = [
                             { text: "Cancel Recommendation", type: "text" },
                             { text: "List all products", type: "text" },
-                            { text: "General health tips", type: "text" },
+                            { text: "General health tips 💡", type: "text" },
                         ];
                         displaySuggestions(suggestions);
                         return;
@@ -2626,11 +2987,11 @@
                         suggestions = [
                             { text: "List all products", type: "text" },
                             { text: "Tell me about Diabetes", type: "text" },
-                            { text: "General health tips", type: "text" },
+                            { text: "General health tips 💡", type: "text" },
                             { text: "Symptom Checker ✨", type: "text" },
                             { text: "Personalized Product Recommendation ✨", type: "text" },
-                            { text: "How to make money with Kedi?", type: "text" },
-                            { text: "Contact support", type: "text" }
+                            { text: "How to make money with Kedi? 💰", type: "text" },
+                            { text: "Contact support 📞", type: "text" }
                         ];
                         displaySuggestions(suggestions);
                         return;
@@ -2661,15 +3022,16 @@
                         botResponse = "I'm currently experiencing technical difficulties and cannot process your request. Please try again in a moment.";
                     }
 
-                    await sendBotMessageWithTyping(botResponse);
+                    // Added disclaimer for LLM generated responses
+                    await sendBotMessageWithTyping(`${botResponse}<br><br><small class="text-gray-500"><em>Please note: This information is AI-generated and for general informational purposes only. It is not medical advice. Always consult a healthcare professional for specific health concerns.</em></small>`);
                     // Always offer general suggestions after an LLM response
                     displaySuggestions([
                         { text: "List all products", type: "text" },
-                        { text: "How to make money with Kedi?", type: "text" },
-                        { text: "General health tips", type: "text" },
+                        { text: "How to make money with Kedi? 💰", type: "text" },
+                        { text: "General health tips 💡", type: "text" },
                         { text: "Symptom Checker ✨", type: "text" },
                         { text: "Personalized Product Recommendation ✨", type: "text" },
-                        { text: "Contact support", type: "text" }
+                        { text: "Contact support 📞", type: "text" }
                     ]);
                 }
             });
