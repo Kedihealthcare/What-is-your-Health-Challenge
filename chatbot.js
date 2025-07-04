@@ -72,7 +72,7 @@
             image: "https://via.placeholder.com/150/FF8000/FFFFFF?text=GoldenSix",
             description: "Supports hormonal balance, strengthens the kidney and liver, anti-aging.",
             price: "₦30,000",
-            buyNowLink: "https://www.konga.com/product/kedi-golden-six-capsules-30s-for-yin-yang-balance-3972621",
+            buyNowLink: "https://www.konga.com/product/kedi-golden-six-capsules-30s-for-yin-yang-balance-3972621.html",
             blogLink: "https://blog.example.com/golden-six-hormonal-balance",
             qna: []
         },
@@ -1611,7 +1611,7 @@
             keywords: /nephritis|kidney inflammation|renal disorder|chronic kidney issue/i,
             symptoms: "Chronic inflammation of the kidneys.",
             recommendedProducts: ["Golden Six", "Reishi"],
-            dosage: ["1*2 daily", "3*2 daily"],
+            dosage: ["1*2 daily"],
             qna: []
         },
         {
@@ -2291,35 +2291,39 @@
     function attachFastClick(element, callback) {
         let touchMoved = false;
 
-        element.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].clientX;
-            touchStartY = e.changedTouches[0].clientY;
-            touchMoved = false;
-            // Prevent default behavior for potential phantom clicks on some elements
-            // e.preventDefault(); // Be careful with this, can prevent native scrolling if not managed well
-        }, { passive: true }); // Use passive: true for touchstart to avoid blocking scrolling
+        // Check if touch events are supported
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-        element.addEventListener('touchmove', (e) => {
-            const currentX = e.changedTouches[0].clientX;
-            const currentY = e.changedTouches[0].clientY;
-            if (Math.abs(currentX - touchStartX) > TAP_THRESHOLD || Math.abs(currentY - touchStartY) > TAP_THRESHOLD) {
-                touchMoved = true;
-            }
-        }, { passive: true });
+        if (isTouchDevice) {
+            element.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].clientX;
+                touchStartY = e.changedTouches[0].clientY;
+                touchMoved = false;
+            }, { passive: true }); // Use passive: true for touchstart to avoid blocking scrolling
 
-        element.addEventListener('touchend', (e) => {
-            if (!touchMoved) {
-                // It was a tap, not a drag
-                callback(e); // Execute the original click logic
-                e.preventDefault(); // Prevent the default 300ms delayed click
-            }
-        }, { passive: false }); // Use passive: false for touchend to allow preventDefault
+            element.addEventListener('touchmove', (e) => {
+                const currentX = e.changedTouches[0].clientX;
+                const currentY = e.changedTouches[0].clientY;
+                if (Math.abs(currentX - touchStartX) > TAP_THRESHOLD || Math.abs(currentY - touchStartY) > TAP_THRESHOLD) {
+                    touchMoved = true;
+                }
+            }, { passive: true });
 
-        // Also keep the click listener for desktop or fallback, but it will be prevented by touchend on mobile
+            element.addEventListener('touchend', (e) => {
+                if (!touchMoved) {
+                    // It was a tap, not a drag
+                    callback(e); // Execute the original click logic
+                    e.preventDefault(); // Prevent the default 300ms delayed click
+                }
+            }, { passive: false }); // Use passive: false for touchend to allow preventDefault
+        }
+
+        // Always keep the standard click listener for desktop or as a fallback.
+        // On touch devices, if the fast click fires, its preventDefault will stop this one.
         element.addEventListener('click', (e) => {
-            // This click will only fire on desktop or if touchend.preventDefault() failed.
-            // If it's a mobile device and touchend fired, it would have already been prevented.
-            if (!e._fastClickHandled) { // Custom flag to ensure it's not a duplicate
+            // Only execute if it wasn't already handled by a fast touch click
+            // (e.detail === 0 is a common heuristic for synthetic clicks, but preventDefault is more reliable)
+            if (!isTouchDevice || e.detail !== 0) { // If not a touch device OR if it's a real click (not synthetic from touchend)
                 callback(e);
             }
         });
