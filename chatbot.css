@@ -1,4 +1,4 @@
- /* General body styling for font */
+        /* General body styling for font */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f0f2f5; /* Light gray background for the overall page */
@@ -106,6 +106,28 @@
             flex-direction: column; /* Stack messages vertically */
             gap: 0.75rem; /* Space between messages */
             scroll-behavior: smooth; /* Smooth scrolling when new messages arrive */
+            position: relative; /* Crucial for absolute positioning of the indicator */
+
+            /* Hide native scrollbar for a custom look */
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+            -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+        }
+        #chatbot-messages::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera*/
+        }
+
+        /* Styles for the custom scroll indicator */
+        #scroll-indicator {
+            position: absolute;
+            right: 5px; /* Position on the right side of the scroll area */
+            top: 0; /* Initial top, will be updated by JS */
+            width: 6px; /* Width of the indicator */
+            background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent black */
+            border-radius: 3px; /* Rounded corners */
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.3s ease; /* Fade in/out */
+            z-index: 10; /* Above messages but below header/input if they overlap */
         }
 
         /* Base styles for individual messages */
