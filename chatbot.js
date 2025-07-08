@@ -576,8 +576,10 @@
         function handleOpenChatbot() {
             chatbotWindow.classList.remove('hidden');
             chatbotWindow.classList.add('open');
+            console.log('Chatbot opened. hasGreeted:', hasGreeted); // Debug log
             // Initial welcome message and suggestions
             if (!hasGreeted) { // Use the new flag
+                console.log('Sending initial greeting...'); // Debug log
                 const options = {
                     hour: 'numeric',
                     hourCycle: 'h23',
@@ -757,8 +759,7 @@
                 msg.classList.add('bot-message');
                 if (isTypingIndicator) {
                     msg.classList.add('typing-indicator');
-                    // Create a span for the text content and a span for the dots
-                    msg.innerHTML = `<span class="typing-text-content"></span><span class="dots"><span></span><span></span><span></span></span>`;
+                    msg.innerHTML = `<span class="dots"><span></span><span></span><span></span></span>`; // Only dots for indicator
                 } else {
                     msg.innerHTML = text; // Use innerHTML for rich content (like product cards)
                 }
@@ -848,41 +849,24 @@
          * @param {number} delayBetweenStages - Delay in ms before showing full message.
          */
         async function sendBotMessageWithTyping(messageContent, delayPerChar = 20, delayBetweenStages = 300) {
-            // Add a new message element specifically for the typing indicator
-            const typingIndicatorElement = addMessage("bot", "", true); // Pass true for isTypingIndicator
-            const textContentSpan = typingIndicatorElement.querySelector('.typing-text-content');
-            const dotsSpan = typingIndicatorElement.querySelector('.dots');
+            // Create and append a temporary typing indicator message
+            const typingIndicatorMessage = addMessage("bot", "", true); // isTypingIndicator = true
 
+            // Scroll to bottom to show typing indicator
             chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
 
-            await new Promise(resolve => setTimeout(resolve, delayBetweenStages)); // Initial delay
+            // Simulate typing delay
+            await new Promise(resolve => setTimeout(resolve, delayBetweenStages));
 
-            // Type out the message character by character
-            if (textContentSpan) {
-                let currentText = '';
-                for (let i = 0; i < messageContent.length; i++) {
-                    currentText += messageContent[i];
-                    textContentSpan.innerHTML = currentText; // Use innerHTML to allow for HTML content
-                    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-                    await new Promise(resolve => setTimeout(resolve, delayPerChar));
-                }
-            }
+            // Remove the typing indicator message
+            typingIndicatorMessage.remove();
 
-            // After typing, remove typing indicator and ensure full message is displayed
-            // Remove the typing indicator classes and dots
-            typingIndicatorElement.classList.remove('typing-indicator');
-            if (dotsSpan) {
-                dotsSpan.remove(); // Remove the dots
-            }
-            if (textContentSpan) {
-                textContentSpan.innerHTML = messageContent; // Set final HTML content
-                textContentSpan.classList.remove('typing-text-content'); // Clean up class
-            } else {
-                // Fallback if textContentSpan wasn't found (shouldn't happen with correct addMessage)
-                typingIndicatorElement.innerHTML = messageContent;
-            }
+            // Add the actual message content
+            addMessage("bot", messageContent);
+
+            // Ensure scroll to bottom after adding the full message
             chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-            updateScrollIndicator(); // Update indicator after bot message
+            updateScrollIndicator(); // Update scroll indicator after final message
         }
 
 
@@ -1529,6 +1513,7 @@
             const existingTypingIndicators = chatbotMessages.querySelectorAll('.typing-indicator');
             existingTypingIndicators.forEach(indicator => indicator.remove());
 
+            // Display "thinking" message
             await sendBotMessageWithTyping("Let me think about that for a moment...");
             try {
                 const chatHistory = [{
