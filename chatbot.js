@@ -851,18 +851,22 @@
         async function sendBotMessageWithTyping(messageContent, delayPerChar = 20, delayBetweenStages = 300) {
             // Create and append a temporary typing indicator message
             const typingIndicatorMessage = addMessage("bot", "", true); // isTypingIndicator = true
+            console.log('Typing indicator added.'); // Debug log
 
             // Scroll to bottom to show typing indicator
             chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
 
             // Simulate typing delay
             await new Promise(resolve => setTimeout(resolve, delayBetweenStages));
+            console.log('Typing delay finished.'); // Debug log
 
             // Remove the typing indicator message
             typingIndicatorMessage.remove();
+            console.log('Typing indicator removed.'); // Debug log
 
             // Add the actual message content
             addMessage("bot", messageContent);
+            console.log('Actual message added.'); // Debug log
 
             // Ensure scroll to bottom after adding the full message
             chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
@@ -1515,6 +1519,7 @@
 
             // Display "thinking" message
             await sendBotMessageWithTyping("Let me think about that for a moment...");
+            console.log('Initiating Gemini API call...'); // Debug log
             try {
                 const chatHistory = [{
                     role: "user",
@@ -1532,7 +1537,9 @@
                     },
                     body: JSON.stringify(payload)
                 });
+                console.log('Gemini API response received, status:', response.status); // Debug log
                 const result = await response.json();
+                console.log('Gemini API response JSON:', result); // Debug log
 
                 if (result.candidates && result.candidates.length > 0 &&
                     result.candidates[0].content && result.candidates[0].content.parts &&
@@ -1540,9 +1547,10 @@
                     botResponse = result.candidates[0].content.parts[0].text;
                 } else {
                     botResponse = "I'm having trouble connecting to my knowledge base right now. Please try again later or ask a different question.";
+                    console.warn('Gemini API response structure unexpected or empty.'); // Debug log
                 }
             } catch (error) {
-                console.error("Error calling Gemini API:", error);
+                console.error("Error calling Gemini API:", error); // Debug log
                 botResponse = "I'm currently experiencing technical difficulties and cannot process your request. Please try again in a moment.";
             }
 
