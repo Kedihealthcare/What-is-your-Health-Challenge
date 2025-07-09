@@ -3795,6 +3795,58 @@ const healthTips = [
     let matchedCondition = null; // IMPORTANT: Initialize it here
     let exactMatchFound = false; // And this too
 
+    // Inside your addMessage function, after appending the new message element:
+function addMessage(sender, text) {
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message', `${sender}-message`);
+    
+    // Check if it's a bot message and add avatar/content wrapper
+    if (sender === 'bot') {
+        const botAvatar = document.createElement('img');
+        botAvatar.src = BOT_AVATAR_URL; // Make sure BOT_AVATAR_URL is defined
+        botAvatar.classList.add('bot-avatar');
+        messageElement.appendChild(botAvatar);
+
+        const contentWrapper = document.createElement('div');
+        contentWrapper.classList.add('bot-message-content');
+        contentWrapper.innerHTML = text; // Use innerHTML for rich content (like cards/buttons)
+        messageElement.appendChild(contentWrapper);
+    } else {
+        messageElement.textContent = text; // Use textContent for user messages
+    }
+    
+    chatbotMessages.appendChild(messageElement);
+
+    // --- Add this line to auto-scroll to the bottom ---
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    // --------------------------------------------------
+}
+
+// And also in your sendBotMessageWithTyping, after the final message is added:
+async function sendBotMessageWithTyping(messageHtml) {
+    // ... (existing typing indicator logic) ...
+
+    // After the actual message is added:
+    const botMessageDiv = document.createElement('div');
+    botMessageDiv.classList.add('message', 'bot-message');
+
+    const botAvatar = document.createElement('img');
+    botAvatar.src = BOT_AVATAR_URL;
+    botAvatar.classList.add('bot-avatar');
+    botMessageDiv.appendChild(botAvatar);
+
+    const contentWrapper = document.createElement('div');
+    contentWrapper.classList.add('bot-message-content');
+    contentWrapper.innerHTML = messageHtml;
+    botMessageDiv.appendChild(contentWrapper);
+
+    chatbotMessages.appendChild(botMessageDiv);
+
+    // --- Add this line to auto-scroll to the bottom ---
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    // --------------------------------------------------
+}
+
     // --- Start: Intelligent Health Condition Search Logic ---
     for (const condition of healthConditions) {
         if (condition.keywords.test(userMessage)) {
@@ -3833,7 +3885,12 @@ const healthTips = [
             }
         }
     });
+     
+                // Inside your addMessage function, after appending the new message element:
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
 
+            // And also in your sendBotMessageWithTyping, after the final message is added:
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
 
     if (suggestions.length > 0) {
         let suggestionHtml = `Did you mean any of these health challenges? <br>`;
@@ -5186,3 +5243,43 @@ document.getElementById("send-button").addEventListener("click", function () {
   const input = document.getElementById("chat-input").value;
   handleUserInput(input);
 });
+
+// --- Start of Chatbot Logic ---
+
+// === DOM Elements ===
+const chatbotWindow = document.getElementById('chatbot-window');
+const openChatbotBtn = document.getElementById('open-chatbot-btn');
+const closeChatbotBtn = document.getElementById('close-chatbot-btn'); // Assuming you have a close button inside the chatbot header
+const chatbotInput = document.getElementById('chatbot-input');
+const chatbotMessages = document.getElementById('chatbot-messages');
+const llmModal = document.getElementById('llm-modal'); // Assuming you have a modal for LLM responses
+const llmModalCloseBtn = document.getElementById('llm-modal-close-btn');
+const llmModalBody = document.getElementById('llm-modal-body');
+const llmModalLoading = document.getElementById('llm-modal-loading');
+
+
+// === Event Listeners ===
+if (openChatbotBtn) {
+    openChatbotBtn.addEventListener('click', () => {
+        chatbotWindow.classList.add('open');
+        openChatbotBtn.classList.add('hidden'); // Hide the open button when chatbot is open
+        // Optional: Focus on the input field when chatbot opens
+        setTimeout(() => chatbotInput.focus(), 300);
+        console.log("Chatbot opened.");
+    });
+} else {
+    console.error("open-chatbot-btn not found!");
+}
+
+
+if (closeChatbotBtn) {
+    closeChatbotBtn.addEventListener('click', () => {
+        chatbotWindow.classList.remove('open');
+        openChatbotBtn.classList.remove('hidden'); // Show the open button when chatbot is closed
+        console.log("Chatbot closed.");
+    });
+} else {
+    console.error("close-chatbot-btn not found!");
+}
+
+// ... (rest of your chatbot.js code, like sendMessage, addMessage, etc.)
