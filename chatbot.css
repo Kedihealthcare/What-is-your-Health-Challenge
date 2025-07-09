@@ -1,365 +1,467 @@
-        /* General body styling for font */
+        /* General Body Styles */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f2f5; /* Light gray background for the overall page */
-            margin: 0; /* Ensure no default body margin */
-            padding: 0; /* Ensure no default body padding */
-            box-sizing: border-box; /* Good practice for consistent box model */
-            /* Removed flex properties and min-height as they are not needed for a fixed overlay chatbot */
+            font-family: "Inter", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6; /* Light gray background */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Styles for the chatbot open button */
-        #open-chatbot-btn {
-            position: fixed; /* Fixed position to float above content */
-            bottom: 20px; /* 20px from the bottom */
-            right: 20px; /* 20px from the right */
-            background-color: #10B981; /* Tailwind green-500 */
-            color: white; /* White text color */
-            padding: 15px 20px; /* Padding inside the button */
-            border-radius: 9999px; /* Full rounded shape (pill-like) */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Soft shadow */
-            cursor: pointer; /* Pointer cursor on hover */
-            font-size: 1rem; /* Base font size */
-            font-weight: 600; /* Semi-bold font weight */
-            display: flex; /* Flexbox for icon and text alignment */
-            align-items: center; /* Vertically center items */
-            gap: 8px; /* Space between icon and text */
-            transition: all 0.3s ease; /* Smooth transition for hover effects */
-            z-index: 1000; /* High z-index to ensure it's on top */
-        }
-
-        #open-chatbot-btn:hover {
-            background-color: #059669; /* Darker green on hover */
-            transform: translateY(-2px); /* Slight lift effect on hover */
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25); /* Larger shadow on hover */
-        }
-
-        /* Styles for the chatbot main window */
+        /* Chatbot Window Container */
         #chatbot-window {
-            position: fixed; /* Fixed position to float above content */
-            bottom: 20px; /* 20px from the bottom */
-            right: 20px; /* 20px from the right */
-            width: 90%; /* 90% width on larger screens */
-            max-width: 400px; /* Maximum width for the chatbot window */
-            height: 80vh; /* 80% of viewport height */
-            max-height: 600px; /* Maximum height for the chatbot window */
-            background-color: #ffffff; /* White background */
-            border-radius: 1rem; /* Rounded corners (Tailwind rounded-xl) */
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); /* Prominent shadow */
-            display: flex; /* Flexbox for internal layout */
-            flex-direction: column; /* Stack header, messages, and input vertically */
-            overflow: hidden; /* Hide overflowing content (e.g., rounded corners) */
-            transition: all 0.3s ease-in-out; /* Smooth transition for open/close animation */
-            transform: scale(0.95); /* Slightly scaled down when hidden */
-            opacity: 0; /* Fully transparent when hidden */
-            pointer-events: none; /* Disables interaction when hidden */
-            z-index: 1000; /* High z-index to ensure it's on top */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 400px; /* Increased width for desktop */
+            height: 550px; /* Increased height for desktop */
+            max-width: 95vw; /* Responsive max-width for mobile */
+            max-height: 85vh; /* Responsive max-height for mobile */
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1001; /* Z-index lower than the toggle button when collapsed */
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.5); /* Start smaller for transition */
+            pointer-events: none; /* Prevent clicks when hidden */
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
         }
 
         #chatbot-window.open {
-            transform: scale(1); /* Scale to full size when open */
-            opacity: 1; /* Fully opaque when open */
-            pointer-events: auto; /* Enables interaction when open */
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+            pointer-events: auto;
         }
 
-        #chatbot-window.hidden {
-            display: none; /* Ensures it's truly hidden and doesn't take up space when not open */
+        /* Chatbot Toggle Button styles */
+        #open-chatbot-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            /* Increased size */
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #EC4899; /* Pink-500 */
+            color: white;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 1002; /* Higher than chatbot container */
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+            padding: 0; /* Remove padding to make image fill button */
+            overflow: hidden; /* Hide overflow if image is slightly larger */
         }
 
-        /* Styles for the chatbot header */
+        #open-chatbot-btn.hidden {
+            display: none;
+        }
+
+        #open-chatbot-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure image covers the button area */
+            border-radius: 50%; /* Make image circular */
+        }
+
+        /* Chatbot Header */
         .chatbot-header {
-            background-color: #10B981; /* Tailwind green-500 */
-            color: white; /* White text color */
-            padding: 1rem; /* Padding inside the header */
-            border-top-left-radius: 1rem; /* Rounded top-left corner */
-            border-top-right-radius: 1rem; /* Rounded top-right corner */
-            display: flex; /* Flexbox for title and close button */
-            justify-content: space-between; /* Space out title and close button */
-            align-items: center; /* Vertically center items */
-            font-weight: 600; /* Semi-bold font weight */
-            font-size: 1.125rem; /* Font size for header title */
+            background-color: #8B5CF6; /* Purple-600 */
+            color: white;
+            padding: 12px 16px;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            flex-shrink: 0; /* Ensure header does not shrink */
         }
 
-        /* Styles for the close chatbot button */
-        #close-chatbot-btn {
-            background: none; /* No background */
-            border: none; /* No border */
-            color: white; /* White text color */
-            font-size: 1.5rem; /* Larger font size for 'x' icon */
-            cursor: pointer; /* Pointer cursor on hover */
-            padding: 0; /* No padding */
-            line-height: 1; /* Ensures 'x' is vertically centered */
-            transition: transform 0.2s ease; /* Smooth rotation on hover */
+        .chatbot-header button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.2s ease;
         }
 
-        #close-chatbot-btn:hover {
-            transform: rotate(90deg); /* Rotate 90 degrees on hover */
+        .chatbot-header button:hover {
+            transform: scale(1.1);
         }
 
-        /* Styles for the messages display area */
+        /* Chat Messages Area */
         #chatbot-messages {
-            flex-grow: 1; /* Allows message area to take up available space */
-            padding: 1rem; /* Padding around messages */
-            overflow-y: auto; /* Enable vertical scrolling for messages */
-            background-color: #f9fafb; /* Light gray background (Tailwind gray-50) */
-            display: flex; /* Flexbox for messages */
-            flex-direction: column; /* Stack messages vertically */
-            gap: 0.75rem; /* Space between messages */
-            scroll-behavior: smooth; /* Smooth scrolling when new messages arrive */
-            position: relative; /* Crucial for absolute positioning of the indicator */
-
-            /* Hide native scrollbar for a custom look */
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-            -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
-        }
-        #chatbot-messages::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Opera*/
+            flex-grow: 1; /* Allows this area to take up all available vertical space */
+            overflow-y: auto; /* Enables scrolling when content overflows */
+            min-height: 0; /* Important: Allows flex item to shrink below its content size if needed, preventing overflow issues */
+            padding: 16px;
+            background-color: #f9fafb; /* Light gray for chat background */
+            font-size: 0.95rem; /* Slightly larger font for readability */
+            color: #374151; /* Darker text color */
+            position: relative; /* For scroll indicator positioning */
         }
 
-        /* Styles for the custom scroll indicator */
+        /* Custom Scroll Indicator */
         #scroll-indicator {
             position: absolute;
-            right: 5px; /* Position on the right side of the scroll area */
-            top: 0; /* Initial top, will be updated by JS */
-            width: 6px; /* Width of the indicator */
-            background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent black */
-            border-radius: 3px; /* Rounded corners */
-            opacity: 0; /* Hidden by default */
-            transition: opacity 0.3s ease; /* Fade in/out */
-            z-index: 10; /* Above messages but below header/input if they overlap */
+            right: 2px;
+            width: 6px;
+            background-color: rgba(139, 92, 246, 0.6); /* Purple-600 with transparency */
+            border-radius: 3px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            cursor: grab;
+            z-index: 10; /* Above messages, below chatbot toggle */
         }
 
-        /* Base styles for individual messages */
+        #scroll-indicator.dragging {
+            cursor: grabbing;
+            background-color: rgba(139, 92, 246, 0.9);
+        }
+
+        /* Individual Chat Messages */
         .message {
-            max-width: 85%; /* Maximum width for messages */
-            padding: 0.75rem 1rem; /* Padding inside messages */
-            border-radius: 0.75rem; /* Rounded corners (Tailwind rounded-lg) */
-            word-wrap: break-word; /* Wrap long words */
-            line-height: 1.4; /* Line height for readability */
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); /* Subtle shadow for message bubbles */
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            word-wrap: break-word;
+            max-width: 85%; /* Slightly more space for messages */
         }
 
-        /* Styles for user messages */
         .user-message {
-            background-color: #DCF8C6; /* Light green background */
-            align-self: flex-end; /* Align to the right */
-            color: #333; /* Dark text color */
-            border-bottom-right-radius: 0.25rem; /* Slightly less rounded on one corner */
+            background-color: #DCF8C6; /* Light green */
+            align-self: flex-end;
+            margin-left: auto;
         }
 
-        /* Styles for bot messages */
         .bot-message {
-            background-color: #E5E7EB; /* Light gray background (Tailwind gray-200) */
-            align-self: flex-start; /* Align to the left */
-            color: #333; /* Dark text color */
-            border-bottom-left-radius: 0.25rem; /* Slightly less rounded on one corner */
+            background-color: #E2E8F0; /* Light blue-gray */
+            align-self: flex-start;
+            margin-right: auto;
+            display: flex; /* Use flexbox for bot messages */
+            align-items: flex-start; /* Align avatar and text at the top */
+            padding: 0; /* Remove padding from message wrapper to apply to inner content */
+            border-radius: 0; /* Remove border-radius from message wrapper */
         }
 
-        /* Styles for typing indicator */
+        .bot-message-content {
+            padding: 8px 12px; /* Apply padding to the content div */
+            border-radius: 8px;
+            background-color: #E2E8F0; /* Apply background to content div */
+            flex-grow: 1; /* Allow content to take available space */
+        }
+
+        .bot-avatar {
+            width: 32px; /* Fixed size for avatar */
+            height: 32px;
+            border-radius: 50%; /* Circular avatar */
+            margin-right: 8px; /* Space between avatar and message */
+            object-fit: cover; /* Ensure image covers the area */
+            flex-shrink: 0; /* Prevent avatar from shrinking */
+        }
+
+        /* Typing Indicator */
         .typing-indicator {
-            display: flex; /* Flexbox for text and dots */
-            align-items: center; /* Vertically center items */
-            gap: 0.5rem; /* Space between text and dots */
-            font-style: italic; /* Italic text */
-            color: #6B7280; /* Gray text color (Tailwind gray-500) */
+            background-color: #E2E8F0;
+            display: inline-flex;
+            align-items: center;
+            font-style: italic;
+            color: #6B7280;
+        }
+
+        .typing-indicator .dots {
+            display: inline-block;
+            margin-left: 5px;
         }
 
         .typing-indicator .dots span {
-            display: inline-block; /* Display dots as inline blocks */
-            width: 6px; /* Width of each dot */
-            height: 6px; /* Height of each dot */
-            background-color: #6B7280; /* Dot color */
-            border-radius: 50%; /* Fully rounded (circle) */
-            animation: bounce 1.4s infinite ease-in-out both; /* Bounce animation */
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background-color: #6B7280;
+            border-radius: 50%;
+            margin: 0 2px;
+            animation: bounce 1.4s infinite ease-in-out both;
         }
 
-        /* Animation delays for dots */
         .typing-indicator .dots span:nth-child(1) { animation-delay: -0.32s; }
         .typing-indicator .dots span:nth-child(2) { animation-delay: -0.16s; }
         .typing-indicator .dots span:nth-child(3) { animation-delay: 0s; }
 
-        /* Keyframes for bounce animation */
         @keyframes bounce {
-            0%, 80%, 100% { transform: scale(0); } /* Start and end small */
-            40% { transform: scale(1); } /* Grow to full size in the middle */
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
         }
 
-        /* Styles for the input area */
-        .chatbot-input-area {
-            padding: 1rem; /* Padding around input and send button */
-            background-color: #ffffff; /* White background */
-            border-top: 1px solid #E5E7EB; /* Top border (Tailwind gray-200) */
-            display: flex; /* Flexbox for input and button */
-            gap: 0.5rem; /* Space between input and button */
-        }
-
-        /* Styles for the text input field */
-        #chatbot-input {
-            flex-grow: 1; /* Allows input to take up available space */
-            padding: 0.75rem 1rem; /* Padding inside input */
-            border: 1px solid #D1D5DB; /* Border color (Tailwind gray-300) */
-            border-radius: 0.75rem; /* Rounded corners (Tailwind rounded-lg) */
-            font-size: 1rem; /* Font size */
-            outline: none; /* Remove default outline on focus */
-            transition: border-color 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for focus effects */
-        }
-
-        #chatbot-input:focus {
-            border-color: #10B981; /* Green border on focus (Tailwind green-500) */
-            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2); /* Green glow on focus */
-        }
-
-        /* Styles for the send button */
-        #send-btn {
-            background-color: #10B981; /* Tailwind green-500 */
-            color: white; /* White text color */
-            border: none; /* No border */
-            padding: 0.75rem 1rem; /* Padding inside button */
-            border-radius: 0.75rem; /* Rounded corners (Tailwind rounded-lg) */
-            cursor: pointer; /* Pointer cursor on hover */
-            font-size: 1rem; /* Font size */
-            font-weight: 600; /* Semi-bold font weight */
-            transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth transition for hover effects */
-            display: flex; /* Flexbox for icon */
-            align-items: center; /* Vertically center icon */
-            justify-content: center; /* Horizontally center icon */
-        }
-
-        #send-btn:hover {
-            background-color: #059669; /* Darker green on hover */
-            transform: translateY(-1px); /* Slight lift effect on hover */
-        }
-
-        /* Styles for product cards within chatbot */
-        .product-card {
-            background-color: #ffffff; /* White background */
-            border: 1px solid #E5E7EB; /* Light gray border */
-            border-radius: 0.75rem; /* Rounded corners */
-            padding: 1rem; /* Padding inside card */
-            margin-bottom: 1rem; /* Margin below card */
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
-            display: flex; /* Flexbox for internal layout */
-            flex-direction: column; /* Stack items vertically */
-            align-items: center; /* Center align items */
-            text-align: center; /* Center align text */
-        }
-
-        .product-card img {
-            width: 120px; /* Fixed width for product image */
-            height: 120px; /* Fixed height for product image */
-            object-fit: cover; /* Cover image area */
-            border-radius: 0.5rem; /* Rounded corners for image */
-            margin-bottom: 0.75rem; /* Margin below image */
-            border: 1px solid #D1D5DB; /* Light gray border for image */
-        }
-
-        .product-card h4 {
-            font-size: 1.125rem; /* Font size for product title */
-            font-weight: 600; /* Semi-bold font weight */
-            color: #1F2937; /* Dark gray text color */
-            margin-bottom: 0.5rem; /* Margin below title */
-        }
-
-        .product-card p {
-            font-size: 0.875rem; /* Smaller font size for description */
-            color: #4B5563; /* Medium gray text color */
-            margin-bottom: 0.75rem; /* Margin below description */
-        }
-
-        .product-card .price {
-            font-size: 1rem; /* Font size for price */
-            font-weight: 700; /* Bold font weight */
-            color: #10B981; /* Green text color */
-            margin-bottom: 1rem; /* Margin below price */
-        }
-
-        .product-card .button-group {
-            display: flex; /* Flexbox for buttons */
-            flex-wrap: wrap; /* Wrap buttons to next line if needed */
-            justify-content: center; /* Center align buttons */
-            gap: 0.5rem; /* Space between buttons */
-            width: 100%; /* Full width for the button group */
-        }
-
-        .product-card .buy-now-btn,
-        .product-card .blog-btn,
-        .product-card .qna-btn,
-        .product-card .whatsapp-buy-btn {
-            background-color: #10B981; /* Green background */
-            color: white; /* White text color */
-            padding: 0.6rem 1rem; /* Padding inside buttons */
-            border-radius: 0.5rem; /* Rounded corners */
-            text-decoration: none; /* No underline for links */
-            font-size: 0.875rem; /* Font size */
-            font-weight: 500; /* Medium font weight */
-            transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth transition for hover effects */
-            white-space: nowrap; /* Prevent text from wrapping */
-            flex-grow: 1; /* Allow buttons to grow and fill space */
-            text-align: center; /* Center align text */
-            border: none; /* No border for buttons */
-            cursor: pointer; /* Pointer cursor on hover */
-        }
-
-        .product-card .buy-now-btn:hover,
-        .product-card .blog-btn:hover,
-        .product-card .qna-btn:hover,
-        .product-card .whatsapp-buy-btn:hover {
-            background-color: #059669; /* Darker green on hover */
-            transform: translateY(-1px); /* Slight lift effect on hover */
-        }
-
-        /* Styles for suggestion buttons container */
+        /* Suggestions Container */
         .suggestions-container {
-            display: flex; /* Flexbox for suggestions */
-            flex-wrap: wrap; /* Wrap suggestions to next line */
-            gap: 0.5rem; /* Space between suggestion buttons */
-            margin-top: 0.5rem; /* Margin above suggestions */
-            justify-content: flex-start; /* Align suggestions to the left */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+            align-self: flex-start; /* Align with bot messages */
+            margin-right: auto;
+            max-width: 95%; /* Give more space for suggestions */
+            padding: 8px; /* Add padding to the container */
+            border-radius: 8px;
+            background-color: #f0f4f8; /* A subtle background for suggestions */
         }
 
-        /* Styles for individual suggestion buttons */
         .suggestion-button {
-            background-color: #DBEAFE; /* Light blue background (Tailwind blue-100) */
-            color: #1E40AF; /* Dark blue text color (Tailwind blue-800) */
-            padding: 0.6rem 1rem; /* Padding inside button */
-            border-radius: 0.5rem; /* Rounded corners */
-            border: 1px solid #93C5FD; /* Blue border (Tailwind blue-300) */
-            cursor: pointer; /* Pointer cursor on hover */
-            font-size: 0.875rem; /* Font size */
-            font-weight: 500; /* Medium font weight */
-            transition: background-color 0.2s ease, border-color 0.2s ease; /* Smooth transition for hover effects */
-            white-space: nowrap; /* Prevent text from wrapping */
+            background-color: #B2EBF2; /* Light blue for chip background */
+            color: #2C5282;
+            padding: 6px 10px; /* Reduced padding */
+            border-radius: 20px;
+            font-size: 0.8rem; /* Reduced font size */
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            border: none; /* Remove default button border */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+            /* Removed white-space: nowrap; to allow text wrapping */
         }
 
         .suggestion-button:hover {
-            background-color: #BFDBFE; /* Lighter blue on hover (Tailwind blue-200) */
-            border-color: #60A5FA; /* Darker blue border on hover (Tailwind blue-400) */
+            background-color: #88E0F7;
+            transform: translateY(-2px);
         }
 
-        /* Responsive adjustments for smaller screens */
-        @media (max-width: 640px) {
-            #chatbot-window {
-                width: 100%; /* Full width on small screens */
-                height: 100vh; /* Full viewport height on small screens */
-                max-height: 100vh; /* Ensure it takes full height */
-                bottom: 0; /* Align to bottom */
-                right: 0; /* Align to right */
-                border-radius: 0; /* No rounded corners on full screen */
-            }
+        /* Chat Input Area */
+        .chatbot-input-area {
+            display: flex;
+            padding: 12px;
+            border-top: 1px solid #E5E7EB; /* Gray-200 */
+            background-color: white;
+            flex-shrink: 0; /* Ensure footer does not shrink */
+        }
 
-            #open-chatbot-btn {
-                bottom: 10px; /* Adjust button position for mobile */
-                right: 10px; /* Adjust button position for mobile */
-                padding: 12px 16px; /* Adjust button padding for mobile */
-                font-size: 0.9rem; /* Smaller font size for button text */
-            }
+        .chatbot-input-area input {
+            flex-grow: 1;
+            border: 1px solid #D1D5DB; /* Gray-300 */
+            border-radius: 8px;
+            padding: 8px 12px;
+            outline: none;
+            font-size: 0.9rem;
+        }
 
-            .chatbot-header {
-                border-radius: 0; /* No rounded corners for header on full screen */
-            }
+        .chatbot-input-area button {
+            background-color: #EC4899; /* Pink-500 */
+            color: white;
+            border-radius: 8px;
+            padding: 8px 12px;
+            margin-left: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            border: none; /* Remove default button border */
+        }
 
-            .product-card .button-group {
-                flex-direction: column; /* Stack buttons vertically on small screens */
-            }
+        .chatbot-input-area button:hover {
+            background-color: #DB2777; /* Pink-600 */
+        }
+
+        /* Product Card Styles */
+        .product-card, .health-condition-card { /* Combined styles for cards */
+            background-color: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Container for multiple images within a card */
+        .product-card .image-container, .health-condition-card .image-container {
+            display: flex;
+            flex-wrap: wrap; /* Allows images to wrap to the next line */
+            justify-content: center;
+            gap: 10px; /* Space between images */
+            margin-bottom: 10px;
+        }
+
+        .product-card img, .health-condition-card img { /* Combined image styles */
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+            object-fit: cover;
+            /* Removed margin-bottom here as it's handled by gap in container */
+        }
+
+        .product-card h4, .health-condition-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #4C1D95; /* Deep purple */
+            margin-bottom: 5px;
+        }
+
+        .product-card p, .health-condition-card p {
+            font-size: 0.9rem;
+            color: #4B5563;
+            margin-bottom: 10px;
+        }
+
+        .product-card .price {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #10B981; /* Green-500 */
+            margin-bottom: 15px;
+        }
+
+        .product-card .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .product-card .button-group a,
+        .product-card .button-group button {
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .product-card .buy-now-btn {
+            background-color: #10B981; /* Green-500 */
+            color: white;
+        }
+
+        .product-card .buy-now-btn:hover {
+            background-color: #059669; /* Green-600 */
+            transform: translateY(-1px);
+        }
+
+        .product-card .blog-btn {
+            background-color: #3B82F6; /* Blue-500 */
+            color: white;
+        }
+
+        .product-card .blog-btn:hover {
+            background-color: #2563EB; /* Blue-600 */
+            transform: translateY(-1px);
+        }
+
+        .product-card .qna-btn {
+            background-color: #6B7280; /* Gray-500 */
+            color: white;
+        }
+
+        .product-card .qna-btn:hover {
+            background-color: #4B5563; /* Gray-600 */
+            transform: translateY(-1px);
+        }
+        .product-card .whatsapp-buy-btn {
+            background-color: #25D366; /* WhatsApp Green */
+            color: white;
+        }
+
+        .product-card .whatsapp-buy-btn:hover {
+            background-color: #1DA851;
+            transform: translateY(-1px);
+        }
+
+        /* Health Tip Card Styles */
+        .health-tip-card {
+            background-color: #E0F7FA; /* Light cyan for health tips */
+            border: 1px solid #B2EBF2; /* Lighter blue border */
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 15px;
+            text-align: left; /* Align text left within the card */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            color: #2C5282; /* Darker blue text */
+        }
+
+        .health-tip-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #00796B; /* Darker green for heading */
+            margin-bottom: 8px;
+        }
+
+        .health-tip-card p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+
+        /* Modal styles (retained from previous version) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 90%;
+            max-height: 80%;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close-button {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #6B7280;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .modal-close-button:hover {
+            color: #1F2937;
+        }
+
+        .llm-loading-indicator {
+            text-align: center;
+            padding: 20px;
+            font-style: italic;
+            color: #6B7280;
         }
