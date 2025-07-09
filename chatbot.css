@@ -72,6 +72,12 @@ body {
     border-radius: 50%; /* Make image circular */
 }
 
+#chatbot-messages {
+    /* ... other styles ... */
+    overflow-y: auto; /* This property makes the content scrollable vertically */
+    /* ... other styles ... */
+}
+
 /* Chatbot Header */
 .chatbot-header {
     background-color: #8B5CF6; /* Purple-600 */
