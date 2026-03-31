@@ -690,20 +690,24 @@
 
             // Step 1: Initial Lead Submit
             if (!leadSubmitted) {
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Processing Backend...';
-
-                // Fire network request immediately and wait for dispatch
-                await postLeadData(leadData);
-
-                // Track state locally
+                // INSTANT SUCCESS PATTERN: Update UI immediately
                 leadSubmitted = true;
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Saving Lead...';
+                
+                // 1. Reveal next steps instantly
                 saveLeadLocally(leadData);
                 fillConfirmation(leadData);
                 revealPaymentMethod();
-
-                submitBtn.disabled = false;
-                alert('Success! Your lead details have been recorded and sent for processing. Please select your payment method below to finalize registration.');
+                
+                // 2. Fire backend sync in parallel (non-blocking)
+                postLeadData(leadData).then(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Proceed to Payment Instructions';
+                });
+                
+                // 3. No blocking alert - the UI movement is enough confirmation
+                console.log("Lead captured. Backend sync initiated...");
                 return;
             }
 
