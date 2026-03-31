@@ -314,12 +314,12 @@
                             </label>
                             <div id="paymentMethodSection" class="hidden space-y-2 text-sm text-slate-200">
                                 <span>Payment Method</span>
-                                <select id="paymentMethod" name="paymentMethod" disabled required
+                                <select id="paymentMethod" name="paymentMethod" disabled
                                     class="w-full rounded-2xl border border-slate-700 bg-slate-950/90 px-4 py-3 text-slate-100 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20">
                                     <option value="" disabled selected>Select payment</option>
-                                    <option>Bank Transfer</option>
-                                    <option>Pi Network</option>
-                                    <option>Mobile Money</option>
+                                    <option value="Bank Transfer">Bank Transfer</option>
+                                    <option value="Pi Network">Pi Network</option>
+                                    <option value="Mobile Money">Mobile Money</option>
                                 </select>
                                 <p class="text-sm text-slate-400">Payment options appear once your lead has been
                                     submitted.</p>
@@ -555,9 +555,10 @@
     </footer>
 
     <script>
-        const WEB_APP_URL = 'https://docs.google.com/spreadsheets/d/1gkWYPwHOnm4-A0lQ3_8yhXvESozI_7AGm6k67rggwL4/edit?gid=0#gid=0';
-        const LEAD_POST_URL = WEB_APP_URL;
-        const NEWSLETTER_WEBHOOK_URL = WEB_APP_URL;
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyUTgBVidar2JCTgKcMAsXPOBXoD7dtjgkLmV0tdxawbB85REmksXXh3r_yLP2-c9puVg/exec';
+        const DEPLOYMENT_ID = 'AKfycbyUTgBVidar2JCTgKcMAsXPOBXoD7dtjgkLmV0tdxawbB85REmksXXh3r_yLP2-c9puVg';
+        const LEAD_POST_URL = GOOGLE_SCRIPT_URL;
+        const NEWSLETTER_WEBHOOK_URL = GOOGLE_SCRIPT_URL;
         const shareUrl = window.location.href;
 
         const FIREBASE_CONFIG = {
@@ -588,10 +589,12 @@
             if (section && select && notice) {
                 section.classList.remove('hidden');
                 select.disabled = false;
-                notice.textContent = 'Lead submitted. Choose your payment method to continue.';
+                select.required = true; // Add required only when revealed
+                notice.textContent = 'Lead details recorded. Now choose your payment method to finalize.';
+                notice.classList.replace('text-amber-300', 'text-emerald-400');
             }
             if (submitBtn) {
-                submitBtn.textContent = 'Proceed to Payment';
+                submitBtn.textContent = 'Proceed to Payment Instructions';
             }
         }
 
@@ -641,12 +644,15 @@
         async function postLeadData(formData) {
             let submitted = false;
             try {
+                // We use mode: 'no-cors' for Google Apps Script to avoid preflight issues if the script doesn't handle OPTIONS
+                // However, no-cors means we can't read the response.ok, so we assume success if no error is thrown.
                 const response = await fetch(LEAD_POST_URL, {
                     method: 'POST',
+                    mode: 'no-cors', // Essential for basic GAS Web App POSTs from browsers
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
+                    body: JSON.stringify({ ...formData, deploymentId: DEPLOYMENT_ID })
                 });
-                submitted = response.ok;
+                submitted = true; // Assume true since no-cors hides response status
             } catch (error) {
                 console.warn('Lead post failed:', error);
             }
@@ -661,6 +667,9 @@
         async function handleLeadSubmit(event) {
             event.preventDefault();
             const form = event.target;
+            const submitBtn = document.getElementById('leadSubmitBtn');
+            
+            // Collect Form Data
             const leadData = {
                 fullName: form.fullName.value.trim(),
                 phone: form.phone.value.trim(),
@@ -669,17 +678,38 @@
                 sponsorId: form.sponsorId.value,
                 permanentAmount: form.permanentAmount.value,
                 interestLevel: form.interestLevel.value,
-                paymentMethod: form.paymentMethod.value,
+                paymentMethod: form.paymentMethod.value || "Not Selected Yet",
                 packageSelection: form.packageSelection.value,
                 submittedAt: new Date().toISOString()
             };
-            const success = await postLeadData(leadData);
-            leadSubmitted = true;
-            saveLeadLocally(leadData);
-            fillConfirmation(leadData);
-            revealPaymentMethod();
-            const message = success ? 'Lead submitted successfully.' : 'Lead saved locally; unable to reach server.';
-            alert(message + ' Your payment options are now available.');
+
+            // Step 1: Initial Lead Submit
+            if (!leadSubmitted) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Saving Lead...';
+                
+                const success = await postLeadData(leadData);
+                leadSubmitted = true;
+                
+                saveLeadLocally(leadData);
+                fillConfirmation(leadData);
+                revealPaymentMethod();
+                
+                submitBtn.disabled = false;
+                const message = success ? 'Success! Lead details captured.' : 'Saved locally (Network connectivity issue).';
+                alert(message + ' Please select your payment method below.');
+                return;
+            }
+
+            // Step 2: Final Payment Selection
+            if (leadSubmitted && leadData.paymentMethod !== "Not Selected Yet") {
+                alert(`Excellent! You've selected ${leadData.paymentMethod}. Please follow the instructions at the bottom of the page or use the WhatsApp button to finalize.`);
+                // Scroll to relevant payment section
+                const targetId = leadData.paymentMethod.toLowerCase().includes('bank') ? 'payments' : 'payments';
+                document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                alert('Please select a payment method to proceed.');
+            }
         }
 
         function createWhatsAppMessage() {
