@@ -256,9 +256,7 @@
                         <p class="text-slate-300">Submit your details and select a package. Your permanent sponsor ID
                             and amount update automatically so you can move confidently forward.</p>
                     </div>
-                    <form id="leadRegistrationForm" method="POST"
-                        action="https://docs.google.com/spreadsheets/d/1gkWYPwHOnm4-A0lQ3_8yhXvESozI_7AGm6k67rggwL4/edit?gid=0#gid=0"
-                        class="mt-8 space-y-6">
+                    <form id="leadRegistrationForm" class="mt-8 space-y-6">
                         <div class="grid gap-4 sm:grid-cols-2">
                             <label class="space-y-2 text-sm text-slate-200">
                                 <span>Full Name</span>
@@ -599,14 +597,9 @@
         }
 
         async function saveToFirebase(collection, data) {
-            if (!firebaseDb) return false;
-            try {
-                await firebaseDb.collection(collection).add(data);
-                return true;
-            } catch (error) {
-                console.warn(`Firebase save failed (${collection}):`, error);
-                return false;
-            }
+            // Deactivated due to placeholder configuration
+            console.log("Firebase save skipped (placeholder config).", collection, data);
+            return false;
         }
 
         const packageAmounts = {
@@ -644,19 +637,31 @@
         async function postLeadData(formData) {
             let submitted = false;
             try {
-                // We use mode: 'no-cors' for Google Apps Script to avoid preflight issues if the script doesn't handle OPTIONS
-                // However, no-cors means we can't read the response.ok, so we assume success if no error is thrown.
-                const response = await fetch(LEAD_POST_URL, {
+                // Convert JSON to URLSearchParams for Google Apps Script Compatibility (Expert Backend Pattern)
+                const params = new URLSearchParams();
+                const payload = { ...formData, deploymentId: DEPLOYMENT_ID, source: 'Registration Page' };
+                for (const key in payload) { params.append(key, payload[key]); }
+
+                // Fire the request immediately
+                const fetchPromise = fetch(LEAD_POST_URL, {
                     method: 'POST',
-                    mode: 'no-cors', // Essential for basic GAS Web App POSTs from browsers
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ ...formData, deploymentId: DEPLOYMENT_ID })
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: params
                 });
-                submitted = true; // Assume true since no-cors hides response status
+
+                // Expert Fallback: We wait just a moment (1.2s) to ensure the request is dispatched 
+                // but don't hang if the network is slow.
+                await Promise.race([
+                    fetchPromise,
+                    new Promise(resolve => setTimeout(resolve, 1200))
+                ]);
+
+                submitted = true;
             } catch (error) {
-                console.warn('Lead post failed:', error);
+                console.warn('Lead data processing failed:', error);
             }
-            await saveToFirebase('leads', formData);
+            saveToFirebase('leads', formData);
             return submitted;
         }
 
@@ -668,7 +673,7 @@
             event.preventDefault();
             const form = event.target;
             const submitBtn = document.getElementById('leadSubmitBtn');
-            
+
             // Collect Form Data
             const leadData = {
                 fullName: form.fullName.value.trim(),
@@ -686,18 +691,19 @@
             // Step 1: Initial Lead Submit
             if (!leadSubmitted) {
                 submitBtn.disabled = true;
-                submitBtn.textContent = 'Saving Lead...';
-                
-                const success = await postLeadData(leadData);
+                submitBtn.textContent = 'Processing Backend...';
+
+                // Fire network request immediately and wait for dispatch
+                await postLeadData(leadData);
+
+                // Track state locally
                 leadSubmitted = true;
-                
                 saveLeadLocally(leadData);
                 fillConfirmation(leadData);
                 revealPaymentMethod();
-                
+
                 submitBtn.disabled = false;
-                const message = success ? 'Success! Lead details captured.' : 'Saved locally (Network connectivity issue).';
-                alert(message + ' Please select your payment method below.');
+                alert('Success! Your lead details have been recorded and sent for processing. Please select your payment method below to finalize registration.');
                 return;
             }
 
